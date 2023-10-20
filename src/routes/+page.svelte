@@ -37,11 +37,13 @@
     function handleErrors(method, ...args) {
         try {
             errorLog = "";
-            return method.call(null, ...args);
+            return method.call(null, ...args);        
         } catch (e) {
             if (e.message) {
                 errorLog = e.message;
             }
+
+            return "";
         }
     }
 
