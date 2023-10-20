@@ -6,6 +6,11 @@
     }
 
     h2 {
+        font-size: 17pt;
+        font-weight: 100;
+    }
+
+    h3 {
         font-size: 13pt;
         font-weight: 100;
     }
@@ -59,13 +64,15 @@
 </script>
 
 <main>
+    <h2>{tool.name}</h2>
+
     <section class="input">
-        <h2>Input</h2>
+        <h3>Input</h3>
         <textarea on:input={inputChanged} value={inputText}></textarea>
     </section>
 
     <section class="output">
-        <h2>Output</h2>
+        <h3>Output</h3>
         <textarea on:input={outputChanged} value={outputText}></textarea>
     </section>
 
