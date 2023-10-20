@@ -148,7 +148,7 @@
                     <li>
                         <a href="#"
                             class:selected={thisTool == tool}
-                            on:click={() => selectTool(thisTool)}>{thisTool.name}</a>
+                            on:click={() => selectTool(thisTool)}>{thisTool.config.name}</a>
                     </li>
                     {/each}
                 </ul>
@@ -158,17 +158,17 @@
     
     <div class="main-content">
         <header>
-            <h2>{tool.name}</h2>
+            <h2>{tool.config.name}</h2>
         </header>        
     
         <div class="inner-wrapper">
             <section class="input">
-                <h3>Input</h3>
+                <h3>{ tool.config.fromTitle || "Input" }</h3>
                 <textarea on:input={inputChanged} value={inputText}></textarea>
             </section>
         
             <section class="output">
-                <h3>Output</h3>
+                <h3>{ tool.config.toTitle || "Output" }</h3>
                 <textarea on:input={outputChanged} value={outputText}></textarea>
             </section>
         

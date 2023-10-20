@@ -3,15 +3,20 @@ export interface ToolConfiguration {
     /** A name identifying this tool, displayed to the user in the navigation and in the titles. */
     name: string;
 
+    /** Optional title to be displayed in the input box. */
+    fromTitle?: string;
+
+    /** Optional title to be displayed in the output box. */
+    toTitle?: string;
+
 }
 
 export default abstract class Tool {
 
-    /** A name identifying this tool, displayed to the user in the navigation and in the titles. */
-    name: string;
+    config: ToolConfiguration;
 
     constructor(config: ToolConfiguration) {
-        this.name = config.name;
+        this.config = config;
     }
 
 }

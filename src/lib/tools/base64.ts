@@ -4,7 +4,9 @@ export default class Base64Tool extends SymmetricInputOutputTool {
 
     constructor() {
         super({
-            name: "Base64 Encoder/Decoder"
+            name: "Base64 Encoder/Decoder",
+            fromTitle: "Encode to Base64",
+            toTitle: "Decode from Base64"
         });
     }
 

@@ -4,7 +4,9 @@ export default class UrlEncodeDecode extends SymmetricInputOutputTool {
 
     constructor() {
         super({
-            name: "URL Encoder/Decoder"
+            name: "URL Encoder/Decoder",
+            fromTitle: "URL Encode",
+            toTitle: "URL Decode"
         });
     }
 
