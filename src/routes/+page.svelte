@@ -14,12 +14,12 @@
         box-shadow: 0 0 30px rgba(0, 0, 0, 0.25);
     }
 
-    aside, main {
+    main {
         padding: 0 2rem;
     }
 
     aside {
-        width: 200px;
+        width: 250px;
         border-right: 1px solid var(--border-color);
     }
 
@@ -39,19 +39,24 @@
         color: var(--highlight-color);
     }
 
-    main {        
+    .main-content {        
         flex-grow: 1;
     }
 
+    .inner-wrapper {
+        padding: 2em;
+        overflow: auto;
+    }
+
     header {
-        border-bottom: 1px solid var(--border-color);
-        margin: 0 -2rem;
+        border-bottom: 1px solid var(--border-color);        
         padding: 0.5em 2em;
     }
 
     header h2 {
         padding: 0;
         margin: 0;
+        font-size: 12pt;
     }
 
     h2 {
@@ -60,8 +65,10 @@
     }
 
     h3 {
-        font-size: 13pt;
-        font-weight: 100;
+        font-size: 12pt;
+        font-weight: 400;
+        margin: 0;
+        margin-bottom: 0.5em;
     }
 
     textarea {
@@ -76,6 +83,7 @@
         float: left;
         width: 50%;
         padding: 1em;
+        margin: -0.5em;
         box-sizing: border-box;
     }
 </style>
@@ -122,36 +130,40 @@
             <h2>Tool</h2>
         </header>
 
-        <nav>
-            <ul>
-                {#each allTools as thisTool}
-                <li>
-                    <a href="#"
-                        class:selected={thisTool == tool}
-                        on:click={() => selectTool(thisTool)}>{thisTool.name}</a>
-                </li>
-                {/each}
-            </ul>
-        </nav>
+        <div class="inner-wrapper">
+            <nav>
+                <ul>
+                    {#each allTools as thisTool}
+                    <li>
+                        <a href="#"
+                            class:selected={thisTool == tool}
+                            on:click={() => selectTool(thisTool)}>{thisTool.name}</a>
+                    </li>
+                    {/each}
+                </ul>
+            </nav>
+        </div>
     </aside>
     
-    <main>
+    <div class="main-content">
         <header>
             <h2>{tool.name}</h2>
-        </header>
+        </header>        
     
-        <section class="input">
-            <h3>Input</h3>
-            <textarea on:input={inputChanged} value={inputText}></textarea>
-        </section>
-    
-        <section class="output">
-            <h3>Output</h3>
-            <textarea on:input={outputChanged} value={outputText}></textarea>
-        </section>
-    
-        <section class="log">
-            {errorLog}
-        </section>
-    </main>    
+        <div class="inner-wrapper">
+            <section class="input">
+                <h3>Input</h3>
+                <textarea on:input={inputChanged} value={inputText}></textarea>
+            </section>
+        
+            <section class="output">
+                <h3>Output</h3>
+                <textarea on:input={outputChanged} value={outputText}></textarea>
+            </section>
+        
+            <section class="log">
+                {errorLog}
+            </section>
+        </div>
+    </div>
 </div>    
