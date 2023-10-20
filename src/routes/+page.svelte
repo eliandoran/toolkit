@@ -32,9 +32,9 @@
 </style>
 
 <script>
-	import Base64Tool from "$lib/tools/base64";
+	import UrlEncodeDecode from "$lib/tools/urlencode";
 
-    const tool = new Base64Tool();
+    const tool = new UrlEncodeDecode();
     let errorLog = "";
     let inputText = "";
     let outputText = "";
