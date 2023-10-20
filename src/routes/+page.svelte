@@ -2,6 +2,10 @@
     :root {
         --highlight-color: orange;
         --border-color: #454545;
+        --content-background-color: #363636;
+        --text-color: #f5f5f5;
+
+        color: var(--text-color);
     }
 
     .page-wrapper {
@@ -80,6 +84,10 @@
         border-radius: 6px;
         min-height: 60vh;
         box-sizing: border-box;
+        background-color: var(--content-background-color);
+        border: 1px solid var(--border-color);
+        color: var(--text-color);
+        border-radius: 0;
     }
 
     .input,
