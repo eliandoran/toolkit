@@ -122,6 +122,11 @@
 
     function selectTool(newTool) {
         tool = newTool;
+
+        // Clear the text after changing tool to prevent any confusion.
+        outputText = "";
+        inputText = "";
+        errorLog = "";
     }
 
     function inputChanged(e) {
