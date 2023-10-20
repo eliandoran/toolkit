@@ -1,12 +1,25 @@
 <style>
+    :root {
+        --border-color: #454545;
+    }
+
     .page-wrapper {
         display: flex;
         max-width: 1024px;
         margin: auto;
+        background: #242424;
+        border-radius: 16px;
+        box-sizing: border-box;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.25);
+    }
+
+    aside, main {
+        padding: 0 2rem;
     }
 
     aside {
-        width: 300px;
+        width: 200px;
+        border-right: 1px solid var(--border-color);
     }
 
     aside ul {
@@ -15,14 +28,24 @@
         padding: 0;
     }    
 
-    main {
-        font-family: sans-serif;        
+    main {        
         flex-grow: 1;
     }
 
+    header {
+        border-bottom: 1px solid var(--border-color);
+        margin: 0 -2rem;
+        padding: 0.5em 2em;
+    }
+
+    header h2 {
+        padding: 0;
+        margin: 0;
+    }
+
     h2 {
-        font-size: 17pt;
-        font-weight: 100;
+        font-size: 14pt;
+        font-weight: 400;
     }
 
     h3 {
@@ -34,7 +57,7 @@
         width: 100%;
         border: 1px solid gray;
         border-radius: 6px;
-        min-height: 70vh;
+        min-height: 60vh;
     }
 
     .input,
@@ -84,6 +107,10 @@
 
 <div class="page-wrapper">
     <aside>
+        <header>
+            <h2>Tool</h2>
+        </header>
+
         <nav>
             <ul>
                 {#each allTools as tool}
@@ -96,7 +123,9 @@
     </aside>
     
     <main>
-        <h2>{tool.name}</h2>
+        <header>
+            <h2>{tool.name}</h2>
+        </header>
     
         <section class="input">
             <h3>Input</h3>
