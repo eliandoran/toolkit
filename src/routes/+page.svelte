@@ -103,40 +103,52 @@
 	import allTools from "$lib/tools";
 
     let tool = allTools[0];
-    let errorLog = "";
+    
     let inputText = "";
+    let inputLog = "";
+
     let outputText = "";
+    let outputLog = "";
 
     function handleErrors(method, ...args) {
+        let output;
+        let log;
+
         try {
-            errorLog = "";
-            return method.call(null, ...args);        
+            log = "";
+            output = method.call(null, ...args);        
         } catch (e) {
             if (e.message) {
-                errorLog = e.message;
+                log = e.message;
             }
 
-            return "";
+            output = "";
         }
+
+        return { output, log };
     }
 
     function selectTool(newTool) {
         tool = newTool;
 
         // Clear the text after changing tool to prevent any confusion.
-        outputText = "";
         inputText = "";
-        errorLog = "";
+        inputLog = "";
+
+        outputText = "";
+        outputLog = "";
     }
 
     function inputChanged(e) {
         const value = e.target.value;
-        outputText = handleErrors(tool.to, value);
+        outputLog = "";
+        ({ output: outputText, log: inputLog } = handleErrors(tool.to, value));
     }
 
     function outputChanged(e) {
         const value = e.target.value;
-        inputText = handleErrors(tool.from, value);
+        inputLog = "";
+        ({ output: inputText, log: outputLog } = handleErrors(tool.from, value));
     }
 </script>
 
@@ -170,16 +182,14 @@
             <section class="input">
                 <h3>{ tool.config.fromTitle || "Input" }</h3>
                 <textarea on:input={inputChanged} value={inputText}></textarea>
+                <section class="log">{inputLog}</section>
             </section>
         
             <section class="output">
                 <h3>{ tool.config.toTitle || "Output" }</h3>
                 <textarea on:input={outputChanged} value={outputText}></textarea>
-            </section>
-        
-            <section class="log">
-                {errorLog}
-            </section>
+                <section class="log">{outputLog}</section>
+            </section>        
         </div>
     </div>
 </div>    
