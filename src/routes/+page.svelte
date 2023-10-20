@@ -30,17 +30,29 @@
 	import Base64Tool from "$lib/tools/base64";
 
     const tool = new Base64Tool();
+    let errorLog = "";
     let inputText = "";
     let outputText = "";
 
+    function handleErrors(method, ...args) {
+        try {
+            errorLog = "";
+            return method.call(null, ...args);
+        } catch (e) {
+            if (e.message) {
+                errorLog = e.message;
+            }
+        }
+    }
+
     function inputChanged(e) {
         const value = e.target.value;
-        outputText = tool.to(value);
+        outputText = handleErrors(tool.to, value);
     }
 
     function outputChanged(e) {
         const value = e.target.value;
-        inputText = tool.from(value);
+        inputText = handleErrors(tool.from, value);
     }
 </script>
 
@@ -53,6 +65,10 @@
     <section class="output">
         <h2>Output</h2>
         <textarea on:input={outputChanged} value={outputText}></textarea>
+    </section>
+
+    <section class="log">
+        {errorLog}
     </section>
 </main>
 
