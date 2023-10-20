@@ -1,8 +1,23 @@
 <style>
-    main {
-        font-family: sans-serif;
+    .page-wrapper {
+        display: flex;
         max-width: 1024px;
         margin: auto;
+    }
+
+    aside {
+        width: 300px;
+    }
+
+    aside ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }    
+
+    main {
+        font-family: sans-serif;        
+        flex-grow: 1;
     }
 
     h2 {
@@ -19,7 +34,7 @@
         width: 100%;
         border: 1px solid gray;
         border-radius: 6px;
-        min-height: 80vh;
+        min-height: 70vh;
     }
 
     .input,
@@ -32,9 +47,9 @@
 </style>
 
 <script>
-	import UrlEncodeDecode from "$lib/tools/urlencode";
+	import allTools from "$lib/tools";
 
-    const tool = new UrlEncodeDecode();
+    let tool = allTools[0];
     let errorLog = "";
     let inputText = "";
     let outputText = "";
@@ -52,6 +67,10 @@
         }
     }
 
+    function selectTool(newTool) {
+        tool = newTool;
+    }
+
     function inputChanged(e) {
         const value = e.target.value;
         outputText = handleErrors(tool.to, value);
@@ -63,21 +82,34 @@
     }
 </script>
 
-<main>
-    <h2>{tool.name}</h2>
-
-    <section class="input">
-        <h3>Input</h3>
-        <textarea on:input={inputChanged} value={inputText}></textarea>
-    </section>
-
-    <section class="output">
-        <h3>Output</h3>
-        <textarea on:input={outputChanged} value={outputText}></textarea>
-    </section>
-
-    <section class="log">
-        {errorLog}
-    </section>
-</main>
-
+<div class="page-wrapper">
+    <aside>
+        <nav>
+            <ul>
+                {#each allTools as tool}
+                <li>
+                    <a href="#" on:click={() => selectTool(tool)}>{tool.name}</a>
+                </li>
+                {/each}
+            </ul>
+        </nav>
+    </aside>
+    
+    <main>
+        <h2>{tool.name}</h2>
+    
+        <section class="input">
+            <h3>Input</h3>
+            <textarea on:input={inputChanged} value={inputText}></textarea>
+        </section>
+    
+        <section class="output">
+            <h3>Output</h3>
+            <textarea on:input={outputChanged} value={outputText}></textarea>
+        </section>
+    
+        <section class="log">
+            {errorLog}
+        </section>
+    </main>    
+</div>    
