@@ -1,5 +1,6 @@
 <style>
     :root {
+        --highlight-color: orange;
         --border-color: #454545;
     }
 
@@ -27,6 +28,16 @@
         margin: 0;
         padding: 0;
     }    
+
+    aside ul li a {
+        text-decoration: none;
+        color: inherit;
+        font-size: 0.9em;
+    }
+
+    aside ul li a.selected {
+        color: var(--highlight-color);
+    }
 
     main {        
         flex-grow: 1;
@@ -113,9 +124,11 @@
 
         <nav>
             <ul>
-                {#each allTools as tool}
+                {#each allTools as thisTool}
                 <li>
-                    <a href="#" on:click={() => selectTool(tool)}>{tool.name}</a>
+                    <a href="#"
+                        class:selected={thisTool == tool}
+                        on:click={() => selectTool(thisTool)}>{thisTool.name}</a>
                 </li>
                 {/each}
             </ul>
