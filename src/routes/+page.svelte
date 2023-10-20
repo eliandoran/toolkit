@@ -26,18 +26,6 @@
     }
 </style>
 
-<main>
-    <section class="input">
-        <h2>Input</h2>
-        <textarea bind:value={inputText}></textarea>
-    </section>
-
-    <section class="output">
-        <h2>Output</h2>
-        <textarea readonly>{outputText}</textarea>
-    </section>
-</main>
-
 <script>
 	import Base64Tool from "$lib/tools/base64";
 
@@ -45,7 +33,26 @@
     let inputText = "";
     let outputText = "";
 
-    $: {
-        outputText = tool.to(inputText);
+    function inputChanged(e) {
+        const value = e.target.value;
+        outputText = tool.to(value);
+    }
+
+    function outputChanged(e) {
+        const value = e.target.value;
+        inputText = tool.from(value);
     }
 </script>
+
+<main>
+    <section class="input">
+        <h2>Input</h2>
+        <textarea on:input={inputChanged} value={inputText}></textarea>
+    </section>
+
+    <section class="output">
+        <h2>Output</h2>
+        <textarea on:input={outputChanged} value={outputText}></textarea>
+    </section>
+</main>
+

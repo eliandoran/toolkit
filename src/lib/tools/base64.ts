@@ -5,5 +5,9 @@ export default class Base64Tool extends SymmetricInputOutputTool {
     to(input: string): string {
         return btoa(input);
     }
+
+    from(input: string): string {
+        return atob(input);
+    }
     
 }
