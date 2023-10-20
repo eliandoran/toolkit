@@ -79,15 +79,15 @@
         border: 1px solid gray;
         border-radius: 6px;
         min-height: 60vh;
+        box-sizing: border-box;
     }
 
     .input,
     .output {
         float: left;
         width: 50%;
-        padding: 1em;
-        margin: -0.5em;
-        box-sizing: border-box;
+        padding: 1em;        
+        box-sizing: border-box;        
     }
 </style>
 
