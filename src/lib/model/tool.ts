@@ -9,6 +9,10 @@ export interface ToolConfiguration {
     /** Optional title to be displayed in the output box. */
     toTitle?: string;
 
+    /** Controls whether spellcheck should be enabled in the input/output box (disabled by default). */
+    // TODO: Unused
+    allowSpellChecking?: boolean;
+
 }
 
 export default abstract class Tool {
