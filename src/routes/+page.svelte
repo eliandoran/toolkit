@@ -12,6 +12,7 @@
         border-radius: 16px;
         box-sizing: border-box;
         box-shadow: 0 0 30px rgba(0, 0, 0, 0.25);
+        overflow: hidden;
     }
 
     main {
@@ -50,7 +51,9 @@
 
     header {
         border-bottom: 1px solid var(--border-color);        
-        padding: 0.5em 2em;
+        padding: 1em;
+        text-align: center;
+        background: #303030;        
     }
 
     header h2 {
