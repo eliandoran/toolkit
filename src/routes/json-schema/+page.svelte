@@ -1,6 +1,7 @@
 <script>
-	import Tool from "$lib/components/tool.svelte";
-import TwoColumnView from "$lib/components/two-column-view.svelte";
+	import InputField from "$lib/components/input-field.svelte";
+    import Tool from "$lib/components/tool.svelte";
+    import TwoColumnView from "$lib/components/two-column-view.svelte";
 	import WarningBox from "$lib/components/warning-box.svelte";
     import Ajv from "ajv";
 
@@ -61,18 +62,15 @@ import TwoColumnView from "$lib/components/two-column-view.svelte";
 </script>
 
 <Tool title="JSON Schema Validator">
-    <TwoColumnView leftTitle="Input JSON" rightTitle="JSON schema">
+    <InputField label="Input JSON">
+        <textarea bind:value={inputJsonText}></textarea>    
+        <WarningBox message="{inputJsonParsingLog}" />
+    </InputField>
 
-        <div slot="left">
-            <textarea bind:value={inputJsonText}></textarea>
-            <WarningBox message="{inputJsonParsingLog}" />
-        </div>
-
-        <div slot="right">
-            <textarea bind:value={schemaText}></textarea>
-            <WarningBox message="{inputSchemaParsingLog}" />
-        </div>    
-    </TwoColumnView>
+    <InputField label="JSON schema">
+        <textarea bind:value={schemaText}></textarea>
+        <WarningBox message="{inputSchemaParsingLog}" />        
+    </InputField>
 
     <div class="output">
         {#if isValid === true}
@@ -113,6 +111,6 @@ import TwoColumnView from "$lib/components/two-column-view.svelte";
 <style>
     textarea {
         width: 100%;
-        height: 60vh;
+        height: 25vh;
     }
 </style>

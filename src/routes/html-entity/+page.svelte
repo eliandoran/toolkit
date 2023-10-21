@@ -17,7 +17,7 @@
 
 <Tool title="HTML Entity Encode/Decode">
     <SymmetricInputOutput
-        fromTitle="Decoded text"
+        fromTitle="Original text"
         toTitle="Encoded text"
         {to} {from} />
 
