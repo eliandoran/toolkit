@@ -28,8 +28,8 @@
     </aside>
 
     <div class="main-content">
-        <header>
-            <slot name="header" />
+        <header>        
+            <h2>Toolkit</h2>
         </header>
 
         <div class="inner-wrapper">
