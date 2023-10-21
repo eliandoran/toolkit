@@ -20,4 +20,8 @@
         fromTitle="Decoded text"
         toTitle="Encoded text"
         {to} {from} />
+
+    <span slot="footer">
+        Uses the <a href="https://www.npmjs.com/package/he">he</a> library.
+    </span>
 </Tool>

@@ -19,4 +19,8 @@
         fromTitle="JSON"
         toTitle="YAML"
         {to} {from} />
+
+    <span slot="footer">
+        Uses the <a href="https://www.npmjs.com/package/yaml">yaml</a> library.
+    </span>
 </Tool>

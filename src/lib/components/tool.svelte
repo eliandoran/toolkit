@@ -2,17 +2,46 @@
     export let title = "Toolkit";
 </script>
 
-<header>        
-    <h2>{title}</h2>
-</header>
+<div class="outer-wrapper">
+    <header>        
+        <h2>{title}</h2>
+    </header>
 
-<div class="inner-wrapper">
-    <slot />
+    <div class="inner-wrapper">
+        <slot />
+    </div>
+
+    <footer>
+        <slot name="footer" />
+    </footer>
 </div>
 
 <style>
+    .outer-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        position: relative;
+        height: 100%;
+    }
+
     .inner-wrapper {
         padding: 2em;
-        overflow: auto;
+        overflow: auto;        
+        flex-grow: 1;
+    }
+
+    footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 1rem 2rem;
+        font-size: 0.75em;
+        opacity: 0.6;
+    }
+
+    :global(footer a) {
+        color: inherit;
     }
 </style>
