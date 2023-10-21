@@ -68,6 +68,7 @@
     @media (min-width: 920px) {
         div[slot] {
             display: flex;
+            flex-direction: column;
             height: 100%;
         }        
 
