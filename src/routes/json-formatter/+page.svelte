@@ -1,4 +1,7 @@
 <script>
+    import CodeMirror from "svelte-codemirror-editor";
+    import { json } from "@codemirror/lang-json";
+
 	import TextFilePicker from "$lib/components/text-file-picker.svelte";
 	import Tool from "$lib/components/tool.svelte";
 
@@ -20,7 +23,7 @@
 
     <div class="main-container">
         <main>
-            <textarea bind:value={text}></textarea> 
+            <CodeMirror bind:value={text} lang={json()} />
         </main>
 
         <aside>
@@ -52,6 +55,12 @@
 
     .main-container {
         display: flex;
+        height: 100%;
+    }
+
+    :global(.codemirror-wrapper),
+    :global(.cm-editor) {
+        height: 100%;
     }
 
     .main-container > main {
