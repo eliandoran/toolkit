@@ -43,6 +43,7 @@
     $: {
         // Parse schema
         try {
+            compiledSchema = undefined;
             inputSchemaParsingLog = "";
 
             if (schemaText) {
