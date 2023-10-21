@@ -87,7 +87,7 @@
     }
     
     .page-wrapper {
-        max-width: 1024px;
+        width: 95vw;
         margin: auto;
         background: var(--background-color);
         border-radius: 16px;
@@ -99,6 +99,7 @@
     @media (min-width: 920px) {
         .page-wrapper {
             display: flex;
+            max-width: 1024px;
         }
 
         aside {
