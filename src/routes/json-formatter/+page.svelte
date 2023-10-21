@@ -1,6 +1,7 @@
 <script>
     import CodeMirror from "svelte-codemirror-editor";
     import { json } from "@codemirror/lang-json";
+    import { oneDark } from "@codemirror/theme-one-dark";
 
 	import TextFilePicker from "$lib/components/text-file-picker.svelte";
 	import Tool from "$lib/components/tool.svelte";
@@ -23,7 +24,10 @@
 
     <div class="main-container">
         <main>
-            <CodeMirror bind:value={text} lang={json()} />
+            <CodeMirror
+                bind:value={text}
+                lang={json()}
+                theme={oneDark} />
         </main>
 
         <aside>
