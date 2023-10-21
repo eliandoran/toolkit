@@ -60,15 +60,15 @@
 
         <div class="time-fields">
             <InputField label="Hours">
-                <input type="number" bind:value={hours} />
+                <input type="number" bind:value={hours} min="0" max="23" />
             </InputField>
 
             <InputField label="Minutes">
-                <input type="number" bind:value={minutes} />
+                <input type="number" bind:value={minutes} min="0" max="59" />
             </InputField>
 
             <InputField label="Seconds">
-                <input type="number" bind:value={seconds} />
+                <input type="number" bind:value={seconds} min="0" max="59" />
             </InputField>
         </div>
     </div>
