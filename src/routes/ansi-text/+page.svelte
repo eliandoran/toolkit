@@ -2,33 +2,30 @@
     import AnsiConvert from "ansi-to-html";
 	import Tool from "$lib/components/tool.svelte";
 	import TextFilePicker from "$lib/components/text-file-picker.svelte";
-	import OneColumnView from "$lib/components/one-column-view.svelte";
+	import StackView from "$lib/components/stack-view.svelte";
 
     let converter = new AnsiConvert();
     let ansiText = "";    
 </script>
 
 <Tool>
-    <OneColumnView title="ANSI text" hasPadding={false}>
+    <StackView title="ANSI Text" hasPadding={false} height="30%">
         <div class="toolbar" slot="header-left">
             <TextFilePicker 
                 bind:textFile={ansiText}
                 encoding="ascii"
             />
         </div>
-    
-        <div class="container">
-            <div class="input">
-                <textarea bind:value={ansiText} />            
-            </div>
-        
-            <div class="preview-wrapper">
-                <div class="preview">
-                    {@html converter.toHtml(ansiText)}
-                </div>
+        <textarea bind:value={ansiText} />            
+    </StackView>
+
+    <StackView title="ANSI Preview" hasPadding={false}>    
+        <div class="preview-wrapper">
+            <div class="preview">
+                {@html converter.toHtml(ansiText)}
             </div>
         </div>
-    </OneColumnView>
+    </StackView>
 
     <span slot="footer">
         Uses the <a href="https://www.npmjs.com/package/ansi-to-html">ansi-to-html</a> library.
@@ -47,13 +44,6 @@
         overflow-x: auto;
     }
 
-    .container {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        width: 100%;
-    }
-
     textarea,
     .preview {
         font-family: "perfect_dos_vga_437", Terminal, monospace;
@@ -63,20 +53,22 @@
 
     .preview-wrapper {
         background: black;
-        max-width: 100%;
-        flex-grow: 1;    
+        height: 100%;
         overflow: scroll;
-        height: 30vh;
+        position: relative;
     }
 
     .preview {
-        position: relative;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
         background: black;
         color: #aaa;
         padding: 10px;
         white-space: pre;
         font-size: 12pt;
-        line-height: 1;
-        z-index: 1000;
+        line-height: 1;        
     }
 </style>
