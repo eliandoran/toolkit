@@ -1,24 +1,4 @@
 <style>
-    :root {
-        --highlight-color: orange;
-        --border-color: #454545;
-        --content-background-color: #363636;
-        --text-color: #f5f5f5;
-
-        color: var(--text-color);
-    }
-
-    .page-wrapper {
-        display: flex;
-        max-width: 1024px;
-        margin: auto;
-        background: #242424;
-        border-radius: 16px;
-        box-sizing: border-box;
-        box-shadow: 0 0 30px rgba(0, 0, 0, 0.25);
-        overflow: hidden;
-    }
-
     main {
         padding: 0 2rem;
     }
@@ -152,50 +132,48 @@
     }
 </script>
 
-<div class="page-wrapper">
-    <aside>
-        <header>
-            <h2>Tool</h2>
-        </header>
+<aside>
+    <header>
+        <h2>Tool</h2>
+    </header>
 
-        <div class="inner-wrapper">
-            <nav>
-                <ul>
-                    {#each allTools as thisTool}
-                    <li>
-                        <a href="#"
-                            class:selected={thisTool == tool}
-                            on:click={() => selectTool(thisTool)}>{thisTool.config.name}</a>
-                    </li>
-                    {/each}
-                </ul>
-            </nav>
-        </div>
-    </aside>
-    
-    <div class="main-content">
-        <header>
-            <h2>{tool.config.name}</h2>
-        </header>        
-    
-        <div class="inner-wrapper">
-            <section class="input">
-                <h3>{ tool.config.fromTitle || "Input" }</h3>
-                <textarea
-                    on:input={inputChanged}
-                    autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
-                    value={inputText}></textarea>
-                <section class="log">{inputLog}</section>
-            </section>
-        
-            <section class="output">
-                <h3>{ tool.config.toTitle || "Output" }</h3>
-                <textarea
-                    on:input={outputChanged}
-                    autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
-                    value={outputText}></textarea>
-                <section class="log">{outputLog}</section>
-            </section>        
-        </div>
+    <div class="inner-wrapper">
+        <nav>
+            <ul>
+                {#each allTools as thisTool}
+                <li>
+                    <a href="#"
+                        class:selected={thisTool == tool}
+                        on:click={() => selectTool(thisTool)}>{thisTool.config.name}</a>
+                </li>
+                {/each}
+            </ul>
+        </nav>
     </div>
-</div>    
+</aside>
+
+<div class="main-content">
+    <header>
+        <h2>{tool.config.name}</h2>
+    </header>        
+
+    <div class="inner-wrapper">
+        <section class="input">
+            <h3>{ tool.config.fromTitle || "Input" }</h3>
+            <textarea
+                on:input={inputChanged}
+                autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+                value={inputText}></textarea>
+            <section class="log">{inputLog}</section>
+        </section>
+    
+        <section class="output">
+            <h3>{ tool.config.toTitle || "Output" }</h3>
+            <textarea
+                on:input={outputChanged}
+                autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+                value={outputText}></textarea>
+            <section class="log">{outputLog}</section>
+        </section>        
+    </div>
+</div>
