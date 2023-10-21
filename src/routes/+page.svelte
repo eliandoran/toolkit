@@ -37,7 +37,7 @@
         border-bottom: 1px solid var(--border-color);        
         padding: 1em;
         text-align: center;
-        background: #303030;        
+        background: var(--header-background-color);        
     }
 
     header h2 {
