@@ -3,6 +3,11 @@
 
     const tools = [
         {
+            path: "/percentage-calculator",
+            title: "Percentage calculator"
+        },
+
+        {
             path: "/unix-timestamp",
             title: "Unix timestamp"
         },
