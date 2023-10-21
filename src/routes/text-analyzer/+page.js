@@ -15,6 +15,11 @@ export function load() {
             {
                 label: "Reverse lines",
                 run: (text) => text.split("\n").reverse().join("\n")
+            },
+
+            {
+                label: "Trim lines",
+                run: (text) => text.split("\n").map((line) => line.trim()).join("\n")
             }
         ]
     }
