@@ -1,22 +1,22 @@
 <script>
-    export let leftTitle = "";
-    export let rightTitle = "";
+    export let leftTitle;
+    export let rightTitle;
 </script>
 
 <div class="two-columns">
     <section class="left">
-        {#if leftTitle}
-        <h3>{leftTitle}</h3>
-        {/if}
-    
+        <header class="app-header">
+            <h2>{leftTitle}</h2>
+        </header>
+        
         <slot name="left" />
     </section>
     
     <section class="right">
-        {#if rightTitle}
-        <h3>{rightTitle}</h3>
-        {/if}
-    
+        <header class="app-header">
+            <h2>{rightTitle}</h2>
+        </header>
+
         <slot name="right" />
     </section>
 </div>
@@ -28,13 +28,19 @@
             width: 50%;
             flex-grow: 0;
             flex-shrink: 0;
-            padding: 1em;
-            box-sizing: border-box;        
-        }        
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }      
+        
+        .left {
+            border-right: 1px solid var(--border-color);
+        }
 
         .two-columns {
             display: flex;
-            margin: 0 -1em;
+            height: 100%;
+            justify-content: stretch;
         }
     }
 

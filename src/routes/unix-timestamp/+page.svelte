@@ -53,8 +53,8 @@
     setInput(defaultValue);
 </script>
 
-<Tool title="Unix timestamp">
-    <TwoColumnView>
+<Tool>
+    <TwoColumnView leftTitle="Date & time" rightTitle="Timestamp">
         <div slot="left">
             <InputField label="Date">
                 <input type="date" bind:value={inputDate} />

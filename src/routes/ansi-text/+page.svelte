@@ -2,30 +2,33 @@
     import AnsiConvert from "ansi-to-html";
 	import Tool from "$lib/components/tool.svelte";
 	import TextFilePicker from "$lib/components/text-file-picker.svelte";
+	import OneColumnView from "$lib/components/one-column-view.svelte";
 
     let converter = new AnsiConvert();
     let ansiText = "";    
 </script>
 
-<Tool title="ANSI text" hasPadding={false}>
-    <div class="toolbar" slot="header-left">
-        <TextFilePicker 
-            bind:textFile={ansiText}
-            encoding="ascii"
-        />
-    </div>
-
-    <div class="container">
-        <div class="input">
-            <textarea bind:value={ansiText} />            
+<Tool>
+    <OneColumnView title="ANSI text" hasPadding={false}>
+        <div class="toolbar" slot="header-left">
+            <TextFilePicker 
+                bind:textFile={ansiText}
+                encoding="ascii"
+            />
         </div>
     
-        <div class="preview-wrapper">
-            <div class="preview">
-                {@html converter.toHtml(ansiText)}
+        <div class="container">
+            <div class="input">
+                <textarea bind:value={ansiText} />            
+            </div>
+        
+            <div class="preview-wrapper">
+                <div class="preview">
+                    {@html converter.toHtml(ansiText)}
+                </div>
             </div>
         </div>
-    </div>
+    </OneColumnView>
 
     <span slot="footer">
         Uses the <a href="https://www.npmjs.com/package/ansi-to-html">ansi-to-html</a> library.

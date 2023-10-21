@@ -53,6 +53,7 @@ header h2 {
     padding: 0;
     margin: 0;
     font-size: 12pt;
+    flex-grow: 1;
 }
 
 h2 {

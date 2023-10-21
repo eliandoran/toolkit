@@ -66,8 +66,15 @@
 
 <style>      
     @media (min-width: 920px) {
+        div[slot] {
+            display: flex;
+            height: 100%;
+        }        
+
         textarea {
-            min-height: 60vh;
+            flex-grow: 1;
+            height: 100%;
+            border: 0;
         }
     }
 </style>

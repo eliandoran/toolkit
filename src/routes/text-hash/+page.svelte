@@ -10,17 +10,14 @@
     const { hashOperations } = $page.data;
 </script>
 
-<Tool title="Text hash">
-
+<Tool>
     <div class="toolbar" slot="header-left">
         <TextFilePicker bind:textFile={inputText} />
     </div>
 
-    <TwoColumnView>
+    <TwoColumnView leftTitle="Input text" rightTitle="Hashes">
         <div slot="left">
-            <InputField label="Input text">
-                <textarea bind:value={inputText}></textarea>
-            </InputField>
+            <textarea bind:value={inputText}></textarea>
         </div>
 
         <div slot="right">
