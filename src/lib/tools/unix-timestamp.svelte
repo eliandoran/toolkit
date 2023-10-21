@@ -1,21 +1,28 @@
 <script>
 	import InputField from "$lib/components/input-field.svelte";
-import TwoColumnView from "$lib/components/two-column-view.svelte";
+    import TwoColumnView from "$lib/components/two-column-view.svelte";
 
-    const defaultValue = new Date().toISOString().split("T");
-    let inputDate = defaultValue[0];
-    let outputTimestampMillis;
+    let inputDate;
+    let hours = 0;
+    let minutes = 0;
+    let seconds = 0;
     
-    let inputTime = defaultValue[1].split(":");
-    let hours = inputTime[0];
-    let minutes = inputTime[1];
-    let seconds = inputTime[2].split(".")[0];
+    let outputTimestampMillis;
 
     $: {
         const dateString = `${inputDate}T${pad2(hours)}:${pad2(minutes)}:${pad2(seconds)}Z`;
         const date = new Date(dateString);
-        console.log(dateString, date);
         outputTimestampMillis = date.getTime();
+    }
+
+    function setInput(date) {
+        const dateComponents = date.toISOString().split("T");
+        inputDate = dateComponents[0];
+
+        let inputTime = dateComponents[1].split(":");
+        hours = inputTime[0];
+        minutes = inputTime[1];
+        seconds = inputTime[2].split(".")[0];
     }
 
     function pad2(value) {
@@ -26,6 +33,23 @@ import TwoColumnView from "$lib/components/two-column-view.svelte";
             return value;
         }
     }
+
+    function onOutputChanged(e) {
+        const timestamp = parseInt(e.target.value, 10);
+
+        let date;
+        try {
+            date = new Date(timestamp);
+            setInput(date);
+        } catch (e) {
+            console.log("Invalid timestamp.", timestamp, date);
+            return;
+        }
+    }
+
+    // Set default value.
+    const defaultValue = new Date();
+    setInput(defaultValue);
 </script>
 
 <TwoColumnView>
@@ -51,7 +75,9 @@ import TwoColumnView from "$lib/components/two-column-view.svelte";
 
     <div slot="right">
         <InputField label="Unix timestamp (milliseconds)">
-            <input type="number" bind:value={outputTimestampMillis} />
+            <input type="number"
+                value={outputTimestampMillis}
+                on:input={onOutputChanged} />
         </InputField>
     </div>
 </TwoColumnView>
