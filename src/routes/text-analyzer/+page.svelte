@@ -3,11 +3,17 @@
 
     let text = "";
     let numLines;
+    let numWords;
     let numCharacters;
 
     $: {
         numLines = getNumLines(text);
+        numWords = getNumWords(text);
         numCharacters = text.length;
+    }
+
+    function getNumWords(text) {
+        return text.split(" ").filter((el) => el.length > 0).length;
     }
 
     function getNumLines(text) {
@@ -25,6 +31,7 @@
 
 <div class="stats">
     <span>{numLines} line(s)</span>
+    <span>{numWords} word(s)</span>
     <span>{numCharacters} character(s)</span>
 </div>
 
