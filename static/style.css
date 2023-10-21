@@ -127,3 +127,16 @@ input {
 .nav ul li a.active {
     background-color: rgba(0, 0, 0, 0.1);
 }
+
+.codemirror-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-size: 0.9em;
+}
+
+.codemirror-wrapper, .cm-editor {
+    height: 100%;
+}    
