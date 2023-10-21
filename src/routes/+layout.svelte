@@ -129,6 +129,7 @@
         .page-wrapper {
             display: flex;
             max-width: 1024px;
+            min-height: 90vh;
         }
 
         aside {
