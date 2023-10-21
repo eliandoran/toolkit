@@ -1,9 +1,6 @@
 <script>
     import AnsiConvert from "ansi-to-html";
-
-	import InputField from "$lib/components/input-field.svelte";
 	import Tool from "$lib/components/tool.svelte";
-	import TwoColumnView from "$lib/components/two-column-view.svelte";
 
     let converter = new AnsiConvert();
     let ansiText = "";    
@@ -21,11 +18,15 @@
     </div>
 </Tool>
 
-<style>
+<style>    
     textarea {
         flex-basis: 150px;
         box-sizing: border-box;
         border: 0;
+        font-size: 8pt;
+        white-space: pre;
+        overflow-wrap: normal;
+        overflow-x: auto;
     }
 
     .container {
@@ -35,16 +36,20 @@
         width: 100%;
     }
 
+    textarea,
+    .preview {
+        font-family: "perfect_dos_vga_437", Terminal, monospace;
+        font-smooth: never;
+        -webkit-font-smoothing: none;
+    }
+
     .preview {
         max-width: 100%;
         overflow: scroll;
         height: 30vh;
-        font-size: 11pt;
-        font-family: "perfect_dos_vga_437", Terminal, monospace;
-        font-smooth: never;
-        -webkit-font-smoothing: none;
         background: black;
         white-space: pre;
-        flex-grow: 1;        
+        flex-grow: 1;    
+        font-size: 11pt;
     }
 </style>
