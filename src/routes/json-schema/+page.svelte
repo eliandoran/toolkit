@@ -1,4 +1,8 @@
 <script>
+    import CodeMirror from "svelte-codemirror-editor";
+    import { json } from "@codemirror/lang-json";
+    import { oneDark } from "@codemirror/theme-one-dark";
+
 	import StackView from "$lib/components/stack-view.svelte";
     import Tool from "$lib/components/tool.svelte";
 	import WarningBox from "$lib/components/warning-box.svelte";
@@ -69,7 +73,10 @@
         </div>
 
         <div class="textarea-wrapper">
-            <textarea bind:value={inputJsonText}></textarea>    
+            <CodeMirror
+                bind:value={inputJsonText}
+                lang={json()}
+                theme={oneDark} />
         </div>
         <WarningBox message="{inputJsonParsingLog}" />
     </StackView>
@@ -80,19 +87,26 @@
         </div>
 
         <div class="textarea-wrapper">
-            <textarea bind:value={schemaText}></textarea>
+            <CodeMirror
+                bind:value={schemaText}
+                lang={json()}
+                theme={oneDark} />
         </div>
         <WarningBox message="{inputSchemaParsingLog}" />        
     </StackView>
 
     <StackView title="Validation" isCollapsible={false} height="auto">
         <div class="output">
-            {#if isValid === true}
-                <p>✅ The JSON is valid against the schema.</p>
-            {:else if isValid === false}
-                <p>❌ The JSON is not valid against the schema.</p>
+            {#if !parsedJson}
+                <p>Waiting for JSON</p>
+            {:else if !compiledSchema}
+                <p>Waiting for schema.</p>
             {:else}
-                <p>Waiting for JSON and schema.</p>
+                {#if isValid === true}
+                    <p>✅ The JSON is valid against the schema.</p>
+                {:else if isValid === false}
+                    <p>❌ The JSON is not valid against the schema.</p>
+                {/if}
             {/if}
     
             <ValidationTable {validationErrors} />
@@ -107,11 +121,6 @@
 <style>
     .textarea-wrapper {
         flex-grow: 1;
-    }
-
-    textarea {
-        width: 100%;
-        height: 100%;
     }
 
     .output p {
