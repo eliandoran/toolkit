@@ -1,3 +1,32 @@
+<script>
+    const tools = [
+        {
+            path: "/unix-timestamp",
+            title: "Unix timestamp"
+        },
+
+        {
+            path: "/json-formatter",
+            title: "JSON Formatter/Minifier"
+        },
+
+        {
+            path: "/base64",
+            title: "Base64 Encoder/Decoder"
+        },
+
+        {
+            path: "/url-encoder",
+            title: "URL Encoder/Decoder"
+        },
+
+        {
+            path: "/text-analyzer",
+            title: "Text analyzer"
+        }
+    ];
+</script>
+
 <div class="page-wrapper">
     <aside>
         <header>
@@ -7,25 +36,11 @@
         <div class="inner-wrapper">
             <nav>
                 <ul>
+                    {#each tools as tool}
                     <li>
-                        <a href="/unix-timestamp">Unix Timestamp</a>
+                        <a href="{tool.path}">{tool.title}</a>
                     </li>
-
-                    <li>
-                        <a href="/json-formatter">JSON Formatter/Minifier</a>
-                    </li>
-
-                    <li>
-                        <a href="/base64">Base64 Encoder/Decoder</a>
-                    </li>
-
-                    <li>
-                        <a href="/url-encoder">URL Encoder/Decoder</a>
-                    </li>
-
-                    <li>
-                        <a href="/text-analyzer">Text analyzer</a>
-                    </li>
+                    {/each}
                 </ul>
             </nav>
         </div>
