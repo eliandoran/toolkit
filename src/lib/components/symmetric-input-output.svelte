@@ -10,7 +10,10 @@
     export let toTitle = "Output";
     export let to;
     export let from;
+
     export let useCodeMirror = false;
+    export let leftLang = undefined;
+    export let rightLang = undefined;
 
     let inputText = "";
     let inputLog = "";
@@ -63,6 +66,7 @@
         {#if useCodeMirror}
             <CodeMirror
                 bind:value={inputText}
+                lang={leftLang}
                 theme={oneDark} />
         {:else}
             <textarea
@@ -85,6 +89,7 @@
         {:else}
             <textarea
                 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+                lang={rightLang}
                 bind:value={outputText} />
         {/if}
         
