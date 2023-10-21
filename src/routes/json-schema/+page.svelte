@@ -4,6 +4,7 @@
 	import WarningBox from "$lib/components/warning-box.svelte";
     import Ajv from "ajv";
 	import ValidationTable from "./validation-table.svelte";
+	import TextFilePicker from "$lib/components/text-file-picker.svelte";
 
     let inputJsonText;
     let schemaText;
@@ -63,11 +64,19 @@
 
 <Tool>
     <StackView title="JSON">
+        <div class="toolbar" slot="header-left">
+            <TextFilePicker bind:textFile={inputJsonText} />
+        </div>
+
         <textarea bind:value={inputJsonText}></textarea>    
         <WarningBox message="{inputJsonParsingLog}" />
     </StackView>
 
     <StackView title="JSON Schema">
+        <div class="toolbar" slot="header-left">
+            <TextFilePicker bind:textFile={schemaText} />
+        </div>
+
         <textarea bind:value={schemaText}></textarea>
         <WarningBox message="{inputSchemaParsingLog}" />        
     </StackView>
