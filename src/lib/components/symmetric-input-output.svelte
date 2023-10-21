@@ -32,14 +32,18 @@
         return { output, log };
     }
 
-    function inputChanged(e) {
+    function inputChanged(text) {
         outputLog = "";
-        ({ output: outputText, log: inputLog } = handleErrors(to, inputText));
+        if (inputText) {
+            ({ output: outputText, log: inputLog } = handleErrors(to, text));
+        }
     }
 
-    function outputChanged(e) {
+    function outputChanged(text) {
         inputLog = "";
-        ({ output: inputText, log: outputLog } = handleErrors(from, outputText));
+        if (outputText) {
+            ({ output: inputText, log: outputLog } = handleErrors(from, text));
+        }
     }
 
     $: inputChanged(inputText);
