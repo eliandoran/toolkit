@@ -22,8 +22,9 @@
             textFile = e.target?.result;
         };
         reader.readAsText(file, encoding);
-    }
 
+        dispatch("selected");
+    }
 </script>
 
 <input type="file"

@@ -6,13 +6,15 @@
 
     let converter = new AnsiConvert();
     let ansiText = "";    
+    let inputExpanded = true;
 </script>
 
 <Tool>
-    <StackView title="ANSI Text" hasPadding={false} height="30%">
+    <StackView title="ANSI Text" hasPadding={false} height="30%" isExpanded={inputExpanded}>
         <div class="toolbar" slot="header-left">
             <TextFilePicker 
                 bind:textFile={ansiText}
+                on:selected={() => inputExpanded = false}
                 encoding="ascii"
             />
         </div>

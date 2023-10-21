@@ -4,8 +4,7 @@
     export let hasPadding = true;
     export let isCollapsible = true;
     export let isCompact = false;
-
-    let isExpanded = true;    
+    export let isExpanded = true;    
 
     function toggleCollapse() {
         isExpanded = !isExpanded;
