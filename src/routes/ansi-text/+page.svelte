@@ -51,5 +51,6 @@
         white-space: pre;
         flex-grow: 1;    
         font-size: 11pt;
+        line-height: 1;
     }
 </style>
