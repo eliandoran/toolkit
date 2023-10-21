@@ -79,7 +79,7 @@
     {/if}
 
     {#if validationErrors && validationErrors.length > 0}
-        <table class="styled-table">
+        <table class="styled-table full-width">
             <thead>
                 <tr>
                     <th>Keyword</th>

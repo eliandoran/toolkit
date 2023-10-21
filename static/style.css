@@ -1,0 +1,18 @@
+.full-width {
+    width: 100%;
+}
+
+.styled-table {
+    border-collapse: collapse;
+}
+
+.styled-table th {
+    background-color: var(--header-background-color);
+    text-align: left;
+    font-weight: normal;
+}
+
+.styled-table th, td {
+    border: 1px solid var(--border-color);
+    padding: 0.2em;
+}
