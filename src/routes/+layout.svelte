@@ -103,6 +103,7 @@
     
     .page-wrapper {
         width: 95vw;
+        min-height: 95vh;
         margin: auto;
         background: var(--background-color);
         border-radius: 16px;
@@ -114,7 +115,6 @@
     @media (min-width: 920px) {
         .page-wrapper {
             display: flex;
-            max-width: 1024px;
             min-height: 90vh;
         }
 
