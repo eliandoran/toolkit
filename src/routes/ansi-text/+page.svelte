@@ -74,6 +74,8 @@
         overflow: scroll;
         height: 30vh;
         background: black;
+        color: #aaa;
+        padding: 10px;
         white-space: pre;
         flex-grow: 1;    
         font-size: 12pt;
