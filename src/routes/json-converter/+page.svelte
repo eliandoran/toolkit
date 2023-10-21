@@ -18,6 +18,7 @@
     <SymmetricInputOutput
         fromTitle="JSON"
         toTitle="YAML"
+        useCodeMirror={true}
         {to} {from} />
 
     <span slot="footer">

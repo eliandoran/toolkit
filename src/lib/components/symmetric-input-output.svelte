@@ -1,4 +1,7 @@
 <script>
+    import CodeMirror from "svelte-codemirror-editor";
+    import { oneDark } from "@codemirror/theme-one-dark";
+
 	import TextFilePicker from "./text-file-picker.svelte";
 	import TwoColumnView from "./two-column-view.svelte";
 	import WarningBox from "./warning-box.svelte";
@@ -7,6 +10,7 @@
     export let toTitle = "Output";
     export let to;
     export let from;
+    export let useCodeMirror = false;
 
     let inputText = "";
     let inputLog = "";
@@ -56,9 +60,15 @@
     </div>
 
     <div slot="left">
-        <textarea
-            autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
-            bind:value={inputText}></textarea>
+        {#if useCodeMirror}
+            <CodeMirror
+                bind:value={inputText}
+                theme={oneDark} />
+        {:else}
+            <textarea
+                autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+                bind:value={inputText}></textarea>
+        {/if}
         
         <WarningBox message="{inputLog}" />
     </div>
@@ -68,9 +78,15 @@
     </div>
 
     <div slot="right">
-        <textarea
-            autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
-            bind:value={outputText}></textarea>
+        {#if useCodeMirror}
+            <CodeMirror
+                bind:value={outputText}
+                theme={oneDark} />
+        {:else}
+            <textarea
+                autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+                bind:value={outputText} />
+        {/if}
         
         <WarningBox message={outputLog} />
     </div>
@@ -82,6 +98,7 @@
             display: flex;
             flex-direction: column;
             height: 100%;
+            position: relative;
         }        
 
         textarea {
