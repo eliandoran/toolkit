@@ -1,36 +1,33 @@
 <script>
 	import TwoColumnView from "$lib/components/two-column-view.svelte";
-
-    let inputJsonText = "";
-    let inputSchemaText = "";
+    import ajv from "ajv";
 
     let inputJsonParsingLog = "";
     let inputSchemaParsingLog = "";
 
-    $: validateSchema(inputJsonText, inputSchemaText);
+    let compiledSchema;
 
-    function validateSchema(inputJsonText, inputSchemaText) {
-        let inputJson;
-        let schemaJson;
-        
+    function onJsonInputChanged(e) {
+        const inputJsonText = e.target.value;
+
         // Parse input JSON
         try {
             inputJsonParsingLog = "";
-            inputJson = JSON.parse(inputJsonText);
+            const inputJson = JSON.parse(inputJsonText);
         } catch (e) {
             inputJsonParsingLog = e.message;
         }
+    }
+
+    function onJsonSchemaChanged(e) {
+        const schemaText = e.target.value;
 
         // Parse schema
         try {
             inputSchemaParsingLog = "";
-            schemaJson = JSON.parse(inputSchemaText);            
+            const schemaJson = JSON.parse(schemaText);     
         } catch (e) {
             inputSchemaParsingLog = e.message;
-        }
-
-        if (!inputJson || !schemaJson) {
-            return;
         }
     }
 </script>
@@ -38,7 +35,7 @@
 <TwoColumnView leftTitle="Input JSON" rightTitle="JSON schema">
 
     <div slot="left">
-        <textarea bind:value={inputJsonText}></textarea>
+        <textarea on:input={onJsonInputChanged}></textarea>
 
         <div>
             {inputJsonParsingLog}
@@ -46,7 +43,7 @@
     </div>
 
     <div slot="right">
-        <textarea bind:value={inputSchemaText}></textarea>
+        <textarea on:input={onJsonSchemaChanged}></textarea>
 
         <div>
             {inputSchemaParsingLog}
@@ -62,5 +59,6 @@
 <style>
     textarea {
         width: 100%;
+        height: 60vh;
     }
 </style>
