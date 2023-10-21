@@ -10,6 +10,11 @@ export function load() {
             {
                 label: "Sort lines in descending order",
                 run: (text) => text.split("\n").sort().reverse().join("\n")
+            },
+
+            {
+                label: "Reverse lines",
+                run: (text) => text.split("\n").reverse().join("\n")
             }
         ]
     }
