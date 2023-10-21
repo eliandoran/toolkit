@@ -23,6 +23,11 @@
         {
             path: "/text-analyzer",
             title: "Text analyzer"
+        },
+
+        {
+            path: "/json-schema",
+            title: "JSON Schema Validator"
         }
     ];
 </script>
