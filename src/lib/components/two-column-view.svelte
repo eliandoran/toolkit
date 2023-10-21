@@ -1,6 +1,7 @@
 <script>
     export let leftTitle;
     export let rightTitle;
+    export let hasPadding = true;
 </script>
 
 <div class="two-columns">
@@ -11,22 +12,30 @@
             <slot name="header-left-right"></slot>
         </header>
         
-        <slot name="left" />
+        <div class="inner-wrapper" class:padding={hasPadding}>
+            <slot name="left" />
+        </div>
     </section>
     
-    <section class="right">        
+    <section class="right">
         <header class="app-header">
             <slot name="header-right-left"></slot>
             <h2>{rightTitle}</h2>
             <slot name="header-right-right"></slot>
         </header>
 
-        <slot name="right" />
+        <div class="inner-wrapper" class:padding={hasPadding}>
+            <slot name="right" />
+        </div>
     </section>
 </div>
 
 <style>
     @media (min-width: 920px) {
+        .padding {
+            padding: 1em;
+        }
+
         .left,
         .right {
             width: 50%;
@@ -45,6 +54,10 @@
             display: flex;
             height: 100%;
             justify-content: stretch;
+        }
+
+        .inner-wrapper {
+            height: 100%;
         }
     }
 

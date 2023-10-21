@@ -1,5 +1,6 @@
 <script>
     export let title;
+    export let hasPadding = true;
 </script>
 
 <header class="app-header">
@@ -9,7 +10,7 @@
 </header>    
 
 <div class="main-container">
-    <main>
+    <main class:padding={hasPadding}>
         <slot />
     </main>
 
@@ -29,6 +30,13 @@
         min-height: 0;
         height: 100%;
         position: relative;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+    }
+
+    .padding {
+        padding: 1em;
     }
 
     .main-container > aside {

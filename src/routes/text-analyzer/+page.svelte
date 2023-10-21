@@ -38,7 +38,9 @@
             <TextFilePicker bind:textFile={text} />
         </div>
     
-        <textarea bind:value={text}></textarea>   
+        <div class="textarea-wrapper">
+            <textarea bind:value={text}></textarea>   
+        </div>
         
         <div class="stats">
             <span><strong>{numLines}</strong> line(s)</span>
@@ -63,14 +65,18 @@
 </Tool>
 
 <style>
+    .textarea-wrapper {
+        flex-grow: 1;
+    }
+
     textarea {
         width: 100%;
-        min-height: 70vh;
+        height: 100%;
     }
 
     .stats {
         display: flex;
-        margin-top: 0.5em;
+        margin-top: 1em;
     }
 
     .stats > span {

@@ -57,7 +57,7 @@
     $: outputChanged(outputText);
 </script>
 
-<TwoColumnView leftTitle={fromTitle} rightTitle={toTitle}>
+<TwoColumnView leftTitle={fromTitle} rightTitle={toTitle} hasPadding={false}>
     <div class="toolbar" slot="header-left-left">
         <TextFilePicker bind:textFile={inputText} />
     </div>
