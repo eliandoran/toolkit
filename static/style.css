@@ -15,6 +15,18 @@
     color: var(--text-color);
 }
 
+@media (prefers-color-scheme: dark) {
+    :root {
+        --highlight-color: orange;
+        --border-color: #454545;
+        --background-color: #242424;
+        --header-background-color: #303030;
+        --content-background-color: #363636;
+        --text-color: #f5f5f5;
+        --warning-background-color: #9c381a;
+    }
+}
+
 body {
     background: #70234e;
     width: 100%;
@@ -24,17 +36,6 @@ body {
     padding-top: 2em;
     font-family: sans-serif;
     overflow: auto;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --highlight-color: orange;
-        --border-color: #454545;
-        --background-color: #242424;
-        --header-background-color: #303030;
-        --content-background-color: #363636;
-        --text-color: #f5f5f5;
-    }
 }
 
 .hidden {

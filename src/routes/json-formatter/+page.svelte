@@ -5,16 +5,35 @@
 
 	import TextFilePicker from "$lib/components/text-file-picker.svelte";
 	import Tool from "$lib/components/tool.svelte";
+	import WarningBox from "$lib/components/warning-box.svelte";
 
     let text = "";
+    let validationErrors;
+    let parsedJson;
+
+    $: parseJSON(text);
+
+    function parseJSON(text) {
+        try {
+            validationErrors = undefined;
+            parsedJson = JSON.parse(text);
+        } catch (e) {
+            validationErrors = e.message;
+        }
+    }
 
     function format() {
-        text = JSON.stringify(JSON.parse(text), null, 4);
+        if (parsedJson) {
+            text = JSON.stringify(JSON.parse(text), null, 4);
+        }
     }
 
     function minify() {
-        text = JSON.stringify(JSON.parse(text));
+        if (parsedJson) {
+            text = JSON.stringify(JSON.parse(text));
+        }
     }
+
 </script>
 
 <Tool title="JSON Formatter/Minifier" hasPadding={false}>
@@ -31,6 +50,11 @@
         </main>
 
         <aside>
+            {#if validationErrors}
+            <h3>Validation errors</h3>
+            <WarningBox message={validationErrors} />
+            {/if}
+
             <h3>Format/indent</h3>
             <section>
                 <nav class="nav">
@@ -85,8 +109,10 @@
 
     .main-container > aside {
         padding: 1em;
-        min-width: 200px;
+        width: 250px;
         border-left: 1px solid var(--border-color);
+        flex-grow: 0;
+        flex-shrink: 0;
     }
 
     .main-container > aside nav {
