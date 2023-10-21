@@ -49,14 +49,7 @@
     h2 {
         font-size: 14pt;
         font-weight: 400;
-    }
-
-    h3 {
-        font-size: 12pt;
-        font-weight: 400;
-        margin: 0;
-        margin-bottom: 0.5em;
-    }
+    }    
 
     textarea {
         width: 100%;
@@ -68,19 +61,12 @@
         border: 1px solid var(--border-color);
         color: var(--text-color);
         border-radius: 0;
-    }
-
-    .input,
-    .output {
-        float: left;
-        width: 50%;
-        padding: 1em;        
-        box-sizing: border-box;        
-    }
+    }    
 </style>
 
 <script>
 	import allTools from "$lib/tools";
+    import TwoColumnView from "$lib/components/two-column-view.svelte";
 
     let tool = allTools[0];
     
@@ -161,23 +147,25 @@
         {#if tool.config.component}
             <svelte:component this={tool.config.component} />
         {:else}
-            <section class="input">
-                <h3>{ tool.config.fromTitle || "Input" }</h3>
-                <textarea
-                    on:input={inputChanged}
-                    autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
-                    value={inputText}></textarea>
-                <section class="log">{inputLog}</section>
-            </section>
-        
-            <section class="output">
-                <h3>{ tool.config.toTitle || "Output" }</h3>
-                <textarea
-                    on:input={outputChanged}
-                    autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
-                    value={outputText}></textarea>
-                <section class="log">{outputLog}</section>
-            </section>
+            <TwoColumnView
+                leftTitle="{ tool.config.fromTitle || "Input" }"
+                rightTitle="{ tool.config.toTitle || "Output" }">
+                <div slot="left">
+                    <textarea
+                        on:input={inputChanged}
+                        autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+                        value={inputText}></textarea>
+                    <section class="log">{inputLog}</section>
+                </div>
+
+                <div slot="right">
+                    <textarea
+                        on:input={outputChanged}
+                        autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+                        value={outputText}></textarea>
+                    <section class="log">{outputLog}</section>
+                </div>
+            </TwoColumnView>
         {/if}
     </div>
 </div>
