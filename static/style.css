@@ -47,6 +47,8 @@ header {
     padding: 1em;
     text-align: center;
     background: var(--header-background-color);        
+    display: flex;
+    flex-direction: row;
 }
 
 header h2 {
