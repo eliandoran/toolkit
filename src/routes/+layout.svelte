@@ -71,6 +71,11 @@
 </div>
 
 <style>
+    :root {
+        height: 100vh;
+        overflow: hidden;
+    }
+
     main {
         padding: 0 2rem;
     }
