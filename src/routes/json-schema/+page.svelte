@@ -4,7 +4,8 @@
 
     let inputJsonParsingLog = "";
     let inputSchemaParsingLog = "";
-
+    let validationErrors = [];
+    
     const ajv = new Ajv();
     
     let parsedJson;
@@ -46,6 +47,7 @@
         }
 
         isValid = compiledSchema(parsedJson);
+        validationErrors = compiledSchema.errors;
     }
 </script>
 
@@ -69,11 +71,33 @@
 </TwoColumnView>
 
 <div class="output">
-    
     {#if isValid === true}
         <p>✅ The JSON is valid against the schema.</p>
     {:else if isValid === false}
         <p>❌ The JSON is not valid against the schema.</p>
+    {/if}
+
+    {#if validationErrors && validationErrors.length > 0}
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Keyword</th>
+                    <th>Message</th>
+                    <th>Instance path</th>
+                    <th>Schema path</th>
+                </tr>                
+            </thead>
+            <tbody>
+                {#each validationErrors as error}
+                <tr>
+                    <td>{error.keyword}</td>
+                    <td>{error.message}</td>
+                    <td>{error.instancePath}</td>
+                    <td>{error.schemaPath}</td>
+                </tr>
+                {/each}
+            </tbody>
+        </table>
     {/if}
 </div>
 
