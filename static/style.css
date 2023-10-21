@@ -52,3 +52,30 @@ textarea {
     color: var(--text-color);
     border-radius: 0;
 }
+
+.nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}    
+
+.nav ul li {
+    margin: 1px 0;
+}
+
+.nav ul li a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 0.9em;
+    padding: 0.5em 1em;
+    display: block;
+    border-radius: 6px;        
+}
+
+.nav ul li a:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.nav ul li a.active {
+    background-color: rgba(0, 0, 0, 0.1);
+}

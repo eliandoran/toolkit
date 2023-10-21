@@ -37,7 +37,7 @@
     </main>
 
     <aside>
-        <nav>
+        <nav class="nav">
             <ul>
                 {#each $page.data.textOperations as operation}
                 <li>
@@ -58,7 +58,7 @@
 <style>
     textarea {
         width: 100%;
-        min-height: 30vh;
+        min-height: 70vh;
     }
 
     .stats > span {
@@ -88,5 +88,11 @@
         text-decoration: none;
         color: inherit;
         font-size: 0.9em;
+    }
+
+    .nav {
+        background: var(--content-background-color);
+        padding: 0.5em;
+        border-radius: 12px;
     }
 </style>

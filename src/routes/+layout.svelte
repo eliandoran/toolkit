@@ -46,7 +46,7 @@
         </header>
 
         <div class="inner-wrapper">
-            <nav>
+            <nav class="nav">
                 <ul>
                     {#each tools as tool}
                     <li>
@@ -82,34 +82,7 @@
 
     aside {        
         border-bottom: 1px solid var(--border-color);        
-    }
-
-    aside ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
     }    
-
-    aside ul li {
-        margin: 1px 0;
-    }
-
-    aside ul li a {
-        text-decoration: none;
-        color: inherit;
-        font-size: 0.9em;
-        padding: 0.5em 1em;
-        display: block;
-        border-radius: 6px;        
-    }
-
-    aside ul li a:hover {
-        background-color: rgba(0, 0, 0, 0.05);
-    }
-
-    aside ul li a.active {
-        background-color: rgba(0, 0, 0, 0.1);
-    }
 
     aside .inner-wrapper {
         padding: 0.5em;
