@@ -20,12 +20,14 @@
 </section>
 
 <style>
-    .left,
-    .right {
-        float: left;
-        width: 50%;
-        padding: 1em;        
-        box-sizing: border-box;        
+    @media (min-width: 920px) {
+        .left,
+        .right {
+            float: left;
+            width: 50%;
+            padding: 1em;        
+            box-sizing: border-box;        
+        }        
     }
 
     h3 {

@@ -66,11 +66,17 @@
         width: 100%;
         border: 1px solid gray;
         border-radius: 6px;
-        min-height: 60vh;
+        min-height: 20vh;
         box-sizing: border-box;
         background-color: var(--content-background-color);
         border: 1px solid var(--border-color);
         color: var(--text-color);
         border-radius: 0;
     }   
+
+    @media (min-width: 920px) {
+        textarea {
+            min-height: 60vh;
+        }
+    }
 </style>
