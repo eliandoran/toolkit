@@ -30,6 +30,16 @@ export function load() {
             {
                 label: "Remove trailing whitespace",
                 run: removeTrailingWhitespace
+            },
+
+            {
+                label: "To upper case",
+                run: (text) => text.toUpperCase()
+            },
+
+            {
+                label: "To lower case",
+                run: (text) => text.toLowerCase()
             }
         ]
     }
