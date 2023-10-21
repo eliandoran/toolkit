@@ -28,8 +28,8 @@
         },
 
         {
-            path: "/html-escape",
-            title: "HTML Escape/Unescape"
+            path: "/html-entity",
+            title: "HTML Entity Encode/Decode"
         },
 
         {

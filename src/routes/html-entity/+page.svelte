@@ -15,6 +15,6 @@
 </script>
 
 <SymmetricInputOutput
-    fromTitle="Unescaped HTML"
-    toTitle="Escaped HTML"
+    fromTitle="Decoded text"
+    toTitle="Encoded text"
     {to} {from} />
