@@ -1,10 +1,11 @@
 <script>
 	import TwoColumnView from "$lib/components/two-column-view.svelte";
-    import ajv from "ajv";
+    import Ajv from "ajv";
 
     let inputJsonParsingLog = "";
     let inputSchemaParsingLog = "";
 
+    const ajv = new Ajv();
     let compiledSchema;
 
     function onJsonInputChanged(e) {
@@ -26,6 +27,7 @@
         try {
             inputSchemaParsingLog = "";
             const schemaJson = JSON.parse(schemaText);     
+            compiledSchema = ajv.compile(schemaJson);
         } catch (e) {
             inputSchemaParsingLog = e.message;
         }
