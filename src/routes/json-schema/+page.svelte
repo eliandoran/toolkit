@@ -95,7 +95,7 @@
         <WarningBox message="{inputSchemaParsingLog}" />        
     </StackView>
 
-    <StackView title="Validation" isCollapsible={false} height="auto">
+    <StackView title="Validation" isCollapsible={false} height="auto" isCompact={true}>
         <div class="output">
             {#if !parsedJson}
                 <p>Waiting for JSON</p>

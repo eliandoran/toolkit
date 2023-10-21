@@ -51,6 +51,10 @@ header {
     flex-direction: row;
 }
 
+header.compact {
+    padding: 0.25em;
+}
+
 header h2 {
     padding: 0;
     margin: 0;

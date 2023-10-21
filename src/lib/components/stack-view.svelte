@@ -3,6 +3,7 @@
     export let height = "100%";
     export let hasPadding = true;
     export let isCollapsible = true;
+    export let isCompact = false;
 
     let isExpanded = true;    
 
@@ -11,7 +12,7 @@
     }
 </script>
 
-<header class="app-header">
+<header class="app-header" class:compact={isCompact}>
     <slot name="header-left" />
     <h2>{title}</h2>
     <slot name="header-right" />
