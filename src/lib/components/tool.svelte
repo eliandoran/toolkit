@@ -6,6 +6,8 @@
 
 <div class="outer-wrapper">
     <header>        
+        <slot name="header-left" />
+
         <h2>{title}</h2>
     </header>
 
@@ -34,6 +36,14 @@
     
     .inner-wrapper.padding {
         padding: 2em;
+    }
+
+    header {
+        display: flex;
+    }
+
+    header h2 {
+        flex-grow: 1;
     }
 
     footer {

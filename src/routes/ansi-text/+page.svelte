@@ -4,9 +4,35 @@
 
     let converter = new AnsiConvert();
     let ansiText = "";    
+
+    let fileInput;
+
+    function openFile() {
+        fileInput.click();
+    }
+
+    function onFileSelected() {
+        if (fileInput.files.length == 0) {
+            return;
+        }
+
+        const file = fileInput.files[0];
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            ansiText = e.target?.result;
+        };
+        reader.readAsText(file, "ascii");
+    }
+
 </script>
 
 <Tool title="ANSI text" hasPadding={false}>
+    <input type="file" class="hidden" bind:this={fileInput} on:change={onFileSelected} />
+
+    <div class="toolbar" slot="header-left">
+        <a href="#" on:click={openFile}>Open</a>
+    </div>
+
     <div class="container">
         <div class="input">
             <textarea bind:value={ansiText} />            
