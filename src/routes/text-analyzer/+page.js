@@ -23,14 +23,31 @@ export function load() {
             },
 
             {
+                label: "Deduplicate lines",
+                run: deduplicateLines
+            },
+
+            {
                 label: "Remove trailing whitespace",
-                run: (text) =>
-                    text.split("\n")
-                        .map((line) => line.trimEnd())
-                        .join("\n")
-                        .trimEnd()
+                run: removeTrailingWhitespace
             }
         ]
     }
 
+}
+
+function removeTrailingWhitespace(text) {
+    return text.split("\n")
+        .map((line) => line.trimEnd())
+        .join("\n")
+        .trimEnd();
+}
+
+function deduplicateLines(text) {
+    const lineSet = new Set();
+    for (const line of text.split("\n")) {
+        lineSet.add(line);
+    }
+
+    return Array.from(lineSet).join("\n");
 }
