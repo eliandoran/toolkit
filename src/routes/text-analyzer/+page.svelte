@@ -1,5 +1,6 @@
 <script>
     import { page } from "$app/stores";
+	import SidebarView from "$lib/components/sidebar-view.svelte";
 	import TextFilePicker from "$lib/components/text-file-picker.svelte";
 	import Tool from "$lib/components/tool.svelte";
 
@@ -31,34 +32,34 @@
     }
 </script>
 
-<Tool title="Text analyzer">
-    <div class="toolbar" slot="header-left">
-        <TextFilePicker bind:textFile={text} />
-    </div>
-
-    <div class="main-container">
-        <main>
-            <textarea bind:value={text}></textarea>   
-            
-            <div class="stats">
-                <span><strong>{numLines}</strong> line(s)</span>
-                <span><strong>{numWords}</strong> word(s)</span>
-                <span><strong>{numCharacters}</strong> character(s)</span>
-            </div>
-        </main>
-
-        <aside>
-            <nav class="nav">
-                <ul>
-                    {#each $page.data.textOperations as operation}
-                    <li>
-                        <a href="#" on:click={() => onOperationSelected(operation)}>{operation.label}</a>
-                    </li>
-                    {/each}
-                </ul>
-            </nav>
+<Tool>
+    <SidebarView title="Text analyzer">
+        <div class="toolbar" slot="header-left">
+            <TextFilePicker bind:textFile={text} />
+        </div>
+    
+        <textarea bind:value={text}></textarea>   
+        
+        <div class="stats">
+            <span><strong>{numLines}</strong> line(s)</span>
+            <span><strong>{numWords}</strong> word(s)</span>
+            <span><strong>{numCharacters}</strong> character(s)</span>
+        </div>
+    
+        <aside slot="sidebar">
+            <section>
+                <nav class="nav">
+                    <ul>
+                        {#each $page.data.textOperations as operation}
+                        <li>
+                            <a href="#" on:click={() => onOperationSelected(operation)}>{operation.label}</a>
+                        </li>
+                        {/each}
+                    </ul>
+                </nav>
+            </section>
         </aside>
-    </div>
+    </SidebarView>
 </Tool>
 
 <style>
@@ -85,35 +86,5 @@
     .stats span:nth-of-type(3) {
         text-align: right;
         margin-right: 0;
-    }
-
-    .main-container {
-        display: flex;
-    }
-
-    .main-container > main {
-        flex-grow: 1;
-    }
-
-    .main-container > aside {
-        padding-left: 1em;
-    }
-
-    .main-container > aside nav ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-    }
-
-    .main-container > aside nav a {
-        text-decoration: none;
-        color: inherit;
-        font-size: 0.9em;
-    }
-
-    .nav {
-        background: var(--content-background-color);
-        padding: 0.5em;
-        border-radius: 12px;
     }
 </style>

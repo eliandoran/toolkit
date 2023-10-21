@@ -6,6 +6,7 @@
 	import TextFilePicker from "$lib/components/text-file-picker.svelte";
 	import Tool from "$lib/components/tool.svelte";
 	import WarningBox from "$lib/components/warning-box.svelte";
+	import SidebarView from "$lib/components/sidebar-view.svelte";
 
     let text = "";
     let validationErrors;
@@ -36,20 +37,18 @@
 
 </script>
 
-<Tool title="JSON Formatter/Minifier" hasPadding={false}>
-    <div class="toolbar" slot="header-left">
-        <TextFilePicker bind:textFile={text} />
-    </div>
+<Tool hasPadding={false}>
+    <SidebarView title="JSON Formatter/Minifier">
+        <div class="toolbar" slot="header-left">
+            <TextFilePicker bind:textFile={text} />
+        </div>
 
-    <div class="main-container">
-        <main>
-            <CodeMirror
-                bind:value={text}
-                lang={json()}
-                theme={oneDark} />
-        </main>
+        <CodeMirror
+            bind:value={text}
+            lang={json()}
+            theme={oneDark} />
 
-        <aside>
+        <aside slot="sidebar">
             {#if validationErrors}
             <h3>Validation errors</h3>
             <WarningBox message={validationErrors} />
@@ -75,8 +74,7 @@
             </section>
             {/if}
         </aside>
-
-    </div>
+    </SidebarView>
 </Tool>
 
 <!-- TODO: Deduplicate (see text-analyer) -->
@@ -84,12 +82,7 @@
     textarea {
         width: 100%;
         min-height: 70vh;
-    }
-
-    .main-container {
-        display: flex;
-        height: 100%;
-    }
+    }    
 
     :global(.codemirror-wrapper) {
         position: absolute;
@@ -103,49 +96,5 @@
     :global(.codemirror-wrapper),
     :global(.cm-editor) {
         height: 100%;
-    }
-
-    .main-container > main {
-        flex-grow: 1;
-        min-height: 0;
-        height: 100%;
-        position: relative;
-    }
-
-    .main-container > aside {
-        padding: 1em;
-        width: 250px;
-        border-left: 1px solid var(--border-color);
-        flex-grow: 0;
-        flex-shrink: 0;
-    }
-
-    .main-container > aside nav {
-        background: var(--content-background-color);
-        padding: 0.5em;
-        border-radius: 12px;
-    }
-
-    .main-container > aside nav ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-    }
-
-    .main-container > aside nav a {
-        text-decoration: none;
-        color: inherit;
-        font-size: 0.9em;
-    }
-
-    aside h3 {
-        font-size: 0.75em;
-        font-weight: 400;        
-    }
-
-    aside section {
-        background: var(--content-background-color);
-        padding: 0.5em;
-        border-radius: 12px;
-    }
+    }    
 </style>
