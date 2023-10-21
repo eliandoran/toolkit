@@ -6,7 +6,10 @@
     let inputSchemaParsingLog = "";
 
     const ajv = new Ajv();
+    
+    let parsedJson;
     let compiledSchema;
+    let isValid;
 
     function onJsonInputChanged(e) {
         const inputJsonText = e.target.value;
@@ -14,10 +17,12 @@
         // Parse input JSON
         try {
             inputJsonParsingLog = "";
-            const inputJson = JSON.parse(inputJsonText);
+            parsedJson = JSON.parse(inputJsonText);
         } catch (e) {
             inputJsonParsingLog = e.message;
         }
+
+        validate();
     }
 
     function onJsonSchemaChanged(e) {
@@ -31,6 +36,16 @@
         } catch (e) {
             inputSchemaParsingLog = e.message;
         }
+
+        validate();
+    }    
+
+    function validate() {
+        if (!parsedJson || !compiledSchema) {
+            return;
+        }
+
+        isValid = compiledSchema(parsedJson);
     }
 </script>
 
@@ -50,12 +65,16 @@
         <div>
             {inputSchemaParsingLog}
         </div>
-    </div>
-
+    </div>    
 </TwoColumnView>
 
 <div class="output">
     
+    {#if isValid === true}
+        <p>✅ The JSON is valid against the schema.</p>
+    {:else if isValid === false}
+        <p>❌ The JSON is not valid against the schema.</p>
+    {/if}
 </div>
 
 <style>
