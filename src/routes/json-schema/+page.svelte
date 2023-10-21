@@ -121,6 +121,7 @@
 
 <style>
     .textarea-wrapper {
+        position: relative;
         flex-grow: 1;
     }
 
