@@ -17,7 +17,7 @@
     }
 </script>
 
-<Tool title="JSON Formatter/Minifier">
+<Tool title="JSON Formatter/Minifier" hasPadding={false}>
     <div class="toolbar" slot="header-left">
         <TextFilePicker bind:textFile={text} />
     </div>
@@ -72,8 +72,9 @@
     }
 
     .main-container > aside {
-        padding-left: 1em;
+        padding: 1em;
         min-width: 200px;
+        border-left: 1px solid var(--border-color);
     }
 
     .main-container > aside nav {
