@@ -27,7 +27,10 @@
 </script>
 
 <Tool title="ANSI text" hasPadding={false}>
-    <input type="file" class="hidden" bind:this={fileInput} on:change={onFileSelected} />
+    <input type="file"
+        class="hidden"
+        bind:this={fileInput}
+        on:change={onFileSelected} />
 
     <div class="toolbar" slot="header-left">
         <a href="#" on:click={openFile}>Open</a>
