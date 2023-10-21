@@ -2,6 +2,9 @@
 	import TwoColumnView from "$lib/components/two-column-view.svelte";
     import Ajv from "ajv";
 
+    let inputJsonText;
+    let schemaText;
+
     let inputJsonParsingLog = "";
     let inputSchemaParsingLog = "";
     let validationErrors = [];
@@ -12,9 +15,8 @@
     let compiledSchema;
     let isValid;
 
-    function onJsonInputChanged(e) {
-        const inputJsonText = e.target.value;
-
+    // On input JSON changed.
+    $: {
         // Parse input JSON
         try {
             inputJsonParsingLog = "";
@@ -26,9 +28,8 @@
         validate();
     }
 
-    function onJsonSchemaChanged(e) {
-        const schemaText = e.target.value;
-
+    // On schema changed.
+    $: {
         // Parse schema
         try {
             inputSchemaParsingLog = "";
@@ -37,9 +38,9 @@
         } catch (e) {
             inputSchemaParsingLog = e.message;
         }
-
+    
         validate();
-    }    
+    }
 
     function validate() {
         if (!parsedJson || !compiledSchema) {
@@ -48,13 +49,13 @@
 
         isValid = compiledSchema(parsedJson);
         validationErrors = compiledSchema.errors;
-    }
+    }        
 </script>
 
 <TwoColumnView leftTitle="Input JSON" rightTitle="JSON schema">
 
     <div slot="left">
-        <textarea on:input={onJsonInputChanged}></textarea>
+        <textarea bind:value={inputJsonText}></textarea>
 
         <div>
             {inputJsonParsingLog}
@@ -62,7 +63,7 @@
     </div>
 
     <div slot="right">
-        <textarea on:input={onJsonSchemaChanged}></textarea>
+        <textarea bind:value={schemaText}></textarea>
 
         <div>
             {inputSchemaParsingLog}
