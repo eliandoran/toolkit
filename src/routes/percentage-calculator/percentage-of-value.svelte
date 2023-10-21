@@ -1,17 +1,19 @@
 <script>
+
+    let firstValue;
     let percentage;
-    let value;
-    let result;
+    let secondValue;
 
     $: {
-        if (percentage && value) {
-            result = (percentage / 100) * value;
-        } else {
-            result = "";
+        if (firstValue && secondValue) {
+            percentage = (firstValue / secondValue) * 100;
         }
     }
+
 </script>
 
-<input type="number" bind:value={percentage} />% of
-<input type="number" bind:value={value} /> is
-<input type="text" bind:value={result} disabled />
+<input type="number" bind:value={firstValue} />
+is
+<input type="text" bind:value={percentage} disabled />%
+of
+<input type="number" bind:value={secondValue} />
