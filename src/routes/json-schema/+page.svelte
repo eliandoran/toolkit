@@ -68,7 +68,9 @@
             <TextFilePicker bind:textFile={inputJsonText} />
         </div>
 
-        <textarea bind:value={inputJsonText}></textarea>    
+        <div class="textarea-wrapper">
+            <textarea bind:value={inputJsonText}></textarea>    
+        </div>
         <WarningBox message="{inputJsonParsingLog}" />
     </StackView>
 
@@ -77,7 +79,9 @@
             <TextFilePicker bind:textFile={schemaText} />
         </div>
 
-        <textarea bind:value={schemaText}></textarea>
+        <div class="textarea-wrapper">
+            <textarea bind:value={schemaText}></textarea>
+        </div>
         <WarningBox message="{inputSchemaParsingLog}" />        
     </StackView>
 
@@ -99,8 +103,12 @@
 </Tool>
 
 <style>
+    .textarea-wrapper {
+        flex-grow: 1;
+    }
+
     textarea {
         width: 100%;
-        height: 25vh;
+        height: 100%;
     }
 </style>

@@ -26,7 +26,10 @@
 
 <style>
     .inner-wrapper {
+        position: relative;
         max-height: none;
+        display: flex;
+        flex-direction: column;
     }
 
     .inner-wrapper.collapsed {
