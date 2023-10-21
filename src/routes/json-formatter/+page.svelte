@@ -62,6 +62,15 @@
         height: 100%;
     }
 
+    :global(.codemirror-wrapper) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        font-size: 0.9em;
+    }
+
     :global(.codemirror-wrapper),
     :global(.cm-editor) {
         height: 100%;
@@ -69,6 +78,9 @@
 
     .main-container > main {
         flex-grow: 1;
+        min-height: 0;
+        height: 100%;
+        position: relative;
     }
 
     .main-container > aside {
