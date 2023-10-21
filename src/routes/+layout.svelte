@@ -69,6 +69,7 @@
         --background-color: #fafafa;
         --header-background-color: #ebebeb;
         --content-background-color: #ffffff;
+        --warning-background-color: #ffd486;
         --text-color: #323232;
 
         color: var(--text-color);

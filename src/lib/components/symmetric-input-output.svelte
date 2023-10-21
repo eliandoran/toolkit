@@ -1,5 +1,6 @@
 <script>
 	import TwoColumnView from "./two-column-view.svelte";
+	import WarningBox from "./warning-box.svelte";
 
     export let fromTitle = "Input";
     export let toTitle = "Output";
@@ -49,7 +50,8 @@
             on:input={inputChanged}
             autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
             value={inputText}></textarea>
-        <section class="log">{inputLog}</section>
+        
+        <WarningBox message="{inputLog}" />
     </div>
 
     <div slot="right">
@@ -57,7 +59,8 @@
             on:input={outputChanged}
             autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
             value={outputText}></textarea>
-        <section class="log">{outputLog}</section>
+        
+        <WarningBox message={outputLog} />
     </div>
 </TwoColumnView>
 

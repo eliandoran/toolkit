@@ -1,5 +1,6 @@
 <script>
 	import TwoColumnView from "$lib/components/two-column-view.svelte";
+	import WarningBox from "$lib/components/warning-box.svelte";
     import Ajv from "ajv";
 
     let inputJsonText;
@@ -56,18 +57,12 @@
 
     <div slot="left">
         <textarea bind:value={inputJsonText}></textarea>
-
-        <div>
-            {inputJsonParsingLog}
-        </div>
+        <WarningBox message="{inputJsonParsingLog}" />
     </div>
 
     <div slot="right">
         <textarea bind:value={schemaText}></textarea>
-
-        <div>
-            {inputSchemaParsingLog}
-        </div>
+        <WarningBox message="{inputSchemaParsingLog}" />
     </div>    
 </TwoColumnView>
 
