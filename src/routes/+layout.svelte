@@ -11,6 +11,11 @@
         },
 
         {
+            path: "/json-converter",
+            title: "JSON<->YAML converter"
+        },
+
+        {
             path: "/base64",
             title: "Base64 Encoder/Decoder"
         },
