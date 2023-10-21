@@ -1,4 +1,6 @@
 <script>
+	import { page } from "$app/stores";
+
     const tools = [
         {
             path: "/unix-timestamp",
@@ -48,7 +50,8 @@
                 <ul>
                     {#each tools as tool}
                     <li>
-                        <a href="{tool.path}">{tool.title}</a>
+                        <a href="{tool.path}"
+                            class:active="{tool.path === $page.url.pathname}">{tool.title}</a>
                     </li>
                     {/each}
                 </ul>
@@ -88,7 +91,7 @@
         font-size: 0.9em;
     }
 
-    aside ul li a.selected {
+    aside ul li a.active {
         color: var(--highlight-color);
     }
     
