@@ -1,16 +1,12 @@
 <script>
-    import CryptoES from "crypto-es";
-
 	import InputField from "$lib/components/input-field.svelte";
     import Tool from "$lib/components/tool.svelte";
 	import TwoColumnView from "$lib/components/two-column-view.svelte";
+	import { page } from "$app/stores";
 
     let inputText = "Hello, world.";
-    let md5Hash = "";
 
-    $: {
-        md5Hash = CryptoES.enc.Hex.stringify(CryptoES.MD5(inputText));
-    }
+    const { hashOperations } = $page.data;
 </script>
 
 <Tool title="Text hash">
@@ -23,9 +19,11 @@
         </div>
 
         <div slot="right">
-            <InputField label="MD5">
-                <input type="text" value={md5Hash} disabled />
+            {#each hashOperations as operation }
+            <InputField label="{operation.label}">
+                <input type="text" value="{operation.run(inputText)}" disabled />
             </InputField>
+            {/each}
         </div>
     </TwoColumnView>
 
