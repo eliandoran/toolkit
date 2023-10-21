@@ -9,20 +9,30 @@
     let ansiText = "";    
 </script>
 
-<Tool title="ANSI text">
-    <InputField label="ANSI Text">
-        <textarea bind:value={ansiText} />            
-    </InputField>
-
-    <InputField label="Preview" />
-    <div class="preview">
-        {@html converter.toHtml(ansiText)}
+<Tool title="ANSI text" hasPadding={false}>
+    <div class="container">
+        <div class="input">
+            <textarea bind:value={ansiText} />            
+        </div>
+    
+        <div class="preview">
+            {@html converter.toHtml(ansiText)}
+        </div>
     </div>
 </Tool>
 
 <style>
     textarea {
-        min-height: 30vh;
+        flex-basis: 150px;
+        box-sizing: border-box;
+        border: 0;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
     }
 
     .preview {
@@ -35,5 +45,6 @@
         -webkit-font-smoothing: none;
         background: black;
         white-space: pre;
+        flex-grow: 1;        
     }
 </style>

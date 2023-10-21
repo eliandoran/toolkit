@@ -1,5 +1,7 @@
 <script>
     export let title = "Toolkit";
+
+    export let hasPadding = true;
 </script>
 
 <div class="outer-wrapper">
@@ -7,7 +9,7 @@
         <h2>{title}</h2>
     </header>
 
-    <div class="inner-wrapper">
+    <div class="inner-wrapper" class:padding={hasPadding}>
         <slot />
     </div>
 
@@ -26,9 +28,12 @@
     }
 
     .inner-wrapper {
-        padding: 2em;
         overflow: auto;        
         flex-grow: 1;
+    }
+    
+    .inner-wrapper.padding {
+        padding: 2em;
     }
 
     footer {
