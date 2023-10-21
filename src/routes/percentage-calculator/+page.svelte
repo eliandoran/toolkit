@@ -1,5 +1,6 @@
 <script>
 	import Tool from "$lib/components/tool.svelte";
+	import PercentageDifference from "./percentage-difference.svelte";
 	import PercentageOfValue from "./percentage-of-value.svelte";
 	import ValueFromPercentage from "./value-from-percentage.svelte";
 </script>
@@ -7,11 +8,15 @@
 <Tool>
 
     <section>
-        <h3>Value from percentage</h3>
         <ValueFromPercentage />
+    </section>
 
-        <h3>Percentage of a value</h3>
+    <section>
         <PercentageOfValue />
+    </section>
+
+    <section>
+        <PercentageDifference />
     </section>
 
     <span slot="footer">
@@ -19,3 +24,11 @@
     </span>
 
 </Tool>
+
+<style>
+
+    section {
+        margin: 1em 0;
+    }
+
+</style>
