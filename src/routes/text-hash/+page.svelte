@@ -3,6 +3,7 @@
     import Tool from "$lib/components/tool.svelte";
 	import TwoColumnView from "$lib/components/two-column-view.svelte";
 	import { page } from "$app/stores";
+	import TextFilePicker from "$lib/components/text-file-picker.svelte";
 
     let inputText = "Hello, world.";
 
@@ -10,6 +11,10 @@
 </script>
 
 <Tool title="Text hash">
+
+    <div class="toolbar" slot="header-left">
+        <TextFilePicker bind:textFile={inputText} />
+    </div>
 
     <TwoColumnView>
         <div slot="left">
