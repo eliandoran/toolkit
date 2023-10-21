@@ -75,6 +75,11 @@
         padding: 0 2rem;
     }
 
+    .inner-wrapper {
+        padding: 2em;
+        overflow: auto;
+    }    
+
     aside {        
         border-bottom: 1px solid var(--border-color);        
     }
@@ -85,14 +90,29 @@
         padding: 0;
     }    
 
+    aside ul li {
+        margin: 1px 0;
+    }
+
     aside ul li a {
         text-decoration: none;
         color: inherit;
         font-size: 0.9em;
+        padding: 0.5em 1em;
+        display: block;
+        border-radius: 6px;        
+    }
+
+    aside ul li a:hover {
+        background-color: rgba(0, 0, 0, 0.05);
     }
 
     aside ul li a.active {
-        color: var(--highlight-color);
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    aside .inner-wrapper {
+        padding: 0.5em;
     }
     
     .page-wrapper {
@@ -123,12 +143,6 @@
     .main-content {        
         flex-grow: 1;
     }
-
-    .inner-wrapper {
-        padding: 2em;
-        overflow: auto;
-    }    
-
 
     header {
         border-bottom: 1px solid var(--border-color);        
