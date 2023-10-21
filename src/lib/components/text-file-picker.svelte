@@ -2,7 +2,7 @@
 	import { createEventDispatcher } from "svelte";
     const dispatch = createEventDispatcher();
 
-    export let encoding;
+    export let encoding = undefined;
     export let textFile = "";
 
     let fileInput;

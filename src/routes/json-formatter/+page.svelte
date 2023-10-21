@@ -1,4 +1,5 @@
 <script>
+	import TextFilePicker from "$lib/components/text-file-picker.svelte";
 	import Tool from "$lib/components/tool.svelte";
 
     let text = "";
@@ -13,8 +14,11 @@
 </script>
 
 <Tool title="JSON Formatter/Minifier">
-    <div class="main-container">
+    <div class="toolbar" slot="header-left">
+        <TextFilePicker bind:textFile={text} />
+    </div>
 
+    <div class="main-container">
         <main>
             <textarea bind:value={text}></textarea> 
         </main>
