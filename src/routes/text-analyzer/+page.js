@@ -2,20 +2,16 @@ export function load() {
 
     return {
         textOperations: [
-            sortAscending()
+            {
+                label: "Sort lines in ascending order",
+                run: (text) => text.split("\n").sort().join("\n")
+            },
+
+            {
+                label: "Sort lines in descending order",
+                run: (text) => text.split("\n").sort().reverse().join("\n")
+            }
         ]
     }
 
-}
-
-function sortAscending() {
-    return {
-        label: "Sort lines in ascending order",
-        run: (text) => {
-            return text
-                .split("\n")
-                .sort()
-                .join("\n");
-        }
-    }
 }
