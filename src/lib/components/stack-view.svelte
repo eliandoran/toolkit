@@ -1,5 +1,6 @@
 <script>
     export let title;
+    export let hasPadding = true;
 </script>
 
 <header class="app-header">
@@ -8,4 +9,16 @@
     <slot name="header-right" />
 </header>
 
-<slot />
+<div class="inner-wrapper" class:padding={hasPadding}>
+    <slot />
+</div>
+
+<style>
+    .inner-wrapper {
+        height: 100%;
+    }
+
+    .inner-wrapper.padding {
+        padding: 1em;
+    }
+</style>
