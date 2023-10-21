@@ -21,7 +21,10 @@
         // Parse input JSON
         try {
             inputJsonParsingLog = "";
-            parsedJson = JSON.parse(inputJsonText);
+
+            if (inputJsonText) {
+                parsedJson = JSON.parse(inputJsonText);
+            }
         } catch (e) {
             inputJsonParsingLog = e.message;
         }
@@ -34,8 +37,11 @@
         // Parse schema
         try {
             inputSchemaParsingLog = "";
-            const schemaJson = JSON.parse(schemaText);     
-            compiledSchema = ajv.compile(schemaJson);
+
+            if (schemaText) {
+                const schemaJson = JSON.parse(schemaText);     
+                compiledSchema = ajv.compile(schemaJson);
+            }
         } catch (e) {
             inputSchemaParsingLog = e.message;
         }
