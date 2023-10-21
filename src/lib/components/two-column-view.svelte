@@ -25,8 +25,10 @@
     @media (min-width: 920px) {
         .left,
         .right {
-            flex-grow: 1;
-            margin: 1em;        
+            width: 50%;
+            flex-grow: 0;
+            flex-shrink: 0;
+            padding: 1em;
             box-sizing: border-box;        
         }        
 
