@@ -91,7 +91,7 @@
     }
 
     aside {        
-        border-bottom: 1px solid var(--border-color);
+        border-bottom: 1px solid var(--border-color);        
     }
 
     aside ul {
@@ -127,9 +127,11 @@
         }
 
         aside {
-            width: 250px;
             border-bottom: 0;
             border-right: 1px solid var(--border-color);
+            flex-grow: 0;
+            flex-shrink: 0;
+            flex-basis: 250px;
         }
     }
 
