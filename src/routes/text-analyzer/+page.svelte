@@ -1,6 +1,8 @@
 <script>
 	import InputField from "$lib/components/input-field.svelte";
 
+    import { page } from "$app/stores";
+
     let text = "";
     let numLines;
     let numWords;
@@ -23,11 +25,29 @@
 
         return text.split("\n").length;
     }
+
+    function onOperationSelected(operation) {
+        text = operation.run(text) || "";
+    }
 </script>
 
-<InputField label="Input text">
-    <textarea bind:value={text}></textarea>    
-</InputField>
+<div class="main-container">
+    <main>
+        <textarea bind:value={text}></textarea>    
+    </main>
+
+    <aside>
+        <nav>
+            <ul>
+                {#each $page.data.textOperations as operation}
+                <li>
+                    <a href="#" on:click={() => onOperationSelected(operation)}>{operation.label}</a>
+                </li>
+                {/each}
+            </ul>
+        </nav>
+    </aside>
+</div>
 
 <div class="stats">
     <span>{numLines} line(s)</span>
@@ -44,5 +64,23 @@
     .stats > span {
         margin-right: 2em;        
         font-size: 0.9em;        
+    }
+
+    .main-container {
+        display: flex;
+    }
+
+    .main-container > main {
+        flex-grow: 1;
+    }
+
+    .main-container > aside {
+        padding-left: 1em;
+    }
+
+    .main-container > aside nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
     }
 </style>
