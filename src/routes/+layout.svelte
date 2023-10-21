@@ -28,6 +28,11 @@
         },
 
         {
+            path: "/html-escape",
+            title: "HTML Escape/Unescape"
+        },
+
+        {
             path: "/text-analyzer",
             title: "Text analyzer"
         },
