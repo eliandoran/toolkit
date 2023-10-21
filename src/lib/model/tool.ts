@@ -1,3 +1,5 @@
+import type { ComponentType, SvelteComponent } from "svelte";
+
 export interface ToolConfiguration {
 
     /** A name identifying this tool, displayed to the user in the navigation and in the titles. */
@@ -12,6 +14,8 @@ export interface ToolConfiguration {
     /** Controls whether spellcheck should be enabled in the input/output box (disabled by default). */
     // TODO: Unused
     allowSpellChecking?: boolean;
+
+    component: ComponentType;
 
 }
 

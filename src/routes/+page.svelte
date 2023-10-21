@@ -158,22 +158,26 @@
     </header>        
 
     <div class="inner-wrapper">
-        <section class="input">
-            <h3>{ tool.config.fromTitle || "Input" }</h3>
-            <textarea
-                on:input={inputChanged}
-                autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
-                value={inputText}></textarea>
-            <section class="log">{inputLog}</section>
-        </section>
-    
-        <section class="output">
-            <h3>{ tool.config.toTitle || "Output" }</h3>
-            <textarea
-                on:input={outputChanged}
-                autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
-                value={outputText}></textarea>
-            <section class="log">{outputLog}</section>
-        </section>        
+        {#if tool.config.component}
+            <svelte:component this={tool.config.component} />
+        {:else}
+            <section class="input">
+                <h3>{ tool.config.fromTitle || "Input" }</h3>
+                <textarea
+                    on:input={inputChanged}
+                    autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+                    value={inputText}></textarea>
+                <section class="log">{inputLog}</section>
+            </section>
+        
+            <section class="output">
+                <h3>{ tool.config.toTitle || "Output" }</h3>
+                <textarea
+                    on:input={outputChanged}
+                    autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+                    value={outputText}></textarea>
+                <section class="log">{outputLog}</section>
+            </section>
+        {/if}
     </div>
 </div>
