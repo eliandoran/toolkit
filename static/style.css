@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "perfect_dos_vga_437";
+    src: url("./fonts/perfect_dos_vga_437/Perfect\ DOS\ VGA\ 437.ttf");
+}
+
 :root {
     --highlight-color: orange;
     --border-color: #cfcfcf;

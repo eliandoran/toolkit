@@ -38,6 +38,11 @@
         },
 
         {
+            path: "/ansi-text",
+            title: "ANSI text"
+        },
+
+        {
             path: "/json-schema",
             title: "JSON Schema Validator"
         }
