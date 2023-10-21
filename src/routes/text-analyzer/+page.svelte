@@ -1,6 +1,4 @@
 <script>
-	import InputField from "$lib/components/input-field.svelte";
-
     import { page } from "$app/stores";
 
     let text = "";
@@ -33,7 +31,13 @@
 
 <div class="main-container">
     <main>
-        <textarea bind:value={text}></textarea>    
+        <textarea bind:value={text}></textarea>   
+        
+        <div class="stats">
+            <span><strong>{numLines}</strong> line(s)</span>
+            <span><strong>{numWords}</strong> word(s)</span>
+            <span><strong>{numCharacters}</strong> character(s)</span>
+        </div>
     </main>
 
     <aside>
@@ -49,21 +53,30 @@
     </aside>
 </div>
 
-<div class="stats">
-    <span>{numLines} line(s)</span>
-    <span>{numWords} word(s)</span>
-    <span>{numCharacters} character(s)</span>
-</div>
-
 <style>
     textarea {
         width: 100%;
         min-height: 70vh;
     }
 
+    .stats {
+        display: flex;
+        margin-top: 0.5em;
+    }
+
     .stats > span {
         margin-right: 2em;        
-        font-size: 0.9em;        
+        font-size: 0.8em;
+        flex-grow: 1;       
+    }
+
+    .stats span:nth-of-type(2) {
+        text-align: center;
+    }
+    
+    .stats span:nth-of-type(3) {
+        text-align: right;
+        margin-right: 0;
     }
 
     .main-container {
