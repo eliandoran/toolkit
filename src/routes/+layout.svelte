@@ -38,6 +38,11 @@
         },
 
         {
+            path: "/text-hash",
+            title: "Text hash"
+        },
+
+        {
             path: "/ansi-text",
             title: "ANSI text"
         },
