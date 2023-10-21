@@ -15,6 +15,10 @@
         height: 100%;
     }
 
+    .outer-wrapper :global(header.app-header:first-of-type) {
+        border-top: unset !important;
+    }
+
     .inner-wrapper {
         overflow: auto;        
         flex-grow: 1;

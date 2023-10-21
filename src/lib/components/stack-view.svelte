@@ -12,7 +12,9 @@
     }
 </script>
 
-<header class="app-header" class:compact={isCompact}>
+<header class="app-header"
+    class:compact={isCompact}
+    class:collapsed={!isExpanded}>
     <slot name="header-left" />
     <h2>{title}</h2>
     <slot name="header-right" />
@@ -29,6 +31,16 @@
 </div>
 
 <style>
+    header {
+        border: 0;
+        border-top: 1px solid var(--border-color);
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    header.collapsed:not(:last-of-type) {
+        border-bottom: 0 !important;
+    }
+
     .inner-wrapper {
         position: relative;
         max-height: none;
@@ -39,6 +51,7 @@
     .inner-wrapper.collapsed {
         max-height: 0;
         overflow: hidden;
+        box-sizing: border-box;
     }
 
     .inner-wrapper.padding {
