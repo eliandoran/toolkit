@@ -22,6 +22,10 @@
                     <li>
                         <a href="/url-encoder">URL Encoder/Decoder</a>
                     </li>
+
+                    <li>
+                        <a href="/text-analyzer">Text analyzer</a>
+                    </li>
                 </ul>
             </nav>
         </div>
