@@ -50,9 +50,13 @@
         </main>
 
         <aside>
+            <h3>Validation</h3>
             {#if validationErrors}
-            <h3>Validation errors</h3>
             <WarningBox message={validationErrors} />
+            {:else}
+            <section>
+                The JSON is valid.
+            </section>
             {/if}
 
             <h3>Format/indent</h3>
