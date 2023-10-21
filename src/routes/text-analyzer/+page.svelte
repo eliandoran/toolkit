@@ -83,4 +83,10 @@
         margin: 0;
         padding: 0;
     }
+
+    .main-container > aside nav a {
+        text-decoration: none;
+        color: inherit;
+        font-size: 0.9em;
+    }
 </style>
