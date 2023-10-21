@@ -17,4 +17,4 @@ Percentage increase from
 to
 <input type="number" bind:value={secondNumber} />
 is
-<input type="text" bind:value={percentage} disabled />%
+<input type="text" class="percentage" bind:value={percentage} disabled />%

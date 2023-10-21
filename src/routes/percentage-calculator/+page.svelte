@@ -5,7 +5,7 @@
 	import ValueFromPercentage from "./value-from-percentage.svelte";
 </script>
 
-<Tool>
+<Tool title="Percentage calculator">
 
     <section>
         <ValueFromPercentage />
@@ -29,6 +29,14 @@
 
     section {
         margin: 1em 0;
+    }
+
+    :global(input) {
+        width: 150px;
+    }
+
+    :global(input.percentage) {
+        width: 50px;
     }
 
 </style>

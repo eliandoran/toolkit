@@ -12,6 +12,6 @@
     }
 </script>
 
-<input type="number" bind:value={percentage} />% of
+<input type="number" class="percentage" bind:value={percentage} />% of
 <input type="number" bind:value={value} /> is
 <input type="text" bind:value={result} disabled />

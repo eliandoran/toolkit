@@ -80,6 +80,12 @@ textarea {
     border-radius: 0;
 }
 
+input {
+    background-color: var(--content-background-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
 .nav ul {
     list-style-type: none;
     margin: 0;

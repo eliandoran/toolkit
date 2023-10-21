@@ -14,6 +14,6 @@
 
 <input type="number" bind:value={firstValue} />
 is
-<input type="text" bind:value={percentage} disabled />%
+<input type="text" class="percentage" bind:value={percentage} disabled />%
 of
 <input type="number" bind:value={secondValue} />
