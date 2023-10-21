@@ -20,10 +20,17 @@
             <textarea bind:value={ansiText} />            
         </div>
     
-        <div class="preview">
-            {@html converter.toHtml(ansiText)}
+        <div class="preview-wrapper">
+            <div class="preview">
+                {@html converter.toHtml(ansiText)}
+            </div>
         </div>
     </div>
+
+    <span slot="footer">
+        Uses the <a href="https://www.npmjs.com/package/ansi-to-html">ansi-to-html</a> library.
+        Font is <a href="https://www.dafont.com/perfect-dos-vga-437.font">Perfect DOS VGA 437</a>.
+    </span>
 </Tool>
 
 <style>    
@@ -51,16 +58,22 @@
         -webkit-font-smoothing: none;
     }
 
-    .preview {
+    .preview-wrapper {
+        background: black;
         max-width: 100%;
+        flex-grow: 1;    
         overflow: scroll;
         height: 30vh;
+    }
+
+    .preview {
+        position: relative;
         background: black;
         color: #aaa;
         padding: 10px;
         white-space: pre;
-        flex-grow: 1;    
         font-size: 12pt;
         line-height: 1;
+        z-index: 1000;
     }
 </style>
