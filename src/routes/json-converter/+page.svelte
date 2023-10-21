@@ -1,5 +1,6 @@
 <script>
 	import SymmetricInputOutput from "$lib/components/symmetric-input-output.svelte";
+	import Tool from "$lib/components/tool.svelte";
     import YAML from "yaml";
 
     function to(input) {
@@ -13,7 +14,9 @@
     }
 </script>
 
-<SymmetricInputOutput
-    fromTitle="JSON"
-    toTitle="YAML"
-    {to} {from} />
+<Tool title="JSON<->YAML converter">
+    <SymmetricInputOutput
+        fromTitle="JSON"
+        toTitle="YAML"
+        {to} {from} />
+</Tool>

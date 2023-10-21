@@ -21,6 +21,24 @@
     }
 }
 
+header {
+    border-bottom: 1px solid var(--border-color);        
+    padding: 1em;
+    text-align: center;
+    background: var(--header-background-color);        
+}
+
+header h2 {
+    padding: 0;
+    margin: 0;
+    font-size: 12pt;
+}
+
+h2 {
+    font-size: 14pt;
+    font-weight: 400;
+}    
+
 .full-width {
     width: 100%;
 }

@@ -1,5 +1,6 @@
 <script>
     import { page } from "$app/stores";
+	import Tool from "$lib/components/tool.svelte";
 
     let text = "";
     let numLines;
@@ -29,29 +30,31 @@
     }
 </script>
 
-<div class="main-container">
-    <main>
-        <textarea bind:value={text}></textarea>   
-        
-        <div class="stats">
-            <span><strong>{numLines}</strong> line(s)</span>
-            <span><strong>{numWords}</strong> word(s)</span>
-            <span><strong>{numCharacters}</strong> character(s)</span>
-        </div>
-    </main>
+<Tool title="Text analyzer">
+    <div class="main-container">
+        <main>
+            <textarea bind:value={text}></textarea>   
+            
+            <div class="stats">
+                <span><strong>{numLines}</strong> line(s)</span>
+                <span><strong>{numWords}</strong> word(s)</span>
+                <span><strong>{numCharacters}</strong> character(s)</span>
+            </div>
+        </main>
 
-    <aside>
-        <nav class="nav">
-            <ul>
-                {#each $page.data.textOperations as operation}
-                <li>
-                    <a href="#" on:click={() => onOperationSelected(operation)}>{operation.label}</a>
-                </li>
-                {/each}
-            </ul>
-        </nav>
-    </aside>
-</div>
+        <aside>
+            <nav class="nav">
+                <ul>
+                    {#each $page.data.textOperations as operation}
+                    <li>
+                        <a href="#" on:click={() => onOperationSelected(operation)}>{operation.label}</a>
+                    </li>
+                    {/each}
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</Tool>
 
 <style>
     textarea {

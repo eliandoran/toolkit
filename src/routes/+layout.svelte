@@ -65,13 +65,7 @@
     </aside>
 
     <div class="main-content">
-        <header>        
-            <h2>Toolkit</h2>
-        </header>
-
-        <div class="inner-wrapper">
-            <slot />
-        </div>
+        <slot />
     </div>
 </div>
 
@@ -83,11 +77,6 @@
 
     main {
         padding: 0 2rem;
-    }
-
-    .inner-wrapper {
-        padding: 2em;
-        overflow: auto;
     }    
 
     aside {        
@@ -126,23 +115,5 @@
 
     .main-content {        
         flex-grow: 1;
-    }
-
-    header {
-        border-bottom: 1px solid var(--border-color);        
-        padding: 1em;
-        text-align: center;
-        background: var(--header-background-color);        
-    }
-
-    header h2 {
-        padding: 0;
-        margin: 0;
-        font-size: 12pt;
-    }
-
-    h2 {
-        font-size: 14pt;
-        font-weight: 400;
     }    
 </style>

@@ -1,5 +1,6 @@
 <script>
 	import InputField from "$lib/components/input-field.svelte";
+	import Tool from "$lib/components/tool.svelte";
     import TwoColumnView from "$lib/components/two-column-view.svelte";
 
     let inputDate;
@@ -52,35 +53,37 @@
     setInput(defaultValue);
 </script>
 
-<TwoColumnView>
-    <div slot="left">
-        <InputField label="Date">
-            <input type="date" bind:value={inputDate} />
-        </InputField>
-
-        <div class="time-fields">
-            <InputField label="Hours">
-                <input type="number" bind:value={hours} min="0" max="23" />
+<Tool title="Unix timestamp">
+    <TwoColumnView>
+        <div slot="left">
+            <InputField label="Date">
+                <input type="date" bind:value={inputDate} />
             </InputField>
 
-            <InputField label="Minutes">
-                <input type="number" bind:value={minutes} min="0" max="59" />
-            </InputField>
+            <div class="time-fields">
+                <InputField label="Hours">
+                    <input type="number" bind:value={hours} min="0" max="23" />
+                </InputField>
 
-            <InputField label="Seconds">
-                <input type="number" bind:value={seconds} min="0" max="59" />
+                <InputField label="Minutes">
+                    <input type="number" bind:value={minutes} min="0" max="59" />
+                </InputField>
+
+                <InputField label="Seconds">
+                    <input type="number" bind:value={seconds} min="0" max="59" />
+                </InputField>
+            </div>
+        </div>
+
+        <div slot="right">
+            <InputField label="Unix timestamp (milliseconds)">
+                <input type="number"
+                    value={outputTimestampMillis}
+                    on:input={onOutputChanged} />
             </InputField>
         </div>
-    </div>
-
-    <div slot="right">
-        <InputField label="Unix timestamp (milliseconds)">
-            <input type="number"
-                value={outputTimestampMillis}
-                on:input={onOutputChanged} />
-        </InputField>
-    </div>
-</TwoColumnView>
+    </TwoColumnView>
+</Tool>
 
 <style>
     .time-fields {
