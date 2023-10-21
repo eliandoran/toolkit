@@ -6,15 +6,19 @@
 <div class="two-columns">
     <section class="left">
         <header class="app-header">
+            <slot name="header-left-left"></slot>
             <h2>{leftTitle}</h2>
+            <slot name="header-left-right"></slot>
         </header>
         
         <slot name="left" />
     </section>
     
-    <section class="right">
+    <section class="right">        
         <header class="app-header">
+            <slot name="header-right-left"></slot>
             <h2>{rightTitle}</h2>
+            <slot name="header-right-right"></slot>
         </header>
 
         <slot name="right" />

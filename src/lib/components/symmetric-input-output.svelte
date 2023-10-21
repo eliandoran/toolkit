@@ -1,4 +1,5 @@
 <script>
+	import TextFilePicker from "./text-file-picker.svelte";
 	import TwoColumnView from "./two-column-view.svelte";
 	import WarningBox from "./warning-box.svelte";
 
@@ -32,33 +33,40 @@
     }
 
     function inputChanged(e) {
-        const value = e.target.value;
         outputLog = "";
-        ({ output: outputText, log: inputLog } = handleErrors(to, value));
+        ({ output: outputText, log: inputLog } = handleErrors(to, inputText));
     }
 
     function outputChanged(e) {
-        const value = e.target.value;
         inputLog = "";
-        ({ output: inputText, log: outputLog } = handleErrors(from, value));
+        ({ output: inputText, log: outputLog } = handleErrors(from, outputText));
     }
+
+    $: inputChanged(inputText);
+    $: outputChanged(outputText);
 </script>
 
 <TwoColumnView leftTitle={fromTitle} rightTitle={toTitle}>
+    <div class="toolbar" slot="header-left-left">
+        <TextFilePicker bind:textFile={inputText} />
+    </div>
+
     <div slot="left">
         <textarea
-            on:input={inputChanged}
             autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
-            value={inputText}></textarea>
+            bind:value={inputText}></textarea>
         
         <WarningBox message="{inputLog}" />
     </div>
 
+    <div class="toolbar" slot="header-right-left">
+        <TextFilePicker bind:textFile={outputText} />
+    </div>
+
     <div slot="right">
         <textarea
-            on:input={outputChanged}
             autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
-            value={outputText}></textarea>
+            bind:value={outputText}></textarea>
         
         <WarningBox message={outputLog} />
     </div>
