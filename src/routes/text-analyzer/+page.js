@@ -20,6 +20,15 @@ export function load() {
             {
                 label: "Trim lines",
                 run: (text) => text.split("\n").map((line) => line.trim()).join("\n")
+            },
+
+            {
+                label: "Remove trailing whitespace",
+                run: (text) =>
+                    text.split("\n")
+                        .map((line) => line.trimEnd())
+                        .join("\n")
+                        .trimEnd()
             }
         ]
     }
