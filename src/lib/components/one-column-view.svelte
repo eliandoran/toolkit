@@ -16,6 +16,16 @@
 </div>
 
 <style>
+    .one-column {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .inner-wrapper {
+        height: 100%;
+    }
+
     .inner-wrapper.padding {
         padding: 1em;
     }
