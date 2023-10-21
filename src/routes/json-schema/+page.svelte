@@ -1,8 +1,6 @@
 <script>
-	import InputField from "$lib/components/input-field.svelte";
-	import OneColumnView from "$lib/components/one-column-view.svelte";
+	import StackView from "$lib/components/stack-view.svelte";
     import Tool from "$lib/components/tool.svelte";
-    import TwoColumnView from "$lib/components/two-column-view.svelte";
 	import WarningBox from "$lib/components/warning-box.svelte";
     import Ajv from "ajv";
 
@@ -63,17 +61,17 @@
 </script>
 
 <Tool>
-    <OneColumnView title="JSON Schema Validator">
-        <InputField label="Input JSON">
-            <textarea bind:value={inputJsonText}></textarea>    
-            <WarningBox message="{inputJsonParsingLog}" />
-        </InputField>
-    
-        <InputField label="JSON schema">
-            <textarea bind:value={schemaText}></textarea>
-            <WarningBox message="{inputSchemaParsingLog}" />        
-        </InputField>
-    
+    <StackView title="JSON">
+        <textarea bind:value={inputJsonText}></textarea>    
+        <WarningBox message="{inputJsonParsingLog}" />
+    </StackView>
+
+    <StackView title="JSON Schema">
+        <textarea bind:value={schemaText}></textarea>
+        <WarningBox message="{inputSchemaParsingLog}" />        
+    </StackView>
+
+    <StackView title="Validation">
         <div class="output">
             {#if isValid === true}
                 <p>✅ The JSON is valid against the schema.</p>
@@ -104,8 +102,7 @@
                 </table>
             {/if}
         </div>
-
-    </OneColumnView>
+    </StackView>
 
     <span slot="footer">
         Uses the <a href="https://www.npmjs.com/package/ajv">ajv</a> library.
