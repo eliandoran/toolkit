@@ -50,7 +50,7 @@
         background: black;
         white-space: pre;
         flex-grow: 1;    
-        font-size: 11pt;
+        font-size: 12pt;
         line-height: 1;
     }
 </style>
