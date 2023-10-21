@@ -85,12 +85,14 @@
         <WarningBox message="{inputSchemaParsingLog}" />        
     </StackView>
 
-    <StackView title="Validation">
+    <StackView title="Validation" isCollapsible={false} height="auto">
         <div class="output">
             {#if isValid === true}
                 <p>✅ The JSON is valid against the schema.</p>
             {:else if isValid === false}
                 <p>❌ The JSON is not valid against the schema.</p>
+            {:else}
+                <p>Waiting for JSON and schema.</p>
             {/if}
     
             <ValidationTable {validationErrors} />
@@ -110,5 +112,9 @@
     textarea {
         width: 100%;
         height: 100%;
+    }
+
+    .output p {
+        margin: 0.5em;
     }
 </style>

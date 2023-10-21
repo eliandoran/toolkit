@@ -2,6 +2,7 @@
     export let title;
     export let height = "100%";
     export let hasPadding = true;
+    export let isCollapsible = true;
 
     let isExpanded = true;    
 
@@ -14,7 +15,9 @@
     <slot name="header-left" />
     <h2>{title}</h2>
     <slot name="header-right" />
-    <a href="#" on:click={toggleCollapse}>{ isExpanded ? "Collapse" : "Expand" }</a>
+    {#if isCollapsible}
+        <a href="#" on:click={toggleCollapse}>{ isExpanded ? "Collapse" : "Expand" }</a>
+    {/if}
 </header>
 
 <div class="inner-wrapper"
