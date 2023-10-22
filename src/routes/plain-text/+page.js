@@ -1,36 +1,29 @@
-import { BxSortAZ, BxSortZA, BxShuffle, BxSync, BxSpaceBar } from "svelte-boxicons";
-
 export function load() {
 
     return {
         textOperations: [
             {
                 label: "Sort lines in ascending order",
-                icon: BxSortAZ,
                 run: (text) => text.split("\n").sort().join("\n")
             },
 
             {
                 label: "Sort lines in descending order",
-                icon: BxSortZA,
                 run: (text) => text.split("\n").sort().reverse().join("\n")
             },
 
             {
                 label: "Shuffle lines",
-                icon: BxShuffle,
                 run: (text) => shuffleArray(text.split("\n")).join("\n")
             },
 
             {
                 label: "Reverse lines",
-                icon: BxSync,
                 run: (text) => text.split("\n").reverse().join("\n")
             },
 
             {
                 label: "Trim lines",
-                icon: BxSpaceBar,
                 run: (text) => text.split("\n").map((line) => line.trim()).join("\n")
             },
 

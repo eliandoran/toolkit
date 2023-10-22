@@ -22,7 +22,6 @@
 		"prettier": "^2.8.0",
 		"prettier-plugin-svelte": "^2.10.1",
 		"svelte": "^4.0.5",
-		"svelte-boxicons": "^0.3.6",
 		"vite": "^4.4.2",
 		"vitest": "^0.32.2"
 	},
@@ -35,6 +34,7 @@
 		"crypto-es": "^2.0.4",
 		"he": "^1.2.0",
 		"svelte-codemirror-editor": "^1.1.0",
+		"svelte-material-icons": "^3.0.5",
 		"yaml": "^2.3.3"
 	}
 }

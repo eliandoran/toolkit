@@ -1,23 +1,33 @@
-import { BxCalculator, BxColor, BxFile, BxHash, BxLink, BxListCheck, BxTimer, BxsFileExport, BxsFileJson } from "svelte-boxicons";
+import Ampersand from "svelte-material-icons/Ampersand.svelte";
+import ClockOutline from "svelte-material-icons/ClockOutline.svelte";
+import CodeJson from "svelte-material-icons/CodeJson.svelte";
+import Equal from "svelte-material-icons/Equal.svelte";
+import FileArrowLeftRightOutline from "svelte-material-icons/FileArrowLeftRightOutline.svelte";
+import FileCheckOutline from "svelte-material-icons/FileCheckOutline.svelte";
+import FileDocumentEditOutline from "svelte-material-icons/FileDocumentEditOutline.svelte";
+import FileEyeOutline from "svelte-material-icons/FileEyeOutline.svelte";
+import PercentBoxOutline from "svelte-material-icons/PercentBoxOutline.svelte";
+import PercentOutline from "svelte-material-icons/PercentOutline.svelte";
+import Pound from "svelte-material-icons/Pound.svelte";
 
 export default {
     "Plain text": [
         {
             path: "/plain-text",
             title: "Text tools",
-            icon: BxFile
+            icon: FileDocumentEditOutline
         },
     
         {
             path: "/text-hash",
             title: "Text hash",
-            icon: BxHash
+            icon: Pound
         },
     
         {
             path: "/ansi-text",
             title: "ANSI text viewer",
-            icon: BxColor
+            icon: FileEyeOutline
         }
     ],
 
@@ -25,7 +35,7 @@ export default {
         {
             path: "/percentage-calculator",
             title: "Percentage calculator",
-            icon: BxCalculator
+            icon: PercentBoxOutline
         }
     ],
 
@@ -33,7 +43,7 @@ export default {
         {
             path: "/unix-timestamp",
             title: "Unix timestamp",
-            icon: BxTimer
+            icon: ClockOutline
         }
     ],
 
@@ -41,33 +51,35 @@ export default {
         {
             path: "/json-formatter",
             title: "JSON formatter",
-            icon: BxsFileJson
+            icon: CodeJson
         },
         {
             path: "/json-converter",
             title: "JSON to YAML",
-            icon: BxsFileExport
+            icon: FileArrowLeftRightOutline
         },
         {
             path: "/json-schema",
             title: "JSON Schema Validator",
-            icon: BxListCheck
+            icon: FileCheckOutline
         }
     ],
 
     "Encode/Decode": [
         {
             path: "/base64",
-            title: "Base64"
+            title: "Base64",
+            icon: Equal
         },
         {
             path: "/url-encoder",
             title: "URL Encode",
-            icon: BxLink
+            icon: PercentOutline
         },
         {
             path: "/html-entity",
-            title: "HTML Entity"
+            title: "HTML Entity",
+            icon: Ampersand
         }
     ]    
 };
