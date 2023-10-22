@@ -3,7 +3,7 @@
     import OneColumnView from "$lib/components/one-column-view.svelte";
     import Tool from "$lib/components/tool.svelte";
 	import { onMount } from "svelte";
-	import generateKeyCheckExpression from "./keycheck-generator";
+	import { generateKeyCheckExpression, getFriendlyKeyName } from "./keycheck-generator";
 
     let event;
 
@@ -30,6 +30,8 @@
 <Tool>
     <OneColumnView title="JavaScript Keycode">        
         {#if event}
+            <h2>{getFriendlyKeyName(event)}</h2>
+
             <div class="columns">                        
                 <div class="column">
                     <Card title="code">
@@ -94,6 +96,14 @@
 </Tool>
 
 <style>
+    h2 {
+        font-size: 4em;
+        text-align: center;
+        margin: 1em;
+        padding: 0;
+        font-weight: 100;
+    }
+
     .columns {
         display: flex;
         column-gap: 1em;

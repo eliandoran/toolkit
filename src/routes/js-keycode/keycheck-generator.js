@@ -5,7 +5,7 @@ const allCommandKeys = [
     "ShiftLeft", "ShiftRight",
 ];
 
-export default function generateKeyCheckExpression(e) {
+export function generateKeyCheckExpression(e) {
     const lines = [];
     const isMeta = (e.ctrlKey || e.altKey || e.metaKey);
     const isSingleCommandKey = (allCommandKeys.includes(e.code));
@@ -26,12 +26,23 @@ export default function generateKeyCheckExpression(e) {
     return lines.join("\n");
 }
 
+function getMetaNames(e) {
+    const meta = [];
+    if (e.ctrlKey) meta.push("Ctrl");
+    if (e.altKey) meta.push("Alt");
+    if (e.metaName) meta.push("Meta");
+    return meta;
+}
+
+export function getFriendlyKeyName(e) {
+    return [
+        ...getMetaNames(e),
+        e.key
+    ].join(" + ");
+}
+
 function getMetaKeyVariableName(e) {
-    const names = [];
-    if (e.ctrlKey) names.push("Ctrl");
-    if (e.altKey) names.push("Alt");
-    if (e.metaKey) names.push("Meta");
-    return names.join("");
+    return getMetaNames(e).join("");
 }
 
 function getMetaKeyCheckExpression(e) {
