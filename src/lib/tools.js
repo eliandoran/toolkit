@@ -12,7 +12,7 @@ export default {
     
         {
             path: "/ansi-text",
-            title: "ANSI text"
+            title: "ANSI text viewer"
         }
     ],
 
@@ -33,11 +33,11 @@ export default {
     "JSON": [
         {
             path: "/json-formatter",
-            title: "JSON Formatter/Minifier"
+            title: "JSON formatter"
         },
         {
             path: "/json-converter",
-            title: "JSON<->YAML converter"
+            title: "JSON to YAML"
         },
         {
             path: "/json-schema",
@@ -48,15 +48,15 @@ export default {
     "Encode/Decode": [
         {
             path: "/base64",
-            title: "Base64 Encoder/Decoder"
+            title: "Base64"
         },
         {
             path: "/url-encoder",
-            title: "URL Encoder/Decoder"
+            title: "URL Encode"
         },
         {
             path: "/html-entity",
-            title: "HTML Entity Encode/Decode"
+            title: "HTML Entity"
         }
     ]    
 };
