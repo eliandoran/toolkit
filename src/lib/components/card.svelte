@@ -1,12 +1,13 @@
 <script>
     export let title = undefined;
+    export let thin = false;
 </script>
 
 {#if title}
 <h3>{title}</h3>
 {/if}
 
-<section>
+<section class:thin={thin}>
     <slot />
 </section>
 
@@ -27,4 +28,8 @@
         margin-top: 0.25em;        
         border: 1px solid var(--border-color);
     }    
+
+    section.thin {
+        padding: 0.75em;
+    }
 </style>

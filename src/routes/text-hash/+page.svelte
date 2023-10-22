@@ -4,6 +4,7 @@
 	import TwoColumnView from "$lib/components/two-column-view.svelte";
 	import { page } from "$app/stores";
 	import TextFilePicker from "$lib/components/text-file-picker.svelte";
+	import Card from "../../lib/components/card.svelte";
 
     let inputText = "Hello, world.";
 
@@ -22,25 +23,27 @@
 
         <div slot="right">
             {#each hashOperations as operation }
-            <InputField label="{operation.label}">
-                <input type="text" value="{operation.run(inputText)}" disabled />
-            </InputField>
+            <Card title="{operation.label}" thin>
+                <div class="hash">{operation.run(inputText)}</div>
+            </Card>
             {/each}
         </div>
-    </TwoColumnView>
-
-    <style>
-        textarea {
-            height: 60vh;
-        }
-
-        input {
-            width: 100%;
-        }
-    </style>
+    </TwoColumnView>    
 
     <span slot="footer">
         Uses the <a href="https://github.com/entronad/crypto-es">crypto-es</a> library.
     </span>
 
 </Tool>
+
+<style>
+    textarea {
+        height: 60vh;
+    }
+
+    .hash {
+        font-size: 1em;
+        word-break: break-all;
+        font-family: monospace;
+    }
+</style>
