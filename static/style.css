@@ -105,6 +105,10 @@ input {
     border: 1px solid var(--border-color);
 }
 
+input:disabled {
+    background-color: var(--header-background-color);
+}
+
 .nav ul {
     list-style-type: none;
     margin: 0;
