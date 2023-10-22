@@ -26,23 +26,29 @@ export function generateKeyCheckExpression(e) {
     return lines.join("\n");
 }
 
-function getMetaNames(e) {
+export function getFriendlyKeyName(e) {
+    const keys = [];
+
+    if (e.ctrlKey) keys.push("Control");
+    if (e.altKey) keys.push("Alt");
+    if (e.metaKey) keys.push("Meta");
+    if (e.shiftKey) keys.push("Shift");
+
+    if (e.code.startsWith("Key")) {
+        keys.push(e.key)
+    } else if (keys[keys.length - 1] != e.key) {
+        keys.push(e.code);
+    }
+
+    return keys.join(" + ");
+}
+
+function getMetaKeyVariableName(e) {
     const meta = [];
     if (e.ctrlKey) meta.push("Ctrl");
     if (e.altKey) meta.push("Alt");
     if (e.metaName) meta.push("Meta");
-    return meta;
-}
-
-export function getFriendlyKeyName(e) {
-    return [
-        ...getMetaNames(e),
-        e.key
-    ].join(" + ");
-}
-
-function getMetaKeyVariableName(e) {
-    return getMetaNames(e).join("");
+    return meta.join("");
 }
 
 function getMetaKeyCheckExpression(e) {
