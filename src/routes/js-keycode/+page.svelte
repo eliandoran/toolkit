@@ -32,12 +32,6 @@
         {#if event}
             <div class="columns">        
                 <div class="column">
-                    <Card title="charCode">
-                        <span class="big-value">{event.charCode}</span>
-                    </Card>
-                </div>
-        
-                <div class="column">
                     <Card title="keyCode">
                         <span class="big-value">{event.keyCode}</span>
                     </Card>
