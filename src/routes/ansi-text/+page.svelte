@@ -48,7 +48,7 @@
 
     textarea,
     .preview {
-        font-family: "perfect_dos_vga_437", Terminal, monospace;
+        font-family: var(--font-dos);
         font-smooth: never;
         -webkit-font-smoothing: none;
     }

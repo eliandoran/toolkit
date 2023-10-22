@@ -49,6 +49,6 @@
     .hash {
         font-size: 1em;
         word-break: break-all;
-        font-family: monospace;
+        font-family: var(--font-monospace);
     }
 </style>
