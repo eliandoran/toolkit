@@ -29,14 +29,14 @@ export function generateKeyCheckExpression(e) {
 export function getFriendlyKeyName(e) {
     const keys = [];
 
-    if (e.ctrlKey) keys.push("Control");
-    if (e.altKey) keys.push("Alt");
-    if (e.metaKey) keys.push("Meta");
-    if (e.shiftKey) keys.push("Shift");
+    if (e.ctrlKey && e.key !== "Control") keys.push("Control");
+    if (e.altKey && e.key !== "Alt") keys.push("Alt");
+    if (e.metaKey && e.key !== "Meta") keys.push("Meta");
+    if (e.shiftKey && e.key !== "Shift") keys.push("Shift");
 
     if (e.code.startsWith("Key")) {
         keys.push(e.key)
-    } else if (keys[keys.length - 1] != e.key) {
+    } else {
         keys.push(e.code);
     }
 
