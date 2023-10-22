@@ -7,7 +7,7 @@
 <h3>{title}</h3>
 {/if}
 
-<section class:thin={thin}>
+<section class:thin={thin} class:with-title={title}>
     <slot />
 </section>
 
@@ -24,10 +24,13 @@
         background: var(--content-background-color);
         padding: 1.5em;
         border-radius: 12px;
-        margin: 1.5em 0;
-        margin-top: 0.25em;        
+        margin: 1.5em 0;        
         border: 1px solid var(--border-color);
     }    
+
+    section.with-title {
+        margin-top: 0em;
+    }
 
     section.thin {
         padding: 0.75em;
