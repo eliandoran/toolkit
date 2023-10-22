@@ -2,12 +2,14 @@
     import InputField from "$lib/components/input-field.svelte";
     import Tool from "$lib/components/tool.svelte";
 	import TwoColumnView from "$lib/components/two-column-view.svelte";
-	import { applyBitwiseOperation, arrayToString, makeSameLength, stringToArray } from "./bitwise";
+	import { getCommonBitwiseOperations, makeSameLength, stringToArray } from "./bitwise.js";
 
     let firstNumber = 1001;
     let secondNumber = 1;
 
-    let orResult;    
+    let orResult;
+    let andResult;
+    let xorResult;
 
     $: {
         if (firstNumber && secondNumber) {
@@ -15,7 +17,7 @@
                 const firstNumberArray = stringToArray(firstNumber);
                 const secondNumberArray = stringToArray(secondNumber);
                 makeSameLength(firstNumberArray, secondNumberArray);
-                orResult = arrayToString(applyBitwiseOperation(firstNumberArray, secondNumberArray));
+                ({ orResult, andResult, xorResult } = getCommonBitwiseOperations(firstNumberArray, secondNumberArray));
 
                 console.log("Result", applyBitwiseOperation(firstNumberArray, secondNumberArray));
             } catch (e) {
@@ -40,6 +42,14 @@
         <div slot="right">
             <InputField label="OR">
                 <input type="text" class="binary-input" bind:value={orResult} />
+            </InputField>
+
+            <InputField label="AND">
+                <input type="text" class="binary-input" bind:value={andResult} />
+            </InputField>
+
+            <InputField label="XOR">
+                <input type="text" class="binary-input" bind:value={xorResult} />
             </InputField>
         </div>
     </TwoColumnView>

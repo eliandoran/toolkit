@@ -15,7 +15,7 @@ export function stringToArray(inputText) {
     return binaryArray;
 }
 
-export function arrayToString(inputArray) {
+function arrayToString(inputArray) {
     return inputArray.map((el) => el ? "1" : "0").join("");
 }
 
@@ -41,10 +41,18 @@ export function makeSameLength(firstNumberArray, secondNumberArray) {
     }        
 }
 
-export function applyBitwiseOperation(firstNumberArray, secondNumberArray) {
+function applyBitwiseOperation(firstNumberArray, secondNumberArray, operation) {
     const result = [];
     for (let i=0; i < firstNumberArray.length; i++) {
-        result[i] = firstNumberArray[i] || secondNumberArray[i];
+        result[i] = operation(firstNumberArray[i], secondNumberArray[i]);
     }
-    return result;
+    return arrayToString(result);
+}
+
+export function getCommonBitwiseOperations(firstNumberArray, secondNumberArray) {
+    return {
+        orResult: applyBitwiseOperation(firstNumberArray, secondNumberArray, (a, b) => a || b),
+        andResult: applyBitwiseOperation(firstNumberArray, secondNumberArray, (a, b) => a && b),
+        xorResult: applyBitwiseOperation(firstNumberArray, secondNumberArray, (a, b) => a ^ b)
+    };
 }
