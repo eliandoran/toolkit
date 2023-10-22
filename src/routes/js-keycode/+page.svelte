@@ -30,10 +30,10 @@
 <Tool>
     <OneColumnView title="JavaScript Keycode">        
         {#if event}
-            <div class="columns">        
+            <div class="columns">                        
                 <div class="column">
-                    <Card title="keyCode">
-                        <span class="big-value">{event.keyCode}</span>
+                    <Card title="code">
+                        <span class="big-value">{event.code}</span>
                     </Card>
                 </div>
 
@@ -41,10 +41,22 @@
                     <Card title="key">
                         <span class="big-value">{event.key}</span>
                     </Card>
-                </div>                
+                </div>
             </div>
 
             <div class="columns">
+                <div class="column">
+                    <Card title="keyCode">
+                        <span class="big-value">{event.keyCode}</span>
+                    </Card>
+                </div>     
+
+                <div class="location">
+                    <Card title="location">
+                        <span class="big-value">{event.location}</span>
+                    </Card>
+                </div>
+
                 <div class="column">
                     <Card title="Meta keys">
                         <label class="meta-key">
@@ -67,19 +79,7 @@
                             metaKey
                         </label>
                     </Card>
-                </div>
-
-                <div class="column">
-                    <Card title="code">
-                        <span class="big-value">{event.code}</span>
-                    </Card>
-                </div>
-
-                <div class="location">
-                    <Card title="location">
-                        <span class="big-value">{event.location}</span>
-                    </Card>
-                </div>
+                </div>                                
             </div>
 
             <Card title="Sample JavaScript code">
