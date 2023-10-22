@@ -4,16 +4,10 @@
     import Tool from "$lib/components/tool.svelte";
 	import { onMount } from "svelte";
 
-    let pressed = false;
-    let key;
-    let charCode;
-    let keyCode;
-    let code;
-    let location;
+    let event;
 
     function onKeypress(e) {
-        ({ key, charCode, keyCode, code, location } = e);
-        pressed = true;
+        event = e;
         console.log(e);
 
         e.preventDefault();
@@ -34,23 +28,23 @@
 
 <Tool>
     <OneColumnView title="JavaScript Keycode">        
-        {#if pressed}
+        {#if event}
             <div class="columns">        
                 <div class="column">
                     <Card title="charCode">
-                        <span class="big-value">{charCode}</span>
+                        <span class="big-value">{event.charCode}</span>
                     </Card>
                 </div>
         
                 <div class="column">
                     <Card title="keyCode">
-                        <span class="big-value">{keyCode}</span>
+                        <span class="big-value">{event.keyCode}</span>
                     </Card>
                 </div>
 
                 <div class="column">
                     <Card title="key">
-                        <span class="big-value">{key}</span>
+                        <span class="big-value">{event.key}</span>
                     </Card>
                 </div>                
             </div>
@@ -58,13 +52,13 @@
             <div class="columns">
                 <div class="column">
                     <Card title="code">
-                        <span class="big-value">{code}</span>
+                        <span class="big-value">{event.code}</span>
                     </Card>
                 </div>
 
                 <div class="location">
                     <Card title="location">
-                        <span class="big-value">{location}</span>
+                        <span class="big-value">{event.location}</span>
                     </Card>
                 </div>
             </div>
