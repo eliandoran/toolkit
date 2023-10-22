@@ -161,6 +161,12 @@ input:disabled {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
+.codemirror-outer-wrapper {
+    position: relative;
+    flex-grow: 1;
+    height: 100%;
+}
+
 .codemirror-wrapper {
     position: absolute;
     top: 0;

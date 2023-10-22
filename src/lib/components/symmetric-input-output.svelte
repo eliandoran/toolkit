@@ -59,11 +59,13 @@
 
     <div slot="left">
         {#if useCodeMirror}
-            <CodeMirror                
-                value={inputText}
-                lang={leftLang}
-                theme={$theme}
-                on:change={inputChanged} />
+            <div class="codemirror-outer-wrapper">
+                <CodeMirror                
+                    value={inputText}
+                    lang={leftLang}
+                    theme={$theme}
+                    on:change={inputChanged} />
+            </div>
         {:else}
             <textarea
                 value={inputText}                
@@ -80,10 +82,12 @@
 
     <div slot="right">
         {#if useCodeMirror}
-            <CodeMirror
-                value={outputText}                
-                theme={$theme}
-                on:change={outputChanged} />
+            <div class="codemirror-outer-wrapper">
+                <CodeMirror
+                    value={outputText}                
+                    theme={$theme}
+                    on:change={outputChanged} />
+            </div>
         {:else}
             <textarea
                 value={outputText}    
