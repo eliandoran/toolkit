@@ -7,6 +7,7 @@
 	import Tool from "$lib/components/tool.svelte";
 	import WarningBox from "$lib/components/warning-box.svelte";
 	import SidebarView from "$lib/components/sidebar-view.svelte";
+	import Card from "../../lib/components/card.svelte";
 
     let text = "";
     let validationErrors;
@@ -49,29 +50,28 @@
             theme={oneDark} />
 
         <aside slot="sidebar">
-            {#if validationErrors}
-            <h3>Validation errors</h3>
-            <WarningBox message={validationErrors} />
-            {:else}
-            <h3>Validation</h3>
-            <section>                
-                The JSON is valid.
-            </section>
+            <Card title="Validation" thin>
+                {#if validationErrors}
+                    <WarningBox message={validationErrors} />
+                {:else}
+                    The JSON is valid.
+                {/if}
+            </Card>
 
-            <h3>Format/indent</h3>
-            <section>
+            {#if !validationErrors}
+            <Card title="Format/indent" thin>
                 <nav class="nav">
                     <ul>
                         <li>
                             <a href="#" on:click={format}>Prettify</a>
                         </li>
-
+    
                         <li>
                             <a href="#" on:click={minify}>Minify</a>
                         </li>
                     </ul>
                 </nav>
-            </section>
+            </Card>
             {/if}
         </aside>
     </SidebarView>

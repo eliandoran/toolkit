@@ -11,7 +11,7 @@
 <style>
     .box {
         background-color: var(--warning-background-color);
-        margin: 1em 0;
+        margin: 0;
         padding: 0.5em;
         font-size: 0.9em;
         border-radius: 4px;
