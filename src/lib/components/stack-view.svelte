@@ -1,4 +1,9 @@
 <script>
+    import HeaderButton from "$lib/components/header-button.svelte";
+    import Icon from "$lib/components/icon.svelte";
+    import ChevronUp from "svelte-material-icons/ChevronUp.svelte"
+    import ChevronDown from "svelte-material-icons/ChevronDown.svelte"
+
     export let title;
     export let height = "100%";
     export let hasPadding = true;
@@ -18,7 +23,9 @@
     <h2>{title}</h2>
     <slot name="header-right" />
     {#if isCollapsible}
-        <a href="#" on:click={toggleCollapse}>{ isExpanded ? "Collapse" : "Expand" }</a>
+        <HeaderButton on:click={toggleCollapse}>
+            <Icon icon={ isExpanded ? ChevronUp : ChevronDown } />
+        </HeaderButton>
     {/if}
 </header>
 
