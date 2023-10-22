@@ -2,6 +2,7 @@
 	import InputField from "$lib/components/input-field.svelte";
 	import Tool from "$lib/components/tool.svelte";
     import TwoColumnView from "$lib/components/two-column-view.svelte";
+	import Card from "../../lib/components/card.svelte";
 
     let inputDate;
     let hours = 0;
@@ -56,31 +57,35 @@
 <Tool>
     <TwoColumnView leftTitle="Date & time" rightTitle="Timestamp">
         <div slot="left">
-            <InputField label="Date">
-                <input type="date" bind:value={inputDate} />
-            </InputField>
-
-            <div class="time-fields">
-                <InputField label="Hours">
-                    <input type="number" bind:value={hours} min="0" max="23" />
+            <Card>
+                <InputField label="Date">
+                    <input type="date" bind:value={inputDate} />
                 </InputField>
-
-                <InputField label="Minutes">
-                    <input type="number" bind:value={minutes} min="0" max="59" />
-                </InputField>
-
-                <InputField label="Seconds">
-                    <input type="number" bind:value={seconds} min="0" max="59" />
-                </InputField>
-            </div>
+    
+                <div class="time-fields">
+                    <InputField label="Hours">
+                        <input type="number" bind:value={hours} min="0" max="23" />
+                    </InputField>
+    
+                    <InputField label="Minutes">
+                        <input type="number" bind:value={minutes} min="0" max="59" />
+                    </InputField>
+    
+                    <InputField label="Seconds">
+                        <input type="number" bind:value={seconds} min="0" max="59" />
+                    </InputField>
+                </div>
+            </Card>
         </div>
 
         <div slot="right">
-            <InputField label="Unix timestamp (milliseconds)">
-                <input type="number"
-                    value={outputTimestampMillis}
-                    on:input={onOutputChanged} />
-            </InputField>
+            <Card>
+                <InputField label="Unix timestamp (milliseconds)">
+                    <input type="number"
+                        value={outputTimestampMillis}
+                        on:input={onOutputChanged} />
+                </InputField>
+            </Card>
         </div>
     </TwoColumnView>
 </Tool>
