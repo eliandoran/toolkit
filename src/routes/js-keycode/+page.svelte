@@ -1,5 +1,6 @@
 <script>
 	import Card from "$lib/components/card.svelte";
+	import InputField from "$lib/components/input-field.svelte";
     import OneColumnView from "$lib/components/one-column-view.svelte";
     import Tool from "$lib/components/tool.svelte";
 	import { onMount } from "svelte";
@@ -51,6 +52,30 @@
 
             <div class="columns">
                 <div class="column">
+                    <Card title="Meta keys">
+                        <label class="meta-key">
+                            <input type="checkbox" checked={event.ctrlKey}>
+                            ctrlKey
+                        </label>
+
+                        <label class="meta-key">
+                            <input type="checkbox" checked={event.altKey}>
+                            altKey
+                        </label>
+
+                        <label class="meta-key">
+                            <input type="checkbox" checked={event.shiftKey}>
+                            shiftKey
+                        </label>
+
+                        <label class="meta-key">
+                            <input type="checkbox" checked={event.metaKey}>
+                            metaKey
+                        </label>
+                    </Card>
+                </div>
+
+                <div class="column">
                     <Card title="code">
                         <span class="big-value">{event.code}</span>
                     </Card>
@@ -87,5 +112,9 @@
         font-weight: 100;
         line-height: 1em;
         min-height: 1em;
+    }
+
+    .meta-key {
+        display: block;
     }
 </style>
