@@ -9,6 +9,7 @@ import FileEyeOutline from "svelte-material-icons/FileEyeOutline.svelte";
 import PercentBoxOutline from "svelte-material-icons/PercentBoxOutline.svelte";
 import PercentOutline from "svelte-material-icons/PercentOutline.svelte";
 import Pound from "svelte-material-icons/Pound.svelte";
+import SlashForward from "svelte-material-icons/SlashForward.svelte";
 
 export default {
     "Plain text": [
@@ -80,6 +81,11 @@ export default {
             path: "/html-entity",
             title: "HTML Entity",
             icon: Ampersand
+        },
+        {
+            path: "/string-escape",
+            title: "String escape",
+            icon: SlashForward
         }
     ]    
 };
