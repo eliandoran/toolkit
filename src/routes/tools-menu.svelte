@@ -20,7 +20,7 @@
                                     icon={tool.icon}
                                     flipHorizontal={tool.iconFlipHorizontally} />
                             {/if}
-                            {tool.title}
+                            <span class="title">{tool.title}</span>
                         </a>
                     </li>
                 {/each}

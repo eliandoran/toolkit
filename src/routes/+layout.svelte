@@ -1,8 +1,13 @@
 <script>
 	import ToolsMenu from "./tools-menu.svelte";
+    import HeaderButton from "$lib/components/header-button.svelte";
+    import Menu from "svelte-material-icons/Menu.svelte";
 
     import tools from "$lib/tools.js";
     import { page } from "$app/stores";    
+	import Icon from "../lib/components/icon.svelte";
+
+    let menuCollapsed = false;
 
     function getTitle(currentPath) {
         const currentTool = getCurrentTool(currentPath);
@@ -34,13 +39,16 @@
 
 <div class="page-wrapper">
     {#if $page.url.pathname !== "/"}
-        <aside>
+        <aside class:collapsed={menuCollapsed}>
             <header>
+                <HeaderButton on:click={() => menuCollapsed = !menuCollapsed}>
+                    <Icon icon={Menu} />
+                </HeaderButton>
                 <h2>Tool</h2>
             </header>
 
             <div class="inner-wrapper">
-                <ToolsMenu {tools} currentPath={$page.url.pathname} />
+                <ToolsMenu {tools} currentPath={$page.url.pathname} />                
             </div>
         </aside>
     {/if}
@@ -65,6 +73,39 @@
 
     aside .inner-wrapper {
         padding: 0.5em;
+    }
+
+    .collapsed {
+        max-width: 48px;
+    }
+
+    .collapsed h2,
+    .collapsed :global(h3),
+    .collapsed :global(.title) {
+        display: none;
+    }
+
+    .collapsed :global(section) {
+        margin: 0;
+    }
+
+    .collapsed :global(nav a) {
+        width: 32px;
+        height: 32px;
+        position: relative;
+        padding: 0;
+    }
+
+    .collapsed :global(.icon) {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);        
+    }
+
+    .collapsed .inner-wrapper {
+        overflow: hidden;
+        box-sizing: border-box;
     }
     
     .page-wrapper {

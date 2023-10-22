@@ -69,6 +69,9 @@ header {
     align-items: center;
     font-size: 0.9em;
     font-weight: bold;
+    line-height: 24px;
+    height: 54px;
+    box-sizing: border-box;
 }
 
 header.compact {
