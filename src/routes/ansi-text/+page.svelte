@@ -6,22 +6,29 @@
 
     let converter = new AnsiConvert();
     let ansiText = "";    
+    
     let inputExpanded = true;
+    let previewExpanded = true;
+    
+    function onFileSelected() {
+        inputExpanded = false;
+        previewExpanded = true;
+    }
 </script>
 
 <Tool>
-    <StackView title="ANSI Text" hasPadding={false} isExpanded={inputExpanded}>
+    <StackView title="ANSI Text" hasPadding={false} bind:isExpanded={inputExpanded}>
         <div class="toolbar" slot="header-left">
             <TextFilePicker 
                 bind:textFile={ansiText}
-                on:selected={() => inputExpanded = false}
+                on:selected={onFileSelected}
                 encoding="ascii"
             />
         </div>
         <textarea bind:value={ansiText} />            
     </StackView>
 
-    <StackView title="ANSI Preview" hasPadding={false}>    
+    <StackView title="ANSI Preview" hasPadding={false} bind:isExpanded={previewExpanded}>    
         <div class="preview-wrapper">
             <div class="preview">
                 {@html converter.toHtml(ansiText)}
