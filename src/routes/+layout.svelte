@@ -38,8 +38,8 @@
         },
 
         {
-            path: "/text-analyzer",
-            title: "Text analyzer"
+            path: "/plain-text",
+            title: "Text tools"
         },
 
         {

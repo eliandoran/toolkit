@@ -33,7 +33,7 @@
 </script>
 
 <Tool>
-    <SidebarView title="Text analyzer">
+    <SidebarView title="Text tools">
         <div class="toolbar" slot="header-left">
             <TextFilePicker bind:textFile={text} />
         </div>
