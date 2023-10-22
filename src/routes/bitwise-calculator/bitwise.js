@@ -49,6 +49,16 @@ function applyBitwiseOperation(firstNumberArray, secondNumberArray, operation) {
     return arrayToString(result);
 }
 
+export function applyBitshiftOperation(number, shiftBy) {
+    const numberArray = stringToArray(number);
+    
+    for (let i=0; i<shiftBy; i++) {
+        numberArray.push(0);
+    }
+
+    return arrayToString(numberArray);
+}
+
 export function getCommonBitwiseOperations(firstNumberArray, secondNumberArray) {
     return {
         orResult: applyBitwiseOperation(firstNumberArray, secondNumberArray, (a, b) => a || b),
