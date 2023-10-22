@@ -1,5 +1,4 @@
 <script>
-	import InputField from "$lib/components/input-field.svelte";
     import Tool from "$lib/components/tool.svelte";
 	import TwoColumnView from "$lib/components/two-column-view.svelte";
 	import { page } from "$app/stores";
@@ -37,8 +36,14 @@
 </Tool>
 
 <style>
+    div[slot="left"] {
+        flex-grow: 1;
+        height: 100%;
+    }
+
     textarea {
-        height: 60vh;
+        width: 100%;
+        height: 100%;
     }
 
     .hash {
