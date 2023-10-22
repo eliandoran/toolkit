@@ -23,6 +23,7 @@
     --content-background-color: #ffffff;
     --warning-background-color: #ffd486;
     --text-color: #323232;
+    --icon-color: #6e6e6e;
 
     --font-body: "Nunito", sans-serif;
     --font-dos: "perfect_dos_vga_437", Terminal, monospace;
@@ -170,4 +171,8 @@ input:disabled {
 
 .cm-scroller {
     font-family: var(--font-monospace) !important;
+}
+
+svg[role=img] {
+    fill: var(--icon-color);
 }

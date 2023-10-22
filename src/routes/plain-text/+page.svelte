@@ -3,6 +3,7 @@
 	import SidebarView from "$lib/components/sidebar-view.svelte";
 	import TextFilePicker from "$lib/components/text-file-picker.svelte";
 	import Tool from "$lib/components/tool.svelte";
+	import Icon from "../../lib/components/icon.svelte";
 
     let text = "";
     let numLines;
@@ -54,7 +55,15 @@
                     <ul>
                         {#each $page.data.textOperations as operation}
                         <li>
-                            <a href="#" on:click={() => onOperationSelected(operation)}>{operation.label}</a>
+                            <a href="#" on:click={() => onOperationSelected(operation)}>
+                                <span class="icon">
+                                    {#if operation.icon}
+                                        <Icon icon={operation.icon} />
+                                    {/if}
+                                </span>
+
+                                {operation.label}
+                            </a>
                         </li>
                         {/each}
                     </ul>
@@ -92,5 +101,19 @@
     .stats span:nth-of-type(3) {
         text-align: right;
         margin-right: 0;
+    }
+
+    .nav a {
+        padding-left: 40px;
+        position: relative;
+    }
+
+    .nav .icon {
+        position: absolute;
+        top: 50%;
+        left: 8px;
+        width: 24px;
+        height: 24px;
+        transform: translateY(-50%);
     }
 </style>
