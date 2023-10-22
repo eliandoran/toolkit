@@ -12,7 +12,7 @@
     }
 </script>
 
-<Tool title="PHP Serialization/Deserialization">
+<Tool>
     <SymmetricInputOutput
         fromTitle="JSON"
         toTitle="PHP Serialized Format"
