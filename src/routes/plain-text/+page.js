@@ -1,25 +1,36 @@
+import SortAlphabeticalAscending from "svelte-material-icons/SortAlphabeticalAscending.svelte";
+import SortAlphabeticalDescending from "svelte-material-icons/SortAlphabeticalDescending.svelte";
+import Shuffle from "svelte-material-icons/Shuffle.svelte";
+import SwapVertical from "svelte-material-icons/SwapVertical.svelte";
+import FormatLetterCaseUpper from "svelte-material-icons/FormatLetterCaseUpper.svelte";
+import FormatLetterCaseLower from "svelte-material-icons/FormatLetterCaseLower.svelte";
+
 export function load() {
 
     return {
         textOperations: [
             {
                 label: "Sort lines in ascending order",
-                run: (text) => text.split("\n").sort().join("\n")
+                run: (text) => text.split("\n").sort().join("\n"),
+                icon: SortAlphabeticalAscending
             },
 
             {
                 label: "Sort lines in descending order",
-                run: (text) => text.split("\n").sort().reverse().join("\n")
+                run: (text) => text.split("\n").sort().reverse().join("\n"),
+                icon: SortAlphabeticalDescending
             },
 
             {
                 label: "Shuffle lines",
-                run: (text) => shuffleArray(text.split("\n")).join("\n")
+                run: (text) => shuffleArray(text.split("\n")).join("\n"),
+                icon: Shuffle
             },
 
             {
                 label: "Reverse lines",
-                run: (text) => text.split("\n").reverse().join("\n")
+                run: (text) => text.split("\n").reverse().join("\n"),
+                icon: SwapVertical
             },
 
             {
@@ -44,12 +55,14 @@ export function load() {
 
             {
                 label: "To upper case",
-                run: (text) => text.toUpperCase()
+                run: (text) => text.toUpperCase(),
+                icon: FormatLetterCaseUpper
             },
 
             {
                 label: "To lower case",
-                run: (text) => text.toLowerCase()
+                run: (text) => text.toLowerCase(),
+                icon: FormatLetterCaseLower
             }
         ]
     }

@@ -104,16 +104,22 @@
     }
 
     .nav a {
-        padding-left: 40px;
         position: relative;
+        padding-left: 34px;
     }
 
     .nav .icon {
         position: absolute;
+        left: 6px;
         top: 50%;
-        left: 8px;
-        width: 24px;
-        height: 24px;
+    }    
+
+    .nav .icon :global(svg) {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 21px !important;
+        height: 21px !important;
         transform: translateY(-50%);
     }
 </style>
