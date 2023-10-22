@@ -33,6 +33,11 @@ export function load() {
             },
 
             {
+                label: "Remove blank lines",
+                run: removeBlankLines
+            },
+
+            {
                 label: "Remove trailing whitespace",
                 run: removeTrailingWhitespace
             },
@@ -49,6 +54,12 @@ export function load() {
         ]
     }
 
+}
+
+function removeBlankLines(text) {
+    return text.split("\n")
+        .filter((line) => line.trim().length > 0)
+        .join("\n");     
 }
 
 function removeTrailingWhitespace(text) {
