@@ -40,14 +40,13 @@
     }
 
     function inputChanged(e) {
-        const value = e.detail || e.target.value;
-        console.log(value);
+        const value = e.detail || e.target?.value || "";
         outputLog = "";
         ({ output: outputText, log: inputLog } = handleErrors(to, value));
     }
 
     function outputChanged(e) {
-        const value = e.detail || e.target.value;
+        const value = e.detail || e.target.value || "";
         inputLog = "";
         ({ output: inputText, log: outputLog } = handleErrors(from, value));
     }
