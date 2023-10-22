@@ -39,8 +39,9 @@
         --background-color: #242424;
         --header-background-color: #303030;
         --content-background-color: #363636;
-        --text-color: #f5f5f5;
         --warning-background-color: #9c381a;
+        --text-color: #f5f5f5;
+        --icon-color: #bdbdbd;
     }
 }
 
