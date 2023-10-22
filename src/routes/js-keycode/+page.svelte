@@ -88,9 +88,9 @@
                 </div>
             </div>
 
-            <div>
-                <textarea value={generateKeyCheckExpression(event)} disabled />
-            </div>
+            <Card title="Sample JavaScript code">
+                <div class="code-preview">{generateKeyCheckExpression(event)}</div>
+            </Card>
         {:else}
             <p>
                 Press any key to display information about it.
@@ -120,5 +120,10 @@
 
     .meta-key {
         display: block;
+    }
+
+    .code-preview {
+        font-family: var(--font-monospace);
+        white-space: pre;
     }
 </style>
