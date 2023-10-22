@@ -8,63 +8,69 @@ import FormatLetterCaseLower from "svelte-material-icons/FormatLetterCaseLower.s
 export function load() {
 
     return {
-        textOperations: [
-            {
-                label: "Sort lines in ascending order",
-                run: (text) => text.split("\n").sort().join("\n"),
-                icon: SortAlphabeticalAscending
-            },
+        textOperations: {
+            "Line operations": [
+                {
+                    label: "Sort lines in ascending order",
+                    run: (text) => text.split("\n").sort().join("\n"),
+                    icon: SortAlphabeticalAscending
+                },
+    
+                {
+                    label: "Sort lines in descending order",
+                    run: (text) => text.split("\n").sort().reverse().join("\n"),
+                    icon: SortAlphabeticalDescending
+                },
+    
+                {
+                    label: "Shuffle lines",
+                    run: (text) => shuffleArray(text.split("\n")).join("\n"),
+                    icon: Shuffle
+                },
+    
+                {
+                    label: "Reverse lines",
+                    run: (text) => text.split("\n").reverse().join("\n"),
+                    icon: SwapVertical
+                },                
+    
+                {
+                    label: "Deduplicate lines",
+                    run: deduplicateLines
+                }                
+            ],
+            
+            "Whitespace removal": [
+                {
+                    label: "Trim lines",
+                    run: (text) => text.split("\n").map((line) => line.trim()).join("\n")
+                },
 
-            {
-                label: "Sort lines in descending order",
-                run: (text) => text.split("\n").sort().reverse().join("\n"),
-                icon: SortAlphabeticalDescending
-            },
+                {
+                    label: "Remove trailing whitespace",
+                    run: removeTrailingWhitespace
+                },
 
-            {
-                label: "Shuffle lines",
-                run: (text) => shuffleArray(text.split("\n")).join("\n"),
-                icon: Shuffle
-            },
+                {
+                    label: "Remove blank lines",
+                    run: removeBlankLines
+                }
+            ],
 
-            {
-                label: "Reverse lines",
-                run: (text) => text.split("\n").reverse().join("\n"),
-                icon: SwapVertical
-            },
-
-            {
-                label: "Trim lines",
-                run: (text) => text.split("\n").map((line) => line.trim()).join("\n")
-            },
-
-            {
-                label: "Deduplicate lines",
-                run: deduplicateLines
-            },
-
-            {
-                label: "Remove blank lines",
-                run: removeBlankLines
-            },
-
-            {
-                label: "Remove trailing whitespace",
-                run: removeTrailingWhitespace
-            },
-
-            {
-                label: "To upper case",
-                run: (text) => text.toUpperCase(),
-                icon: FormatLetterCaseUpper
-            },
-
-            {
-                label: "To lower case",
-                run: (text) => text.toLowerCase(),
-                icon: FormatLetterCaseLower
-            }
-        ]
+            "Convert text case": [
+                {
+                    label: "To upper case",
+                    run: (text) => text.toUpperCase(),
+                    icon: FormatLetterCaseUpper
+                },
+    
+                {
+                    label: "To lower case",
+                    run: (text) => text.toLowerCase(),
+                    icon: FormatLetterCaseLower
+                }
+            ]
+        }
     }
 
 }

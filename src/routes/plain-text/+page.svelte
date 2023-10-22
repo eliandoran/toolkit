@@ -3,6 +3,7 @@
 	import SidebarView from "$lib/components/sidebar-view.svelte";
 	import TextFilePicker from "$lib/components/text-file-picker.svelte";
 	import Tool from "$lib/components/tool.svelte";
+	import Card from "../../lib/components/card.svelte";
 	import Icon from "../../lib/components/icon.svelte";
 
     let text = "";
@@ -50,25 +51,27 @@
         </div>
     
         <aside slot="sidebar">
-            <section>
-                <nav class="nav">
-                    <ul>
-                        {#each $page.data.textOperations as operation}
-                        <li>
-                            <a href="#" on:click={() => onOperationSelected(operation)}>
-                                <span class="icon">
-                                    {#if operation.icon}
-                                        <Icon icon={operation.icon} />
-                                    {/if}
-                                </span>
-
-                                {operation.label}
-                            </a>
-                        </li>
-                        {/each}
-                    </ul>
-                </nav>
-            </section>
+            {#each Object.entries($page.data.textOperations) as [ categoryName, operations ]}
+                <Card title={categoryName} thin>
+                    <nav class="nav">
+                        <ul>
+                            {#each operations as operation}
+                            <li>
+                                <a href="#" on:click={() => onOperationSelected(operation)}>
+                                    <span class="icon">
+                                        {#if operation.icon}
+                                            <Icon icon={operation.icon} />
+                                        {/if}
+                                    </span>
+        
+                                    {operation.label}
+                                </a>
+                            </li>
+                            {/each}
+                        </ul>
+                    </nav>
+                </Card>
+            {/each}
         </aside>
     </SidebarView>
 </Tool>
@@ -101,6 +104,10 @@
     .stats span:nth-of-type(3) {
         text-align: right;
         margin-right: 0;
+    }
+
+    .nav {
+        padding: 0 !important;
     }
 
     .nav a {
