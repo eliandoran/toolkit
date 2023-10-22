@@ -1,7 +1,7 @@
 <script>
     import CodeMirror from "svelte-codemirror-editor";
     import { json } from "@codemirror/lang-json";
-    import { oneDark } from "@codemirror/theme-one-dark";
+    import { theme } from "$lib/stores/codemirror.js";
 
 	import TextFilePicker from "$lib/components/text-file-picker.svelte";
 	import Tool from "$lib/components/tool.svelte";
@@ -47,7 +47,7 @@
         <CodeMirror
             bind:value={text}
             lang={json()}
-            theme={oneDark} />
+            theme={$theme} />
 
         <aside slot="sidebar">
             <Card title="Validation" thin>

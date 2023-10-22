@@ -1,7 +1,7 @@
 <script>
     import CodeMirror from "svelte-codemirror-editor";
     import { json } from "@codemirror/lang-json";
-    import { oneDark } from "@codemirror/theme-one-dark";
+    import { theme } from "$lib/stores/codemirror.js";
 
 	import StackView from "$lib/components/stack-view.svelte";
     import Tool from "$lib/components/tool.svelte";
@@ -77,7 +77,7 @@
             <CodeMirror
                 bind:value={inputJsonText}
                 lang={json()}
-                theme={oneDark} />
+                theme={$theme} />
         </div>
         <WarningBox message="{inputJsonParsingLog}" />
     </StackView>
@@ -91,7 +91,7 @@
             <CodeMirror
                 bind:value={schemaText}
                 lang={json()}
-                theme={oneDark} />
+                theme={$theme} />
         </div>
         <WarningBox message="{inputSchemaParsingLog}" />        
     </StackView>

@@ -1,6 +1,6 @@
 <script>
     import CodeMirror from "svelte-codemirror-editor";
-    import { oneDark } from "@codemirror/theme-one-dark";
+    import { theme } from "$lib/stores/codemirror.js";
 
 	import TextFilePicker from "./text-file-picker.svelte";
 	import TwoColumnView from "./two-column-view.svelte";
@@ -67,7 +67,7 @@
             <CodeMirror
                 bind:value={inputText}
                 lang={leftLang}
-                theme={oneDark} />
+                theme={$theme} />
         {:else}
             <textarea
                 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
@@ -85,7 +85,7 @@
         {#if useCodeMirror}
             <CodeMirror
                 bind:value={outputText}
-                theme={oneDark} />
+                theme={$theme} />
         {:else}
             <textarea
                 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
