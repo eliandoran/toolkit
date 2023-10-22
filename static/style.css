@@ -10,6 +10,11 @@
     font-weight: normal;
 }
 
+@font-face {
+    font-family: "Nunito";
+    src: url("./fonts/Nunito/Nunito-VariableFont_wght.ttf");
+}
+
 :root {
     --highlight-color: orange;
     --border-color: #cfcfcf;
@@ -19,6 +24,7 @@
     --warning-background-color: #ffd486;
     --text-color: #323232;
 
+    --font-body: "Nunito", sans-serif;
     --font-dos: "perfect_dos_vga_437", Terminal, monospace;
     --font-monospace: "Ubuntu Mono", monospace;
 
@@ -44,7 +50,7 @@ body {
     margin: 0;
     padding: 0;
     padding-top: 2em;
-    font-family: sans-serif;
+    font-family: var(--font-body);
     overflow: auto;
 }
 
