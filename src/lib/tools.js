@@ -87,6 +87,11 @@ export default {
             title: "String escape",
             icon: SlashForward,
             iconFlipHorizontally: true
+        },
+        {
+            path: "/php-serialization",
+            title: "PHP serialization",
+            icon: CodeJson           
         }
     ]    
 };

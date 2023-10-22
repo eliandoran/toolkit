@@ -89,6 +89,11 @@
         margin: 0;
     }
 
+    .collapsed :global(header a) {
+        width: 24px;
+        height: 20px;
+    }
+
     .collapsed :global(nav a) {
         width: 32px;
         height: 32px;
