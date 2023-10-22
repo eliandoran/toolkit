@@ -89,7 +89,7 @@
             </div>
 
             <div>
-                <textarea value={generateKeyCheckExpression(event)} />
+                <textarea value={generateKeyCheckExpression(event)} disabled />
             </div>
         {:else}
             <p>

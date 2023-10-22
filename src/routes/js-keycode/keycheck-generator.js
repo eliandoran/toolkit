@@ -5,11 +5,11 @@ export default function generateKeyCheckExpression(e) {
     // Normal key, check that meta keys are not pressed.        
     if (!isMeta) {
         lines.push(`const isMeta = (e.ctrlKey || e.altKey || e.metaKey);`)
-        lines.push(`const isPressed = (key == "${e.key}")`);  
+        lines.push(`const isPressed = (!isMeta && key == "${e.key}")`);  
     } else {
         const metaVariableName = getMetaKeyVariableName(e);
         lines.push(`const is${metaVariableName} = (${getMetaKeyCheckExpression(e)})`);
-        lines.push(`const isPressed = (${metaVariableName} && key == "${e.key}")`);  
+        lines.push(`const isPressed = (is${metaVariableName} && key == "${e.key}")`);  
     }
     
     return lines.join("\n");
