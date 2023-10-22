@@ -39,22 +39,18 @@
         return { output, log };
     }
 
-    function inputChanged(text) {
+    function inputChanged(e) {
+        const value = e.detail || e.target.value;
+        console.log(value);
         outputLog = "";
-        if (inputText) {
-            ({ output: outputText, log: inputLog } = handleErrors(to, text));
-        }
+        ({ output: outputText, log: inputLog } = handleErrors(to, value));
     }
 
-    function outputChanged(text) {
+    function outputChanged(e) {
+        const value = e.detail || e.target.value;
         inputLog = "";
-        if (outputText) {
-            ({ output: inputText, log: outputLog } = handleErrors(from, text));
-        }
+        ({ output: inputText, log: outputLog } = handleErrors(from, value));
     }
-
-    $: inputChanged(inputText);
-    $: outputChanged(outputText);
 </script>
 
 <TwoColumnView leftTitle={fromTitle} rightTitle={toTitle} hasPadding={false}>
@@ -64,14 +60,16 @@
 
     <div slot="left">
         {#if useCodeMirror}
-            <CodeMirror
-                bind:value={inputText}
+            <CodeMirror                
+                value={inputText}
                 lang={leftLang}
-                theme={$theme} />
+                theme={$theme}
+                on:change={inputChanged} />
         {:else}
             <textarea
+                value={inputText}                
                 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
-                bind:value={inputText}></textarea>
+                on:input={inputChanged} />
         {/if}
         
         <WarningBox message="{inputLog}" />
@@ -84,13 +82,15 @@
     <div slot="right">
         {#if useCodeMirror}
             <CodeMirror
-                bind:value={outputText}
-                theme={$theme} />
+                value={outputText}                
+                theme={$theme}
+                on:change={outputChanged} />
         {:else}
             <textarea
+                value={outputText}    
                 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
                 lang={rightLang}
-                bind:value={outputText} />
+                on:input={outputChanged} />
         {/if}
         
         <WarningBox message={outputLog} />
