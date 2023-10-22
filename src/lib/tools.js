@@ -11,6 +11,7 @@ import PercentOutline from "svelte-material-icons/PercentOutline.svelte";
 import Pound from "svelte-material-icons/Pound.svelte";
 import SlashForward from "svelte-material-icons/SlashForward.svelte";
 import Numeric10BoxOutline from "svelte-material-icons/Numeric10BoxOutline.svelte";
+import KeyboardSettingsOutline from "svelte-material-icons/KeyboardSettingsOutline.svelte";
 
 export default {
     "Plain text": [
@@ -99,5 +100,13 @@ export default {
             title: "PHP serialization",
             icon: CodeJson           
         }
-    ]    
+    ],
+
+    "JavaScript": [
+        {
+            path: "/js-keycode",
+            title: "JS keycodes",
+            icon: KeyboardSettingsOutline        
+        }
+    ]
 };
