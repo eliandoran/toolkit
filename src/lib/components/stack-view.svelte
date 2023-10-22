@@ -5,7 +5,6 @@
     import ChevronDown from "svelte-material-icons/ChevronDown.svelte"
 
     export let title;
-    export let height = "100%";
     export let hasPadding = true;
     export let isCollapsible = true;
     export let isCompact = false;
@@ -31,8 +30,7 @@
 
 <div class="inner-wrapper"
     class:padding={hasPadding}
-    class:collapsed={!isExpanded}
-    style:height={height}>
+    class:collapsed={!isExpanded}>
     <slot />
 </div>
 
@@ -51,6 +49,7 @@
         position: relative;
         max-height: none;
         display: flex;
+        height: 100%;
         flex-direction: column;
     }
 

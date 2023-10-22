@@ -10,7 +10,7 @@
 </script>
 
 <Tool>
-    <StackView title="ANSI Text" hasPadding={false} height="30%" isExpanded={inputExpanded}>
+    <StackView title="ANSI Text" hasPadding={false} isExpanded={inputExpanded}>
         <div class="toolbar" slot="header-left">
             <TextFilePicker 
                 bind:textFile={ansiText}
@@ -44,6 +44,7 @@
         white-space: pre;
         overflow-wrap: normal;
         overflow-x: auto;
+        flex-grow: 1;
     }
 
     textarea,
