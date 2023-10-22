@@ -1,6 +1,37 @@
 <script>
 	import ToolsMenu from "./tools-menu.svelte";
+
+    import tools from "$lib/tools.js";
+    import { page } from "$app/stores";
+    const currentPath = $page.url.pathname;
+
+    function getTitle() {
+        const currentTool = getCurrentTool();
+        let title = "";
+        if (currentTool) {
+            title = `${currentTool.title} - `
+        }
+
+        title += "Toolkit";
+        return title;
+    }
+
+    function getCurrentTool() {
+        for (const category of Object.values(tools)) {
+            for (const tool of category) {
+                if (tool.path === currentPath) {
+                    return tool;
+                }
+            }
+        }
+
+        return null;
+    }
 </script>
+
+<svelte:head>
+    <title>{getTitle()}</title>
+</svelte:head>
 
 <div class="page-wrapper">
     <aside>
@@ -9,7 +40,7 @@
         </header>
 
         <div class="inner-wrapper">
-            <ToolsMenu />
+            <ToolsMenu {tools} {currentPath} />
         </div>
     </aside>
 

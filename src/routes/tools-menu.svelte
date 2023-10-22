@@ -1,7 +1,8 @@
 <script>
-    import { page } from "$app/stores";
-    import tools from "$lib/tools.js";
 	import Icon from "../lib/components/icon.svelte";
+
+    export let tools;
+    export let currentPath;
 </script>
 
 {#each Object.entries(tools) as [categoryName, categoryItems]}
@@ -13,7 +14,7 @@
                 {#each categoryItems as tool}
                     <li>                        
                         <a href="{tool.path}"
-                            class:active="{tool.path === $page.url.pathname}">
+                            class:active="{tool.path === currentPath}">
                             {#if tool.icon}
                                 <Icon
                                     icon={tool.icon}
