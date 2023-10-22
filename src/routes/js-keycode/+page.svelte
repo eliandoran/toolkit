@@ -22,13 +22,11 @@
 
 <Tool>
     <OneColumnView title="JavaScript Keycode">        
-        <div class="columns">
-            <div class="column">
-                <Card title="key">
-                    <span class="big-value">{key}</span>
-                </Card>
-            </div>
+        <p>
+            Press any key to display information about it.
+        </p>
 
+        <div class="columns">        
             <div class="column">
                 <Card title="charCode">
                     <span class="big-value">{charCode}</span>
@@ -38,6 +36,12 @@
             <div class="column">
                 <Card title="keyCode">
                     <span class="big-value">{keyCode}</span>
+                </Card>
+            </div>
+
+            <div class="column">
+                <Card title="key">
+                    <span class="big-value">{key}</span>
                 </Card>
             </div>
         </div>
