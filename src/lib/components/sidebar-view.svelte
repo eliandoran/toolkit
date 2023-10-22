@@ -41,7 +41,7 @@
 
     .main-container > aside {
         padding: 1em;
-        width: 250px;
+        width: 270px;
         border-left: 1px solid var(--border-color);
         flex-grow: 0;
         flex-shrink: 0;

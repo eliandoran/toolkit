@@ -11,13 +11,13 @@ export function load() {
         textOperations: {
             "Line operations": [
                 {
-                    label: "Sort lines in ascending order",
+                    label: "Sort lines ascending",
                     run: (text) => text.split("\n").sort().join("\n"),
                     icon: SortAlphabeticalAscending
                 },
     
                 {
-                    label: "Sort lines in descending order",
+                    label: "Sort lines descending",
                     run: (text) => text.split("\n").sort().reverse().join("\n"),
                     icon: SortAlphabeticalDescending
                 },

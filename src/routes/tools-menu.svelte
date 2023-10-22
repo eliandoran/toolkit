@@ -14,11 +14,11 @@
                     <li>                        
                         <a href="{tool.path}"
                             class:active="{tool.path === $page.url.pathname}">
-                            <span class="icon">
-                                {#if tool.icon}
-                                    <Icon icon={tool.icon} />
-                                {/if}
-                            </span>
+                            {#if tool.icon}
+                                <Icon
+                                    icon={tool.icon}
+                                    flipHorizontal={tool.iconFlipHorizontally} />
+                            {/if}
                             {tool.title}
                         </a>
                     </li>
@@ -44,18 +44,15 @@
         margin-top: 0;
     }
 
-    .icon {
-        padding-left: 2em;
+    a {
         position: relative;
+        display: flex !important;
+        align-items: center;
     }
 
-    .icon :global(svg) {
-        position: absolute;
-        left: 0;
-        top: 50%;        
+    a :global(.icon) {
+        margin-right: 6px;
         width: 21px;
         height: 21px;
-        transform: translateY(-50%);
     }
-
 </style>

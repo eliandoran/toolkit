@@ -58,11 +58,7 @@
                             {#each operations as operation}
                             <li>
                                 <a href="#" on:click={() => onOperationSelected(operation)}>
-                                    <span class="icon">
-                                        {#if operation.icon}
-                                            <Icon icon={operation.icon} />
-                                        {/if}
-                                    </span>
+                                    <Icon icon={operation.icon} />
         
                                     {operation.label}
                                 </a>
@@ -112,21 +108,14 @@
 
     .nav a {
         position: relative;
-        padding-left: 34px;
+        display: flex;
+        align-items: center;
     }
 
-    .nav .icon {
-        position: absolute;
-        left: 6px;
-        top: 50%;
-    }    
-
-    .nav .icon :global(svg) {
-        position: absolute;
-        top: 50%;
-        left: 0;
-        width: 21px !important;
-        height: 21px !important;
-        transform: translateY(-50%);
+    .nav a :global(.icon) {
+        width: 21px;
+        height: 21px;
+        margin-right: 6px;
     }
+
 </style>

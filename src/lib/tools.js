@@ -85,7 +85,8 @@ export default {
         {
             path: "/string-escape",
             title: "String escape",
-            icon: SlashForward
+            icon: SlashForward,
+            iconFlipHorizontally: true
         }
     ]    
 };
