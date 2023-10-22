@@ -10,6 +10,7 @@ import PercentBoxOutline from "svelte-material-icons/PercentBoxOutline.svelte";
 import PercentOutline from "svelte-material-icons/PercentOutline.svelte";
 import Pound from "svelte-material-icons/Pound.svelte";
 import SlashForward from "svelte-material-icons/SlashForward.svelte";
+import Numeric10BoxOutline from "svelte-material-icons/Numeric10BoxOutline.svelte";
 
 export default {
     "Plain text": [
@@ -37,6 +38,11 @@ export default {
             path: "/percentage-calculator",
             title: "Percentage calculator",
             icon: PercentBoxOutline
+        },
+        {
+            path: "/bitwise-calculator",
+            title: "Bitwise calculator",
+            icon: Numeric10BoxOutline
         }
     ],
 
