@@ -12,15 +12,15 @@ export default function generateKeyCheckExpression(e) {
 
     if (isSingleCommandKey) {
         // Single command key is pressed (e.g. CtrlLeft).
-        lines.push(`const isPressed = (e.code == "${e.code}")`);
+        lines.push(`const isPressed = (e.code == "${e.code}");`);
     } else if (!isMeta) {
         // Normal key, check that meta keys are not pressed.            
         lines.push(`const isMeta = (e.ctrlKey || e.altKey || e.metaKey);`)
-        lines.push(`const isPressed = (!isMeta && key == "${e.key}")`);  
+        lines.push(`const isPressed = (!isMeta && e.key == "${e.key}");`);  
     } else {
         const metaVariableName = getMetaKeyVariableName(e);
-        lines.push(`const is${metaVariableName} = (${getMetaKeyCheckExpression(e)})`);
-        lines.push(`const isPressed = (is${metaVariableName} && key == "${e.key}")`);  
+        lines.push(`const is${metaVariableName} = (${getMetaKeyCheckExpression(e)});`);
+        lines.push(`const isPressed = (is${metaVariableName} && e.key == "${e.key}");`);  
     }
     
     return lines.join("\n");
