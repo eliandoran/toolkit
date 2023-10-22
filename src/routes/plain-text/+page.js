@@ -13,6 +13,11 @@ export function load() {
             },
 
             {
+                label: "Shuffle lines",
+                run: (text) => shuffleArray(text.split("\n")).join("\n")
+            },
+
+            {
                 label: "Reverse lines",
                 run: (text) => text.split("\n").reverse().join("\n")
             },
@@ -60,4 +65,21 @@ function deduplicateLines(text) {
     }
 
     return Array.from(lineSet).join("\n");
+}
+
+/**
+ * Shuffle/randomize the order of elements in an array using the
+ * Durstenfeld Shuffle algorithm.
+ * 
+ * Source: https://stackoverflow.com/a/12646864
+ * 
+ * @param {Array} array the array to shuffle.
+ * @returns the same array.
+ */
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
 }
