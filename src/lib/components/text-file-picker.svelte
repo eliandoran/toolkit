@@ -1,5 +1,6 @@
 <script>
 	import { createEventDispatcher } from "svelte";
+	import HeaderButton from "./header-button.svelte";
     const dispatch = createEventDispatcher();
 
     export let encoding = undefined;
@@ -32,4 +33,4 @@
         bind:this={fileInput}
         on:change={onFileSelected} />
 
-<a href="#" on:click={openFile}>Open</a>
+<HeaderButton on:click={openFile}>Open</HeaderButton>
