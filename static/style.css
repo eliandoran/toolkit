@@ -118,6 +118,7 @@ textarea {
     color: var(--text-color);
     border-radius: 0;
     font-family: var(--font-monospace);
+    resize: none;
 }
 
 input {
