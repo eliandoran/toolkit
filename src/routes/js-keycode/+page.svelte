@@ -54,22 +54,22 @@
                 <div class="column">
                     <Card title="Meta keys">
                         <label class="meta-key">
-                            <input type="checkbox" checked={event.ctrlKey}>
+                            <input type="checkbox" checked={event.ctrlKey} readonly>
                             ctrlKey
                         </label>
 
                         <label class="meta-key">
-                            <input type="checkbox" checked={event.altKey}>
+                            <input type="checkbox" checked={event.altKey} readonly>
                             altKey
                         </label>
 
                         <label class="meta-key">
-                            <input type="checkbox" checked={event.shiftKey}>
+                            <input type="checkbox" checked={event.shiftKey} readonly>
                             shiftKey
                         </label>
 
                         <label class="meta-key">
-                            <input type="checkbox" checked={event.metaKey}>
+                            <input type="checkbox" checked={event.metaKey} readonly>
                             metaKey
                         </label>
                     </Card>
