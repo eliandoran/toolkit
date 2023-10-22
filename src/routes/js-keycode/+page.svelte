@@ -20,6 +20,11 @@
     onMount(() => {
         console.log("Hi");
         document.addEventListener("keydown", onKeypress);
+
+        // On unmount.
+        return () => {
+            document.removeEventListener("keydown", onKeypress);
+        };
     });
 
 </script>
