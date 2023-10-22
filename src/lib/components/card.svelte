@@ -26,6 +26,7 @@
         border-radius: 12px;
         margin: 1.5em 0;        
         border: 1px solid var(--border-color);
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
     }    
 
     section.with-title {
