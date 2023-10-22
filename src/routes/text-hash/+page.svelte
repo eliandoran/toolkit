@@ -11,11 +11,11 @@
 </script>
 
 <Tool>
-    <div class="toolbar" slot="header-left">
-        <TextFilePicker bind:textFile={inputText} />
-    </div>
-
     <TwoColumnView leftTitle="Input text" rightTitle="Hashes">
+        <div class="toolbar" slot="header-left-left">
+            <TextFilePicker bind:textFile={inputText} />
+        </div>
+
         <div slot="left">
             <textarea bind:value={inputText}></textarea>
         </div>
