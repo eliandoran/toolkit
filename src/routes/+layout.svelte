@@ -1,6 +1,5 @@
 <script>
-	import { page } from "$app/stores";
-    import tools from "$lib/tools.js";
+	import ToolsMenu from "./tools-menu.svelte";
 </script>
 
 <div class="page-wrapper">
@@ -10,16 +9,7 @@
         </header>
 
         <div class="inner-wrapper">
-            <nav class="nav">
-                <ul>
-                    {#each tools as tool}
-                    <li>
-                        <a href="{tool.path}"
-                            class:active="{tool.path === $page.url.pathname}">{tool.title}</a>
-                    </li>
-                    {/each}
-                </ul>
-            </nav>
+            <ToolsMenu />
         </div>
     </aside>
 
