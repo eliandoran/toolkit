@@ -15,6 +15,14 @@
         e.stopPropagation();
     }
 
+    function generateKeyCheckExpression(e) {
+        const expressions = [];
+
+        expressions.push(`key == "${e.key}"`);  
+        
+        return expressions.join("&&");
+    }
+
     onMount(() => {
         console.log("Hi");
         document.addEventListener("keydown", onKeypress);
@@ -86,6 +94,12 @@
                         <span class="big-value">{event.location}</span>
                     </Card>
                 </div>
+            </div>
+
+            <div>
+                <textarea>
+{generateKeyCheckExpression(event)}
+                </textarea>
             </div>
         {:else}
             <p>
