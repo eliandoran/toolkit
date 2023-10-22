@@ -7,11 +7,20 @@ export default function generateKeyCheckExpression(e) {
         lines.push(`const isMeta = (e.ctrlKey || e.altKey || e.metaKey);`)
         lines.push(`const isPressed = (key == "${e.key}")`);  
     } else {
-        lines.push(`const isRightMeta = (${getMetaKeyCheckExpression(e)})`);
-        lines.push(`const isPressed = (isRightMeta && key == "${e.key}")`);  
+        const metaVariableName = getMetaKeyVariableName(e);
+        lines.push(`const is${metaVariableName} = (${getMetaKeyCheckExpression(e)})`);
+        lines.push(`const isPressed = (${metaVariableName} && key == "${e.key}")`);  
     }
     
     return lines.join("\n");
+}
+
+function getMetaKeyVariableName(e) {
+    const names = [];
+    if (e.ctrlKey) names.push("Ctrl");
+    if (e.altKey) names.push("Alt");
+    if (e.metaKey) names.push("Meta");
+    return names.join("");
 }
 
 function getMetaKeyCheckExpression(e) {
