@@ -172,7 +172,3 @@ input:disabled {
 .cm-scroller {
     font-family: var(--font-monospace) !important;
 }
-
-svg[role=img] {
-    fill: var(--icon-color);
-}
