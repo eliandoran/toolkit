@@ -15,5 +15,18 @@ function getDefaultTheme() {
     return undefined;
 }
 
+function subscribeToThemeChanges(set) {
+    if (!browser) {
+        return;
+    }
+
+    window.matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", (event) => {
+        set(getDefaultTheme());
+    });
+}
+
 const defaultTheme = getDefaultTheme();
-export const theme = readable(defaultTheme);
+export const theme = readable(defaultTheme, function start(set) {
+    subscribeToThemeChanges(set);
+});
