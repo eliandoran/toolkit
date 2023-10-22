@@ -8,9 +8,11 @@
     let key;
     let charCode;
     let keyCode;
+    let code;
+    let location;
 
     function onKeypress(e) {
-        ({ key, charCode, keyCode } = e);
+        ({ key, charCode, keyCode, code, location } = e);
         pressed = true;
         console.log(e);
     }
@@ -41,6 +43,20 @@
                 <div class="column">
                     <Card title="key">
                         <span class="big-value">{key}</span>
+                    </Card>
+                </div>                
+            </div>
+
+            <div class="columns">
+                <div class="column">
+                    <Card title="code">
+                        <span class="big-value">{code}</span>
+                    </Card>
+                </div>
+
+                <div class="location">
+                    <Card title="location">
+                        <span class="big-value">{location}</span>
                     </Card>
                 </div>
             </div>
