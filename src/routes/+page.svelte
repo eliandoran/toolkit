@@ -2,6 +2,8 @@
     import OneColumnView from "$lib/components/one-column-view.svelte";
     import Card from "$lib/components/card.svelte";
 	import Icon from "../lib/components/icon.svelte";
+
+    import tools from "$lib/tools.js";
 </script>
 
 <OneColumnView title="Toolkit">
