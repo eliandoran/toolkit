@@ -15,6 +15,9 @@
         ({ key, charCode, keyCode, code, location } = e);
         pressed = true;
         console.log(e);
+
+        e.preventDefault();
+        e.stopPropagation();
     }
 
     onMount(() => {
