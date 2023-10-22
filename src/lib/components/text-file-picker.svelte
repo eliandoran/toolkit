@@ -1,6 +1,8 @@
 <script>
+    import FolderOpenOutline from "svelte-material-icons/FolderOpenOutline.svelte";
 	import { createEventDispatcher } from "svelte";
 	import HeaderButton from "./header-button.svelte";
+    import Icon from "./icon.svelte";
     const dispatch = createEventDispatcher();
 
     export let encoding = undefined;
@@ -33,4 +35,6 @@
         bind:this={fileInput}
         on:change={onFileSelected} />
 
-<HeaderButton on:click={openFile}>Open</HeaderButton>
+<HeaderButton on:click={openFile}>
+    <Icon icon={FolderOpenOutline} />
+</HeaderButton>

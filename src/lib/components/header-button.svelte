@@ -5,7 +5,7 @@
 <style>
     a {
         display: inline-block;
-        color: black;
+        color: var(--text-color);
         text-decoration: none;        
         position: relative;
     }
@@ -13,7 +13,11 @@
     a :global(.icon) {
         display: inline-block;
         width: 24px;
-        height: 20px;
+        height: 20px;        
+    }
+
+    a :global(.icon svg) {
+        color: var(--text-color);
     }
 
     a :global(.icon svg) {
