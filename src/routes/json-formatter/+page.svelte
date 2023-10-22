@@ -16,8 +16,12 @@
     $: parseJSON(text);
 
     function parseJSON(text) {
+        validationErrors = undefined;
+        if (!text) {
+            return;
+        }
+
         try {
-            validationErrors = undefined;
             parsedJson = JSON.parse(text);
         } catch (e) {
             validationErrors = e.message;
