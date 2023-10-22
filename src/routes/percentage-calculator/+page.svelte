@@ -1,6 +1,7 @@
 <script>
 	import OneColumnView from "$lib/components/one-column-view.svelte";
-import Tool from "$lib/components/tool.svelte";
+    import Tool from "$lib/components/tool.svelte";
+	import Card from "../../lib/components/card.svelte";
 	import PercentageDifference from "./percentage-difference.svelte";
 	import PercentageIncrease from "./percentage-increase.svelte";
 	import PercentageOfValue from "./percentage-of-value.svelte";
@@ -10,21 +11,21 @@ import Tool from "$lib/components/tool.svelte";
 <Tool>
 
     <OneColumnView title="Percentage calculator">
-        <section>
+        <Card title="Value from percentage">            
             <ValueFromPercentage />
-        </section>
-    
-        <section>
+        </Card>
+        
+        <Card title="Percentage of value">
             <PercentageOfValue />
-        </section>
-    
-        <section>
-            <PercentageDifference />
-        </section>
+        </Card>
 
-        <section>
+        <Card title="Percentage increase from two values">
+            <PercentageDifference />
+        </Card>
+
+        <Card title="Percentage increase">
             <PercentageIncrease />
-        </section>
+        </Card>
     </OneColumnView>
 
     <span slot="footer">
@@ -34,7 +35,6 @@ import Tool from "$lib/components/tool.svelte";
 </Tool>
 
 <style>
-
     section {
         margin: 1em 0;
     }
