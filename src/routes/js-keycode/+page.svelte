@@ -16,11 +16,16 @@
     }
 
     function generateKeyCheckExpression(e) {
-        const expressions = [];
+        const lines = [];
+        const isMeta = (e.ctrlKey || e.altKey || e.metaKey)
 
-        expressions.push(`key == "${e.key}"`);  
-        
-        return expressions.join("&&");
+        // Normal key, check that meta keys are not pressed.
+        if (!isMeta) {
+            lines.push(`const isMeta = (e.ctrlKey || e.altKey || e.metaKey);`)
+            lines.push(`const isPressed = (key == "${e.key}")`);  
+        }
+
+        return lines.join("\n");
     }
 
     onMount(() => {
@@ -97,9 +102,7 @@
             </div>
 
             <div>
-                <textarea>
-{generateKeyCheckExpression(event)}
-                </textarea>
+                <textarea value={generateKeyCheckExpression(event)} />
             </div>
         {:else}
             <p>
