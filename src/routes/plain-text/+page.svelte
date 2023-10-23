@@ -1,10 +1,10 @@
 <script>
     import { page } from "$app/stores";
+    import ActionCard from "$lib/components/action-card.svelte";
+	import ActionCardItem from "$lib/components/action-card-item.svelte";
 	import SidebarView from "$lib/components/sidebar-view.svelte";
 	import TextFilePicker from "$lib/components/text-file-picker.svelte";
 	import Tool from "$lib/components/tool.svelte";
-	import Card from "../../lib/components/card.svelte";
-	import Icon from "../../lib/components/icon.svelte";
 
     let text = "";
     let numLines;
@@ -52,21 +52,14 @@
     
         <aside slot="sidebar">
             {#each Object.entries($page.data.textOperations) as [ categoryName, operations ]}
-                <Card title={categoryName} thin>
-                    <nav class="nav">
-                        <ul>
-                            {#each operations as operation}
-                            <li>
-                                <a href="#" on:click={() => onOperationSelected(operation)}>
-                                    <Icon icon={operation.icon} />
-        
-                                    {operation.label}
-                                </a>
-                            </li>
-                            {/each}
-                        </ul>
-                    </nav>
-                </Card>
+                <ActionCard title={categoryName}>
+                    {#each operations as operation}
+                    <ActionCardItem
+                        icon={operation.icon}
+                        label={operation.label}
+                        on:click={() => onOperationSelected(operation)} />
+                    {/each}
+                </ActionCard>
             {/each}
         </aside>
     </SidebarView>
@@ -104,18 +97,6 @@
 
     .nav {
         padding: 0 !important;
-    }
-
-    .nav a {
-        position: relative;
-        display: flex;
-        align-items: center;
-    }
-
-    .nav a :global(.icon) {
-        width: 21px;
-        height: 21px;
-        margin-right: 6px;
     }
 
 </style>
