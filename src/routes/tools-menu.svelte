@@ -3,10 +3,11 @@
 
     export let tools;
     export let currentPath;
+    export let collapsed = false;
 </script>
 
 {#each Object.entries(tools) as [categoryName, categoryItems]}
-    <section>
+    <section class:collapsed={collapsed}>
         <h3>{categoryName}</h3>
     
         <nav class="nav">
@@ -55,5 +56,27 @@
         margin-right: 6px;
         width: 21px;
         height: 21px;
+    }
+
+    .collapsed {
+        margin: 0;
+    }
+
+    .collapsed h3 {
+        display: none;
+    }
+
+    .collapsed nav a {
+        width: 32px;
+        height: 32px;
+        position: relative;
+        padding: 0;
+    }
+
+    .collapsed :global(.icon) {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);        
     }
 </style>

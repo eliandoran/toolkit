@@ -48,7 +48,9 @@
             </header>
 
             <div class="inner-wrapper">
-                <ToolsMenu {tools} currentPath={$page.url.pathname} />                
+                <ToolsMenu {tools}
+                    currentPath={$page.url.pathname}
+                    collapsed={menuCollapsed} />                
             </div>
         </aside>
     {/if}
@@ -80,32 +82,13 @@
     }
 
     .collapsed h2,
-    .collapsed :global(h3),
     .collapsed :global(.title) {
         display: none;
-    }
-
-    .collapsed :global(section) {
-        margin: 0;
     }
 
     .collapsed :global(header a) {
         width: 24px;
         height: 20px;
-    }
-
-    .collapsed :global(nav a) {
-        width: 32px;
-        height: 32px;
-        position: relative;
-        padding: 0;
-    }
-
-    .collapsed :global(.icon) {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);        
     }
 
     .collapsed .inner-wrapper {
