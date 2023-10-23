@@ -1,12 +1,18 @@
 <script>
 	import Icon from "./icon.svelte";
+    import { tooltip as tooltipAction } from "@svelte-plugins/tooltips";
 
     export let icon = undefined;
     export let label;
+    export let tooltip = undefined;
 </script>
 
 <li>
-    <a href="#" class="action-card-item" on:click>
+    <a href="#"
+        class="action-card-item"
+        on:click
+        title={ tooltip }
+        use:tooltipAction={{ position: "left" }}>
         <Icon {icon} />
 
         {label}

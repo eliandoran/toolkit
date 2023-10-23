@@ -57,6 +57,7 @@
                     <ActionCardItem
                         icon={operation.icon}
                         label={operation.label}
+                        tooltip={operation.description}
                         on:click={() => onOperationSelected(operation)} />
                     {/each}
                 </ActionCard>
