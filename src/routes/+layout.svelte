@@ -92,6 +92,7 @@
 
     .collapsed .inner-wrapper {
         box-sizing: border-box;
+        padding: 0.5em 0;
     }
     
     .page-wrapper {

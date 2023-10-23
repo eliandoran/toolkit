@@ -75,6 +75,8 @@
 
     .collapsed {
         margin: 0;
+        padding: 3px 0;
+        border-bottom: 1px solid var(--border-color);
     }
 
     .collapsed h3 {
@@ -86,6 +88,7 @@
         height: 32px;
         position: relative;
         padding: 0;
+        margin: auto;
     }
 
     .collapsed :global(.icon) {
