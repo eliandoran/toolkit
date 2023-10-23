@@ -1,5 +1,6 @@
 <script>
 	import Icon from "../lib/components/icon.svelte";
+    import { tooltip as tooltipAction } from "@svelte-plugins/tooltips";
 
     export let tools;
     export let currentPath;
@@ -14,15 +15,29 @@
             <ul>
                 {#each categoryItems as tool}
                     <li>                        
-                        <a href="{tool.path}"
-                            class:active="{tool.path === currentPath}">
-                            {#if tool.icon}
-                                <Icon
-                                    icon={tool.icon}
-                                    flipHorizontal={tool.iconFlipHorizontally} />
-                            {/if}
-                            <span class="title">{tool.title}</span>
-                        </a>
+                        {#if !collapsed}
+                            <a href="{tool.path}"
+                                class:active="{tool.path === currentPath}">                                
+                                {#if tool.icon}
+                                    <Icon
+                                        icon={tool.icon}
+                                        flipHorizontal={tool.iconFlipHorizontally} />
+                                {/if}
+                                <span class="title">{tool.title}</span>
+                            </a>
+                        {:else}
+                            <a href="{tool.path}"
+                                class:active="{tool.path === currentPath}"
+                                title={collapsed ? tool.title : ""}
+                                use:tooltipAction={{ position: "right" }}>
+                                {#if tool.icon}
+                                    <Icon
+                                        icon={tool.icon}
+                                        flipHorizontal={tool.iconFlipHorizontally} />
+                                {/if}
+                            </a>
+                        {/if}
+
                     </li>
                 {/each}
             </ul>

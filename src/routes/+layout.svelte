@@ -81,8 +81,7 @@
         max-width: 48px;
     }
 
-    .collapsed h2,
-    .collapsed :global(.title) {
+    .collapsed h2 {
         display: none;
     }
 
@@ -92,7 +91,6 @@
     }
 
     .collapsed .inner-wrapper {
-        overflow: hidden;
         box-sizing: border-box;
     }
     
