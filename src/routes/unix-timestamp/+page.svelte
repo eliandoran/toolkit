@@ -9,12 +9,14 @@
     let minutes = 0;
     let seconds = 0;
     
+    let outputTimestampSeconds;
     let outputTimestampMillis;
 
     $: {
         const dateString = `${inputDate}T${pad2(hours)}:${pad2(minutes)}:${pad2(seconds)}Z`;
         const date = new Date(dateString);
         outputTimestampMillis = date.getTime();
+        outputTimestampSeconds = date.getTime() / 1000;
     }
 
     function setInput(date) {
@@ -36,8 +38,11 @@
         }
     }
 
-    function onOutputChanged(e) {
-        const timestamp = parseInt(e.target.value, 10);
+    function onOutputChanged(e, hasMillis) {        
+        let timestamp = parseInt(e.target.value, 10);
+        if (!hasMillis) {
+            timestamp *= 1000;
+        }
 
         let date;
         try {
@@ -79,12 +84,16 @@
         </div>
 
         <div slot="right">
-            <Card>
-                <InputField label="Unix timestamp (milliseconds)">
-                    <input type="number"
-                        value={outputTimestampMillis}
-                        on:input={onOutputChanged} />
-                </InputField>
+            <Card title="Unix timestamp (seconds)">
+                <input type="number"
+                    value={outputTimestampSeconds}
+                    on:input={(e) => onOutputChanged(e, false)} />
+            </Card>
+
+            <Card title="Timestamp in milliseconds">
+                <input type="number"
+                    value={outputTimestampMillis}
+                    on:input={(e) => onOutputChanged(e, true)} />
             </Card>
         </div>
     </TwoColumnView>
