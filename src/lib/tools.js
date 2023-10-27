@@ -12,6 +12,7 @@ import Pound from "svelte-material-icons/Pound.svelte";
 import SlashForward from "svelte-material-icons/SlashForward.svelte";
 import Numeric10BoxOutline from "svelte-material-icons/Numeric10BoxOutline.svelte";
 import KeyboardSettingsOutline from "svelte-material-icons/KeyboardSettingsOutline.svelte";
+import LanguageMarkdownOutline from "svelte-material-icons/LanguageMarkdownOutline.svelte";
 
 export default {
     "Plain text": [
@@ -31,6 +32,12 @@ export default {
             path: "/ansi-text",
             title: "ANSI text viewer",
             icon: FileEyeOutline
+        },
+
+        {
+            path: "/html-markdown",
+            title: "HTML to Markdown converter",
+            icon: LanguageMarkdownOutline
         }
     ],
 
