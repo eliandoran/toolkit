@@ -1,6 +1,9 @@
 <script>
-	import Tool from "$lib/components/tool.svelte";
+	import HeaderButton from "$lib/components/header-button.svelte";
+	import Icon from "$lib/components/icon.svelte";
+    import Tool from "$lib/components/tool.svelte";
 	import TwoColumnView from "$lib/components/two-column-view.svelte";
+    import Broom from "svelte-material-icons/Broom.svelte";
     
     import TurndownService from "turndown";
     import { gfm } from "turndown-plugin-gfm";
@@ -18,19 +21,31 @@
         output = turndownService.turndown(html);
     }
 
+    let htmlEl;
+
+    function onClean() {
+        htmlEl.innerHTML = "";
+    }
+
 </script>
 
 <Tool>
     <TwoColumnView leftTitle="HTML" rightTitle="Markdown">
 
+        <div slot="header-left-right">
+            <HeaderButton on:click={onClean}>
+                <Icon icon={Broom} />
+            </HeaderButton>
+        </div>
+
         <div slot="left" class="left">
-            <div class="edit-area" on:input={onInputChanged} contenteditable="true">
+            <div class="edit-area" on:input={onInputChanged} bind:this={htmlEl} contenteditable="true">
                 Type your content here.
             </div>
         </div>
 
         <div slot="right" class="right">
-            <textarea class="output" bind:value={output} />
+            <textarea class="output" bind:value={output} readonly />
         </div>
 
     </TwoColumnView>
