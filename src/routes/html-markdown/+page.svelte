@@ -1,11 +1,15 @@
 <script>
 	import Tool from "$lib/components/tool.svelte";
 	import TwoColumnView from "$lib/components/two-column-view.svelte";
-
+    
     import TurndownService from "turndown";
+    import { gfm } from "turndown-plugin-gfm";
+
     const turndownService = new TurndownService({
         headingStyle: "atx"
     });
+
+    turndownService.use(gfm);
 
     let output = "";
 
