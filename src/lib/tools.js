@@ -13,6 +13,7 @@ import SlashForward from "svelte-material-icons/SlashForward.svelte";
 import Numeric10BoxOutline from "svelte-material-icons/Numeric10BoxOutline.svelte";
 import KeyboardSettingsOutline from "svelte-material-icons/KeyboardSettingsOutline.svelte";
 import LanguageMarkdownOutline from "svelte-material-icons/LanguageMarkdownOutline.svelte";
+import DotsHorizontal from "svelte-material-icons/DotsHorizontal.svelte";
 
 export default {
     "Plain text": [
@@ -38,6 +39,12 @@ export default {
             path: "/html-markdown",
             title: "HTML to Markdown converter",
             icon: LanguageMarkdownOutline
+        },
+
+        {
+            path: "/morse-code",
+            title: "Morse code",
+            icon: DotsHorizontal
         }
     ],
 

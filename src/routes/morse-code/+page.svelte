@@ -1,20 +1,25 @@
 <script>
+    import { encode, decode } from "xmorse";
+
 	import SymmetricInputOutput from "$lib/components/symmetric-input-output.svelte";
     import Tool from "$lib/components/tool.svelte";
-    import { serialize, unserialize } from "php-serialize";
+
+    const config = {
+        space: " "
+    };
 
     function to(input) {
-        return serialize(JSON.parse(input));
+        return encode(input, config);
     }
 
     function from(input) {
-        return JSON.stringify(unserialize(input));
+        return decode(input, config);
     }
 </script>
 
 <Tool>
     <SymmetricInputOutput
-        fromTitle="JSON"
-        toTitle="PHP Serialized Format"
+        fromTitle="Plain text"
+        toTitle="Morse code"
         {to} {from} />
 </Tool>
