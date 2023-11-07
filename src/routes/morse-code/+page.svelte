@@ -9,11 +9,17 @@
     };
 
     function to(input) {
-        return encode(input, config);
+        return input
+            .split("\n")
+            .map((line) => encode(line, config))
+            .join("\n");
     }
 
     function from(input) {
-        return decode(input, config);
+        return input
+            .split("\n")
+            .map((line) => decode(line, config))
+            .join("\n");
     }
 </script>
 
