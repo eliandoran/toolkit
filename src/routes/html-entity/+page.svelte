@@ -1,16 +1,16 @@
 <script>
 	import SymmetricInputOutput from "$lib/components/symmetric-input-output.svelte";
 	import Tool from "$lib/components/tool.svelte";
-    import { encode, decode } from "he";
+    import he from "he";
 
     function to(input) {
-        return encode(input, {
+        return he.encode(input, {
             useNamedReferences: true
         });
     }
 
     function from(input) {
-        return decode(input);
+        return he.decode(input);
     }
 
 </script>
