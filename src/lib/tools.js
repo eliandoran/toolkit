@@ -39,13 +39,7 @@ export default {
             path: "/html-markdown",
             title: "HTML to Markdown converter",
             icon: LanguageMarkdownOutline
-        },
-
-        {
-            path: "/morse-code",
-            title: "Morse code",
-            icon: DotsHorizontal
-        }
+        }        
     ],
 
     Arithmetics: [
@@ -113,6 +107,11 @@ export default {
             path: "/php-serialization",
             title: "PHP serialization",
             icon: CodeJson           
+        },
+        {
+            path: "/morse-code",
+            title: "Morse code",
+            icon: DotsHorizontal
         }
     ],
 
