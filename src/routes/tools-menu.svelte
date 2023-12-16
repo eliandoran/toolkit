@@ -14,11 +14,11 @@
     
         <nav class="nav">
             <ul>
-                {#each categoryItems as tool}
-                    <li>                        
+                {#each categoryItems as tool} 
+                    <li>
                         {#if !collapsed}
-                            <a href="{base}{tool.path}"
-                                class:active="{tool.path === currentPath}">                                
+                            <a href="{base + tool.path}"
+                                class:active="{(base + tool.path) === currentPath}">                                
                                 {#if tool.icon}
                                     <Icon
                                         icon={tool.icon}
@@ -27,8 +27,8 @@
                                 <span class="title">{tool.title}</span>
                             </a>
                         {:else}
-                            <a href="{base}{tool.path}"
-                                class:active="{tool.path === currentPath}"
+                            <a href="{base + tool.path}"
+                                class:active="{(base + tool.path) === currentPath}"
                                 title={collapsed ? tool.title : ""}
                                 use:tooltipAction={{ position: "right" }}>
                                 {#if tool.icon}
