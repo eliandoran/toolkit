@@ -145,6 +145,19 @@ input:disabled {
     padding: 0;
 }    
 
+.nav label {
+    font-size: 0.9em;
+    padding: 0.5em 1em;
+    display: block;
+}
+
+.nav hr {
+    height: 1px;
+    border: none;
+    background: var(--border-color);
+    margin: 0.75em -0.75em;
+}   
+
 .nav ul li {
     margin: 1px 0;
 }

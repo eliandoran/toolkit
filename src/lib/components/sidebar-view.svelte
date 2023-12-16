@@ -49,7 +49,7 @@
 
     .main-container > aside :global(nav) {
         background: var(--content-background-color);
-        padding: 0.5em;
+        padding: 0;
         border-radius: 12px;
     }
 
