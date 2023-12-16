@@ -108,7 +108,9 @@
     }
 
     .column {
-        flex-grow: 1;        
+        flex-grow: 1;
+        flex-shrink: 0;
+        flex-basis: 0;      
     }
 
     .big-value {
