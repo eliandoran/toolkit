@@ -8,6 +8,11 @@
   function join() {
     text = text.split("\n").join(separator);
   }
+
+  function split() {
+    text = text.split(separator).join("\n");
+  }
+
 </script>
 
 <ActionCard title="Split/Join Lines">
@@ -20,5 +25,9 @@
   <ActionCardItem
     label="Join"
     on:click={join} />
+
+  <ActionCardItem
+    label="Split"
+    on:click={split} />
 
 </ActionCard>
