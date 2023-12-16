@@ -21,9 +21,10 @@
         flex-direction: column;
         height: 100%;
     }
-
+    
     .inner-wrapper {
         height: 100%;
+        overflow: auto;
     }
 
     .inner-wrapper.padding {
