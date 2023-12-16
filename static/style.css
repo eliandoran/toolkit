@@ -22,9 +22,11 @@
     --header-background-color: #ebebeb;
     --content-background-color: #ffffff;
     --warning-background-color: #ffd486;
-    --selected-background-color: #dedede;
     --text-color: #323232;
     --icon-color: #6e6e6e;
+
+    --selected-background-color: #d8d8d8;
+    --hover-background-color: #dedede;
 
     --font-body: "Nunito", sans-serif;
     --font-dos: "perfect_dos_vga_437", Terminal, monospace;
