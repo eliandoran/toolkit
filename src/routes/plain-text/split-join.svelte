@@ -29,12 +29,12 @@
 
   <ActionCardItem
     label="Join"
-    icon={SetSplit}
+    icon={SetMerge}
     on:click={join} />
 
   <ActionCardItem
     label="Split"
-    icon={SetMerge}
+    icon={SetSplit}
     on:click={split} />
 
 </ActionCard>
