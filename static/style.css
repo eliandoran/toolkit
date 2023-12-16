@@ -32,6 +32,8 @@
     --font-dos: "perfect_dos_vga_437", Terminal, monospace;
     --font-monospace: "Ubuntu Mono", monospace;
 
+    --page-vertical-margin: 2em;
+
     color: var(--text-color);
 }
 
@@ -56,10 +58,15 @@ body {
     width: 100%;
     min-height: 100%;
     margin: 0;
-    padding: 0;
-    padding-top: 2em;
+    padding: 0;    
     font-family: var(--font-body);
     overflow: auto;
+}
+
+@media (min-width: 920px) {
+    body {
+        padding: var(--page-vertical-margin) 0;
+    }
 }
 
 .hidden {

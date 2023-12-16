@@ -15,20 +15,22 @@
     </main>
 
     <aside>
-        <slot name="sidebar" />
+        <div class="inner-wrapper">
+            <slot name="sidebar" />
+        </div>
     </aside>
 </div>
 
 <style>
     .main-container {
         display: flex;
-        height: 100%;
+        flex: 1;
+        min-height: 0;
     }
 
     .main-container > main {
         flex-grow: 1;
         min-height: 0;
-        height: 100%;
         position: relative;
         display: flex;
         flex-direction: column;
@@ -41,10 +43,16 @@
 
     .main-container > aside {
         padding: 1em;
-        width: 270px;
-        border-left: 1px solid var(--border-color);
+        flex-basis: 270px;
         flex-grow: 0;
-        flex-shrink: 0;
+        border-left: 1px solid var(--border-color);
+        display: flex;
+        overflow-x: visible;
+        overflow-y: scroll;        
+    }
+
+    .main-container > aside .inner-wrapper {
+        width: 100%;     
     }
 
     .main-container > aside :global(nav) {

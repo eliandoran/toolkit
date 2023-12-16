@@ -71,10 +71,14 @@
 
     aside {        
         border-bottom: 1px solid var(--border-color);        
+        display: flex;
+        flex-direction: column;
     }    
 
     aside .inner-wrapper {
         padding: 0.5em;
+        overflow: auto;
+        flex-grow: 1;
     }
 
     .collapsed {
@@ -98,6 +102,7 @@
     .page-wrapper {
         width: 95vw;
         min-height: 95vh;
+        max-width: 1900px;
         margin: auto;
         background: var(--background-color);
         border-radius: 16px;
@@ -109,7 +114,8 @@
     @media (min-width: 920px) {
         .page-wrapper {
             display: flex;
-            min-height: 90vh;
+            height: calc(100vh - (2 * var(--page-vertical-margin)));            
+            min-height: unset;
         }
 
         aside {
