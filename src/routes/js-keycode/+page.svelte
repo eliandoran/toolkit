@@ -97,9 +97,15 @@
     h2 {
         font-size: 4em;
         text-align: center;
-        margin: 1em;
+        margin: 0.25em;
         padding: 0;
         font-weight: 100;
+    }
+
+    @media (min-height: 1400px) {
+        h2 {
+            margin: 1em;
+        }
     }
 
     .columns {
