@@ -5,6 +5,7 @@
 	import SidebarView from "$lib/components/sidebar-view.svelte";
 	import TextFilePicker from "$lib/components/text-file-picker.svelte";
 	import Tool from "$lib/components/tool.svelte";
+	import SplitJoin from "./split-join.svelte";
 
     let text = "";
     let numLines;
@@ -62,6 +63,8 @@
                     {/each}
                 </ActionCard>
             {/each}
+
+            <SplitJoin bind:text={text} />
         </aside>
     </SidebarView>
 </Tool>
