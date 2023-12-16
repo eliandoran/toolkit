@@ -9,14 +9,12 @@
 
     function onKeypress(e) {
         event = e;
-        console.log(e);
 
         e.preventDefault();
         e.stopPropagation();
     }
 
     onMount(() => {
-        console.log("Hi");
         document.addEventListener("keydown", onKeypress);
 
         // On unmount.
