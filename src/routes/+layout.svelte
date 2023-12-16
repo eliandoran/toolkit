@@ -114,7 +114,9 @@
     @media (min-width: 920px) {
         .page-wrapper {
             display: flex;
-            height: calc(100vh - (2 * var(--page-vertical-margin)));            
+            margin-top: var(--page-gap);
+            height: calc(100vh - (2 * var(--page-gap)));          
+            width: calc(100vw - (2 * var(--page-gap)));
             min-height: unset;
         }
 
