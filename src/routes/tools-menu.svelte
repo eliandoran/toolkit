@@ -5,7 +5,7 @@
 
     export let tools;
     export let currentPath;
-    export let collapsed = false;
+    export let collapsed;
 </script>
 
 {#each Object.entries(tools) as [categoryName, categoryItems]}
@@ -63,7 +63,6 @@
     }
 
     a {
-        position: relative;
         display: flex !important;
         align-items: center;
     }
@@ -84,18 +83,15 @@
         display: none;
     }
 
-    .collapsed nav a {
-        width: 32px;
-        height: 32px;
-        position: relative;
+    .collapsed nav a {        
         padding: 0;
         margin: auto;
+        width: 32px;
+        height: 32px;
     }
 
-    .collapsed :global(.icon) {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);        
+    .collapsed :global(.icon) {       
+        display: block;
+        margin: auto;
     }
 </style>
