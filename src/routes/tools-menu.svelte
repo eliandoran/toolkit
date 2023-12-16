@@ -1,5 +1,6 @@
 <script>
-	import Icon from "../lib/components/icon.svelte";
+	import { base } from "$app/paths";
+    import Icon from "../lib/components/icon.svelte";
     import { tooltip as tooltipAction } from "@svelte-plugins/tooltips";
 
     export let tools;
@@ -16,7 +17,7 @@
                 {#each categoryItems as tool}
                     <li>                        
                         {#if !collapsed}
-                            <a href="{tool.path}"
+                            <a href="{base}{tool.path}"
                                 class:active="{tool.path === currentPath}">                                
                                 {#if tool.icon}
                                     <Icon
@@ -26,7 +27,7 @@
                                 <span class="title">{tool.title}</span>
                             </a>
                         {:else}
-                            <a href="{tool.path}"
+                            <a href="{base}{tool.path}"
                                 class:active="{tool.path === currentPath}"
                                 title={collapsed ? tool.title : ""}
                                 use:tooltipAction={{ position: "right" }}>

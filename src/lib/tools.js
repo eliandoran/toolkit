@@ -18,25 +18,25 @@ import DotsHorizontal from "svelte-material-icons/DotsHorizontal.svelte";
 export default {
     "Plain text": [
         {
-            path: "./plain-text",
+            path: "/plain-text",
             title: "Text tools",
             icon: FileDocumentEditOutline
         },
     
         {
-            path: "./text-hash",
+            path: "/text-hash",
             title: "Text hash",
             icon: Pound
         },
     
         {
-            path: "./ansi-text",
+            path: "/ansi-text",
             title: "ANSI text viewer",
             icon: FileEyeOutline
         },
 
         {
-            path: "./html-markdown",
+            path: "/html-markdown",
             title: "HTML to Markdown converter",
             icon: LanguageMarkdownOutline
         }        
@@ -44,12 +44,12 @@ export default {
 
     Arithmetics: [
         {
-            path: "./percentage-calculator",
+            path: "/percentage-calculator",
             title: "Percentage calculator",
             icon: PercentBoxOutline
         },
         {
-            path: "./bitwise-calculator",
+            path: "/bitwise-calculator",
             title: "Bitwise calculator",
             icon: Numeric10BoxOutline
         }
@@ -57,7 +57,7 @@ export default {
 
     "Date & Time": [
         {
-            path: "./unix-timestamp",
+            path: "/unix-timestamp",
             title: "Unix timestamp",
             icon: ClockOutline
         }
@@ -65,17 +65,17 @@ export default {
 
     "JSON": [
         {
-            path: "./json-formatter",
+            path: "/json-formatter",
             title: "JSON formatter",
             icon: CodeJson
         },
         {
-            path: "./json-converter",
+            path: "/json-converter",
             title: "JSON to YAML",
             icon: FileArrowLeftRightOutline
         },
         {
-            path: "./json-schema",
+            path: "/json-schema",
             title: "JSON Schema Validator",
             icon: FileCheckOutline
         }
@@ -83,33 +83,33 @@ export default {
 
     "Encode/Decode": [
         {
-            path: "./base64",
+            path: "/base64",
             title: "Base64",
             icon: Equal
         },
         {
-            path: "./url-encoder",
+            path: "/url-encoder",
             title: "URL Encode",
             icon: PercentOutline
         },
         {
-            path: "./html-entity",
+            path: "/html-entity",
             title: "HTML Entity",
             icon: Ampersand
         },
         {
-            path: "./string-escape",
+            path: "/string-escape",
             title: "String escape",
             icon: SlashForward,
             iconFlipHorizontally: true
         },
         {
-            path: "./php-serialization",
+            path: "/php-serialization",
             title: "PHP serialization",
             icon: CodeJson           
         },
         {
-            path: "./morse-code",
+            path: "/morse-code",
             title: "Morse code",
             icon: DotsHorizontal
         }
@@ -117,7 +117,7 @@ export default {
 
     "JavaScript": [
         {
-            path: "./js-keycode",
+            path: "/js-keycode",
             title: "JS keycodes",
             icon: KeyboardSettingsOutline        
         }
