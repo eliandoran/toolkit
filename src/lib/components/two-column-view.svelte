@@ -34,7 +34,11 @@
     .padding {
         padding: 1em;
     }
-    
+
+    .right .app-header {
+        border-top: 1px solid var(--border-color) !important;
+    }
+
     @media (min-width: 920px) {
 
         .left,
@@ -46,6 +50,10 @@
             display: flex;
             flex-direction: column;
         }      
+
+        .right .app-header {
+            border-top: unset !important;
+        }
         
         .left {
             border-right: 1px solid var(--border-color);

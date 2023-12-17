@@ -16,7 +16,7 @@
     }
 
     .outer-wrapper :global(header.app-header:first-of-type) {
-        border-top: unset !important;
+        border-top: unset;
     }
 
     footer {
