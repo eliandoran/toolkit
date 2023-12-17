@@ -98,12 +98,16 @@
         margin: var(--page-gap) auto;
         background: var(--background-color);
         border-radius: 16px;
-        box-sizing: border-box;
-        box-shadow: 0 0 30px rgba(0, 0, 0, 0.25);
-        overflow: hidden;
+        box-sizing: border-box;        
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+        overflow: hidden;        
     }    
 
     @media (min-width: 920px) {
+        .page-wrapper {
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.25);
+        }
+
         aside {
             border-bottom: 1px solid var(--border-color);
         }
