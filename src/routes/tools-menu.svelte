@@ -6,6 +6,12 @@
     export let tools;
     export let currentPath;
     export let collapsed;
+    export let menuShownOnMobile = false;
+
+    function onItemPressed() {
+        // On mobile, pressing on any item dismisses the menu automatically to make it easier for the user.
+        menuShownOnMobile = false;
+    }
 </script>
 
 {#each Object.entries(tools) as [categoryName, categoryItems]}
@@ -18,7 +24,8 @@
                     <li>
                         <a href="{base + tool.path}"
                             class="item-full"
-                            class:active="{(base + tool.path) === currentPath}">
+                            class:active="{(base + tool.path) === currentPath}"
+                            on:click={onItemPressed}>
                             {#if tool.icon}
                                 <Icon
                                     icon={tool.icon}

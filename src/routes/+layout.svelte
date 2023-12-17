@@ -7,6 +7,7 @@
     import { page } from "$app/stores";    
 	import Icon from "../lib/components/icon.svelte";
 
+    let menuShownOnMobile = false;
     let menuCollapsed = false;
 
     function getTitle(currentPath) {
@@ -31,6 +32,11 @@
 
         return null;
     }
+
+    function onMenuPressed() {
+        menuCollapsed = !menuCollapsed;
+        menuShownOnMobile = !menuShownOnMobile;
+    }
 </script>
 
 <svelte:head>
@@ -39,9 +45,9 @@
 
 <div class="page-wrapper">
     {#if $page.url.pathname !== "/"}
-        <aside class="menu" class:collapsed={menuCollapsed} class:mobile-show={menuCollapsed}>
+        <aside class="menu" class:collapsed={menuCollapsed} class:mobile-show={menuShownOnMobile}>
             <header>
-                <HeaderButton on:click={() => menuCollapsed = !menuCollapsed}>
+                <HeaderButton on:click={onMenuPressed}>
                     <Icon icon={Menu} />
                 </HeaderButton>
                 <h2>Tool</h2>
@@ -50,7 +56,8 @@
             <div class="inner-wrapper">
                 <ToolsMenu {tools}
                     currentPath={$page.url.pathname}
-                    collapsed={menuCollapsed} />                
+                    collapsed={menuCollapsed}
+                    bind:menuShownOnMobile={menuShownOnMobile} />                
             </div>
         </aside>
     {/if}
