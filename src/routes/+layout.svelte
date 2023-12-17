@@ -97,7 +97,7 @@
         max-width: 1900px;
         margin: var(--page-gap) auto;
         background: var(--background-color);
-        border-radius: 16px;
+        border-radius: 16px 16px 32px 32px;
         box-sizing: border-box;        
         box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
         overflow: hidden;        
@@ -106,6 +106,7 @@
     @media (min-width: 920px) {
         .page-wrapper {
             box-shadow: 0 0 30px rgba(0, 0, 0, 0.25);
+            border-radius: 16px;
         }
 
         aside {
