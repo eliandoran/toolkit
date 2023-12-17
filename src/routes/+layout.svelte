@@ -39,7 +39,7 @@
 
 <div class="page-wrapper">
     {#if $page.url.pathname !== "/"}
-        <aside class:collapsed={menuCollapsed}>
+        <aside class="menu" class:collapsed={menuCollapsed} class:mobile-show={menuCollapsed}>
             <header>
                 <HeaderButton on:click={() => menuCollapsed = !menuCollapsed}>
                     <Icon icon={Menu} />
@@ -77,23 +77,13 @@
         flex-grow: 1;
     }
 
-    .collapsed {
-        max-width: 48px;
-    }
-
-    .collapsed h2 {
+    .menu .inner-wrapper {
         display: none;
     }
 
-    .collapsed :global(header a) {
-        width: 24px;
-        height: 20px;
-    }
-
-    .collapsed .inner-wrapper {
-        box-sizing: border-box;
-        padding: 0.5em 0;
-    }
+    .menu.mobile-show .inner-wrapper {
+        display: block;
+    }    
     
     .page-wrapper {
         width: 95vw;
@@ -108,6 +98,28 @@
     }    
 
     @media (min-width: 920px) {
+        .collapsed {
+            max-width: 48px;
+        }
+
+        .collapsed h2 {
+            display: none;
+        }
+
+        .collapsed :global(header a) {
+            width: 24px;
+            height: 20px;
+        }
+
+        .collapsed .inner-wrapper {
+            box-sizing: border-box;
+            padding: 0.5em 0;
+        }
+
+        .menu .inner-wrapper {
+            display: block;
+        }
+
         .page-wrapper {
             display: flex;
             margin-top: var(--page-gap);

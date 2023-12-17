@@ -16,29 +16,28 @@
             <ul>
                 {#each categoryItems as tool} 
                     <li>
-                        {#if !collapsed}
-                            <a href="{base + tool.path}"
-                                class:active="{(base + tool.path) === currentPath}">                                
-                                {#if tool.icon}
-                                    <Icon
-                                        icon={tool.icon}
-                                        flipHorizontal={tool.iconFlipHorizontally} />
-                                {/if}
-                                <span class="title">{tool.title}</span>
-                            </a>
-                        {:else}
-                            <a href="{base + tool.path}"
-                                class:active="{(base + tool.path) === currentPath}"
-                                title={collapsed ? tool.title : ""}
-                                use:tooltipAction={{ position: "right" }}>
-                                {#if tool.icon}
-                                    <Icon
-                                        icon={tool.icon}
-                                        flipHorizontal={tool.iconFlipHorizontally} />
-                                {/if}
-                            </a>
-                        {/if}
+                        <a href="{base + tool.path}"
+                            class="item-full"
+                            class:active="{(base + tool.path) === currentPath}">
+                            {#if tool.icon}
+                                <Icon
+                                    icon={tool.icon}
+                                    flipHorizontal={tool.iconFlipHorizontally} />
+                            {/if}
+                            <span class="title">{tool.title}</span>
+                        </a>
 
+                        <a href="{base + tool.path}"
+                            class="item-collapsed"
+                            class:active="{(base + tool.path) === currentPath}"
+                            title={tool.title}
+                            use:tooltipAction={{ position: "right" }}>
+                            {#if tool.icon}
+                                <Icon
+                                    icon={tool.icon}
+                                    flipHorizontal={tool.iconFlipHorizontally} />
+                            {/if}
+                        </a>
                     </li>
                 {/each}
             </ul>
@@ -73,25 +72,39 @@
         height: 21px;
     }
 
-    .collapsed {
-        margin: 0;
-        padding: 3px 0;
-        border-bottom: 1px solid var(--border-color);
+    .item-collapsed {
+        display: none !important;
     }
 
-    .collapsed h3 {
-        display: none;
-    }
+    @media (min-width: 920px) {
+        .collapsed {
+            margin: 0;
+            padding: 3px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
 
-    .collapsed nav a {        
-        padding: 0;
-        margin: auto;
-        width: 32px;
-        height: 32px;
-    }
+        .collapsed h3 {
+            display: none;
+        }
 
-    .collapsed :global(.icon) {       
-        display: block;
-        margin: auto;
+        .collapsed nav a {        
+            padding: 0;
+            margin: auto;
+            width: 32px;
+            height: 32px;
+        }
+
+        .collapsed :global(.icon) {       
+            display: block;
+            margin: auto;
+        }
+
+        .collapsed .item-full {
+            display: none !important;
+        }
+
+        .collapsed .item-collapsed {
+            display: flex !important;
+        }
     }
 </style>
