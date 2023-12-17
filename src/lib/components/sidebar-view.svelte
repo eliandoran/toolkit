@@ -26,33 +26,12 @@
         display: flex;
         flex: 1;
         min-height: 0;
-    }
-
-    .main-container > main {
-        flex-grow: 1;
-        min-height: 0;
-        position: relative;
-        display: flex;
         flex-direction: column;
-        box-sizing: border-box;
-    }
+    }    
 
-    .padding {
+    .padding,
+    aside {
         padding: 1em;
-    }
-
-    .main-container > aside {
-        padding: 1em;
-        flex-basis: 270px;
-        flex-grow: 0;
-        border-left: 1px solid var(--border-color);
-        display: flex;
-        overflow-x: visible;
-        overflow-y: scroll;        
-    }
-
-    .main-container > aside .inner-wrapper {
-        width: 100%;     
     }
 
     .main-container > aside :global(nav) {
@@ -71,5 +50,34 @@
         text-decoration: none;
         color: inherit;
         font-size: 0.9em;
+    }
+
+    @media (min-width: 920px) {
+        .main-container {
+            flex-direction: row;
+        }
+
+        .main-container > main {
+            flex-grow: 1;
+            min-height: 0;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+        }
+
+        .main-container > aside {
+            padding: 1em;
+            flex-basis: 270px;
+            flex-grow: 0;
+            border-left: 1px solid var(--border-color);
+            display: flex;
+            overflow-x: visible;
+            overflow-y: scroll;        
+        }
+
+        .main-container > aside .inner-wrapper {
+            width: 100%;     
+        }
     }
 </style>
