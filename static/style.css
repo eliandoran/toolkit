@@ -32,9 +32,15 @@
     --font-dos: "perfect_dos_vga_437", Terminal, monospace;
     --font-monospace: "Ubuntu Mono", monospace;
 
-    --page-gap: 1em;
+    --page-gap: 0.5em;
 
     color: var(--text-color);
+}
+
+@media (min-width: 920px) {
+    :root {
+        --page-gap: 1em;
+    }
 }
 
 @media (prefers-color-scheme: dark) {

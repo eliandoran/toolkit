@@ -95,7 +95,7 @@
         width: 95vw;
         min-height: 95vh;
         max-width: 1900px;
-        margin: auto;
+        margin: var(--page-gap) auto;
         background: var(--background-color);
         border-radius: 16px;
         box-sizing: border-box;
@@ -131,8 +131,7 @@
         }
 
         .page-wrapper {
-            display: flex;
-            margin-top: var(--page-gap);
+            display: flex;            
             height: calc(100vh - (2 * var(--page-gap)));          
             width: calc(100vw - (2 * var(--page-gap)));
             min-height: unset;
