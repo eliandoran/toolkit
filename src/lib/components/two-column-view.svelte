@@ -31,10 +31,11 @@
 </div>
 
 <style>
+    .padding {
+        padding: 1em;
+    }
+    
     @media (min-width: 920px) {
-        .padding {
-            padding: 1em;
-        }
 
         .left,
         .right {
