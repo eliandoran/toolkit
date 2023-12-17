@@ -11,7 +11,7 @@
         decimalValue = parseInt(e.target.value, radix);
     }
 
-    $: convertedValue = decimalValue.toString(radix);
+    $: convertedValue = !isNaN(decimalValue) ? decimalValue.toString(radix) : "";
 </script>
 
 <InputField label={radixName}>
