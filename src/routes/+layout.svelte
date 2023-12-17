@@ -101,12 +101,15 @@
         box-sizing: border-box;        
         box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
         overflow: hidden;        
+        display: flex;
+        flex-direction: column;
     }    
 
     @media (min-width: 920px) {
         .page-wrapper {
             box-shadow: 0 0 30px rgba(0, 0, 0, 0.25);
             border-radius: 16px;
+            flex-direction: row;
         }
 
         aside {
@@ -135,8 +138,7 @@
             display: block;
         }
 
-        .page-wrapper {
-            display: flex;            
+        .page-wrapper {                   
             height: calc(100vh - (2 * var(--page-gap)));          
             width: calc(100vw - (2 * var(--page-gap)));
             min-height: unset;
@@ -151,7 +153,9 @@
         }
     }
 
-    .main-content {        
+    .main-content {      
+        display: flex;  
         flex-grow: 1;
+        flex-direction: column;
     }    
 </style>

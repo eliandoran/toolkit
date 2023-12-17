@@ -39,6 +39,18 @@
         border-top: 1px solid var(--border-color) !important;
     }
 
+    .two-columns {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+
+    .left,
+    .right {
+        flex-grow: 1;
+        flex-shrink: 0;
+    }
+
     @media (min-width: 920px) {
 
         .left,
@@ -60,8 +72,7 @@
         }
 
         .two-columns {
-            display: flex;
-            height: 100%;
+            flex-direction: row;
             justify-content: stretch;
         }
 

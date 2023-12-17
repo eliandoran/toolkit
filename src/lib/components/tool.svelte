@@ -8,7 +8,7 @@
         flex-direction: column;
         align-items: stretch;
         position: relative;
-        height: 100%;
+        flex-grow: 1;
     }
 
     .outer-wrapper :global(header.app-header:first-of-type) {
