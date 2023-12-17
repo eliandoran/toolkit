@@ -1,0 +1,8 @@
+{
+    "name": "Toolkit",
+    "short_name": "Toolkit",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#70234e",
+    "description": "A purely client-side application that offers various small tools that can be useful in day-to-day use, mostly for development."
+}
