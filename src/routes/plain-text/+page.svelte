@@ -99,8 +99,4 @@
         margin-right: 0;
     }
 
-    .nav {
-        padding: 0 !important;
-    }
-
 </style>

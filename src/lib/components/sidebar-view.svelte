@@ -72,15 +72,4 @@
         color: inherit;
         font-size: 0.9em;
     }
-
-    aside h3 {
-        font-size: 0.75em;
-        font-weight: 400;        
-    }
-
-    aside section {
-        background: var(--content-background-color);
-        padding: 0.5em;
-        border-radius: 12px;
-    }
 </style>

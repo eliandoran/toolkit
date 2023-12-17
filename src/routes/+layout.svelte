@@ -65,10 +65,6 @@
         min-height: 100vh;
     }
 
-    main {
-        padding: 0 2rem;
-    }    
-
     aside {        
         border-bottom: 1px solid var(--border-color);        
         display: flex;

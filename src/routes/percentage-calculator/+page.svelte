@@ -35,10 +35,6 @@
 </Tool>
 
 <style>
-    section {
-        margin: 1em 0;
-    }
-
     :global(input) {
         width: 150px;
     }

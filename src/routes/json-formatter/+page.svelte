@@ -80,10 +80,3 @@
         </aside>
     </SidebarView>
 </Tool>
-
-<style>
-    textarea {
-        width: 100%;
-        min-height: 70vh;
-    }    
-</style>

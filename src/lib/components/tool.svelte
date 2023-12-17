@@ -19,15 +19,6 @@
         border-top: unset !important;
     }
 
-    .inner-wrapper {
-        overflow: auto;        
-        flex-grow: 1;
-    }
-    
-    header {
-        display: flex;
-    }    
-
     footer {
         position: absolute;
         bottom: 0;

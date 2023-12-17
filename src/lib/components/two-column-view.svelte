@@ -60,11 +60,4 @@
             height: 100%;
         }
     }
-
-    h3 {
-        font-size: 12pt;
-        font-weight: 400;
-        margin: 0;
-        margin-bottom: 0.5em;
-    }
 </style>
