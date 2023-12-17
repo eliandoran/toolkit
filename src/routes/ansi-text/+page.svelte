@@ -35,11 +35,6 @@
             </div>
         </div>
     </StackView>
-
-    <span slot="footer">
-        Uses the <a href="https://www.npmjs.com/package/ansi-to-html">ansi-to-html</a> library.
-        Font is <a href="https://www.dafont.com/perfect-dos-vga-437.font">Perfect DOS VGA 437</a>.
-    </span>
 </Tool>
 
 <style>    

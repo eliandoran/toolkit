@@ -18,8 +18,4 @@
         fromTitle="Original text"
         toTitle="Text escaped with backslashes"
         {to} {from} />
-
-    <span slot="footer">
-        Uses the <a href="https://www.npmjs.com/package/slashes">slashes</a> library.
-    </span>
 </Tool>

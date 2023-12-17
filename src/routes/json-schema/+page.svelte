@@ -113,10 +113,6 @@
             <ValidationTable {validationErrors} />
         </div>
     </StackView>
-
-    <span slot="footer">
-        Uses the <a href="https://www.npmjs.com/package/ajv">ajv</a> library.
-    </span>
 </Tool>
 
 <style>

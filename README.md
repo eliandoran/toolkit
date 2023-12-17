@@ -25,7 +25,7 @@ As a general software design decision, the business logic of the application is 
 * HTML to Markdown converter
 * Calculators:
     * Base converter
-    * Percentage
+    * Percentage (heavily inspired from [percentagecalculator.net](https://percentagecalculator.net/))
     * Bitwise operations
 * Unix timestamp
 * JSON:
@@ -40,3 +40,14 @@ As a general software design decision, the business logic of the application is 
     * PHP serialization
     * Morse code
 * JavaScript keycode helper
+
+## Acknowledgement
+
+* For ANSI preview:
+    * [ansi-to-html](https://www.npmjs.com/package/ansi-to-html)
+    * [Perfect DOS VGA 437](https://www.dafont.com/perfect-dos-vga-437.font)
+* [he](https://www.npmjs.com/package/he) for HTML entity encode/decode.
+* [yaml](https://www.npmjs.com/package/yaml) for JSON to YAML conversion.
+* [ajv](https://www.npmjs.com/package/ajv) for JSON schema validation.
+* [slashes](https://www.npmjs.com/package/slashes) for string escape.
+* [crypto-es](https://github.com/entronad/crypto-es) for hashing.
