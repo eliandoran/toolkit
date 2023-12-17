@@ -72,8 +72,7 @@
         min-height: 100vh;
     }
 
-    aside {        
-        border-bottom: 1px solid var(--border-color);        
+    aside {                     
         display: flex;
         flex-direction: column;
     }    
@@ -105,6 +104,10 @@
     }    
 
     @media (min-width: 920px) {
+        aside {
+            border-bottom: 1px solid var(--border-color);
+        }
+
         .collapsed {
             max-width: 48px;
         }
