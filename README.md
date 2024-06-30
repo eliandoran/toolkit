@@ -41,6 +41,20 @@ As a general software design decision, the business logic of the application is 
     * Morse code
 * JavaScript keycode helper
 
+## Development
+
+First, install the dependencies:
+
+```sh
+npm i
+```
+
+Then run a development server:
+
+```
+npm run dev
+```
+
 ## Acknowledgement
 
 * For ANSI preview:
