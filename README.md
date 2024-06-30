@@ -46,13 +46,13 @@ As a general software design decision, the business logic of the application is 
 First, install the dependencies:
 
 ```sh
-npm i
+pnpm i
 ```
 
 Then run a development server:
 
 ```
-npm run dev
+pnpm dev
 ```
 
 ## Acknowledgement
