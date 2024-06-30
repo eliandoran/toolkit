@@ -177,7 +177,8 @@ input:disabled {
     margin: 1px 0;
 }
 
-.nav ul li a {
+.nav ul li a,
+.nav ul li button {
     text-decoration: none;
     color: inherit;
     font-size: 0.9em;
@@ -186,11 +187,13 @@ input:disabled {
     border-radius: 6px;        
 }
 
-.nav ul li a:hover {
+.nav ul li a:hover,
+.nav ul li button:hover {
     background-color: var(--hover-background-color);
 }
 
-.nav ul li a.active {
+.nav ul li a.active,
+.nav ul li button:active {
     background-color: var(--selected-background-color);
 }
 

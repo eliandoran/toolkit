@@ -1,26 +1,29 @@
-<a href="#" on:click>
+<button on:click>
     <slot />
-</a>
+</button>
 
 <style>
-    a {
+    button {
         display: inline-block;
         color: var(--text-color);
-        text-decoration: none;        
         position: relative;
+        appearance: none;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
     }
 
-    a :global(.icon) {
+    button :global(.icon) {
         display: inline-block;
         width: 24px;
-        height: 20px;        
+        height: 24px;        
     }
 
-    a :global(.icon svg) {
+    button :global(.icon svg) {
         color: var(--text-color);
     }
 
-    a :global(.icon svg) {
+    button :global(.icon svg) {
         position: absolute;
         top: 50%;
         left: 0;
