@@ -21,25 +21,25 @@ export default {
     "Plain text": [
         {
             path: "/plain-text",
-            title: "Text tools",
+            title: "Text Tools",
             icon: FileDocumentEditOutline
         },
     
         {
             path: "/text-hash",
-            title: "Text hash",
+            title: "Text Hash",
             icon: Pound
         },
     
         {
             path: "/ansi-text",
-            title: "ANSI text viewer",
+            title: "ANSI Text Viewer",
             icon: FileEyeOutline
         },
 
         {
             path: "/html-markdown",
-            title: "HTML to Markdown converter",
+            title: "HTML to Markdown Converter",
             icon: LanguageMarkdownOutline
         }        
     ],
@@ -47,17 +47,17 @@ export default {
     Arithmetics: [
         {
             path: "/base-converter",
-            title: "Base converter",
+            title: "Base Converter",
             icon: Numeric
         },
         {
             path: "/percentage-calculator",
-            title: "Percentage calculator",
+            title: "Percentage Calculator",
             icon: PercentBoxOutline
         },
         {
             path: "/bitwise-calculator",
-            title: "Bitwise calculator",
+            title: "Bitwise Calculator",
             icon: Numeric10BoxOutline
         }
     ],
@@ -65,7 +65,7 @@ export default {
     "Date & Time": [
         {
             path: "/unix-timestamp",
-            title: "Unix timestamp",
+            title: "Unix Timestamp",
             icon: ClockOutline
         }
     ],
@@ -73,7 +73,7 @@ export default {
     "JSON": [
         {
             path: "/json-formatter",
-            title: "JSON formatter",
+            title: "JSON Formatter",
             icon: CodeJson
         },
         {
@@ -116,18 +116,18 @@ export default {
         },
         {
             path: "/string-escape",
-            title: "String escape",
+            title: "String Escape",
             icon: SlashForward,
             iconFlipHorizontally: true
         },
         {
             path: "/php-serialization",
-            title: "PHP serialization",
+            title: "PHP Serialization",
             icon: CodeJson           
         },
         {
             path: "/morse-code",
-            title: "Morse code",
+            title: "Morse Code",
             icon: DotsHorizontal
         }
     ],
@@ -135,7 +135,7 @@ export default {
     "JavaScript": [
         {
             path: "/js-keycode",
-            title: "JS keycodes",
+            title: "JS Keycodes",
             icon: KeyboardSettingsOutline        
         }
     ]
