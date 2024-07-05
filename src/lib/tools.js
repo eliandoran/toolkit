@@ -94,6 +94,11 @@ export default {
 
     "Encode/Decode": [
         {
+            path: "/jwt-decoder",
+            title: "JWT Decoder",
+            icon: Equal,
+        },
+        {
             path: "/base64",
             title: "Base64",
             icon: Equal

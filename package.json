@@ -37,6 +37,7 @@
 		"crypto-es": "^2.1.0",
 		"he": "^1.2.0",
 		"json5": "^2.2.3",
+		"jwt-decode": "^4.0.0",
 		"php-serialize": "^4.1.1",
 		"slashes": "^3.0.12",
 		"svelte-codemirror-editor": "^1.4.0",
