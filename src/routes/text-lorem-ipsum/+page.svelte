@@ -19,7 +19,7 @@
                 output = lorem.generateSentences(number);
                 break;
             case "paragraphs":
-                output = lorem.generateParagraphs(number)
+                output = ("Lorem ipsum dolor sit amet, consectetur adipiscing elit. " + lorem.generateParagraphs(number))
                     .split("\n")
                     .map((l) => `<p>${l}</p>`)
                     .join("\n");
