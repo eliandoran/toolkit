@@ -6,6 +6,7 @@
     import MdiRefresh from "svelte-material-icons/Refresh.svelte";
 	import HeaderButton from "$lib/components/header-button.svelte";
 	import Icon from "$lib/components/icon.svelte";
+	import TwoColumnView from "$lib/components/two-column-view.svelte";
     
     let lorem = new LoremIpsum();
 
@@ -52,8 +53,8 @@
 </script>
 
 <Tool>
-    <StackView title="Lorem Ipsum Generator" isCollapsible={false}>
-        <div class="row">
+    <TwoColumnView leftTitle="Lorem Ipsum Generator" rightTitle="Paragraph limits" isCollapsible={false}>
+        <div class="row" slot="left">
             <input type="number" bind:value={number} />
     
             <label>
@@ -70,30 +71,36 @@
             </label>
         </div>
 
-        <div class="row">
-            Words per sentence:
+        <div slot="right" class="option-table">
+            <div class="row">
+                <div class="option">                    
+                    Words per sentence:
+                </div>
 
-            <label>                
-                <input type="number" bind:value={wordsPerSentenceMin} />
-            </label>
-            -
-            <label>
-                <input type="number" bind:value={wordsPerSentenceMax} />
-            </label>
+                <label>                
+                    <input type="number" bind:value={wordsPerSentenceMin} />
+                </label>
+                -
+                <label>
+                    <input type="number" bind:value={wordsPerSentenceMax} />
+                </label>
+            </div>
+
+            <div class="row">
+                <div class="option">
+                    Sentences per paragraph:
+                </div>
+
+                <label>                
+                    <input type="number" bind:value={sentencesPerParagraphMin} />
+                </label>
+                -
+                <label>
+                    <input type="number" bind:value={sentencesPerParagraphMax} />
+                </label>
+            </div>
         </div>
-
-        <div class="row">
-            Sentences per paragraph:
-
-            <label>                
-                <input type="number" bind:value={sentencesPerParagraphMin} />
-            </label>
-            -
-            <label>
-                <input type="number" bind:value={sentencesPerParagraphMax} />
-            </label>
-        </div>
-    </StackView>
+    </TwoColumnView>
 
     <StackView title="Generated text" isCollapsible={false} fill>        
         <HeaderButton slot="header-right" on:click={() => refresh(number, unit)}>
@@ -132,4 +139,21 @@
         border-radius: 6px;
         padding: 3px 6px;
     }
+
+    .option-table {
+        display: table;
+    }
+
+    .option-table .row {
+        display: table-row;
+    }
+
+    .option-table .row > * {
+        display: table-cell;
+        padding: 0.25em;
+    }
+
+    .option-table .row > :first-child {
+        padding-right: 1em;
+    } 
 </style>
