@@ -15,6 +15,6 @@
 <Tool>
   <SymmetricInputOutput
     fromTitle="JSON"
-    toTitle="JS object"
+    toTitle="JSON5"
     {to} {from} />
 </Tool>

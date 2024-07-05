@@ -81,14 +81,14 @@ export default {
             icon: FileArrowLeftRightOutline
         },
         {
+            path: "/json-to-json5",
+            title: "JSON to JSON5",
+            icon: FileArrowLeftRightOutline
+        },
+        {
             path: "/json-schema",
             title: "JSON Schema Validator",
             icon: FileCheckOutline
-        },
-        {
-            path: "/json-to-js",
-            title: "JSON to JS object",
-            icon: FileArrowLeftRightOutline
         }
     ],
 
