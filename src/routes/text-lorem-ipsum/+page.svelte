@@ -53,7 +53,7 @@
 
 <Tool>
     <StackView title="Lorem Ipsum Generator" isCollapsible={false}>
-        <div>
+        <div class="row">
             <input type="number" bind:value={number} />
     
             <label>
@@ -70,19 +70,7 @@
             </label>
         </div>
 
-        <div>
-            Sentences per paragraph:
-
-            <label>                
-                <input type="number" bind:value={sentencesPerParagraphMin} />
-            </label>
-            -
-            <label>
-                <input type="number" bind:value={sentencesPerParagraphMax} />
-            </label>
-        </div>
-
-        <div>
+        <div class="row">
             Words per sentence:
 
             <label>                
@@ -91,6 +79,18 @@
             -
             <label>
                 <input type="number" bind:value={wordsPerSentenceMax} />
+            </label>
+        </div>
+
+        <div class="row">
+            Sentences per paragraph:
+
+            <label>                
+                <input type="number" bind:value={sentencesPerParagraphMin} />
+            </label>
+            -
+            <label>
+                <input type="number" bind:value={sentencesPerParagraphMax} />
             </label>
         </div>
     </StackView>
@@ -122,4 +122,14 @@
         margin-bottom: 1em;
     }
 
+    .row {
+        margin: 0.25em 0;
+    }
+
+    input[type="number"] {
+        width: 3em;
+        text-align: center;
+        border-radius: 6px;
+        padding: 3px 6px;
+    }
 </style>
