@@ -30,7 +30,8 @@ As a general software design decision, the business logic of the application is 
 * Unix timestamp
 * JSON:
     * JSON formatter
-    * JSON to YAML
+    * JSON to YAML, YAML to JSON
+    * JSON to JSON5, JSON5 to JSON
     * JSON schema validator
 * Encode/decode:
     * Base64
