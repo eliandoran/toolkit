@@ -1,4 +1,6 @@
 <script>
+  import { json } from "@codemirror/lang-json";
+
 	import SymmetricInputOutput from "$lib/components/symmetric-input-output.svelte";
   import Tool from "$lib/components/tool.svelte";
   import JSON5 from "json5";
@@ -16,5 +18,7 @@
   <SymmetricInputOutput
     fromTitle="JSON"
     toTitle="JSON5"
+    useCodeMirror={true}
+    leftLang={json()}
     {to} {from} />
 </Tool>
