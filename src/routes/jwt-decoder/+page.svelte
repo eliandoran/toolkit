@@ -12,17 +12,25 @@
 
     let encodedJwt;
     let decodedJwt;
-    let formattedDecodedJwt = "";
     let error;
+
+    let formattedHeader = "";
+    let formattedPayload = "";
 
     $: {
         error = "";
-        formattedDecodedJwt = "";
+        formattedHeader = "";
+        formattedPayload = "";
 
         try {
             if (encodedJwt) {
+                // Header
+                const decodedHeader = jwtDecode(encodedJwt, { header: true })
+                formattedHeader = JSON.stringify(decodedHeader, null, 4);
+
+                // Payload
                 decodedJwt = jwtDecode(encodedJwt);
-                formattedDecodedJwt = JSON.stringify(decodedJwt, null, 4);
+                formattedPayload = JSON.stringify(decodedJwt, null, 4);                
             }
         } catch (e) {
             if ((e instanceof InvalidTokenError)) {
@@ -44,12 +52,23 @@
         <div slot="right">
             <StackView title="Decoded fields">
                 Decoded views go here.
+            </StackView>        
+            
+            <StackView title="Header" hasPadding={false}>
+                <div class="codemirror-outer-wrapper header">
+                    <CodeMirror
+                            value={formattedHeader}                
+                            lang={json()}                    
+                            theme={$theme}
+                            lineWrapping={true}
+                            readonly />
+                </div>
             </StackView>
 
-            <StackView title="Raw JWT" hasPadding={false} fill={true}>
-                <div class="codemirror-outer-wrapper">
+            <StackView title="Payload" hasPadding={false} fill={true}>
+                <div class="codemirror-outer-wrapper payload">
                     <CodeMirror
-                        value={formattedDecodedJwt}                
+                        value={formattedPayload}                
                         lang={json()}                    
                         theme={$theme}
                         lineWrapping={true}
@@ -81,5 +100,9 @@
         position: relative;
         flex-grow: 1;
         height: 100%;
+    }
+
+    .codemirror-outer-wrapper.header {
+        min-height: 6em;
     }
 </style>
