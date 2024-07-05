@@ -1,4 +1,8 @@
 <script>
+    import CodeMirror from "svelte-codemirror-editor";
+    import { theme } from "$lib/stores/codemirror.js";
+    import { json } from "@codemirror/lang-json";
+
     import { InvalidTokenError, jwtDecode } from "jwt-decode";
 
 	import Tool from "$lib/components/tool.svelte";
@@ -30,17 +34,20 @@
 </script>
 
 <Tool>
-    <TwoColumnView leftTitle="Input the JSON Web Token (JWT)" rightTitle="Decoded JWT">
+    <TwoColumnView leftTitle="Input the JSON Web Token (JWT)" rightTitle="Decoded JWT" hasPadding={false}>
         <div slot="left">
             <textarea bind:value={encodedJwt}></textarea>
+            <WarningBox message={error} />
         </div>
 
         <div slot="right">
-            <WarningBox message={error} />
-
-            {#if formattedDecodedJwt}
-                <textarea value={formattedDecodedJwt} readonly></textarea>
-            {/if}
+            <div class="codemirror-outer-wrapper">
+                <CodeMirror
+                    value={formattedDecodedJwt}                
+                    lang={json()}                    
+                    theme={$theme}
+                    readonly />
+            </div>
         </div>
     </TwoColumnView>
 </Tool>
@@ -48,6 +55,8 @@
 <style>
     div[slot="left"] {
         flex-grow: 1;
+        display: flex;
+        flex-direction: column;
         height: 100%;
     }
 
@@ -57,7 +66,6 @@
     }
 
     textarea {
-        width: 100%;
-        height: 100%;
+        flex-grow: 1;
     }
 </style>
