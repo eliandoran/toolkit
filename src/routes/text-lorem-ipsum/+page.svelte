@@ -49,7 +49,7 @@
     </StackView>
 
     <StackView title="Generated text" isCollapsible={false} fill>
-        <div class="output">
+        <div class="output" class:justify={unit !== "words"}>
             {@html output}
         </div>
     </StackView>
@@ -60,6 +60,10 @@
         font-family: serif;
         flex-grow: 1;
         overflow: auto;
+    }
+
+    .output.justify {
+        text-align: justify;
     }
 
     .output :global(p) {
