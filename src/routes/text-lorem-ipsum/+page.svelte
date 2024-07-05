@@ -7,13 +7,31 @@
 	import HeaderButton from "$lib/components/header-button.svelte";
 	import Icon from "$lib/components/icon.svelte";
     
-    const lorem = new LoremIpsum();
+    let lorem = new LoremIpsum();
 
     let number = 5;
     let unit = "paragraphs";
     let output = [];
 
-    $: refresh(number, unit);
+    let sentencesPerParagraphMin = 7;
+    let sentencesPerParagraphMax = 15;
+
+    let wordsPerSentenceMin = 4;
+    let wordsPerSentenceMax = 16;
+
+    $: {
+        lorem = new LoremIpsum({
+            sentencesPerParagraph: {
+                min: sentencesPerParagraphMin,
+                max: sentencesPerParagraphMax
+            },
+            wordsPerSentence: {
+                min: wordsPerSentenceMin,
+                max: wordsPerSentenceMax
+            }
+        });
+        refresh(number, unit)
+    }
     
     function refresh(number, unit) {
         switch (unit) {
@@ -49,6 +67,30 @@
             <label>
                 <input type="radio" value="paragraphs" bind:group={unit} />
                 paragraphs
+            </label>
+        </div>
+
+        <div>
+            Sentences per paragraph:
+
+            <label>                
+                <input type="number" bind:value={sentencesPerParagraphMin} />
+            </label>
+            -
+            <label>
+                <input type="number" bind:value={sentencesPerParagraphMax} />
+            </label>
+        </div>
+
+        <div>
+            Words per sentence:
+
+            <label>                
+                <input type="number" bind:value={wordsPerSentenceMin} />
+            </label>
+            -
+            <label>
+                <input type="number" bind:value={wordsPerSentenceMax} />
             </label>
         </div>
     </StackView>
