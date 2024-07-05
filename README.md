@@ -20,6 +20,7 @@ As a general software design decision, the business logic of the application is 
     * Whitespace removal: trim lines, remove trailing whitespace, remove blank lines
     * Case convert: upper case, lower case.
     * Split/join
+    * Lorem Ipsum generator
 * Text hash: MD5, SHA1, SHA256, SHA384, SHA512
 * ANSI text viewer
 * HTML to Markdown converter
