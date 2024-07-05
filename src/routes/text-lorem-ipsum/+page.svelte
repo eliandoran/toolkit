@@ -3,14 +3,19 @@
 
     import Tool from "$lib/components/tool.svelte";
 	import StackView from "$lib/components/stack-view.svelte";
-
+    import MdiRefresh from "svelte-material-icons/Refresh.svelte";
+	import HeaderButton from "$lib/components/header-button.svelte";
+	import Icon from "$lib/components/icon.svelte";
+    
     const lorem = new LoremIpsum();
 
     let number = 5;
     let unit = "paragraphs";
     let output = [];
 
-    $: {
+    $: refresh(number, unit);
+    
+    function refresh(number, unit) {
         switch (unit) {
             case "words":
                 output = lorem.generateWords(number);
@@ -48,7 +53,11 @@
         </div>
     </StackView>
 
-    <StackView title="Generated text" isCollapsible={false} fill>
+    <StackView title="Generated text" isCollapsible={false} fill>        
+        <HeaderButton slot="header-right" on:click={() => refresh(number, unit)}>
+            <Icon icon={MdiRefresh} />
+        </HeaderButton>
+
         <div class="output" class:justify={unit !== "words"}>
             {@html output}
         </div>
