@@ -50,10 +50,6 @@
         </div>
 
         <div slot="right">
-            <StackView title="Decoded fields">
-                Decoded views go here.
-            </StackView>        
-            
             <StackView title="Header" hasPadding={false}>
                 <div class="codemirror-outer-wrapper header">
                     <CodeMirror
