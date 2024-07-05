@@ -35,7 +35,7 @@
 </script>
 
 <Tool>
-    <TwoColumnView leftTitle="Input the JSON Web Token (JWT)" rightTitle="Decoded JWT" hasPadding={false}>
+    <TwoColumnView leftTitle="Input the JSON Web Token (JWT)" hasPadding={false}>
         <div slot="left">
             <textarea bind:value={encodedJwt}></textarea>
             <WarningBox message={error} />

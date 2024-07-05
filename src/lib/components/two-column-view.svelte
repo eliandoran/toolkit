@@ -1,6 +1,6 @@
 <script>
     export let leftTitle;
-    export let rightTitle;
+    export let rightTitle = null;
     export let hasPadding = true;
 </script>
 
@@ -18,11 +18,13 @@
     </section>
     
     <section class="right">
-        <header class="app-header">
-            <slot name="header-right-left"></slot>
-            <h2>{rightTitle}</h2>
-            <slot name="header-right-right"></slot>
-        </header>
+        {#if rightTitle}
+            <header class="app-header">
+                <slot name="header-right-left"></slot>
+                <h2>{rightTitle}</h2>
+                <slot name="header-right-right"></slot>
+            </header>
+        {/if}
 
         <div class="inner-wrapper" class:padding={hasPadding}>
             <slot name="right" />
