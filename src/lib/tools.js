@@ -15,6 +15,7 @@ import PercentBoxOutline from "svelte-material-icons/PercentBoxOutline.svelte";
 import PercentOutline from "svelte-material-icons/PercentOutline.svelte";
 import Pound from "svelte-material-icons/Pound.svelte";
 import SlashForward from "svelte-material-icons/SlashForward.svelte";
+import KeyOutline from "svelte-material-icons/KeyOutline.svelte";
 
 export default {
     "Plain text": [
@@ -96,7 +97,7 @@ export default {
         {
             path: "/jwt-decoder",
             title: "JWT Decoder",
-            icon: Equal,
+            icon: KeyOutline,
         },
         {
             path: "/base64",
