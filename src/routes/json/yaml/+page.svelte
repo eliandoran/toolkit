@@ -1,5 +1,6 @@
 <script>
     import { json } from "@codemirror/lang-json";
+    import { yaml } from "@codemirror/lang-yaml";
 
 	import SymmetricInputOutput from "$lib/components/symmetric-input-output.svelte";
 	import Tool from "$lib/components/tool.svelte";
@@ -22,5 +23,6 @@
         toTitle="YAML"
         useCodeMirror={true}
         leftLang={json()}
+        rightLang={yaml()}
         {to} {from} />
 </Tool>
