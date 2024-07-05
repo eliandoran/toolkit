@@ -15,41 +15,28 @@
     </main>
 
     <aside>
-        <slot name="sidebar" />
+        <div class="inner-wrapper">
+            <slot name="sidebar" />
+        </div>
     </aside>
 </div>
 
 <style>
     .main-container {
         display: flex;
-        height: 100%;
-    }
-
-    .main-container > main {
-        flex-grow: 1;
+        flex: 1;
         min-height: 0;
-        height: 100%;
-        position: relative;
-        display: flex;
         flex-direction: column;
-        box-sizing: border-box;
-    }
+    }    
 
-    .padding {
+    .padding,
+    aside {
         padding: 1em;
-    }
-
-    .main-container > aside {
-        padding: 1em;
-        width: 270px;
-        border-left: 1px solid var(--border-color);
-        flex-grow: 0;
-        flex-shrink: 0;
     }
 
     .main-container > aside :global(nav) {
         background: var(--content-background-color);
-        padding: 0.5em;
+        padding: 0;
         border-radius: 12px;
     }
 
@@ -65,14 +52,32 @@
         font-size: 0.9em;
     }
 
-    aside h3 {
-        font-size: 0.75em;
-        font-weight: 400;        
-    }
+    @media (min-width: 920px) {
+        .main-container {
+            flex-direction: row;
+        }
 
-    aside section {
-        background: var(--content-background-color);
-        padding: 0.5em;
-        border-radius: 12px;
+        .main-container > main {
+            flex-grow: 1;
+            min-height: 0;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+        }
+
+        .main-container > aside {
+            padding: 1em;
+            flex-basis: 270px;
+            flex-grow: 0;
+            border-left: 1px solid var(--border-color);
+            display: flex;
+            overflow-x: visible;
+            overflow-y: scroll;        
+        }
+
+        .main-container > aside .inner-wrapper {
+            width: 100%;     
+        }
     }
 </style>

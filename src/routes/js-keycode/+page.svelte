@@ -9,14 +9,12 @@
 
     function onKeypress(e) {
         event = e;
-        console.log(e);
 
         e.preventDefault();
         e.stopPropagation();
     }
 
     onMount(() => {
-        console.log("Hi");
         document.addEventListener("keydown", onKeypress);
 
         // On unmount.
@@ -99,9 +97,15 @@
     h2 {
         font-size: 4em;
         text-align: center;
-        margin: 1em;
+        margin: 0.25em;
         padding: 0;
         font-weight: 100;
+    }
+
+    @media (min-height: 1400px) {
+        h2 {
+            margin: 1em;
+        }
     }
 
     .columns {
@@ -110,7 +114,9 @@
     }
 
     .column {
-        flex-grow: 1;        
+        flex-grow: 1;
+        flex-shrink: 0;
+        flex-basis: 0;      
     }
 
     .big-value {

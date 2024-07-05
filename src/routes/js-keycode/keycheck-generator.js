@@ -47,7 +47,7 @@ function getMetaKeyVariableName(e) {
     const meta = [];
     if (e.ctrlKey) meta.push("Ctrl");
     if (e.altKey) meta.push("Alt");
-    if (e.metaName) meta.push("Meta");
+    if (e.metaKey) meta.push("Meta");
     return meta.join("");
 }
 

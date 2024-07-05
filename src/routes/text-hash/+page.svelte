@@ -28,11 +28,6 @@
             {/each}
         </div>
     </TwoColumnView>    
-
-    <span slot="footer">
-        Uses the <a href="https://github.com/entronad/crypto-es">crypto-es</a> library.
-    </span>
-
 </Tool>
 
 <style>

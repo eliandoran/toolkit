@@ -1,10 +1,17 @@
 <script>
-	import Icon from "../lib/components/icon.svelte";
+	import { base } from "$app/paths";
+    import Icon from "../lib/components/icon.svelte";
     import { tooltip as tooltipAction } from "@svelte-plugins/tooltips";
 
     export let tools;
     export let currentPath;
-    export let collapsed = false;
+    export let collapsed;
+    export let menuShownOnMobile = false;
+
+    function onItemPressed() {
+        // On mobile, pressing on any item dismisses the menu automatically to make it easier for the user.
+        menuShownOnMobile = false;
+    }
 </script>
 
 {#each Object.entries(tools) as [categoryName, categoryItems]}
@@ -13,31 +20,31 @@
     
         <nav class="nav">
             <ul>
-                {#each categoryItems as tool}
-                    <li>                        
-                        {#if !collapsed}
-                            <a href="{tool.path}"
-                                class:active="{tool.path === currentPath}">                                
-                                {#if tool.icon}
-                                    <Icon
-                                        icon={tool.icon}
-                                        flipHorizontal={tool.iconFlipHorizontally} />
-                                {/if}
-                                <span class="title">{tool.title}</span>
-                            </a>
-                        {:else}
-                            <a href="{tool.path}"
-                                class:active="{tool.path === currentPath}"
-                                title={collapsed ? tool.title : ""}
-                                use:tooltipAction={{ position: "right" }}>
-                                {#if tool.icon}
-                                    <Icon
-                                        icon={tool.icon}
-                                        flipHorizontal={tool.iconFlipHorizontally} />
-                                {/if}
-                            </a>
-                        {/if}
+                {#each categoryItems as tool} 
+                    <li>
+                        <a href="{base + tool.path}"
+                            class="item-full"
+                            class:active="{(base + tool.path) === currentPath}"
+                            on:click={onItemPressed}>
+                            {#if tool.icon}
+                                <Icon
+                                    icon={tool.icon}
+                                    flipHorizontal={tool.iconFlipHorizontally} />
+                            {/if}
+                            <span class="title">{tool.title}</span>
+                        </a>
 
+                        <a href="{base + tool.path}"
+                            class="item-collapsed"
+                            class:active="{(base + tool.path) === currentPath}"
+                            title={tool.title}
+                            use:tooltipAction={{ position: "right" }}>
+                            {#if tool.icon}
+                                <Icon
+                                    icon={tool.icon}
+                                    flipHorizontal={tool.iconFlipHorizontally} />
+                            {/if}
+                        </a>
                     </li>
                 {/each}
             </ul>
@@ -62,7 +69,6 @@
     }
 
     a {
-        position: relative;
         display: flex !important;
         align-items: center;
     }
@@ -73,28 +79,39 @@
         height: 21px;
     }
 
-    .collapsed {
-        margin: 0;
-        padding: 3px 0;
-        border-bottom: 1px solid var(--border-color);
+    .item-collapsed {
+        display: none !important;
     }
 
-    .collapsed h3 {
-        display: none;
-    }
+    @media (min-width: 920px) {
+        .collapsed {
+            margin: 0;
+            padding: 3px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
 
-    .collapsed nav a {
-        width: 32px;
-        height: 32px;
-        position: relative;
-        padding: 0;
-        margin: auto;
-    }
+        .collapsed h3 {
+            display: none;
+        }
 
-    .collapsed :global(.icon) {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);        
+        .collapsed nav a {        
+            padding: 0;
+            margin: auto;
+            width: 32px;
+            height: 32px;
+        }
+
+        .collapsed :global(.icon) {       
+            display: block;
+            margin: auto;
+        }
+
+        .collapsed .item-full {
+            display: none !important;
+        }
+
+        .collapsed .item-collapsed {
+            display: flex !important;
+        }
     }
 </style>

@@ -8,6 +8,8 @@
 	import WarningBox from "$lib/components/warning-box.svelte";
 	import SidebarView from "$lib/components/sidebar-view.svelte";
 	import Card from "../../lib/components/card.svelte";
+	import ActionCard from "$lib/components/action-card.svelte";
+	import ActionCardItem from "$lib/components/action-card-item.svelte";
 
     let text = "";
     let validationErrors;
@@ -63,27 +65,15 @@
             </Card>
 
             {#if !validationErrors}
-            <Card title="Format/indent" thin>
-                <nav class="nav">
-                    <ul>
-                        <li>
-                            <a href="#" on:click={format}>Prettify</a>
-                        </li>
-    
-                        <li>
-                            <a href="#" on:click={minify}>Minify</a>
-                        </li>
-                    </ul>
-                </nav>
-            </Card>
+            <ActionCard title="Format/indent">
+                <ActionCardItem
+                    label="Prettify"
+                    on:click={format} />
+                <ActionCardItem
+                    label="Minify"
+                    on:click={minify} />
+            </ActionCard>
             {/if}
         </aside>
     </SidebarView>
 </Tool>
-
-<style>
-    textarea {
-        width: 100%;
-        min-height: 70vh;
-    }    
-</style>

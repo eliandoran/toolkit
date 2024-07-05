@@ -1,19 +1,20 @@
 import Ampersand from "svelte-material-icons/Ampersand.svelte";
 import ClockOutline from "svelte-material-icons/ClockOutline.svelte";
 import CodeJson from "svelte-material-icons/CodeJson.svelte";
+import DotsHorizontal from "svelte-material-icons/DotsHorizontal.svelte";
 import Equal from "svelte-material-icons/Equal.svelte";
 import FileArrowLeftRightOutline from "svelte-material-icons/FileArrowLeftRightOutline.svelte";
 import FileCheckOutline from "svelte-material-icons/FileCheckOutline.svelte";
 import FileDocumentEditOutline from "svelte-material-icons/FileDocumentEditOutline.svelte";
 import FileEyeOutline from "svelte-material-icons/FileEyeOutline.svelte";
+import KeyboardSettingsOutline from "svelte-material-icons/KeyboardSettingsOutline.svelte";
+import LanguageMarkdownOutline from "svelte-material-icons/LanguageMarkdownOutline.svelte";
+import Numeric from "svelte-material-icons/Numeric.svelte"
+import Numeric10BoxOutline from "svelte-material-icons/Numeric10BoxOutline.svelte";
 import PercentBoxOutline from "svelte-material-icons/PercentBoxOutline.svelte";
 import PercentOutline from "svelte-material-icons/PercentOutline.svelte";
 import Pound from "svelte-material-icons/Pound.svelte";
 import SlashForward from "svelte-material-icons/SlashForward.svelte";
-import Numeric10BoxOutline from "svelte-material-icons/Numeric10BoxOutline.svelte";
-import KeyboardSettingsOutline from "svelte-material-icons/KeyboardSettingsOutline.svelte";
-import LanguageMarkdownOutline from "svelte-material-icons/LanguageMarkdownOutline.svelte";
-import DotsHorizontal from "svelte-material-icons/DotsHorizontal.svelte";
 
 export default {
     "Plain text": [
@@ -43,6 +44,11 @@ export default {
     ],
 
     Arithmetics: [
+        {
+            path: "/base-converter",
+            title: "Base converter",
+            icon: Numeric
+        },
         {
             path: "/percentage-calculator",
             title: "Percentage calculator",

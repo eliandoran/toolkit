@@ -27,18 +27,9 @@
             <PercentageIncrease />
         </Card>
     </OneColumnView>
-
-    <span slot="footer">
-        Heavily inspired by <a href="https://percentagecalculator.net/">percentagecalculator.net</a>.
-    </span>
-
 </Tool>
 
 <style>
-    section {
-        margin: 1em 0;
-    }
-
     :global(input) {
         width: 150px;
     }

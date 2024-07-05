@@ -8,7 +8,7 @@
 </script>
 
 <li>
-    <a href="#"
+    <button
         class="action-card-item"
         on:click
         title={ tooltip }
@@ -16,13 +16,17 @@
         <Icon {icon} />
 
         {label}
-    </a>
+    </button>
 </li>
 
 <style>
     .action-card-item {
         display: flex !important;
         align-items: center;
+        appearance: none;
+        width: 100%;
+        background: none;
+        border: 0;
     }
 
     .action-card-item :global(.icon) {

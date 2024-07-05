@@ -31,10 +31,27 @@
 </div>
 
 <style>
+    .padding {
+        padding: 1em;
+    }
+
+    .right .app-header {
+        border-top: 1px solid var(--border-color) !important;
+    }
+
+    .two-columns {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+
+    .left,
+    .right {
+        flex-grow: 1;
+        flex-shrink: 0;
+    }
+
     @media (min-width: 920px) {
-        .padding {
-            padding: 1em;
-        }
 
         .left,
         .right {
@@ -45,26 +62,22 @@
             display: flex;
             flex-direction: column;
         }      
+
+        .right .app-header {
+            border-top: unset !important;
+        }
         
         .left {
             border-right: 1px solid var(--border-color);
         }
 
         .two-columns {
-            display: flex;
-            height: 100%;
+            flex-direction: row;
             justify-content: stretch;
         }
 
         .inner-wrapper {
             height: 100%;
         }
-    }
-
-    h3 {
-        font-size: 12pt;
-        font-weight: 400;
-        margin: 0;
-        margin-bottom: 0.5em;
     }
 </style>

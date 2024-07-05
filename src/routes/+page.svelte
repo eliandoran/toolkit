@@ -4,6 +4,7 @@
 	import Icon from "../lib/components/icon.svelte";
 
     import tools from "$lib/tools.js";
+	import { base } from "$app/paths";
 </script>
 
 <OneColumnView title="Toolkit">
@@ -15,7 +16,7 @@
                     <ul>
                         {#each tools as tool}
                             <li>
-                                <a href={tool.path}>
+                                <a href={base}{tool.path}>
                                     <div class="icon">
                                         <Icon icon={tool.icon} />
                                     </div>
