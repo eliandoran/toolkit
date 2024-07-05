@@ -46,6 +46,7 @@
                     value={formattedDecodedJwt}                
                     lang={json()}                    
                     theme={$theme}
+                    lineWrapping={true}
                     readonly />
             </div>
         </div>
