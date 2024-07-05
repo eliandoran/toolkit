@@ -85,6 +85,7 @@
             <div class="codemirror-outer-wrapper">
                 <CodeMirror
                     value={outputText}                
+                    lang={rightLang}
                     theme={$theme}
                     on:change={outputChanged} />
             </div>
@@ -92,7 +93,6 @@
             <textarea
                 value={outputText}    
                 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
-                lang={rightLang}
                 on:input={outputChanged} />
         {/if}
         
