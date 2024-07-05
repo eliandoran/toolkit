@@ -78,6 +78,11 @@ export default {
             path: "/json-schema",
             title: "JSON Schema Validator",
             icon: FileCheckOutline
+        },
+        {
+            path: "/json-to-js",
+            title: "JSON to JS object",
+            icon: FileArrowLeftRightOutline
         }
     ],
 
