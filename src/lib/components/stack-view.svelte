@@ -8,7 +8,8 @@
     export let hasPadding = true;
     export let isCollapsible = true;
     export let isCompact = false;
-    export let isExpanded = true;    
+    export let isExpanded = true;  
+    export let fill = false;  
 
     function toggleCollapse() {
         isExpanded = !isExpanded;
@@ -17,7 +18,7 @@
 
 <header class="app-header"
     class:compact={isCompact}
-    class:collapsed={!isExpanded}>
+    class:collapsed={!isExpanded}>    
     <slot name="header-left" />
     <h2>{title}</h2>
     <slot name="header-right" />
@@ -30,7 +31,8 @@
 
 <div class="inner-wrapper"
     class:padding={hasPadding}
-    class:collapsed={!isExpanded}>
+    class:collapsed={!isExpanded}
+    class:fill={fill}>
     <slot />
 </div>
 
@@ -49,8 +51,11 @@
         position: relative;
         max-height: none;
         display: flex;
-        height: 100%;
         flex-direction: column;
+    }
+
+    .inner-wrapper.fill {
+        height: 100%;
     }
 
     .inner-wrapper.collapsed {

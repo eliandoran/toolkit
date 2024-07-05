@@ -7,6 +7,7 @@
 
 	import Tool from "$lib/components/tool.svelte";
 	import TwoColumnView from "$lib/components/two-column-view.svelte";
+    import StackView from "$lib/components/stack-view.svelte";
 	import WarningBox from "$lib/components/warning-box.svelte";
 
     let encodedJwt;
@@ -41,14 +42,20 @@
         </div>
 
         <div slot="right">
-            <div class="codemirror-outer-wrapper">
-                <CodeMirror
-                    value={formattedDecodedJwt}                
-                    lang={json()}                    
-                    theme={$theme}
-                    lineWrapping={true}
-                    readonly />
-            </div>
+            <StackView title="Decoded fields">
+                Decoded views go here.
+            </StackView>
+
+            <StackView title="Raw JWT" hasPadding={false} fill={true}>
+                <div class="codemirror-outer-wrapper">
+                    <CodeMirror
+                        value={formattedDecodedJwt}                
+                        lang={json()}                    
+                        theme={$theme}
+                        lineWrapping={true}
+                        readonly />
+                </div>
+            </StackView>
         </div>
     </TwoColumnView>
 </Tool>
@@ -68,5 +75,11 @@
 
     textarea {
         flex-grow: 1;
+    }
+
+    .codemirror-outer-wrapper {
+        position: relative;
+        flex-grow: 1;
+        height: 100%;
     }
 </style>
