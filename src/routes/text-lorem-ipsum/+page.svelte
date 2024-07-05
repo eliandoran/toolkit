@@ -8,7 +8,7 @@
 
     let number = 5;
     let unit = "paragraphs";
-    let output = "";
+    let output = [];
 
     $: {
         switch (unit) {
@@ -19,7 +19,10 @@
                 output = lorem.generateSentences(number);
                 break;
             case "paragraphs":
-                output = lorem.generateParagraphs(number);
+                output = lorem.generateParagraphs(number)
+                    .split("\n")
+                    .map((l) => `<p>${l}</p>`)
+                    .join("\n");
                 break;
         }
     }
@@ -45,14 +48,23 @@
         </div>
     </StackView>
 
-    <StackView title="Generated text" isCollapsible={false} hasPadding={false} fill>
-        <textarea bind:value={output} readonly></textarea>
+    <StackView title="Generated text" isCollapsible={false} fill>
+        <div class="output">
+            {@html output}
+        </div>
     </StackView>
 </Tool>
 
 <style>
-    textarea {
-        width: 100%;
-        height: 100%;
+    .output {
+        font-family: serif;
+        flex-grow: 1;
+        overflow: auto;
     }
+
+    .output :global(p) {
+        margin: 0;
+        margin-bottom: 1em;
+    }
+
 </style>
