@@ -16,6 +16,7 @@ import PercentOutline from "svelte-material-icons/PercentOutline.svelte";
 import Pound from "svelte-material-icons/Pound.svelte";
 import SlashForward from "svelte-material-icons/SlashForward.svelte";
 import KeyOutline from "svelte-material-icons/KeyOutline.svelte";
+import TextLong from "svelte-material-icons/TextLong.svelte";
 
 export default {
     "Plain text": [
@@ -41,7 +42,13 @@ export default {
             path: "/html-markdown",
             title: "HTML to Markdown Converter",
             icon: LanguageMarkdownOutline
-        }        
+        },
+
+        {
+            path: "/text-lorem-ipsum",
+            title: "Lorem Ipsum Generator",
+            icon: TextLong
+        }
     ],
 
     Arithmetics: [
