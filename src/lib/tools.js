@@ -76,12 +76,12 @@ export default {
             icon: CodeJson
         },
         {
-            path: "/json-converter",
+            path: "/json/yaml",
             title: "JSON to YAML",
             icon: FileArrowLeftRightOutline
         },
         {
-            path: "/json-to-json5",
+            path: "/json/json5",
             title: "JSON to JSON5",
             icon: FileArrowLeftRightOutline
         },
