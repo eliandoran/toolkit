@@ -48,21 +48,28 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
     };
 
     let dataCodeLookup = {};
+    let characterCache = {};
     let currentInfo = null;
     
     function mapCharacter(ch) {
         const code = ch.charCodeAt(0);
+
+        // Try to use cached data if the character was already encountered.
+        if (characterCache[code]) {
+            return characterCache[code];
+        }
+
         const info = get_unicode_by_decimal(ch.charCodeAt(0))
         dataCodeLookup[code] = info;
-            
-        const builtData = buildNewCharacter(ch, info);
-        if (!builtData) {
-            return ch;
+                    
+        const builtData = buildNewCharacter(ch, info);        
+        if (typeof builtData === "object") {
+            // Inject the charcode for lookups.
+            builtData.code = code;
         }
-        return {
-            code,
-            ...builtData
-        };
+
+        characterCache[code] = builtData;
+        return builtData;
     }
 
     function buildNewCharacter(ch, info) {
@@ -91,6 +98,9 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
             const unicodeHexValue = `U+${ch.charCodeAt(0).toString(16).toUpperCase().padStart(4, "0")}`;
             return { symbol: unicodeHexValue }
         }
+
+        // For printable characters, return them directly to avoid allocating another object.
+        return ch;
     }
 
     $: {
