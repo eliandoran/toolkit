@@ -43,8 +43,10 @@
         </div>
 
         <div slot="left" class="left">
-            <div class="edit-area" on:input={onInputChanged} bind:this={htmlEl} contenteditable="true">
-                Type your content here.
+            <div class="edit-area-wrapper">
+                <div class="edit-area" on:input={onInputChanged} bind:this={htmlEl} contenteditable="true">
+                    Type your content here.
+                </div>
             </div>
         </div>
 
@@ -69,10 +71,16 @@
         height: 100%;
     }
 
+    .edit-area-wrapper {
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+    }
+    
     .edit-area {
         height: 100%;
-        border: 1px solid var(--borer-color);        
-        overflow: scroll;
+        background: var(--content-background-color);
+        overflow: auto;
     }
 
     .output {
