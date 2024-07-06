@@ -1,6 +1,7 @@
 <script>
 	import StackView from "$lib/components/stack-view.svelte";
     import Tool from "$lib/components/tool.svelte";
+    import { get_unicode_by_decimal } from "unicode-information";
 
     let text = `\
 Control characters:
@@ -8,28 +9,68 @@ Control characters:
 \t- Horizontal tab: \t, vertical tab: \v
 \t- Form feed: \f, carriage return: \r, line feed: \n
 Normalization: e\u0301 vs \u00E9
+Combining characters: กิิิิิิิิิิิิิิิิิิิิ ก้้้้้้้้้้้้้้้้้้้้ ก็็็็็็็็็็็็็็็็็็็็ ก็็็็็็็็็็็็็็็็็็็็ กิิิิิิิิิิิิิิิิิิิิ ก้้้้้้้้้้้้้้้้้้้้ ก็็็็็็็็็็็็็็็็็็็็ กิิิิิิิิิิิิิิิิิิิิ ก้้้้้้้้้้้้้้้้้้้้ กิิิิิิิิิิิิิิิิิิิิ ก้้้้้้้้้้้้้้้้้้้้ ก็็็็็็็็็็็็็็็็็็็็ ก็็็็็็็็็็็็็็็็็็็็ กิิิิิิิิิิิิิิิิิิิิ ก้้้้้้้้้้้้้้้้้้้้ ก็็็็็็็็็็็็็็็็็็็็ กิิิิิิิิิิิิิิิิิิิิ ก้้้้้้้้้้้้้้้้้้้้
     `;
     let characters = [];
+
+    const generalCategoryMappings = {
+        Cc: true,
+        Cf: true,
+        Co: true,
+        Cs: true,
+        Ll: false,
+        Lm: false,
+        Lo: false,
+        Lt: false,
+        Lu: false,
+        Mc: true,
+        Me: true,
+        Mn: true,
+        Nd: false,
+        Nl: true,
+        No: true,
+        Pc: false,
+        Pd: false,
+        Pe: false,
+        Pf: false,
+        Pi: false,
+        Po: false,
+        Ps: false,
+        Sc: false,
+        Sk: false,
+        Sm: false,
+        So: false,
+        Zl: true,
+        Zp: true,
+        Zs: true
+    };
 
     function mapCharacter(ch) {
         switch (ch) {
             case "\0":
                 return { symbol: "␀" }
-            case "\u0007":
+                case "\u0007":
                 return { symbol: "␇" }
-            case "\t":
-                return { symbol: "⭾" }
-            case "\v":
-                return { symbol: "⭿" }
-            case "\r":
-                return { symbol: "␍", insertAfter: "\r" }
+                case "\t":
+                    return { symbol: "⭾" }
+                    case "\v":
+                        return { symbol: "⭿" }
+                        case "\r":
+                            return { symbol: "␍", insertAfter: "\r" }
             case "\n":
                 return { symbol: "⮒", insertAfter: "\n" }
-            case "\f":
-                return { symbol: "␌" }
-            default:
-                return ch;
+                case "\f":
+                    return { symbol: "␌" }
+            }
+            
+        const info = get_unicode_by_decimal(ch.charCodeAt(0))
+        if (info) {
+            if (generalCategoryMappings[info.gc]) { // Nonspacing Mark
+                return { symbol: info.name }
+            }
         }
+
+        return ch;
     }
 
     $: {

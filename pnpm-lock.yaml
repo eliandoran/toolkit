@@ -59,6 +59,9 @@ dependencies:
   turndown-plugin-gfm:
     specifier: ^1.0.2
     version: 1.0.2
+  unicode-information:
+    specifier: ^1.0.0
+    version: 1.0.0
   xmorse:
     specifier: ^1.0.0
     version: 1.0.0
@@ -2189,6 +2192,10 @@ packages:
   /ufo@1.5.3:
     resolution: {integrity: sha512-Y7HYmWaFwPUmkoQCUIAYpKqkOf+SbVj/2fJJZ4RJMCfZp0rTGwRbzQD+HghfnhKOjL9E01okqz+ncJskGYfBNw==}
     dev: true
+
+  /unicode-information@1.0.0:
+    resolution: {integrity: sha512-jFHYUF6Fm/xaCL/NZTa6cWao3Cd+VoPTXU53vfpOcTzwafZ+qUFRV/FKWJE1JSALCywuNMEAckvc3h8xyjndIw==}
+    dev: false
 
   /uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}

@@ -47,6 +47,7 @@
 		"svelte-material-icons": "^3.0.5",
 		"turndown": "^7.2.0",
 		"turndown-plugin-gfm": "^1.0.2",
+		"unicode-information": "^1.0.0",
 		"xmorse": "^1.0.0",
 		"yaml": "^2.4.5"
 	}
