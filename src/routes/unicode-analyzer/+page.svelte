@@ -2,11 +2,15 @@
 	import StackView from "$lib/components/stack-view.svelte";
     import Tool from "$lib/components/tool.svelte";
 
-    let text = "See what's hidden in your string…	or be​hind﻿";
+    let text = "See what's hidden in your string…	or be​hind﻿\nNewline\nTest";
     let characters = [];
 
     $: {
         characters = text.split("");
+    }
+
+    function mapCharacter() {
+
     }
 </script>
 
@@ -34,5 +38,6 @@
 
     .character-view {
         font-family: var(--font-monospace);
+        white-space: pre;
     }
 </style>
