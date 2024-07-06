@@ -19,6 +19,7 @@ import KeyOutline from "svelte-material-icons/KeyOutline.svelte";
 import TextLong from "svelte-material-icons/TextLong.svelte";
 import Unicode from "svelte-material-icons/Unicode.svelte";
 import Svg from "svelte-material-icons/Svg.svelte";
+import LanguageHtml5 from "svelte-material-icons/LanguageHtml5.svelte";
 
 export default {
     "Plain text": [
@@ -82,6 +83,14 @@ export default {
             path: "/unix-timestamp",
             title: "Unix Timestamp",
             icon: ClockOutline
+        }
+    ],
+
+    "HTML": [
+        {
+            path: "/html-sandbox",
+            title: "HTML Sandbox",
+            icon: LanguageHtml5
         }
     ],
 
