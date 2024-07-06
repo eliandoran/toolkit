@@ -9,32 +9,33 @@
 </script>
 
 <Tool>
-
     <OneColumnView title="Percentage calculator">
-        <Card title="Value from percentage">            
-            <ValueFromPercentage />
-        </Card>
-        
-        <Card title="Percentage of value">
-            <PercentageOfValue />
-        </Card>
-
-        <Card title="Percentage increase from two values">
-            <PercentageDifference />
-        </Card>
-
-        <Card title="Percentage increase">
-            <PercentageIncrease />
-        </Card>
+        <div class="percentage-calculator">
+            <Card title="Value from percentage">            
+                <ValueFromPercentage />
+            </Card>
+            
+            <Card title="Percentage of value">
+                <PercentageOfValue />
+            </Card>
+    
+            <Card title="Percentage increase from two values">
+                <PercentageDifference />
+            </Card>
+    
+            <Card title="Percentage increase">
+                <PercentageIncrease />
+            </Card>
+        </div>
     </OneColumnView>
 </Tool>
 
 <style>
-    :global(input) {
+    .percentage-calculator :global(input) {
         width: 150px;
     }
 
-    :global(input.percentage) {
+    .percentage-calculator :global(input.percentage) {
         width: 50px;
     }
 
