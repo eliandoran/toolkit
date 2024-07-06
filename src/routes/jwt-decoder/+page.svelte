@@ -90,6 +90,7 @@
 
     textarea {
         flex-grow: 1;
+        border: 0;
     }
 
     .codemirror-outer-wrapper {
