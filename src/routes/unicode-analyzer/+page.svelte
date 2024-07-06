@@ -73,17 +73,9 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
             
         const info = get_unicode_by_decimal(ch.charCodeAt(0))
         if (info) {
-            if (info.gc === "Mn") {
-                console.log(ch, info)
-                if (combiningDouble.includes(ch)) {
-                    return { symbol: `◌${ch}◌` };
-                }
-
-                return { symbol: ch + "◌" }
-            }
-
-            if (generalCategoryMappings[info.gc]) { // Nonspacing Mark
-                return { symbol: info.name }
+            if (generalCategoryMappings[info.gc]) {
+                const unicodeHexValue = `U+${ch.charCodeAt(0).toString(16).toUpperCase().padStart(4, "0")}`;
+                return { symbol: unicodeHexValue }
             }
         }
 
@@ -141,6 +133,5 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
         display: inline-block;
         border-radius: 3px;
         padding: 0 3px;
-        font-size: 1.25em;
     }
 </style>
