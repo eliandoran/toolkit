@@ -3,6 +3,7 @@
 
 	import Tool from "$lib/components/tool.svelte";
 	import TwoColumnView from "$lib/components/two-column-view.svelte";
+	import Card from "$lib/components/card.svelte";
 
   let data = "https://eliandoran.github.io/toolkit/";
   let key;
@@ -29,19 +30,11 @@
 <Tool>
   <TwoColumnView leftTitle="Settings" rightTitle="Generated QR">
     <div slot="left">
-      <label>
-        Data:
+      <Card title="Data" thin>
         <textarea bind:value={data} />
-      </label>
+      </Card>
 
-      <label>
-        Type:
-        <input type="number" min="0" max="40" bind:value={typeNumber} />
-      </label>
-
-      <div>
-        Colors:
-
+      <Card title="Colors" thin>
         <label>
           Background:
           <input type="color" bind:value={backgroundColor} />
@@ -61,11 +54,9 @@
           Anchors inner:
           <input type="color" bind:value={anchorsInnerColor} />
         </label>
-      </div>
+      </Card>
 
-      <div>
-        Error correction level:
-
+      <Card title="Error correction level" thin>
         <label>
           <input type="radio" bind:group={errorCorrectionLevel} value="L" />
           L (~7%)
@@ -85,7 +76,12 @@
           <input type="radio" bind:group={errorCorrectionLevel} value="H" />
           H (~30%)
         </label>
-      </div>
+      </Card>
+
+      <Card title="Advanced settings" thin>
+        Type:
+        <input type="number" min="0" max="40" bind:value={typeNumber} />
+      </Card>
     </div>
 
     <div slot="right">
