@@ -42,13 +42,25 @@
     function inputChanged(e) {
         const value = e.detail || e.target?.value || "";
         outputLog = "";
-        ({ output: outputText, log: inputLog } = handleErrors(to, value));
+        
+        if (value) {
+            ({ output: outputText, log: inputLog } = handleErrors(to, value));
+        } else {
+            outputText = "";
+            inputLog = "";
+        }
     }
 
     function outputChanged(e) {
         const value = e.detail || e.target.value || "";
         inputLog = "";
-        ({ output: inputText, log: outputLog } = handleErrors(from, value));
+
+        if (value) {
+            ({ output: inputText, log: outputLog } = handleErrors(from, value));
+        } else {
+            inputText = "";
+            outputLog = "";
+        }
     }
 </script>
 
