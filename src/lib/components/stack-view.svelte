@@ -54,6 +54,8 @@
         flex-direction: column;
         overflow: auto;
         flex-shrink: 0;
+        max-height: 100%;
+        transition: max-height 250ms ease-in-out;
     }
 
     .inner-wrapper.fill {
