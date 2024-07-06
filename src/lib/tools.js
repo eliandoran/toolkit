@@ -20,6 +20,7 @@ import TextLong from "svelte-material-icons/TextLong.svelte";
 import Unicode from "svelte-material-icons/Unicode.svelte";
 import Svg from "svelte-material-icons/Svg.svelte";
 import LanguageHtml5 from "svelte-material-icons/LanguageHtml5.svelte";
+import Qrcode from "svelte-material-icons/Qrcode.svelte";
 
 export default {
     "Plain text": [
@@ -158,6 +159,11 @@ export default {
             path: "/svg-to-data",
             title: "SVG to Data URL",
             icon: Svg
+        },
+        {
+            path: "/qr-generator",
+            title: "QR Code Generator",
+            icon: Qrcode
         }
     ],
 
