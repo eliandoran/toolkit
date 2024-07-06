@@ -30,6 +30,7 @@
 	"type": "module",
 	"dependencies": {
 		"@codemirror/lang-json": "^6.0.1",
+		"@codemirror/lang-markdown": "^6.2.5",
 		"@codemirror/lang-yaml": "^6.1.1",
 		"@codemirror/theme-one-dark": "^6.1.2",
 		"ajv": "^8.16.0",

@@ -1,4 +1,8 @@
 <script>
+    import CodeMirror from "svelte-codemirror-editor";
+    import { theme } from "$lib/stores/codemirror.js";
+    import { markdown } from "@codemirror/lang-markdown";
+
 	import HeaderButton from "$lib/components/header-button.svelte";
 	import Icon from "$lib/components/icon.svelte";
     import Tool from "$lib/components/tool.svelte";
@@ -45,7 +49,14 @@
         </div>
 
         <div slot="right" class="right">
-            <textarea class="output" bind:value={output} readonly />
+            <div class="codemirror-outer-wrapper">
+                <CodeMirror
+                    value={output}
+                    lang={markdown()}
+                    theme={$theme}
+                    lineWrapping={true}
+                    readonly />
+            </div>
         </div>
 
     </TwoColumnView>
