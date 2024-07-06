@@ -61,7 +61,7 @@
                 </div>
             </StackView>
 
-            <StackView title="Payload" hasPadding={false} isCollapsible={false} fill={true}>
+            <StackView title="Payload" hasPadding={false} isCompact isCollapsible={false} fill>
                 <div class="codemirror-outer-wrapper payload">
                     <CodeMirror
                         value={formattedPayload}                
