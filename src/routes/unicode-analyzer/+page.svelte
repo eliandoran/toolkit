@@ -7,6 +7,7 @@ Control characters:
 \t- Null-terminated string: \0, bell: \u0007, backspace: \b
 \t- Horizontal tab: \t, vertical tab: \v
 \t- Form feed: \f, carriage return: \r, line feed: \n
+Normalization: e\u0301 vs \u00E9
     `;
     let characters = [];
 
@@ -65,8 +66,15 @@ Control characters:
     }
 
     .character-view {
-        font-family: var(--font-monospace);
+        font-family: monospace;
         white-space: pre;
+    }
+
+    .character {
+        white-space: no-wrap;
+        font-variant-ligatures: none;
+        display: inline-block;
+        min-width: 4px;
     }
 
     .special-character {
