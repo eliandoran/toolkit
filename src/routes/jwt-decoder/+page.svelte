@@ -61,7 +61,7 @@
                 </div>
             </StackView>
 
-            <StackView title="Payload" hasPadding={false} fill={true}>
+            <StackView title="Payload" hasPadding={false} isCollapsible={false} fill={true}>
                 <div class="codemirror-outer-wrapper payload">
                     <CodeMirror
                         value={formattedPayload}                
@@ -85,6 +85,8 @@
 
     div[slot="right"] {
         flex-grow: 1;
+        display: flex;
+        flex-direction: column;
         height: 100%;
     }
 
@@ -100,6 +102,6 @@
     }
 
     .codemirror-outer-wrapper.header {
-        min-height: 6em;
+        min-height: 9em;
     }
 </style>
