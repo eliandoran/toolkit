@@ -128,7 +128,7 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
         <textarea bind:value={text} />
     </StackView>
 
-    <StackView title="Unicode analysis" fill isCollapsible={false} hasPadding={false}>
+    <StackView title="Unicode analysis" fill isCompact isCollapsible={false} hasPadding={false}>
         <div class="analysis-container">
             <div class="character-view" on:mousemove={onMouseMove}>
                 {#each characters as character}
