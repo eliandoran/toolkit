@@ -2,25 +2,30 @@
 	import StackView from "$lib/components/stack-view.svelte";
     import Tool from "$lib/components/tool.svelte";
 
-    let text = `See what's hidden in your string…	or be​hind﻿df\n\nsdfg\nsdfg`;
+    let text = `\
+Control characters:
+\t- Null-terminated string: \0, bell: \u0007, backspace: \b
+\t- Horizontal tab: \t, vertical tab: \v
+\t- Form feed: \f, carriage return: \r, line feed: \n
+    `;
     let characters = [];
 
     function mapCharacter(ch) {
         switch (ch) {
+            case "\0":
+                return { symbol: "␀" }
+            case "\u0007":
+                return { symbol: "␇" }
             case "\t":
-                return {
-                    symbol: "⭾"
-                }
-            case "\l":
-                return {
-                    symbol: "LF",
-                    insertAfter: "\l"
-                }
+                return { symbol: "⭾" }
+            case "\v":
+                return { symbol: "⭿" }
+            case "\r":
+                return { symbol: "␍", insertAfter: "\r" }
             case "\n":
-                return {
-                    symbol: "CR",
-                    insertAfter: "\n"
-                }
+                return { symbol: "⮒", insertAfter: "\n" }
+            case "\f":
+                return { symbol: "␌" }
             default:
                 return ch;
         }
@@ -70,6 +75,7 @@
         margin: 0 1px;
         display: inline-block;
         border-radius: 3px;
-        padding: 1px 3px;
+        padding: 0 3px;
+        font-size: 1.25em;
     }
 </style>
