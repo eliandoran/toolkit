@@ -11,7 +11,7 @@
 </script>
 
 <Tool>
-    <TwoColumnView leftTitle="Input text" rightTitle="Hashes">
+    <TwoColumnView leftTitle="Input text" rightTitle="Hashes" hasPadding={false}>
         <div class="toolbar" slot="header-left-left">
             <TextFilePicker bind:textFile={inputText} />
         </div>
@@ -20,7 +20,7 @@
             <textarea bind:value={inputText}></textarea>
         </div>
 
-        <div slot="right">
+        <div slot="right" class="hash-container">
             {#each hashOperations as operation }
             <Card title="{operation.label}" thin>
                 <div class="hash">{operation.run(inputText)}</div>
@@ -39,6 +39,11 @@
     textarea {
         width: 100%;
         height: 100%;
+        border: 0;
+    }
+
+    .hash-container {
+        padding: 1em;
     }
 
     .hash {
