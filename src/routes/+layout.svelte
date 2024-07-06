@@ -162,6 +162,8 @@
     @media (min-width: 920px) {
         .main-content {
             height: 100%;
+            flex: 1;
+            min-width: 0;
         }
     }
 </style>
