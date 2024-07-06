@@ -12,6 +12,10 @@
   let haveBackgroundRoundedEdges = false;
   let haveGappedModules = false;
 
+  let width = 256;
+  let height = 256;
+  let padding = 1;
+
   let backgroundColor = "white";
   let modulesColor = "black";
   let anchorsOuterColor = "black";
@@ -26,6 +30,7 @@
 
   $: {
     rebuildQr(data,
+      width, height, padding,
       shape, haveBackgroundRoundedEdges, haveGappedModules,
       backgroundColor, modulesColor, anchorsOuterColor, anchorsInnerColor,
       typeNumber, errorCorrectionLevel);
@@ -37,6 +42,29 @@
     <div slot="left">
       <Card title="Data" thin>
         <textarea bind:value={data} />
+      </Card>
+
+      <Card title="Size" thin>
+        <div>
+          <label>
+            Width:
+            <input type="number" bind:value={width} />
+          </label>
+        </div>
+
+        <div>
+          <label>
+            Height:
+            <input type="number" bind:value={height} />
+          </label>
+        </div>
+
+        <div>
+          <label>
+            Padding:
+            <input type="number" bind:value={padding} min="1" />
+          </label>
+        </div>
       </Card>
 
       <Card title="Shape" thin>
@@ -121,6 +149,7 @@
       {#if data}
         {#key key}
           <QrCode {data}
+            {width} {height} {padding}
             {shape} {haveBackgroundRoundedEdges} {haveGappedModules}
             {typeNumber} {errorCorrectionLevel}
             {backgroundColor} {modulesColor} {anchorsOuterColor} {anchorsInnerColor}
