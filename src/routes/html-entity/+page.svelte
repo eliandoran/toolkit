@@ -15,7 +15,7 @@
 
 </script>
 
-<Tool title="HTML Entity Encode/Decode">
+<Tool>
     <SymmetricInputOutput
         fromTitle="Original text"
         toTitle="Encoded text"

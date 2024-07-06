@@ -11,7 +11,7 @@
   }
 </script>
 
-<Tool title="SVG to Data URL">
+<Tool>
   <SymmetricInputOutput
     fromTitle="SVG"
     toTitle="Data URI"

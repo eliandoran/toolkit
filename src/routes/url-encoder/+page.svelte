@@ -11,7 +11,7 @@
     }
 </script>
 
-<Tool title="URL Encoder/Decoder">
+<Tool>
     <SymmetricInputOutput
         fromTitle="URL Encode"
         toTitle="URL Decode"

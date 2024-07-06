@@ -11,7 +11,7 @@
     }
 </script>
 
-<Tool title="Base64 Encoder/Decoder">
+<Tool>
     <SymmetricInputOutput
         fromTitle="Encode to Base64"
         toTitle="Decode from Base64"

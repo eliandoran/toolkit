@@ -13,7 +13,7 @@
     }
 </script>
 
-<Tool title="String backslash escape/unescape">
+<Tool>
     <SymmetricInputOutput
         fromTitle="Original text"
         toTitle="Text escaped with backslashes"

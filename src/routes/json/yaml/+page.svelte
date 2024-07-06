@@ -17,7 +17,7 @@
     }
 </script>
 
-<Tool title="JSON<->YAML converter">
+<Tool>
     <SymmetricInputOutput
         fromTitle="JSON"
         toTitle="YAML"

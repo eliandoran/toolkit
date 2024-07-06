@@ -3,7 +3,7 @@
 	import TwoColumnView from "$lib/components/two-column-view.svelte";
 </script>
 
-<Tool title="HTML Playground">
+<Tool>
   <TwoColumnView leftTitle="HTML" rightTitle="Preview">
     <div slot="left">
 
