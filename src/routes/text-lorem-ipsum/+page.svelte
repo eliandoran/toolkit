@@ -117,7 +117,6 @@
     .output {
         font-family: serif;
         flex-grow: 1;
-        overflow: auto;
     }
 
     .output.justify {
@@ -127,6 +126,10 @@
     .output :global(p) {
         margin: 0;
         margin-bottom: 1em;
+    }
+
+    .output :global(p:last-of-type) {
+        margin-bottom: 0;
     }
 
     .row {

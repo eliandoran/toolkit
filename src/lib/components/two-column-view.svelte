@@ -76,7 +76,7 @@
         .two-columns {
             flex-direction: row;
             justify-content: stretch;
-            height: 100%;
+            max-height: 100%;
         }
 
         .inner-wrapper {

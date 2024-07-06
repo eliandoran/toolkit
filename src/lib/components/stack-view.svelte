@@ -52,6 +52,7 @@
         max-height: none;
         display: flex;
         flex-direction: column;
+        overflow: auto;
     }
 
     .inner-wrapper.fill {
