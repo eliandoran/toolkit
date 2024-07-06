@@ -4,6 +4,8 @@ import Shuffle from "svelte-material-icons/Shuffle.svelte";
 import SwapVertical from "svelte-material-icons/SwapVertical.svelte";
 import FormatLetterCaseUpper from "svelte-material-icons/FormatLetterCaseUpper.svelte";
 import FormatLetterCaseLower from "svelte-material-icons/FormatLetterCaseLower.svelte";
+import TildeOff from "svelte-material-icons/TildeOff.svelte";
+import { normalizeSync } from 'normalize-diacritics';
 
 export function load() {
 
@@ -78,6 +80,15 @@ export function load() {
                     run: (text) => text.toLowerCase(),
                     icon: FormatLetterCaseLower,
                     description: "Turns all letters into lower case."
+                }
+            ],
+
+            "Unicode": [
+                {
+                    label: "Remove diacritics",
+                    run: (text) => normalizeSync(text),
+                    icon: TildeOff,
+                    description: "Removes accent marks and diacritics from the text."
                 }
             ]
         }
