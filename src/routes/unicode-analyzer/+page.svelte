@@ -52,6 +52,8 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
     
     function mapCharacter(ch) {
         const code = ch.charCodeAt(0);
+        const info = get_unicode_by_decimal(ch.charCodeAt(0))
+        dataCodeLookup[code] = info;
 
         switch (ch) {
             case "\0":
@@ -73,14 +75,10 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
             case " ":
                 return { symbol: "␣", noBackground: true }
             }
-            
-        const info = get_unicode_by_decimal(ch.charCodeAt(0))
-        if (info) {
-            if (generalCategoryMappings[info.gc]) {
-                const unicodeHexValue = `U+${ch.charCodeAt(0).toString(16).toUpperCase().padStart(4, "0")}`;
-                dataCodeLookup[code] = info;
-                return { symbol: unicodeHexValue, code }
-            }
+                    
+        if (info && generalCategoryMappings[info.gc]) {
+            const unicodeHexValue = `U+${ch.charCodeAt(0).toString(16).toUpperCase().padStart(4, "0")}`;
+            return { symbol: unicodeHexValue, code }
         }
 
         return ch;
@@ -116,7 +114,8 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
             <div class="character-view" on:mousemove={onMouseMove}>
                 {#each characters as character}
                     {#if typeof character === "string"}
-                        <span class="character">{character}</span>
+                        <span class="character"
+                            data-code={character.charCodeAt(0)}>{character}</span>
                     {:else}
                         <span class="character special"
                             class:background={!character.noBackground}
