@@ -76,10 +76,12 @@
         .two-columns {
             flex-direction: row;
             justify-content: stretch;
+            height: 100%;
         }
 
         .inner-wrapper {
             height: 100%;
+            overflow: auto;
         }
     }
 </style>
