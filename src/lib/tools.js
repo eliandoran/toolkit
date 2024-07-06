@@ -18,6 +18,7 @@ import SlashForward from "svelte-material-icons/SlashForward.svelte";
 import KeyOutline from "svelte-material-icons/KeyOutline.svelte";
 import TextLong from "svelte-material-icons/TextLong.svelte";
 import Unicode from "svelte-material-icons/Unicode.svelte";
+import Svg from "svelte-material-icons/Svg.svelte";
 
 export default {
     "Plain text": [
@@ -143,6 +144,11 @@ export default {
             path: "/morse-code",
             title: "Morse Code",
             icon: DotsHorizontal
+        },
+        {
+            path: "/svg-to-data",
+            title: "SVG to Data URL",
+            icon: Svg
         }
     ],
 
