@@ -54,7 +54,18 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
         const code = ch.charCodeAt(0);
         const info = get_unicode_by_decimal(ch.charCodeAt(0))
         dataCodeLookup[code] = info;
+            
+        const builtData = buildNewCharacter(ch, info);
+        if (!builtData) {
+            return ch;
+        }
+        return {
+            code,
+            ...builtData
+        };
+    }
 
+    function buildNewCharacter(ch, info) {
         switch (ch) {
             case "\0":
                 return { symbol: "␀" }
@@ -78,10 +89,8 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
                     
         if (info && generalCategoryMappings[info.gc]) {
             const unicodeHexValue = `U+${ch.charCodeAt(0).toString(16).toUpperCase().padStart(4, "0")}`;
-            return { symbol: unicodeHexValue, code }
+            return { symbol: unicodeHexValue }
         }
-
-        return ch;
     }
 
     $: {
