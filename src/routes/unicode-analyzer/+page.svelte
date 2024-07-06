@@ -7,6 +7,10 @@
 
     function mapCharacter(ch) {
         switch (ch) {
+            case "\t":
+                return {
+                    symbol: "⭾"
+                }
             case "\l":
                 return {
                     symbol: "LF",
@@ -40,7 +44,7 @@
                 {#if typeof character === "string"}
                     <span class="character">{character}</span>
                 {:else}
-                    <span class="special-character">{character.symbol}</span>{character.insertAfter}
+                    <span class="special-character">{character.symbol}</span>{character.insertAfter || ""}
                 {/if}
             {/each}
         </div>
@@ -65,5 +69,7 @@
         background: var(--header-background-color);        
         margin: 0 1px;
         display: inline-block;
+        border-radius: 3px;
+        padding: 1px 3px;
     }
 </style>
