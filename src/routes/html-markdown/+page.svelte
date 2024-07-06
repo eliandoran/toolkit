@@ -30,7 +30,7 @@
 </script>
 
 <Tool>
-    <TwoColumnView leftTitle="HTML" rightTitle="Markdown">
+    <TwoColumnView leftTitle="HTML" rightTitle="Markdown" hasPadding={false}>
 
         <div slot="header-left-right">
             <HeaderButton on:click={onClean}>
@@ -60,12 +60,16 @@
 
     .edit-area {
         height: 100%;
-        border: 1px solid var(--border-color);        
+        border: 1px solid var(--borer-color);        
         overflow: scroll;
     }
 
     .output {
         height: 100%;
+    }
+
+    textarea {
+        border: 0;
     }
 
 </style>
