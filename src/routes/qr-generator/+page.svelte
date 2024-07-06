@@ -9,6 +9,8 @@
   let key;
 
   let shape = "square";
+  let haveBackgroundRoundedEdges = false;
+  let haveGappedModules = false;
 
   let backgroundColor = "white";
   let modulesColor = "black";
@@ -24,7 +26,7 @@
 
   $: {
     rebuildQr(data,
-      shape,
+      shape, haveBackgroundRoundedEdges, haveGappedModules,
       backgroundColor, modulesColor, anchorsOuterColor, anchorsInnerColor,
       typeNumber, errorCorrectionLevel);
   }
@@ -49,6 +51,18 @@
           <label>
             <input type="radio" bind:group={shape} value="circle" />
             Circle
+          </label>
+        </div>
+
+        <div>
+          <label>
+            <input type="checkbox" bind:checked={haveBackgroundRoundedEdges} />
+            Background with rounded edges
+          </label>
+
+          <label>
+            <input type="checkbox" bind:checked={haveGappedModules} />
+            Gapped modules
           </label>
         </div>
       </Card>
@@ -107,7 +121,7 @@
       {#if data}
         {#key key}
           <QrCode {data}
-            {shape}
+            {shape} {haveBackgroundRoundedEdges} {haveGappedModules}
             {typeNumber} {errorCorrectionLevel}
             {backgroundColor} {modulesColor} {anchorsOuterColor} {anchorsInnerColor}
           />
