@@ -53,10 +53,12 @@
         display: flex;
         flex-direction: column;
         overflow: auto;
+        flex-shrink: 0;
     }
 
     .inner-wrapper.fill {
         height: 100%;
+        flex-shrink: unset;
     }
 
     .inner-wrapper.collapsed {
