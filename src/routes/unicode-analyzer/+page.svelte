@@ -63,6 +63,8 @@ Combining characters: กิิิิิิิิิิิิิิิิิิ�
                 return { symbol: "⮒", insertAfter: "\n" }
             case "\f":
                 return { symbol: "␌" }
+            case " ":
+                return { symbol: "␣", noBackground: true }
             }
             
         const info = get_unicode_by_decimal(ch.charCodeAt(0))
@@ -97,7 +99,7 @@ Combining characters: กิิิิิิิิิิิิิิิิิิ�
                 {#if typeof character === "string"}
                     <span class="character">{character}</span>
                 {:else}
-                    <span class="special-character">{character.symbol}</span>{character.insertAfter || ""}
+                    <span class="special-character" class:background={!character.noBackground}>{character.symbol}</span>{character.insertAfter || ""}
                 {/if}
             {/each}
         </div>
@@ -123,7 +125,7 @@ Combining characters: กิิิิิิิิิิิิิิิิิิ�
         word-wrap: break-word;
     }
 
-    .special-character {
+    .special-character.background {
         border: 1px solid var(--border-color);
         background: var(--header-background-color);        
         margin: 0 1px;
