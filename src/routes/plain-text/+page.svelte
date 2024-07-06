@@ -36,7 +36,7 @@
 </script>
 
 <Tool>
-    <SidebarView title="Text tools">
+    <SidebarView title="Text tools" hasPadding={false}>
         <div class="toolbar" slot="header-left">
             <TextFilePicker bind:textFile={text} />
         </div>
@@ -77,11 +77,13 @@
     textarea {
         width: 100%;
         height: 100%;
+        border: 0;
     }
 
     .stats {
+        border-top: 1px solid var(--border-color);
         display: flex;
-        margin-top: 1em;
+        padding: 0.5em 1em;
     }
 
     .stats > span {
