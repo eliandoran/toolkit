@@ -56,7 +56,10 @@
         inputLog = "";
 
         if (value) {
-            ({ output: inputText, log: outputLog } = handleErrors(from, value));
+            const result = handleErrors(from, value);
+            if (result.output) {
+                ({ output: inputText, log: outputLog } = result);
+            }
         } else {
             inputText = "";
             outputLog = "";
