@@ -6,6 +6,12 @@
 
   let data = "https://eliandoran.github.io/toolkit/";
   let key;
+
+  let backgroundColor = "white";
+  let modulesColor = "black";
+  let anchorsOuterColor = "black";
+  let anchorsInnerColor = "black"; 
+  
   let typeNumber = 40;
   let errorCorrectionLevel = "M";
 
@@ -14,7 +20,9 @@
   }
 
   $: {
-    rebuildQr(data, typeNumber, errorCorrectionLevel);
+    rebuildQr(data,
+      backgroundColor, modulesColor, anchorsOuterColor, anchorsInnerColor,
+      typeNumber, errorCorrectionLevel);
   }
 </script>
 
@@ -30,6 +38,30 @@
         Type:
         <input type="number" min="0" max="40" bind:value={typeNumber} />
       </label>
+
+      <div>
+        Colors:
+
+        <label>
+          Background:
+          <input type="color" bind:value={backgroundColor} />
+        </label>
+
+        <label>
+          Modules:
+          <input type="color" bind:value={modulesColor} />
+        </label>
+
+        <label>
+          Anchors outer:
+          <input type="color" bind:value={anchorsOuterColor} />
+        </label>
+
+        <label>
+          Anchors inner:
+          <input type="color" bind:value={anchorsInnerColor} />
+        </label>
+      </div>
 
       <div>
         Error correction level:
@@ -59,7 +91,10 @@
     <div slot="right">
       {#if data}
         {#key key}
-          <QrCode {data} {typeNumber} {errorCorrectionLevel} />
+          <QrCode {data}
+            {typeNumber} {errorCorrectionLevel}
+            {backgroundColor} {modulesColor} {anchorsOuterColor} {anchorsInnerColor}
+          />
         {/key}
       {/if}
     </div>
