@@ -68,7 +68,7 @@
 </script>
 
 <Tool>
-    <StackView title="JSON" hasPadding={false}>
+    <StackView title="JSON" hasPadding={false} fill>
         <div class="toolbar" slot="header-left">
             <TextFilePicker bind:textFile={inputJsonText} />
         </div>
@@ -82,7 +82,7 @@
         <WarningBox message="{inputJsonParsingLog}" />
     </StackView>
 
-    <StackView title="JSON Schema" hasPadding={false}>
+    <StackView title="JSON Schema" hasPadding={false} fill>
         <div class="toolbar" slot="header-left">
             <TextFilePicker bind:textFile={schemaText} />
         </div>
@@ -96,7 +96,7 @@
         <WarningBox message="{inputSchemaParsingLog}" />        
     </StackView>
 
-    <StackView title="Validation" isCollapsible={false} height="auto" isCompact={true}>
+    <StackView title="Validation" isCollapsible={false} isCompact={true}>
         <div class="output">
             {#if !parsedJson}
                 <p>Waiting for JSON</p>
