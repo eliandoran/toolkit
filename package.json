@@ -40,6 +40,7 @@
 		"json5": "^2.2.3",
 		"jwt-decode": "^4.0.0",
 		"lorem-ipsum": "^2.0.8",
+		"mini-svg-data-uri": "^1.4.4",
 		"normalize-diacritics": "^5.0.0",
 		"php-serialize": "^4.1.1",
 		"slashes": "^3.0.12",
