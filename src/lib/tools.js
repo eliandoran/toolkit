@@ -17,6 +17,7 @@ import Pound from "svelte-material-icons/Pound.svelte";
 import SlashForward from "svelte-material-icons/SlashForward.svelte";
 import KeyOutline from "svelte-material-icons/KeyOutline.svelte";
 import TextLong from "svelte-material-icons/TextLong.svelte";
+import Unicode from "svelte-material-icons/Unicode.svelte";
 
 export default {
     "Plain text": [
@@ -48,6 +49,12 @@ export default {
             path: "/text-lorem-ipsum",
             title: "Lorem Ipsum Generator",
             icon: TextLong
+        },
+
+        {
+            path: "/unicode-analyzer",
+            title: "Analyze Unicode text",
+            icon: Unicode
         }
     ],
 
