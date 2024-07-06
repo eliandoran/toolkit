@@ -9,6 +9,7 @@
         align-items: stretch;
         position: relative;
         flex-grow: 1;
+        overflow: auto;
     }
 
     .outer-wrapper :global(header.app-header:first-of-type) {
