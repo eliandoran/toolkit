@@ -8,6 +8,8 @@
   let data = "https://eliandoran.github.io/toolkit/";
   let key;
 
+  let shape = "square";
+
   let backgroundColor = "white";
   let modulesColor = "black";
   let anchorsOuterColor = "black";
@@ -22,6 +24,7 @@
 
   $: {
     rebuildQr(data,
+      shape,
       backgroundColor, modulesColor, anchorsOuterColor, anchorsInnerColor,
       typeNumber, errorCorrectionLevel);
   }
@@ -32,6 +35,22 @@
     <div slot="left">
       <Card title="Data" thin>
         <textarea bind:value={data} />
+      </Card>
+
+      <Card title="Shape" thin>
+        <div>
+          Shape:
+
+          <label>
+            <input type="radio" bind:group={shape} value="square" />
+            Square
+          </label>
+          
+          <label>
+            <input type="radio" bind:group={shape} value="circle" />
+            Circle
+          </label>
+        </div>
       </Card>
 
       <Card title="Colors" thin>
@@ -88,6 +107,7 @@
       {#if data}
         {#key key}
           <QrCode {data}
+            {shape}
             {typeNumber} {errorCorrectionLevel}
             {backgroundColor} {modulesColor} {anchorsOuterColor} {anchorsInnerColor}
           />
