@@ -14,4 +14,10 @@
     .outer-wrapper :global(header.app-header:first-of-type) {
         border-top: unset;
     }
+
+    @media (min-width: 920px) {
+        .outer-wrapper {
+            height: 100%;
+        }
+    }
 </style>

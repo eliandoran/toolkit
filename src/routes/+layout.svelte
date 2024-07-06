@@ -157,5 +157,11 @@
         display: flex;  
         flex-grow: 1;
         flex-direction: column;
-    }    
+    }   
+    
+    @media (min-width: 920px) {
+        .main-content {
+            height: 100%;
+        }
+    }
 </style>
