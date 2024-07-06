@@ -4,6 +4,7 @@
 	import Tool from "$lib/components/tool.svelte";
 	import TwoColumnView from "$lib/components/two-column-view.svelte";
 	import Card from "$lib/components/card.svelte";
+	import InputField from "$lib/components/input-field.svelte";
 
   let data = "https://eliandoran.github.io/toolkit/";
   let key;
@@ -16,10 +17,10 @@
   let height = 256;
   let padding = 1;
 
-  let backgroundColor = "white";
-  let modulesColor = "black";
-  let anchorsOuterColor = "black";
-  let anchorsInnerColor = "black"; 
+  let backgroundColor = "#ffffff";
+  let modulesColor = "#000000";
+  let anchorsOuterColor = "#000000";
+  let anchorsInnerColor = "#000000"; 
   
   let typeNumber = 40;
   let errorCorrectionLevel = "M";
@@ -45,28 +46,21 @@
       </Card>
 
       <Card title="Size" thin>
-        <div>
-          <label>
-            Width:
-            <input type="number" bind:value={width} />
-          </label>
-        </div>
-
-        <div>
-          <label>
-            Height:
-            <input type="number" bind:value={height} />
-          </label>
-        </div>
-
-        <div>
-          <label>
-            Padding:
-            <input type="number" bind:value={padding} min="1" />
-          </label>
+        <div class="columns size-options">
+          <InputField label="Width">
+            <input type="number" bind:value={width} />px
+          </InputField>
+  
+          <InputField label="Height">
+            <input type="number" bind:value={height} />px
+          </InputField>
+  
+          <InputField label="Padding">
+            <input type="number" bind:value={padding} min="1" /> module(s)
+          </InputField>
         </div>
       </Card>
-
+        
       <Card title="Shape" thin>
         <div>
           Shape:
@@ -96,25 +90,23 @@
       </Card>
 
       <Card title="Colors" thin>
-        <label>
-          Background:
-          <input type="color" bind:value={backgroundColor} />
-        </label>
-
-        <label>
-          Modules:
-          <input type="color" bind:value={modulesColor} />
-        </label>
-
-        <label>
-          Anchors outer:
-          <input type="color" bind:value={anchorsOuterColor} />
-        </label>
-
-        <label>
-          Anchors inner:
-          <input type="color" bind:value={anchorsInnerColor} />
-        </label>
+        <div class="columns color-options">
+          <InputField label="Background">
+            <input type="color" bind:value={backgroundColor} />
+          </InputField>
+  
+          <InputField label="Modules">
+            <input type="color" bind:value={modulesColor} />
+          </InputField>
+  
+          <InputField label="Anchors outer">
+            <input type="color" bind:value={anchorsOuterColor} />
+          </InputField>
+  
+          <InputField label="Anchors inner">
+            <input type="color" bind:value={anchorsInnerColor} />
+          </InputField>
+        </div>
       </Card>
 
       <Card title="Error correction level" thin>
@@ -159,3 +151,22 @@
     </div>
   </TwoColumnView>
 </Tool>
+
+<style>
+  .columns {
+    display: flex;
+  }
+
+  .columns :global(> *) {
+    flex-grow: 1;
+  }
+
+  .size-options input[type="number"] {
+    width: 80px;
+    text-align: center;
+  }
+
+  .color-options input[type="color"] {
+    width: 100%;
+  }
+</style>
