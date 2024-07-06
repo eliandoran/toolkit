@@ -9,15 +9,25 @@
         switch (ch) {
             case "\l":
                 return {
-                    symbol: "LF"
+                    symbol: "LF",
+                    insertAfter: "\l"
                 }
             case "\n":
                 return {
-                    symbol: "CR"
+                    symbol: "CR",
+                    insertAfter: "\n"
                 }
             default:
                 return ch;
         }
+    }
+
+    function formatSpecialCharacter(specialCharacter) {
+        let output = specialCharacter.symbol;
+        if (specialCharacter.insertAfter) {
+            output += specialCharacter.insertAfter;
+        }
+        return output;
     }
 
     $: {
@@ -38,7 +48,7 @@
                 {#if typeof character === "string"}
                     <span class="character">{character}</span>
                 {:else}
-                    <span class="special-character">{character.symbol}</span>
+                    <span class="special-character">{formatSpecialCharacter(character)}</span>
                 {/if}
             {/each}
         </div>
