@@ -189,6 +189,7 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
         word-wrap: break-word;
         overflow: auto;
         padding: 1em;
+        flex-grow: 1;
     }
 
     .character {
