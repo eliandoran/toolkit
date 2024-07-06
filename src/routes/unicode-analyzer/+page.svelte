@@ -49,18 +49,20 @@ Combining characters: กิิิิิิิิิิิิิิิิิิ�
         switch (ch) {
             case "\0":
                 return { symbol: "␀" }
-                case "\u0007":
+            case "\u0007":
                 return { symbol: "␇" }
-                case "\t":
-                    return { symbol: "⭾" }
-                    case "\v":
-                        return { symbol: "⭿" }
-                        case "\r":
-                            return { symbol: "␍", insertAfter: "\r" }
+            case "\t":
+                return { symbol: "⭾" }
+            case "\v":
+                return { symbol: "⭿" }
+            case "\r":
+                return { symbol: "␍", insertAfter: "\r" }
+            case "\b":
+                return { symbol: "⌫" }
             case "\n":
                 return { symbol: "⮒", insertAfter: "\n" }
-                case "\f":
-                    return { symbol: "␌" }
+            case "\f":
+                return { symbol: "␌" }
             }
             
         const info = get_unicode_by_decimal(ch.charCodeAt(0))
