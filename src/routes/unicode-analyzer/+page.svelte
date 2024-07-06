@@ -2,15 +2,28 @@
 	import StackView from "$lib/components/stack-view.svelte";
     import Tool from "$lib/components/tool.svelte";
 
-    let text = "See what's hidden in your string…	or be​hind﻿\nNewline\nTest";
+    let text = `See what's hidden in your string…	or be​hind﻿df\n\nsdfg\nsdfg`;
     let characters = [];
 
-    $: {
-        characters = text.split("");
+    function mapCharacter(ch) {
+        switch (ch) {
+            case "\l":
+                return {
+                    symbol: "LF"
+                }
+            case "\n":
+                return {
+                    symbol: "CR"
+                }
+            default:
+                return ch;
+        }
     }
 
-    function mapCharacter() {
-
+    $: {
+        characters = text
+            .split("")
+            .map(mapCharacter);
     }
 </script>
 
@@ -22,7 +35,11 @@
     <StackView title="Unicode analysis" fill isCollapsible={false}>
         <div class="character-view">
             {#each characters as character}
-                <span class="character">{character}</span>
+                {#if typeof character === "string"}
+                    <span class="character">{character}</span>
+                {:else}
+                    <span class="special-character">{character.symbol}</span>
+                {/if}
             {/each}
         </div>
     </StackView>
@@ -39,5 +56,13 @@
     .character-view {
         font-family: var(--font-monospace);
         white-space: pre;
+    }
+
+    .special-character {
+        font-size: 0.85em;
+        border: 1px solid var(--border-color);
+        background: var(--header-background-color);
+        padding: 0.25em;
+        margin: 0 1px;
     }
 </style>
