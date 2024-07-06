@@ -13,6 +13,7 @@
 		"test:unit": "vitest"
 	},
 	"devDependencies": {
+		"@castlenine/svelte-qrcode": "^2.2.0",
 		"@playwright/test": "^1.45.0",
 		"@svelte-plugins/tooltips": "^3.0.1",
 		"@sveltejs/adapter-static": "^3.0.2",
