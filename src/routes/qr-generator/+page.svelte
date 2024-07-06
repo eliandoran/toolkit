@@ -109,31 +109,32 @@
         </div>
       </Card>
 
-      <Card title="Error correction level" thin>
-        <label>
-          <input type="radio" bind:group={errorCorrectionLevel} value="L" />
-          L (~7%)
-        </label>
-
-        <label>
-          <input type="radio" bind:group={errorCorrectionLevel} value="M" />
-          M (~15%)
-        </label>
-
-        <label>
-          <input type="radio" bind:group={errorCorrectionLevel} value="Q" />
-          Q (~25%)
-        </label>
-
-        <label>
-          <input type="radio" bind:group={errorCorrectionLevel} value="H" />
-          H (~30%)
-        </label>
-      </Card>
-
       <Card title="Advanced settings" thin>
-        Type:
-        <input type="number" min="0" max="40" bind:value={typeNumber} />
+        <InputField label="Error correction level" noLabelWrapping>
+          <label>
+            <input type="radio" bind:group={errorCorrectionLevel} value="L" />
+            L (~7%)
+          </label>
+  
+          <label>
+            <input type="radio" bind:group={errorCorrectionLevel} value="M" />
+            M (~15%)
+          </label>
+  
+          <label>
+            <input type="radio" bind:group={errorCorrectionLevel} value="Q" />
+            Q (~25%)
+          </label>
+  
+          <label>
+            <input type="radio" bind:group={errorCorrectionLevel} value="H" />
+            H (~30%)
+          </label>
+        </InputField>
+
+        <InputField label="Type">
+          <input type="number" min="0" max="40" bind:value={typeNumber} />
+        </InputField>
       </Card>
     </div>
 

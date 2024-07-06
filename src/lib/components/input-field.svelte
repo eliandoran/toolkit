@@ -1,20 +1,31 @@
 <script>
     export let label;
+    export let noLabelWrapping = false;
 </script>
 
-<label>
-    <span>{label}</span>
+{#if noLabelWrapping}
+    <div>
+        <span>{label}</span>
 
-    <slot />
-</label>
+        <slot />
+    </div>
+{:else}
+    <label>
+        <span>{label}</span>
+
+        <slot />
+    </label>
+{/if}
 
 <style>
-    label {
+    label,
+    div {
         display: block;        
         margin: 0.5em;
     }
 
-    label > span {
+    label > span,
+    div > span {
         display: block;
     }
 </style>
