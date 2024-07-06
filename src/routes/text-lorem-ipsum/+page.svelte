@@ -54,7 +54,7 @@
 
 <Tool>
     <TwoColumnView leftTitle="Lorem Ipsum Generator" rightTitle="Paragraph limits" isCollapsible={false}>
-        <div class="row" slot="left">
+        <div slot="left" class="type-selector">
             <input type="number" bind:value={number} />
     
             <label>
@@ -140,8 +140,17 @@
         padding: 3px 6px;
     }
 
+    .type-selector {
+        display: flex;
+        height: 100%;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+    }
+
     .option-table {
         display: table;
+        margin: auto;
     }
 
     .option-table .row {
