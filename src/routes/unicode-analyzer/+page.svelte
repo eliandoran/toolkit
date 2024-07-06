@@ -47,8 +47,11 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
         Zs: true
     };
 
-    const combiningDouble = "\u035d\u035e\u0360\u0361\u1dcd\u035c\u035f\u0362\u1dfc";
+    let dataCodeLookup = {};
+    let currentInfo = null;
+    
     function mapCharacter(ch) {
+        const code = ch.charCodeAt(0);
 
         switch (ch) {
             case "\0":
@@ -75,7 +78,8 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
         if (info) {
             if (generalCategoryMappings[info.gc]) {
                 const unicodeHexValue = `U+${ch.charCodeAt(0).toString(16).toUpperCase().padStart(4, "0")}`;
-                return { symbol: unicodeHexValue }
+                dataCodeLookup[code] = info;
+                return { symbol: unicodeHexValue, code }
             }
         }
 
@@ -87,6 +91,19 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
             .split("")
             .map(mapCharacter);
     }
+
+    function onMouseMove(e) {
+        const targetEl = e.target;
+        if (!targetEl) { return; }
+        
+        const code = targetEl.dataset.code;
+        if (!code) { return; }
+
+        const info = dataCodeLookup[code];
+        if (!info) { return; }
+
+        currentInfo = info;
+    }
 </script>
 
 <Tool>
@@ -94,15 +111,42 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
         <textarea bind:value={text} />
     </StackView>
 
-    <StackView title="Unicode analysis" fill isCollapsible={false}>
-        <div class="character-view">
-            {#each characters as character}
-                {#if typeof character === "string"}
-                    <span class="character">{character}</span>
-                {:else}
-                    <span class="special-character" class:background={!character.noBackground}>{character.symbol}</span>{character.insertAfter || ""}
+    <StackView title="Unicode analysis" fill isCollapsible={false} hasPadding={false}>
+        <div class="analysis-container">
+            <div class="character-view" on:mousemove={onMouseMove}>
+                {#each characters as character}
+                    {#if typeof character === "string"}
+                        <span class="character">{character}</span>
+                    {:else}
+                        <span class="character special"
+                            class:background={!character.noBackground}
+                            data-code={character.code}>{character.symbol}</span>{character.insertAfter || ""}
+                    {/if}
+                {/each}
+            </div>
+                
+            <aside class="info-box">
+                {#if currentInfo}
+                    <h3>{currentInfo.name}</h3>
+
+                    <div class="info-table">
+                        <div>
+                            <span>Code point</span>
+                            <span>{currentInfo.cp}</span>
+                        </div>
+
+                        <div>
+                            <span>General category</span>
+                            <span>{currentInfo.gc}</span>
+                        </div>
+
+                        <div>
+                            <span>Block</span>
+                            <span>{currentInfo.blk}</span>
+                        </div>
+                    </div>
                 {/if}
-            {/each}
+            </aside>
         </div>
     </StackView>
 </Tool>
@@ -115,10 +159,18 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
         padding: 1em;
     }
 
+    .analysis-container {
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+    }
+
     .character-view {
         font-family: monospace;
         white-space: preserve-breaks;
         word-wrap: break-word;
+        overflow: auto;
+        padding: 1em;
     }
 
     .character {
@@ -126,12 +178,45 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
         min-width: 4px;        
     }
 
-    .special-character.background {
+    
+    .character.special.background {
         border: 1px solid var(--border-color);
         background: var(--header-background-color);        
         margin: 0 1px;
         display: inline-block;
         border-radius: 3px;
         padding: 0 3px;
+    }
+    
+    .character:hover {
+        background: var(--selected-background-color) !important;
+    }
+
+    .info-box {
+        padding: 1em;
+        width: 240px;
+        flex-shrink: 0;
+        border-left: 1px solid var(--border-color);
+        background: var(--header-background-color);
+    }
+
+    .info-box h3 {
+        margin: 0;
+        font-size: 1em;
+        font-weight: 300;
+    }
+
+    .info-table {
+        display: table;
+        font-size: 0.8em;
+    }
+
+    .info-table > div {
+        display: table-row;
+    }
+    
+    .info-table span {
+        display: table-cell;
+        padding: 0.25em 1em;
     }
 </style>
