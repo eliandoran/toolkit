@@ -5,23 +5,23 @@
 
 {#if noLabelWrapping}
     <div>
-        <span>{label}</span>
+        <span class="label">{label}</span>
 
         <slot />
     </div>
 {:else}
     <label>
-        <span>{label}</span>
+        <span class="label">{label}</span>
 
         <slot />
     </label>
 {/if}
 
 <style>
-    label,
-    div {
+    .label {
         display: block;        
         margin: 0.5em;
+        font-size: 0.9rem;
     }
 
     label > span,
