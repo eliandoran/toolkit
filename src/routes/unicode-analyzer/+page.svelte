@@ -65,6 +65,10 @@ Combining characters: กิิิิิิิิิิิิิิิิิิ�
             
         const info = get_unicode_by_decimal(ch.charCodeAt(0))
         if (info) {
+            if (info.gc === "Mn") {
+                return { symbol: "◌" + ch }
+            }
+
             if (generalCategoryMappings[info.gc]) { // Nonspacing Mark
                 return { symbol: info.name }
             }
@@ -113,9 +117,8 @@ Combining characters: กิิิิิิิิิิิิิิิิิิ�
 
     .character {
         white-space: no-wrap;
-        font-variant-ligatures: none;
-        display: inline-block;
         min-width: 4px;
+        word-wrap: break-word;
     }
 
     .special-character {
