@@ -142,6 +142,7 @@ textarea {
     border-radius: 0;
     font-family: var(--font-monospace);
     resize: none;
+    margin: 0;
 }
 
 input {
