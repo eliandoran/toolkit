@@ -22,14 +22,6 @@
         }
     }
 
-    function formatSpecialCharacter(specialCharacter) {
-        let output = specialCharacter.symbol;
-        if (specialCharacter.insertAfter) {
-            output += specialCharacter.insertAfter;
-        }
-        return output;
-    }
-
     $: {
         characters = text
             .split("")
@@ -48,7 +40,7 @@
                 {#if typeof character === "string"}
                     <span class="character">{character}</span>
                 {:else}
-                    <span class="special-character">{formatSpecialCharacter(character)}</span>
+                    <span class="special-character">{character.symbol}</span>{character.insertAfter}
                 {/if}
             {/each}
         </div>
@@ -69,10 +61,9 @@
     }
 
     .special-character {
-        font-size: 0.85em;
         border: 1px solid var(--border-color);
-        background: var(--header-background-color);
-        padding: 0.25em;
+        background: var(--header-background-color);        
         margin: 0 1px;
+        display: inline-block;
     }
 </style>
