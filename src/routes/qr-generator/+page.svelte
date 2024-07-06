@@ -4,15 +4,16 @@
 	import Tool from "$lib/components/tool.svelte";
 	import TwoColumnView from "$lib/components/two-column-view.svelte";
 
-  let data = "";
+  let data = "https://eliandoran.github.io/toolkit/";
   let key;
+  let typeNumber = 40;
 
-  function rebuildQr(data) {
+  function rebuildQr(...args) {
     key = {};
   }
 
   $: {
-    rebuildQr(data);
+    rebuildQr(data, typeNumber);
   }
 </script>
 
@@ -23,12 +24,17 @@
         Data:
         <textarea bind:value={data} />
       </label>
+
+      <label>
+        Type:
+        <input type="number" min="0" max="40" bind:value={typeNumber} />
+      </label>
     </div>
 
     <div slot="right">
       {#if data}
         {#key key}
-          <QrCode {data} />
+          <QrCode {data} {typeNumber} />
         {/key}
       {/if}
     </div>
