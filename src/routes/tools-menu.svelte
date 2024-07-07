@@ -68,6 +68,10 @@
         margin-top: 0;
     }
 
+    section:last-of-type {
+        margin-bottom: 0;
+    }
+
     a {
         display: flex !important;
         align-items: center;
@@ -81,6 +85,14 @@
 
     .item-collapsed {
         display: none !important;
+    }
+
+    ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 1fr;
+        column-gap: 1em;
+        align-items: center;
     }
 
     @media (min-width: 920px) {
@@ -112,6 +124,10 @@
 
         .collapsed .item-collapsed {
             display: flex !important;
+        }
+
+        ul {
+            display: block;
         }
     }
 </style>
