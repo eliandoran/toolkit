@@ -27,6 +27,7 @@
         width: 100%;
         background: none;
         border: 0;
+        text-align: left;
     }
 
     .action-card-item :global(.icon) {

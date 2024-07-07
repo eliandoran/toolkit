@@ -11,3 +11,17 @@
         </ul>
     </nav>    
 </Card>
+
+<style>
+    nav :global(ul) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+
+    @media (min-width: 920px) {
+        nav :global(ul) {
+            display: block;
+        }
+    }
+</style>
