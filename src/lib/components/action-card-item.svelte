@@ -27,8 +27,7 @@
         width: 100%;
         background: none;
         border: 0;
-        text-align: left;
-        border-bottom: 1px solid var(--action-card-border);
+        text-align: left;        
         padding: 0.5em 1em;
         color: inherit;
         font-size: 0.85rem;
@@ -42,7 +41,11 @@
         background: var(--action-card-pressed);
     }
 
-    li:last-of-type .action-card-item {
+    li {
+        border-bottom: 1px solid var(--action-card-border);
+    }
+
+    li:last-of-type {
         border-bottom: 0;
     }
 
