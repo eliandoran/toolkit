@@ -20,10 +20,10 @@
 <style>
     .wrapper {
         margin-bottom: 0.75em;
+        display: block;
     }
 
     .label {
-        display: block;  
         margin: 0;      
         font-size: 0.9rem;
     }
