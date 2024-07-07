@@ -129,7 +129,7 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
 </script>
 
 <Tool>
-    <StackView title="Input text" fill isCollapsible={false} hasPadding={false}>
+    <StackView title="Input text" isCollapsible={false} hasPadding={false}>
         <textarea bind:value={text} />
     </StackView>
 
@@ -188,9 +188,13 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
     }
 
     .analysis-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
         display: flex;
-        flex-direction: row;
-        height: 100%;
+        flex-direction: column;
     }
 
     .character-view {
@@ -222,8 +226,7 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
     }
 
     .info-box {
-        padding: 1em;
-        width: 240px;
+        padding: 1em;        
         flex-shrink: 0;
         border-left: 1px solid var(--border-color);
         background: var(--header-background-color);
@@ -247,5 +250,15 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
     .info-table span {
         display: table-cell;
         padding: 0.25em 1em;
+    }
+
+    @media (min-width: 920px) {
+        .analysis-container {
+            flex-direction: row;
+        }
+
+        .info-box {
+            width: 240px;
+        }
     }
 </style>
