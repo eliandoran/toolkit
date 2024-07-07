@@ -96,6 +96,7 @@
         .inner-wrapper {
             height: 100%;
             overflow: auto;
+            display: block;
         }
     }
 </style>
