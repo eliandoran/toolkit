@@ -76,6 +76,12 @@
     aside {                     
         display: flex;
         flex-direction: column;
+        position: sticky;
+        left: 0;
+        top: 0;
+        right: 0;
+        z-index: 99999;
+        background: var(--background-color);
     }    
 
     aside .inner-wrapper {
@@ -98,8 +104,7 @@
         margin: var(--page-gap) auto;
         background: var(--background-color);        
         box-sizing: border-box;        
-        box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
-        overflow: hidden;        
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);        
         display: flex;
         flex-direction: column;
     }    
@@ -116,6 +121,7 @@
             box-shadow: 0 0 30px rgba(0, 0, 0, 0.25);
             border-radius: 16px;
             flex-direction: row;
+            overflow: hidden;
         }
 
         aside {
