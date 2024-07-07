@@ -193,7 +193,7 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
         left: 0;
         bottom: 0;
         right: 0;
-        display: flex;
+        display: flex;        
         flex-direction: column;
     }
 
@@ -204,13 +204,13 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
         overflow: auto;
         padding: 1em;
         flex-grow: 1;
+        font-size: 1.25em;
     }
 
     .character {
         white-space: no-wrap;
         min-width: 4px;        
     }
-
     
     .character.special.background {
         border: 1px solid var(--border-color);
@@ -259,6 +259,10 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
 
         .info-box {
             width: 240px;
+        }
+
+        .character-view {
+            font-size: inherit;
         }
     }
 </style>
