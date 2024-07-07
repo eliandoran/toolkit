@@ -28,6 +28,20 @@
         background: none;
         border: 0;
         text-align: left;
+        border-bottom: 1px solid var(--action-card-border);
+        padding: 0.5em 1em;
+    }
+
+    .action-card-item:hover {
+        background: var(--action-card-hover);
+    }
+
+    .action-card-item:active {
+        background: var(--action-card-pressed);
+    }
+
+    li:last-of-type .action-card-item {
+        border-bottom: 0;
     }
 
     .action-card-item :global(.icon) {
@@ -35,5 +49,11 @@
         width: 21px;
         height: 21px;
         margin-right: 6px;
+    }
+
+    @media (min-width: 920px) {
+        .action-card-item {
+            padding: 0.6em 1em;
+        }
     }
 </style>

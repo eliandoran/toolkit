@@ -4,7 +4,7 @@
     export let title;
 </script>
 
-<Card {title} thin>
+<Card {title} noPadding>
     <nav class="nav">
         <ul>
             <slot />
@@ -17,6 +17,10 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         align-items: center;
+    }
+
+    nav :global(ul li) {
+        margin: 0;
     }
 
     @media (min-width: 920px) {

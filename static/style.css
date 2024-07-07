@@ -36,6 +36,10 @@
 
     --page-gap: 0;
 
+    --action-card-hover: #f9f9f9;
+    --action-card-pressed: #efefef;
+    --action-card-border: #ededed;
+
     color: var(--text-color);
 }
 
@@ -180,8 +184,7 @@ input:disabled {
     margin: 1px 0;
 }
 
-.nav ul li a,
-.nav ul li button {
+.nav ul li a {
     text-decoration: none;
     color: inherit;
     font-size: 0.9em;
