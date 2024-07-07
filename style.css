@@ -155,10 +155,25 @@ input {
     background-color: var(--content-background-color);
     color: var(--text-color);
     border: 1px solid var(--border-color);
+    box-sizing: border-box;
 }
 
 input:disabled {
     background-color: var(--header-background-color);
+}
+
+input[type="color"] {
+    appearance: none;
+    border-radius: 8px;
+    padding: 3px;
+    border: 1px solid var(--border-color);
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+    border-radius: 6px;
+    padding: 0.5em;
 }
 
 .nav ul {
@@ -230,8 +245,12 @@ input:disabled {
         padding: var(--page-vertical-margin) 0;
     }
 
-    header {
+    header:not(.compact) {
         height: var(--header-height-desktop);
+    }
+
+    header {
+        flex-shrink: 0;
         padding: 1em 1em;
     }
 }
