@@ -34,6 +34,12 @@
         padding: 1em;
     }
 
+    .main-container > main {
+        flex-grow: 1;
+        position: relative;
+        border-bottom: 1px solid var(--border-color);
+    }
+
     .main-container > aside :global(nav) {
         background: var(--content-background-color);
         padding: 0;
@@ -57,9 +63,9 @@
             flex-direction: row;
         }
 
-        .main-container > main {
-            flex-grow: 1;
+        .main-container > main {            
             min-height: 0;
+            border-bottom: 0;
             position: relative;
             display: flex;
             flex-direction: column;
