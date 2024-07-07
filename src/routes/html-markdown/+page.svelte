@@ -68,7 +68,11 @@
 
     .left,
     .right {
-        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
     }
 
     .edit-area-wrapper {
@@ -81,6 +85,7 @@
         height: 100%;
         background: var(--content-background-color);
         overflow: auto;
+        padding: 0.5em;
     }
 
     .output {
