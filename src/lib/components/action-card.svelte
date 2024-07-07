@@ -16,6 +16,7 @@
     nav :global(ul) {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 1fr auto;
         align-items: center;
     }
 

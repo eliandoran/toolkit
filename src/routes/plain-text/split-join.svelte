@@ -51,8 +51,7 @@
     font-family: var(--font-monospace);
   }
 
-  .left,
-  .right {
+  .left {
     flex-grow: 1;
   }
 
@@ -71,6 +70,7 @@
   @media (min-width: 920px) {
     .right {
       display: block;
+      flex-grow: 1;
     }
   }
 </style>

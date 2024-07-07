@@ -30,6 +30,8 @@
         text-align: left;
         border-bottom: 1px solid var(--action-card-border);
         padding: 0.5em 1em;
+        color: inherit;
+        font-size: 0.85rem;
     }
 
     .action-card-item:hover {
