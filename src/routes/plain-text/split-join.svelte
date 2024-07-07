@@ -60,11 +60,20 @@
   .right {
     border-left: 1px solid var(--border-color);
     padding-left: 0.25em;
+    display: flex;
+    align-self: stretch;
+    align-items: center;
   }
 
   .card-container {
     display: flex;
     margin: -0.75em;
     align-items: center;
+  }
+
+  @media (min-width: 920px) {
+    .right {
+      display: block;
+    }
   }
 </style>
