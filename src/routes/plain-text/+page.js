@@ -13,14 +13,14 @@ export function load() {
         textOperations: {
             "Line operations": [
                 {
-                    label: "Sort lines ascending",
+                    label: "Sort ascending",
                     run: (text) => text.split("\n").sort().join("\n"),
                     icon: SortAlphabeticalAscending,
                     description: "Sorts all lines alphabetically, from A to Z."
                 },
     
                 {
-                    label: "Sort lines descending",
+                    label: "Sort  descending",
                     run: (text) => text.split("\n").sort().reverse().join("\n"),
                     icon: SortAlphabeticalDescending,
                     description: "Sorts all lines alphabetically, from Z to A."
@@ -49,22 +49,23 @@ export function load() {
             
             "Whitespace removal": [
                 {
-                    label: "Trim lines",
+                    label: "Remove blank lines",
+                    run: removeBlankLines,
+                    description: "Removes all blank lines, including those that are made only of spaces."
+                },
+                
+                {
+                    label: "Trim whitespace",
                     run: (text) => text.split("\n").map((line) => line.trim()).join("\n"),
                     description: "Removes spaces at the beginning or end of each line."
                 },
 
                 {
-                    label: "Remove trailing whitespace",
+                    label: "Trim trailing whitespace",
                     run: removeTrailingWhitespace,
                     description: "Remove spaces at the end of each line."
                 },
 
-                {
-                    label: "Remove blank lines",
-                    run: removeBlankLines,
-                    description: "Removes all blank lines, including those that are made only of spaces."
-                }
             ],
 
             "Convert text case": [
