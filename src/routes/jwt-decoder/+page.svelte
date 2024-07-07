@@ -88,21 +88,26 @@
         flex-grow: 1;
         display: flex;
         flex-direction: column;
-        height: 100%;
     }
-
+    
     textarea {
         flex-grow: 1;
         border: 0;
     }
-
+    
     .codemirror-outer-wrapper {
         position: relative;
         flex-grow: 1;
         height: 100%;
     }
-
+    
     .codemirror-outer-wrapper.header {
         min-height: 9em;
+    }
+    
+    @media (min-width: 920px) {
+        div[slot="right"] {
+            height: 100%;
+        }
     }
 </style>

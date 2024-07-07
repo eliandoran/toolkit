@@ -63,6 +63,7 @@
     .inner-wrapper {
         flex-grow: 1;
         position: relative;
+        display: flex;
     }
 
     @media (min-width: 920px) {
