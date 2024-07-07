@@ -129,14 +129,4 @@
         right: 0;
         bottom: 0;
     }
-
-    @media (min-width: 920px) {
-        div[slot="left"],
-        div[slot="right"] {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            position: relative;
-        }
-    }
 </style>
