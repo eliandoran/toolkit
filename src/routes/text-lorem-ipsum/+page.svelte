@@ -53,7 +53,7 @@
 </script>
 
 <Tool>
-    <TwoColumnView leftTitle="Lorem Ipsum Generator" rightTitle="Paragraph limits" isCollapsible={false}>
+    <TwoColumnView leftTitle="Lorem Ipsum Generator" rightTitle="Paragraph limits">
         <div slot="left" class="type-selector">
             <input type="number" bind:value={number} />
     

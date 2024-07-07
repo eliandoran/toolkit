@@ -44,7 +44,7 @@
 
 </script>
 
-<Tool hasPadding={false}>
+<Tool>
     <SidebarView title="JSON Formatter/Minifier">
         <div class="toolbar" slot="header-left">
             <TextFilePicker bind:textFile={text} />
