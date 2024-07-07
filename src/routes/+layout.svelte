@@ -4,7 +4,8 @@
     import Menu from "svelte-material-icons/Menu.svelte";
 
     import tools from "$lib/tools.js";
-    import { page } from "$app/stores";    
+    import { page } from "$app/stores";
+    import { base } from "$app/paths";
 	import Icon from "../lib/components/icon.svelte";
 
     let menuShownOnMobile = false;
@@ -44,7 +45,7 @@
 </svelte:head>
 
 <div class="page-wrapper">
-    {#if $page.url.pathname !== "/"}
+    {#if $page.url.pathname !== `${base}/`}
         <aside class="menu" class:collapsed={menuCollapsed} class:mobile-show={menuShownOnMobile}>
             <header>
                 <HeaderButton on:click={onMenuPressed}>
