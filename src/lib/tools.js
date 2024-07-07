@@ -115,7 +115,12 @@ export default {
             path: "/json-schema",
             title: "JSON Schema Validator",
             icon: FileCheckOutline
-        }
+        },
+        {
+            path: "/json/php-serialization",
+            title: "JSON to PHP Serialization",
+            icon: CodeJson           
+        },
     ],
 
     "Encode/Decode": [
@@ -144,11 +149,6 @@ export default {
             title: "String Escape",
             icon: SlashForward,
             iconFlipHorizontally: true
-        },
-        {
-            path: "/php-serialization",
-            title: "PHP Serialization",
-            icon: CodeJson           
         },
         {
             path: "/morse-code",
