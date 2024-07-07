@@ -55,7 +55,7 @@
     }
 
     function outputChanged(e) {
-        const value = e.detail || e.target.value || "";
+        const value = e.detail || e.target?.value || "";
         inputLog = "";
 
         if (value) {
