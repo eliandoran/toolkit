@@ -231,8 +231,12 @@ input:disabled {
         padding: var(--page-vertical-margin) 0;
     }
 
-    header {
+    header:not(.compact) {
         height: var(--header-height-desktop);
+    }
+
+    header {
+        flex-shrink: 0;
         padding: 1em 1em;
     }
 }
