@@ -120,9 +120,19 @@
     </div>
 </TwoColumnView>
 
-<style>      
+<style> 
+    div[slot="left"],
+    div[slot="right"] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
     @media (min-width: 920px) {
-        div[slot] {
+        div[slot="left"],
+        div[slot="right"] {
             display: flex;
             flex-direction: column;
             height: 100%;
