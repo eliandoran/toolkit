@@ -50,6 +50,10 @@
         flex-grow: 1;
     }
 
+    .card-wrapper:first-of-type {
+        padding-top: 0;
+    }
+
     .card-wrapper :global(section) {
         margin: 0;
     }
