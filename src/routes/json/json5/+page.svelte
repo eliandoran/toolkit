@@ -18,7 +18,7 @@
   <SymmetricInputOutput
     fromTitle="JSON"
     toTitle="JSON5"
-    useCodeMirror={true}
+    useCodeMirror
     leftLang={json()}
     {to} {from} />
 </Tool>

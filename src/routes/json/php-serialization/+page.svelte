@@ -18,7 +18,7 @@
     <SymmetricInputOutput
         fromTitle="JSON"
         toTitle="PHP Serialized Format"
-        useCodeMirror={true} wordWrap
+        useCodeMirror wordWrap
         leftLang={json()}
         {to} {from} />
 </Tool>

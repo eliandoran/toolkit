@@ -21,7 +21,7 @@
     <SymmetricInputOutput
         fromTitle="JSON"
         toTitle="YAML"
-        useCodeMirror={true}
+        useCodeMirror
         leftLang={json()}
         rightLang={yaml()}
         {to} {from} />
