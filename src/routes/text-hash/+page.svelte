@@ -16,9 +16,7 @@
             <TextFilePicker bind:textFile={inputText} />
         </div>
 
-        <div slot="left">
-            <textarea bind:value={inputText}></textarea>
-        </div>
+        <textarea bind:value={inputText} slot="left"></textarea>
 
         <div slot="right" class="hash-container">
             {#each hashOperations as operation }
@@ -34,12 +32,13 @@
     div[slot="left"] {
         flex-grow: 1;
         height: 100%;
+        display: flex;
     }
 
     textarea {
-        width: 100%;
-        height: 100%;
         border: 0;
+        appearance: none;
+        height: 100%;
     }
 
     .hash-container {

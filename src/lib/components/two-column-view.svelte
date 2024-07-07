@@ -51,6 +51,12 @@
     .right {
         flex-grow: 1;
         flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .inner-wrapper {
+        flex-grow: 1;
     }
 
     @media (min-width: 920px) {
