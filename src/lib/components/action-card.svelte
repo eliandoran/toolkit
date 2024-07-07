@@ -27,6 +27,10 @@
         display: flex;
     } 
 
+    nav :global(ul li:first-of-type:last-of-type) {
+        grid-column: 1 / 3;
+    }
+
     @media (max-width: 919px) {
         nav :global(ul li:nth-last-of-type(2)) {
             border-bottom: unset;
