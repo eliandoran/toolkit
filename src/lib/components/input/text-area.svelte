@@ -7,7 +7,9 @@
 <textarea
     bind:value={value}
     class:borderless={borderless}
-    class:fill={fill}></textarea>
+    class:fill={fill}
+    on:input
+    {...$$restProps}></textarea>
 
 <style>
     .borderless {

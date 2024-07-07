@@ -5,6 +5,7 @@
 	import TextFilePicker from "./text-file-picker.svelte";
 	import TwoColumnView from "./two-column-view.svelte";
 	import WarningBox from "./warning-box.svelte";
+	import TextArea from "./input/text-area.svelte";
 
     export let fromTitle = "Input";
     export let toTitle = "Output";
@@ -85,10 +86,10 @@
                     lineWrapping={wordWrap} />
             </div>
         {:else}
-            <textarea
+            <TextArea
                 value={inputText}                
                 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
-                on:input={inputChanged} />
+                on:input={inputChanged} borderless fill />
         {/if}
         
         <WarningBox message="{inputLog}" />
@@ -109,10 +110,10 @@
                     on:change={outputChanged} />
             </div>
         {:else}
-            <textarea
+            <TextArea
                 value={outputText}    
                 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
-                on:input={outputChanged} />
+                on:input={outputChanged} borderless fill />
         {/if}
         
         <WarningBox message={outputLog} />
@@ -126,12 +127,6 @@
             flex-direction: column;
             height: 100%;
             position: relative;
-        }        
-
-        textarea {
-            flex-grow: 1;
-            height: 100%;
-            border: 0;
         }
     }
 </style>
