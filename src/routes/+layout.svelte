@@ -50,7 +50,7 @@
                 <HeaderButton on:click={onMenuPressed}>
                     <Icon icon={Menu} />
                 </HeaderButton>
-                <h2>Tool</h2>
+                <h2>Toolkit</h2>
             </header>
 
             <div class="inner-wrapper">

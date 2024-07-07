@@ -39,7 +39,7 @@
 </script>
 
 <Tool>
-  <TwoColumnView leftTitle="Settings" rightTitle="Generated QR">
+  <TwoColumnView leftTitle="QR code settings" rightTitle="QR code preview">
     <div slot="left">
       <Card title="Data" thin>
         <textarea bind:value={data} />
@@ -169,5 +169,9 @@
 
   .color-options input[type="color"] {
     width: 100%;
+  }
+
+  .color-options :global(.wrapper) {
+    margin-bottom: 0;
   }
 </style>

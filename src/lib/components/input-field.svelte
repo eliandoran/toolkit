@@ -4,13 +4,13 @@
 </script>
 
 {#if noLabelWrapping}
-    <div>
+    <div class="wrapper">
         <span class="label">{label}</span>
 
         <slot />
     </div>
 {:else}
-    <label>
+    <label class="wrapper">
         <span class="label">{label}</span>
 
         <slot />
@@ -18,9 +18,13 @@
 {/if}
 
 <style>
+    .wrapper {
+        margin-bottom: 0.75em;
+    }
+
     .label {
-        display: block;        
-        margin: 0.5em;
+        display: block;  
+        margin: 0;      
         font-size: 0.9rem;
     }
 
