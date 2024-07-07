@@ -43,12 +43,22 @@
     }
 
     .hash-container {
-        padding: 1em;
+        padding: 1em 0.5em;
     }
 
     .hash {
-        font-size: 1em;
+        font-size: 0.75em;
         word-break: break-all;
         font-family: var(--font-monospace);
+    }
+
+    @media (min-width: 920px) {
+        .hash-container {
+            padding: 1em;
+        }
+
+        .hash {
+            font-size: 1em;
+        }
     }
 </style>
