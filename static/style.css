@@ -162,6 +162,13 @@ input:disabled {
     background-color: var(--header-background-color);
 }
 
+input[type="color"] {
+    appearance: none;
+    border-radius: 8px;
+    padding: 3px;
+    border: 1px solid var(--border-color);
+}
+
 .nav ul {
     list-style-type: none;
     margin: 0;

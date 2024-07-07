@@ -103,7 +103,7 @@
       </Card>
 
       <Card title="Colors" thin>
-        <div class="columns color-options">
+        <div class="color-options">
           <InputField label="Background">
             <input type="color" bind:value={backgroundColor} />
           </InputField>
@@ -180,6 +180,14 @@
 
   .size-options input[type="number"] {
     width: 80px;
+    text-align: center;
+  }
+
+  .color-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 1em;
+    align-items: end;
     text-align: center;
   }
 
