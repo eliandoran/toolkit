@@ -4,6 +4,7 @@
 	import { page } from "$app/stores";
 	import TextFilePicker from "$lib/components/text-file-picker.svelte";
 	import Card from "../../lib/components/card.svelte";
+	import TextArea from "$lib/components/input/text-area.svelte";
 
     let inputText = "Hello, world.";
 
@@ -16,7 +17,9 @@
             <TextFilePicker bind:textFile={inputText} />
         </div>
 
-        <textarea bind:value={inputText} slot="left"></textarea>
+        <div slot="left">
+            <TextArea bind:value={inputText} borderless fill />
+        </div>
 
         <div slot="right" class="hash-container">
             {#each hashOperations as operation }
@@ -33,15 +36,6 @@
         flex-grow: 1;
         height: 100%;
         display: flex;
-    }
-
-    textarea {
-        border: 0;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
     }
 
     .hash-container {
