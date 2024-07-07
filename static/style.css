@@ -169,6 +169,13 @@ input[type="color"] {
     border: 1px solid var(--border-color);
 }
 
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+    border-radius: 6px;
+    padding: 0.5em;
+}
+
 .nav ul {
     list-style-type: none;
     margin: 0;

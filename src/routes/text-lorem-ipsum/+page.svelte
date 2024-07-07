@@ -137,10 +137,8 @@
     }
 
     input[type="number"] {
-        width: 3em;
+        width: 5em;
         text-align: center;
-        border-radius: 6px;
-        padding: 3px 6px;
     }
 
     .type-selector {

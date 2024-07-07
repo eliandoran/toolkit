@@ -20,12 +20,8 @@
 
 <style>
     input {
-        padding: 0.5em;
-        border-radius: 6px;
         width: 100%;
-        box-sizing: border-box;
         font-family: var(--font-monospace);
-        font-size: 1.25em;
-        border-radius: 6px;
+        font-size: 1.25em;        
     }
 </style>
