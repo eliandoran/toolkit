@@ -32,6 +32,8 @@
     --font-dos: "perfect_dos_vga_437", Terminal, monospace;
     --font-monospace: "Ubuntu Mono", monospace;
 
+    --header-height-desktop: 54px;
+
     --page-gap: 0;
 
     color: var(--text-color);
@@ -76,7 +78,7 @@ body {
 header {
     position: relative;
     border-bottom: 1px solid var(--border-color);        
-    padding: 1em 1em;
+    padding: 0.25em 1em;
     text-align: center;
     background: var(--header-background-color);        
     display: flex;
@@ -85,8 +87,8 @@ header {
     font-size: 0.9em;
     font-weight: bold;
     line-height: 24px;
-    height: 42px;
     box-sizing: border-box;
+    min-height: 24px;
 }
 
 header.compact {
@@ -226,6 +228,7 @@ input:disabled {
     }
 
     header {
-        height: 54px;
+        height: var(--header-height-desktop);
+        padding: 1em 1em;
     }
 }

@@ -39,6 +39,7 @@
 
     .right .app-header {
         border-top: 1px solid var(--border-color) !important;
+        height: unset;
     }
 
     .two-columns {
@@ -73,6 +74,7 @@
 
         .right .app-header {
             border-top: unset !important;
+            height: var(--header-height-desktop);
         }
         
         .left {

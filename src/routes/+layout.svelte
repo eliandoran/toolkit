@@ -73,6 +73,10 @@
         min-height: 100vh;
     }
 
+    header {
+        height: 48px;
+    }
+
     aside {                     
         display: flex;
         flex-direction: column;
@@ -123,6 +127,10 @@
             border-radius: 16px;
             flex-direction: row;
             overflow: hidden;
+        }
+
+        header {
+            height: var(--header-height-desktop);
         }
 
         aside {
