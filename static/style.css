@@ -69,12 +69,6 @@ body {
     overflow: auto;
 }
 
-@media (min-width: 920px) {
-    body {
-        padding: var(--page-vertical-margin) 0;
-    }
-}
-
 .hidden {
     display: none;
 }
@@ -91,7 +85,7 @@ header {
     font-size: 0.9em;
     font-weight: bold;
     line-height: 24px;
-    height: 54px;
+    height: 42px;
     box-sizing: border-box;
 }
 
@@ -224,4 +218,14 @@ input:disabled {
 
 .cm-scroller {
     font-family: var(--font-monospace) !important;
+}
+
+@media (min-width: 920px) {
+    body {
+        padding: var(--page-vertical-margin) 0;
+    }
+
+    header {
+        height: 54px;
+    }
 }
