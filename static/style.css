@@ -80,6 +80,7 @@ body {
 }
 
 header {
+    position: relative;
     border-bottom: 1px solid var(--border-color);        
     padding: 1em 1em;
     text-align: center;
@@ -99,6 +100,10 @@ header.compact {
 }
 
 header h2 {
+    --title-gap: 4em;
+    position: absolute;
+    left: var(--title-gap);
+    right: var(--title-gap);
     padding: 0;
     margin: 0;
     font-size: 1em;
