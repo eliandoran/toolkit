@@ -5,6 +5,10 @@ import SwapVertical from "svelte-material-icons/SwapVertical.svelte";
 import FormatLetterCaseUpper from "svelte-material-icons/FormatLetterCaseUpper.svelte";
 import FormatLetterCaseLower from "svelte-material-icons/FormatLetterCaseLower.svelte";
 import TildeOff from "svelte-material-icons/TildeOff.svelte";
+import PlaylistRemove from "svelte-material-icons/PlaylistRemove.svelte";
+import FormatHorizontalAlignCenter from "svelte-material-icons/FormatHorizontalAlignCenter.svelte";
+import AlignHorizontalRight from "svelte-material-icons/AlignHorizontalRight.svelte";
+import FormatAlignMiddle from "svelte-material-icons/FormatAlignMiddle.svelte";
 import { normalizeSync } from 'normalize-diacritics';
 
 export function load() {
@@ -43,6 +47,7 @@ export function load() {
                 {
                     label: "Deduplicate lines",
                     run: deduplicateLines,
+                    icon: PlaylistRemove,
                     description: "Removes all duplicate lines, keeping one line of each."
                 }                
             ],
@@ -51,18 +56,21 @@ export function load() {
                 {
                     label: "Remove blank lines",
                     run: removeBlankLines,
+                    icon: FormatAlignMiddle,
                     description: "Removes all blank lines, including those that are made only of spaces."
                 },
                 
                 {
-                    label: "Trim whitespace",
+                    label: "Trim trailing & leading whitespace",
                     run: (text) => text.split("\n").map((line) => line.trim()).join("\n"),
+                    icon: FormatHorizontalAlignCenter,
                     description: "Removes spaces at the beginning or end of each line."
                 },
 
                 {
                     label: "Trim trailing whitespace",
                     run: removeTrailingWhitespace,
+                    icon: AlignHorizontalRight,
                     description: "Remove spaces at the end of each line."
                 },
 
