@@ -21,6 +21,7 @@ import Unicode from "svelte-material-icons/Unicode.svelte";
 import Svg from "svelte-material-icons/Svg.svelte";
 import LanguageHtml5 from "svelte-material-icons/LanguageHtml5.svelte";
 import Qrcode from "svelte-material-icons/Qrcode.svelte";
+import FileDelimitedOutline from "svelte-material-icons/FileDelimitedOutline.svelte";
 
 export default {
     "Plain text": [
@@ -110,6 +111,11 @@ export default {
             path: "/json/json5",
             title: "JSON to JSON5",
             icon: FileArrowLeftRightOutline
+        },
+        {
+            path: "/json/csv",
+            title: "JSON to CSV",
+            icon: FileDelimitedOutline
         },
         {
             path: "/json-schema",
