@@ -12,6 +12,8 @@
     export let from;
 
     export let useCodeMirror = false;
+    /** Whether to wrap words, only has effect if the CodeMirror editor is active. */
+    export let wordWrap = false;
     export let leftLang = undefined;
     export let rightLang = undefined;
 
@@ -79,7 +81,8 @@
                     value={inputText}
                     lang={leftLang}
                     theme={$theme}
-                    on:change={inputChanged} />
+                    on:change={inputChanged}
+                    lineWrapping={wordWrap} />
             </div>
         {:else}
             <textarea
@@ -102,6 +105,7 @@
                     value={outputText}                
                     lang={rightLang}
                     theme={$theme}
+                    lineWrapping={wordWrap}
                     on:change={outputChanged} />
             </div>
         {:else}
