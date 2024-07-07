@@ -9,6 +9,7 @@
 	import TwoColumnView from "$lib/components/two-column-view.svelte";
     import StackView from "$lib/components/stack-view.svelte";
 	import WarningBox from "$lib/components/warning-box.svelte";
+	import TextArea from "$lib/components/input/text-area.svelte";
 
     let encodedJwt;
     let decodedJwt;
@@ -45,7 +46,7 @@
 <Tool>
     <TwoColumnView leftTitle="Input the JSON Web Token (JWT)" hasPadding={false}>
         <div slot="left">
-            <textarea bind:value={encodedJwt}></textarea>
+            <TextArea bind:value={encodedJwt} fill borderless></TextArea>
             <WarningBox message={error} />
         </div>
 

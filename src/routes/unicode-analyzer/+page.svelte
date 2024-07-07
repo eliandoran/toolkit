@@ -3,6 +3,7 @@
     import Tool from "$lib/components/tool.svelte";
     import { get_unicode_by_decimal } from "unicode-information";
     import he from "he";
+	import TextArea from "$lib/components/input/text-area.svelte";
 
     let text = `\
 Control characters:
@@ -130,7 +131,9 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
 
 <Tool>
     <StackView title="Input text" isCollapsible={false} hasPadding={false}>
-        <textarea bind:value={text} />
+        <div class="input-container">
+            <TextArea bind:value={text} fill borderless />
+        </div>
     </StackView>
 
     <StackView title="Unicode analysis" fill isCompact isCollapsible={false} hasPadding={false}>
@@ -180,11 +183,8 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
 </Tool>
 
 <style>
-    textarea {
-        border: 0;
-        width: 100%;
-        height: 100%;
-        padding: 1em;
+    .input-container {
+        min-height: 200px;
     }
 
     .analysis-container {

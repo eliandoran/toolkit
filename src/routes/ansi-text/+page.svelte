@@ -3,6 +3,7 @@
 	import Tool from "$lib/components/tool.svelte";
 	import TextFilePicker from "$lib/components/text-file-picker.svelte";
 	import StackView from "$lib/components/stack-view.svelte";
+	import TextArea from "$lib/components/input/text-area.svelte";
 
     let converter = new AnsiConvert();
     let ansiText = "";    
@@ -25,7 +26,7 @@
                 encoding="ascii"
             />
         </div>
-        <textarea bind:value={ansiText} />            
+        <TextArea bind:value={ansiText} extraClass="ansi-box" borderless />
     </StackView>
 
     <StackView title="ANSI Preview" hasPadding={false} fill bind:isExpanded={previewExpanded}>    
@@ -38,10 +39,9 @@
 </Tool>
 
 <style>    
-    textarea {
+    :global(.ansi-box) {
         flex-basis: 150px;
         box-sizing: border-box;
-        border: 0;
         font-size: 8pt;
         white-space: pre;
         overflow-wrap: normal;
@@ -49,7 +49,7 @@
         flex-grow: 1;
     }
 
-    textarea,
+    :global(.ansi-box),
     .preview {
         font-family: var(--font-dos);
         font-smooth: never;

@@ -6,6 +6,7 @@
 	import Card from "$lib/components/card.svelte";
 	import InputField from "$lib/components/input-field.svelte";
 	import WarningBox from "$lib/components/warning-box.svelte";
+	import TextArea from "$lib/components/input/text-area.svelte";
 
   let errorMessage = "";
   let data = "https://eliandoran.github.io/toolkit/";
@@ -53,8 +54,8 @@
     <div slot="left">
       <WarningBox message={errorMessage} />
 
-      <Card title="Data" thin>
-        <textarea bind:value={data} />
+      <Card title="Data" noPadding>
+        <TextArea bind:value={data} borderless />
       </Card>
 
       <Card title="Size" thin>

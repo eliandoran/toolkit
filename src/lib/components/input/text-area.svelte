@@ -2,9 +2,11 @@
     export let value;
     export let borderless = false;
     export let fill = false;
+    export let extraClass = "";
 </script>
 
 <textarea
+    class={extraClass}
     bind:value={value}
     class:borderless={borderless}
     class:fill={fill}
