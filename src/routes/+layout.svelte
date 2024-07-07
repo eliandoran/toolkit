@@ -96,14 +96,20 @@
         min-height: 95vh;
         max-width: 1900px;
         margin: var(--page-gap) auto;
-        background: var(--background-color);
-        border-radius: 16px 16px 32px 32px;
+        background: var(--background-color);        
         box-sizing: border-box;        
         box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
         overflow: hidden;        
         display: flex;
         flex-direction: column;
     }    
+
+    @supports (-webkit-touch-callout: none) {
+        .page-wrapper {
+            /* iOS-only */
+            border-radius: 16px 16px 32px 32px;
+        }
+    }
 
     @media (min-width: 920px) {
         .page-wrapper {
