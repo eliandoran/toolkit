@@ -56,6 +56,9 @@
         margin: 0;
         padding: 0;
         display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        row-gap: 1em;
     }
 
     li {
