@@ -9,6 +9,7 @@ import PlaylistRemove from "svelte-material-icons/PlaylistRemove.svelte";
 import FormatHorizontalAlignCenter from "svelte-material-icons/FormatHorizontalAlignCenter.svelte";
 import AlignHorizontalRight from "svelte-material-icons/AlignHorizontalRight.svelte";
 import FormatAlignMiddle from "svelte-material-icons/FormatAlignMiddle.svelte";
+import AlignHorizontalLeft from "svelte-material-icons/AlignHorizontalLeft.svelte";
 import { normalizeSync } from 'normalize-diacritics';
 
 export function load() {
@@ -24,7 +25,7 @@ export function load() {
                 },
     
                 {
-                    label: "Sort  descending",
+                    label: "Sort descending",
                     run: (text) => text.split("\n").sort().reverse().join("\n"),
                     icon: SortAlphabeticalDescending,
                     description: "Sorts all lines alphabetically, from Z to A."
@@ -54,26 +55,32 @@ export function load() {
             
             "Whitespace removal": [
                 {
-                    label: "Remove blank lines",
-                    run: removeBlankLines,
-                    icon: FormatAlignMiddle,
-                    description: "Removes all blank lines, including those that are made only of spaces."
+                    label: "Trim leading",
+                    run: removeLeadingWhitespace,
+                    icon: AlignHorizontalLeft,
+                    description: "Remove spaces at the beginning of each line."
                 },
-                
+
                 {
-                    label: "Trim trailing & leading whitespace",
+                    label: "Trim trailing",
+                    run: removeTrailingWhitespace,
+                    icon: AlignHorizontalRight,
+                    description: "Remove spaces at the end of each line."
+                },
+
+                {
+                    label: "Trim both",
                     run: (text) => text.split("\n").map((line) => line.trim()).join("\n"),
                     icon: FormatHorizontalAlignCenter,
                     description: "Removes spaces at the beginning or end of each line."
                 },
 
                 {
-                    label: "Trim trailing whitespace",
-                    run: removeTrailingWhitespace,
-                    icon: AlignHorizontalRight,
-                    description: "Remove spaces at the end of each line."
-                },
-
+                    label: "Remove blank lines",
+                    run: removeBlankLines,
+                    icon: FormatAlignMiddle,
+                    description: "Removes all blank lines, including those that are made only of spaces."
+                }            
             ],
 
             "Convert text case": [
@@ -109,6 +116,12 @@ function removeBlankLines(text) {
     return text.split("\n")
         .filter((line) => line.trim().length > 0)
         .join("\n");     
+}
+
+function removeLeadingWhitespace(text) {
+    return text.split("\n")
+        .map((line) => line.trimStart())
+        .join("\n");
 }
 
 function removeTrailingWhitespace(text) {
