@@ -39,12 +39,15 @@
 
     main {
         height: 100%;
-        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: stretch;
     }
 
     .card-wrapper {
         display: inline-block;
         padding: 1em 0.25em;
+        flex-grow: 1;
     }
 
     .card-wrapper :global(section) {
@@ -80,6 +83,16 @@
     .label {
         line-height: 1.2;
         min-height: 2.4em;
+    }
+
+    @media (min-width: 920px) {
+        main {
+            justify-content: space-evenly;
+        }
+
+        .card-wrapper {
+            flex-grow: unset;
+        }
     }
 
 </style>
