@@ -6,6 +6,7 @@
 	import TextFilePicker from "$lib/components/text-file-picker.svelte";
 	import Tool from "$lib/components/tool.svelte";
 	import SplitJoin from "./split-join.svelte";
+	import TextArea from "$lib/components/input/text-area.svelte";
 
     let text = "";
     let numLines;
@@ -42,7 +43,7 @@
         </div>
     
         <div class="textarea-wrapper">
-            <textarea bind:value={text}></textarea>   
+            <TextArea bind:value={text} borderless fill />
         </div>
         
         <div class="stats">
@@ -72,12 +73,8 @@
 <style>
     .textarea-wrapper {
         flex-grow: 1;
-    }
-
-    textarea {
-        width: 100%;
-        height: 100%;
-        border: 0;
+        position: relative;
+        min-height: 40vh;
     }
 
     .stats {
