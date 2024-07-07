@@ -5,7 +5,9 @@
 	import TwoColumnView from "$lib/components/two-column-view.svelte";
 	import Card from "$lib/components/card.svelte";
 	import InputField from "$lib/components/input-field.svelte";
+	import WarningBox from "$lib/components/warning-box.svelte";
 
+  let errorMessage = "";
   let data = "https://eliandoran.github.io/toolkit/";
   let key;
 
@@ -29,6 +31,14 @@
     key = {};
   }
 
+  function onQrCodeGenerated() {
+    errorMessage = "";
+  }
+
+  function onQrCodeGenerationFailed(e) {
+    errorMessage = "Failed to generate the QR code (probably the data size is too large)."
+  }
+
   $: {
     rebuildQr(data,
       width, height, padding,
@@ -41,6 +51,8 @@
 <Tool>
   <TwoColumnView leftTitle="QR code settings" rightTitle="QR code preview">
     <div slot="left">
+      <WarningBox message={errorMessage} />
+
       <Card title="Data" thin>
         <textarea bind:value={data} />
       </Card>
@@ -146,6 +158,9 @@
             {shape} {haveBackgroundRoundedEdges} {haveGappedModules}
             {typeNumber} {errorCorrectionLevel}
             {backgroundColor} {modulesColor} {anchorsOuterColor} {anchorsInnerColor}
+            on:qrCodeGenerated={onQrCodeGenerated}
+            on:qrCodeRegeneratedWithLogo={onQrCodeGenerated}
+            on:qrCodeGenerationFailed={onQrCodeGenerationFailed}
           />
         {/key}
       {/if}
