@@ -29,6 +29,9 @@ importers:
       ansi-to-html:
         specifier: ^0.7.2
         version: 0.7.2
+      codemirror-lang-csv:
+        specifier: ^0.1.1
+        version: 0.1.1
       crypto-es:
         specifier: ^2.1.0
         version: 2.1.0
@@ -640,6 +643,9 @@ packages:
 
   code-red@1.0.4:
     resolution: {integrity: sha512-7qJWqItLA8/VPVlKJlFXU+NBlo/qyfs39aJcuMT/2ere32ZqvF5OSxgdM5xOfJJ7O429gg2HM47y8v9P+9wrNw==}
+
+  codemirror-lang-csv@0.1.1:
+    resolution: {integrity: sha512-BwGQNLtaEUa9Ck0kYiVeei05F1uZsGxqRzMEpqGmDR7WVKBoqMR2pjwPWoigyOeK8csxt3MZ2KAnV+M7L4lozw==}
 
   codemirror@6.0.1:
     resolution: {integrity: sha512-J8j+nZ+CdWmIeFIGXEFbFPtpiYacFMDR8GlHK3IyHQJMCaVRfGx9NT+Hxivv1ckLWPvNdZqndbr/7lVhrf/Svg==}
@@ -1955,6 +1961,12 @@ snapshots:
       acorn: 8.12.0
       estree-walker: 3.0.3
       periscopic: 3.1.0
+
+  codemirror-lang-csv@0.1.1:
+    dependencies:
+      '@codemirror/language': 6.10.2
+      '@lezer/highlight': 1.2.0
+      '@lezer/lr': 1.4.1
 
   codemirror@6.0.1(@lezer/common@1.2.1):
     dependencies:

@@ -1,5 +1,6 @@
 <script>
 	import { json } from "@codemirror/lang-json";
+	import { csv } from "codemirror-lang-csv";
 
 	import SymmetricInputOutput from "$lib/components/symmetric-input-output.svelte";
 	import Tool from "$lib/components/tool.svelte";
@@ -21,6 +22,6 @@
 			fromTitle="JSON"
 			toTitle="CSV"
 			useCodeMirror
-			leftLang={json()}
+			leftLang={json()} rightLang={csv()}
 			{to} {from} />
 </Tool>

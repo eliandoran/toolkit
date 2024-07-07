@@ -37,6 +37,7 @@
 		"@codemirror/theme-one-dark": "^6.1.2",
 		"ajv": "^8.16.0",
 		"ansi-to-html": "^0.7.2",
+		"codemirror-lang-csv": "^0.1.1",
 		"crypto-es": "^2.1.0",
 		"he": "^1.2.0",
 		"json5": "^2.2.3",
