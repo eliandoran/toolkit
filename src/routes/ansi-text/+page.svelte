@@ -28,7 +28,7 @@
         <textarea bind:value={ansiText} />            
     </StackView>
 
-    <StackView title="ANSI Preview" hasPadding={false} bind:isExpanded={previewExpanded}>    
+    <StackView title="ANSI Preview" hasPadding={false} fill bind:isExpanded={previewExpanded}>    
         <div class="preview-wrapper">
             <div class="preview">
                 {@html converter.toHtml(ansiText)}
@@ -58,9 +58,12 @@
 
     .preview-wrapper {
         background: black;
-        height: 100%;
         overflow: scroll;
-        position: relative;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
     }
 
     .preview {

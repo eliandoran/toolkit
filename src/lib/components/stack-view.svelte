@@ -60,6 +60,7 @@
 
     .inner-wrapper.fill {
         height: 100%;
+        flex-grow: 1;
         flex-shrink: unset;
     }
 
