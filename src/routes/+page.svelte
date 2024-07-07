@@ -44,7 +44,7 @@
 
     .card-wrapper {
         display: inline-block;
-        padding: 1em;
+        padding: 1em 0.25em;
     }
 
     .card-wrapper :global(section) {
