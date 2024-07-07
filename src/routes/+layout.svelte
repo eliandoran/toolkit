@@ -80,6 +80,7 @@
         left: 0;
         top: 0;
         right: 0;
+        max-height: 100vh;
         z-index: 99999;
         background: var(--background-color);
     }    
