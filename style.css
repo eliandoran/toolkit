@@ -32,7 +32,13 @@
     --font-dos: "perfect_dos_vga_437", Terminal, monospace;
     --font-monospace: "Ubuntu Mono", monospace;
 
-    --page-gap: 0.5em;
+    --header-height-desktop: 54px;
+
+    --page-gap: 0;
+
+    --action-card-hover: #f9f9f9;
+    --action-card-pressed: #efefef;
+    --action-card-border: #ededed;
 
     color: var(--text-color);
 }
@@ -69,19 +75,14 @@ body {
     overflow: auto;
 }
 
-@media (min-width: 920px) {
-    body {
-        padding: var(--page-vertical-margin) 0;
-    }
-}
-
 .hidden {
     display: none;
 }
 
 header {
+    position: relative;
     border-bottom: 1px solid var(--border-color);        
-    padding: 1em 1em;
+    padding: 0.25em 1em;
     text-align: center;
     background: var(--header-background-color);        
     display: flex;
@@ -90,8 +91,8 @@ header {
     font-size: 0.9em;
     font-weight: bold;
     line-height: 24px;
-    height: 54px;
     box-sizing: border-box;
+    min-height: 24px;
 }
 
 header.compact {
@@ -99,6 +100,10 @@ header.compact {
 }
 
 header h2 {
+    --title-gap: 4em;
+    position: absolute;
+    left: var(--title-gap);
+    right: var(--title-gap);
     padding: 0;
     margin: 0;
     font-size: 1em;
@@ -179,8 +184,7 @@ input:disabled {
     margin: 1px 0;
 }
 
-.nav ul li a,
-.nav ul li button {
+.nav ul li a {
     text-decoration: none;
     color: inherit;
     font-size: 0.9em;
@@ -219,4 +223,15 @@ input:disabled {
 
 .cm-scroller {
     font-family: var(--font-monospace) !important;
+}
+
+@media (min-width: 920px) {
+    body {
+        padding: var(--page-vertical-margin) 0;
+    }
+
+    header {
+        height: var(--header-height-desktop);
+        padding: 1em 1em;
+    }
 }
