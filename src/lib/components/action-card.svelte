@@ -39,6 +39,10 @@
         nav :global(ul li:not(:first-of-type):nth-last-of-type(2n)) {
             border-bottom: 1px solid var(--action-card-border);
         }
+
+        nav :global(ul li:nth-child(2n+1):last-of-type) {
+            grid-column: 1 / 3;
+        }
     }
 
     @media (min-width: 920px) {
