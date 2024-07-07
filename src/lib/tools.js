@@ -44,7 +44,7 @@ export default {
 
         {
             path: "/html-markdown",
-            title: "HTML to Markdown Converter",
+            title: "HTML to Markdown",
             icon: LanguageMarkdownOutline
         },
 
