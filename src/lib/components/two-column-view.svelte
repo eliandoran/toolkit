@@ -2,10 +2,11 @@
     export let leftTitle;
     export let rightTitle = null;
     export let hasPadding = true;
+    export let mobileFillBehaviour = "both";
 </script>
 
 <div class="two-columns">
-    <section class="left">
+    <section class="left" class:grow={mobileFillBehaviour === "both" || mobileFillBehaviour === "top"}>
         <header class="app-header">
             <slot name="header-left-left"></slot>
             <h2>{leftTitle}</h2>
@@ -17,7 +18,7 @@
         </div>
     </section>
     
-    <section class="right">
+    <section class="right" class:grow={mobileFillBehaviour === "both" || mobileFillBehaviour === "bottom"}>
         {#if rightTitle}
             <header class="app-header">
                 <slot name="header-right-left"></slot>
@@ -50,10 +51,13 @@
 
     .left,
     .right {
-        flex-grow: 1;
         flex-shrink: 0;
         display: flex;
         flex-direction: column;
+    }
+
+    .grow {
+        flex-grow: 1;
     }
 
     .inner-wrapper {
@@ -65,7 +69,7 @@
         .left,
         .right {
             width: 50%;
-            flex-grow: 0;
+            flex-grow: 0 !important;
             flex-shrink: 0;
             box-sizing: border-box;
             display: flex;

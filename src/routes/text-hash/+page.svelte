@@ -11,7 +11,7 @@
 </script>
 
 <Tool>
-    <TwoColumnView leftTitle="Input text" rightTitle="Hashes" hasPadding={false}>
+    <TwoColumnView leftTitle="Input text" rightTitle="Hashes" hasPadding={false} mobileFillBehaviour="top">
         <div class="toolbar" slot="header-left-left">
             <TextFilePicker bind:textFile={inputText} />
         </div>
