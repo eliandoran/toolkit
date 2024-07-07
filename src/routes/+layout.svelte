@@ -93,7 +93,6 @@
     }    
     
     .page-wrapper {
-        width: 95vw;
         min-height: 95vh;
         max-width: 1900px;
         margin: var(--page-gap) auto;

@@ -32,7 +32,7 @@
     --font-dos: "perfect_dos_vga_437", Terminal, monospace;
     --font-monospace: "Ubuntu Mono", monospace;
 
-    --page-gap: 0.5em;
+    --page-gap: 0;
 
     color: var(--text-color);
 }
