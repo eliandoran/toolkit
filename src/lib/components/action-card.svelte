@@ -46,5 +46,8 @@
             display: block;
         }
 
+        nav :global(ul li) {
+            border-right: 0;
+        }
     }
 </style>
