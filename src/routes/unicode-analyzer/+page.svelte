@@ -19,6 +19,7 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
     let characters = [];
 
     let currentInfo = null;    
+    let currentCode;
     const analyzer = new UnicodeAnalyzer();
 
     $: {
@@ -31,13 +32,14 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
         const targetEl = e.target;
         if (!targetEl) { return; }
         
-        const code = targetEl.dataset.code;
-        if (!code) { return; }
+        currentCode = targetEl.dataset.code;
+    }
 
-        const info = analyzer.getDataByCode(code);
-        if (!info) { return; }
-
-        currentInfo = info;
+    $: {
+        if (currentCode) {
+            const info = analyzer.getDataByCode(currentCode);
+            currentInfo = info;
+        }
     }
 </script>
 
