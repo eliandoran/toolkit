@@ -1,10 +1,9 @@
 <script>
 	import StackView from "$lib/components/stack-view.svelte";
-    import Tool from "$lib/components/tool.svelte";
-    import { get_unicode_by_decimal } from "unicode-information";
-    import he from "he";
+    import Tool from "$lib/components/tool.svelte";    
 	import TextArea from "$lib/components/input/text-area.svelte";
 	import InfoBox from "./info-box.svelte";
+    import { UnicodeAnalyzer } from "./analyzer";
 
     let text = `\
 Control characters:
@@ -19,101 +18,13 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
     `;
     let characters = [];
 
-    const generalCategoryMappings = {
-        Cc: true,
-        Cf: true,
-        Co: true,
-        Cs: true,
-        Ll: false,
-        Lm: false,
-        Lo: false,
-        Lt: false,
-        Lu: false,
-        Mc: true,
-        Me: true,
-        Mn: true,
-        Nd: false,
-        Nl: true,
-        No: true,
-        Pc: false,
-        Pd: false,
-        Pe: false,
-        Pf: false,
-        Pi: false,
-        Po: false,
-        Ps: false,
-        Sc: false,
-        Sk: false,
-        Sm: false,
-        So: false,
-        Zl: true,
-        Zp: true,
-        Zs: true
-    };
-
-    let dataCodeLookup = {};
-    let characterCache = {};
-    let currentInfo = null;
-    
-    function mapCharacter(ch) {
-        const code = ch.charCodeAt(0);
-
-        // Try to use cached data if the character was already encountered.
-        if (characterCache[code]) {
-            return characterCache[code];
-        }
-
-        const info = get_unicode_by_decimal(ch.charCodeAt(0))
-        info.htmlEntity = he.encode(ch, {
-            useNamedReferences: true
-        });
-        dataCodeLookup[code] = info;
-                    
-        const builtData = buildNewCharacter(ch, info);        
-        if (typeof builtData === "object") {
-            // Inject the charcode for lookups.
-            builtData.code = code;
-        }
-
-        characterCache[code] = builtData;
-        return builtData;
-    }
-
-    function buildNewCharacter(ch, info) {
-        switch (ch) {
-            case "\0":
-                return { symbol: "NULL" }
-            case "\u0007":
-                return { symbol: "BELL" }
-            case "\t":
-                return { symbol: "TAB" }
-            case "\v":
-                return { symbol: "VERTICAL TAB" }
-            case "\r":
-                return { symbol: "CR", insertAfter: "\r" }
-            case "\b":
-                return { symbol: "BACKSPACE" }
-            case "\n":
-                return { symbol: "LF", insertAfter: "\n" }
-            case "\f":
-                return { symbol: "FORM FEED" }
-            case " ":
-                return { symbol: "␣", noBackground: true }
-            }
-                    
-        if (info && generalCategoryMappings[info.gc]) {
-            const unicodeHexValue = `U+${ch.charCodeAt(0).toString(16).toUpperCase().padStart(4, "0")}`;
-            return { symbol: unicodeHexValue }
-        }
-
-        // For printable characters, return them directly to avoid allocating another object.
-        return ch;
-    }
+    let currentInfo = null;    
+    const analyzer = new UnicodeAnalyzer();
 
     $: {
         characters = text
             .split("")
-            .map(mapCharacter);
+            .map((ch) => analyzer.mapCharacter(ch));
     }
 
     function onMouseMove(e) {
@@ -123,7 +34,7 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
         const code = targetEl.dataset.code;
         if (!code) { return; }
 
-        const info = dataCodeLookup[code];
+        const info = analyzer.getDataByCode(code);
         if (!info) { return; }
 
         currentInfo = info;
