@@ -102,7 +102,7 @@
     }
     
     .codemirror-outer-wrapper.header {
-        min-height: 9em;
+        min-height: 6em;
     }
     
     @media (min-width: 920px) {
