@@ -205,6 +205,7 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
         padding: 1em;
         flex-grow: 1;
         font-size: 1.25em;
+        line-height: 1.4;
     }
 
     .character {
@@ -215,7 +216,7 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
     .character.special.background {
         border: 1px solid var(--border-color);
         background: var(--header-background-color);        
-        margin: 0 1px;
+        margin: 0 1px 2px 1px;
         display: inline-block;
         border-radius: 3px;
         padding: 0 3px;
