@@ -2,10 +2,11 @@
 	import Card from "./card.svelte";
 
     export let title;
+    export let noColumns = false;
 </script>
 
 <Card {title} noPadding>
-    <nav class="nav">
+    <nav class="nav" class:no-columns={noColumns}>
         <ul>
             <slot />
         </ul>
@@ -13,7 +14,7 @@
 </Card>
 
 <style>
-    nav :global(ul) {
+    nav:not(.no-columns) :global(ul) {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-auto-rows: 1fr;

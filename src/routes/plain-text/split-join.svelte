@@ -18,7 +18,7 @@
 
 </script>
 
-<ActionCard title="Split/Join Lines" noPadding>
+<ActionCard title="Split/Join Lines" noPadding noColumns>
   <div class="card-container">
     <div class="left">
       <label>
@@ -50,27 +50,32 @@
     font-size: 1.1em;
     font-family: var(--font-monospace);
   }
-
+  
   .left {
     flex-grow: 1;
+    text-align: center;
   }
-
+  
   .right {
-    border-left: 1px solid var(--border-color);
+    border-left: 1px solid var(--card-border);
     display: flex;
     align-self: stretch;
     align-items: center;
   }
-
+  
   .card-container {
     display: flex;
-    align-items: center;
+    align-items: center;    
   }
 
   @media (min-width: 920px) {
     .right {
-      display: block;
-      flex-grow: 1;
+      flex-direction: column;
+    }
+
+    .right :global(button) {
+      padding-left: 1em;
+      padding-right: 1em;
     }
   }
 </style>
