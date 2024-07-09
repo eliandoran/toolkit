@@ -4,6 +4,7 @@
     import { get_unicode_by_decimal } from "unicode-information";
     import he from "he";
 	import TextArea from "$lib/components/input/text-area.svelte";
+	import InfoBox from "./info-box.svelte";
 
     let text = `\
 Control characters:
@@ -152,31 +153,7 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
             </div>
                 
             <aside class="info-box">
-                {#if currentInfo}
-                    <h3>{currentInfo.name}</h3>
-
-                    <div class="info-table">
-                        <div>
-                            <span>Code point</span>
-                            <span>{currentInfo.cp}</span>
-                        </div>
-
-                        <div>
-                            <span>HTML entity</span>
-                            <span>{currentInfo.htmlEntity}</span>
-                        </div>
-
-                        <div>
-                            <span>General category</span>
-                            <span>{currentInfo.gc}</span>
-                        </div>
-
-                        <div>
-                            <span>Block</span>
-                            <span>{currentInfo.blk}</span>
-                        </div>
-                    </div>
-                {/if}
+                <InfoBox {currentInfo} />
             </aside>
         </div>
     </StackView>
@@ -231,26 +208,6 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
         flex-shrink: 0;
         border-left: 1px solid var(--border-color);
         background: var(--header-background-color);
-    }
-
-    .info-box h3 {
-        margin: 0;
-        font-size: 1em;
-        font-weight: 300;
-    }
-
-    .info-table {
-        display: table;
-        font-size: 0.8em;
-    }
-
-    .info-table > div {
-        display: table-row;
-    }
-    
-    .info-table span {
-        display: table-cell;
-        padding: 0.25em 1em;
     }
 
     @media (min-width: 920px) {
