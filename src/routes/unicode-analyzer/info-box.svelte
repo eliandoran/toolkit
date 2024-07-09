@@ -5,11 +5,9 @@
 </script>
 
 {#if currentInfo}
-    <CharacterPreview info={currentInfo} />
-    <h3>{currentInfo.name}</h3>
+    <CharacterPreview info={currentInfo} />    
 
     <div class="info-table">
-
         <div>
             <span>Code point</span>
             <span>{currentInfo.cp}</span>
@@ -33,12 +31,6 @@
 {/if}
 
 <style>
-    h3 {
-        margin: 1em 0;
-        font-size: 1em;
-        font-weight: 300;
-    }
-
     .info-table {        
         display: table;
         font-size: 0.8em;
