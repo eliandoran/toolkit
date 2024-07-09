@@ -44,7 +44,7 @@
 
     @media (min-width: 920px) {
         nav :global(ul) {
-            display: block;
+            display: block !important;
         }
 
         nav :global(ul li) {
