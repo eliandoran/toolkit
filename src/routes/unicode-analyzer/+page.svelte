@@ -40,7 +40,13 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
         const targetEl = e.target;
         if (!targetEl) { return; }
         
-        pinnedCode = targetEl.dataset.code;
+        const newCode = parseInt(targetEl.dataset.code, 10);
+
+        if (newCode !== pinnedCode) {
+            pinnedCode = newCode;
+        } else {
+            pinnedCode = null;
+        }
     }
 
     $: {
@@ -71,7 +77,7 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
                     {:else}
                         <span class="character special"
                             class:background={!character.noBackground}
-                            class:pinned={character.code == pinnedCode}
+                            class:pinned={character.code === pinnedCode}
                             on:click={onClick}
                             data-code={character.code}>{character.symbol}</span>{character.insertAfter || ""}
                     {/if}
