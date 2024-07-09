@@ -101,5 +101,9 @@
             overflow: auto;
             display: block;
         }
+
+        .inner-wrapper :global(> *) {
+            width: unset;
+        }
     }
 </style>
