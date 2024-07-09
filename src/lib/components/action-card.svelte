@@ -22,7 +22,7 @@
 
     nav :global(ul li) {
         margin: 0;
-        border-right: 1px solid var(--action-card-border);
+        border-right: 1px solid var(--card-border);
         align-self: stretch;
         display: flex;
     } 

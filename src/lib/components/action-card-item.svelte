@@ -42,7 +42,7 @@
     }
 
     li {
-        border-bottom: 1px solid var(--action-card-border);
+        border-bottom: 1px solid var(--card-border);
     }
 
     li:last-of-type {

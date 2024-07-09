@@ -29,7 +29,7 @@
         padding: 1.5em;
         border-radius: 12px;
         margin: 1em 0;        
-        border: 1px solid var(--border-color);
+        border: 1px solid var(--card-border-color);
         box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
         overflow: hidden;
     }    

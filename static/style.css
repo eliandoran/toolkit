@@ -30,7 +30,7 @@
 
     --action-card-hover: #f9f9f9;
     --action-card-pressed: #efefef;
-    --action-card-border: #ededed;
+    --card-border: #ededed;
 
     --font-body: "Nunito", sans-serif;
     --font-dos: "perfect_dos_vga_437", Terminal, monospace;
@@ -66,7 +66,7 @@
 
         --action-card-hover: #3c3c3c;
         --action-card-pressed: #464646;
-        --action-card-border: #232323;
+        --card-border: #232323;
     }
 }
 
