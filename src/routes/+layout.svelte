@@ -99,9 +99,16 @@
         display: none;
     }
 
+    .menu.mobile-show {
+        position: fixed;
+        bottom: 0;
+        height: 100%;
+        overflow: scroll;
+    }
+
     .menu.mobile-show .inner-wrapper {
         display: block;
-    }    
+    }
     
     .page-wrapper {
         min-height: 100vh;
