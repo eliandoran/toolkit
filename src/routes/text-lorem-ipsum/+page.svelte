@@ -136,6 +136,10 @@
         margin: 0.25em 0;
     }
 
+    label {
+        margin: 0 0.25em;
+    }
+
     input[type="number"] {
         width: 5em;
         text-align: center;
