@@ -20,6 +20,7 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
 
     let currentInfo = null;    
     let currentCode;
+    let pinnedCode;
     const analyzer = new UnicodeAnalyzer();
 
     $: {
@@ -35,12 +36,22 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
         currentCode = targetEl.dataset.code;
     }
 
+    function onClick(e) {
+        const targetEl = e.target;
+        if (!targetEl) { return; }
+        
+        pinnedCode = targetEl.dataset.code;
+    }
+
     $: {
-        if (currentCode) {
-            const info = analyzer.getDataByCode(currentCode);
+        let code = pinnedCode || currentCode;
+        if (code) {
+            const info = analyzer.getDataByCode(code);
             currentInfo = info;
         }
+        console.log(pinnedCode, characters);
     }
+
 </script>
 
 <Tool>
@@ -60,6 +71,8 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
                     {:else}
                         <span class="character special"
                             class:background={!character.noBackground}
+                            class:pinned={character.code == pinnedCode}
+                            on:click={onClick}
                             data-code={character.code}>{character.symbol}</span>{character.insertAfter || ""}
                     {/if}
                 {/each}
@@ -110,6 +123,16 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
         display: inline-block;
         border-radius: 3px;
         padding: 0 3px;
+    }
+
+    .character.special.background:hover {
+        background: var(--action-card-hover);
+        cursor: pointer;
+    }
+
+    .character.special.background.pinned {
+        background: var(--action-card-pressed) !important;
+        border: 1px solid var(--highlight-color);
     }
     
     .character:hover {
