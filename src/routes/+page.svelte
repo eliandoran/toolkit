@@ -90,8 +90,14 @@
     }
 
     @media (min-width: 920px) {
+        .card-wrapper:first-of-type {
+            padding-top: inherit;
+        }
+
         main {
             justify-content: space-evenly;
+            align-items: center;
+            align-content: flex-start;
         }
 
         .card-wrapper {
