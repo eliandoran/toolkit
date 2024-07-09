@@ -81,21 +81,21 @@ Combining diacritical marks: \u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0
     function buildNewCharacter(ch, info) {
         switch (ch) {
             case "\0":
-                return { symbol: "␀" }
+                return { symbol: "NULL" }
             case "\u0007":
-                return { symbol: "␇" }
+                return { symbol: "BELL" }
             case "\t":
-                return { symbol: "⭾" }
+                return { symbol: "TAB" }
             case "\v":
-                return { symbol: "⭿" }
+                return { symbol: "VERTICAL TAB" }
             case "\r":
-                return { symbol: "␍", insertAfter: "\r" }
+                return { symbol: "CR", insertAfter: "\r" }
             case "\b":
-                return { symbol: "⌫" }
+                return { symbol: "BACKSPACE" }
             case "\n":
-                return { symbol: "⮒", insertAfter: "\n" }
+                return { symbol: "LF", insertAfter: "\n" }
             case "\f":
-                return { symbol: "␌" }
+                return { symbol: "FORM FEED" }
             case " ":
                 return { symbol: "␣", noBackground: true }
             }
