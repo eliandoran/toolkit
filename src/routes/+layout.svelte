@@ -97,14 +97,7 @@
 
     .menu .inner-wrapper {
         display: none;
-    }
-
-    .menu.mobile-show {
-        position: fixed;
-        bottom: 0;
-        height: 100%;
-        overflow: scroll;
-    }
+    }    
 
     .menu.mobile-show .inner-wrapper {
         display: block;
@@ -179,6 +172,16 @@
             flex-shrink: 0;
             flex-basis: 250px;
         }
+
+        .main-content {
+            height: 100%;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .menu.mobile-show {
+            position: inherit;
+        }
     }
 
     .main-content {      
@@ -187,11 +190,4 @@
         flex-direction: column;
     }   
     
-    @media (min-width: 920px) {
-        .main-content {
-            height: 100%;
-            flex: 1;
-            min-width: 0;
-        }
-    }
 </style>
