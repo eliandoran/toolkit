@@ -28,6 +28,10 @@
     --selected-background-color: #d8d8d8;
     --hover-background-color: #dedede;
 
+    --action-card-hover: #f9f9f9;
+    --action-card-pressed: #efefef;
+    --card-border: #ededed;
+
     --font-body: "Nunito", sans-serif;
     --font-dos: "perfect_dos_vga_437", Terminal, monospace;
     --font-monospace: "Ubuntu Mono", monospace;
@@ -36,9 +40,6 @@
 
     --page-gap: 0;
 
-    --action-card-hover: #f9f9f9;
-    --action-card-pressed: #efefef;
-    --action-card-border: #ededed;
 
     color: var(--text-color);
 }
@@ -62,6 +63,10 @@
 
         --selected-background-color: #3a3a3a;
         --hover-background-color: #333333;
+
+        --action-card-hover: #3c3c3c;
+        --action-card-pressed: #464646;
+        --card-border: #232323;
     }
 }
 
