@@ -35,5 +35,6 @@
         margin: 1em 0;
         font-size: 1em;
         font-weight: 300;
+        min-height: 4em;
     }
 </style>
