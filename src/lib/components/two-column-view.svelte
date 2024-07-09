@@ -5,7 +5,7 @@
     export let mobileFillBehaviour = "both";
 </script>
 
-<div class="two-columns">
+<div class="two-columns" class:grow={mobileFillBehaviour !== "none"}>
     <section class="left" class:grow={mobileFillBehaviour === "both" || mobileFillBehaviour === "top"}>
         <header class="app-header">
             <slot name="header-left-left"></slot>
@@ -46,7 +46,6 @@
     .two-columns {
         display: flex;
         flex-direction: column;
-        flex-grow: 1;
     }
 
     .left,
