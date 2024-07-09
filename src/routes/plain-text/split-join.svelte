@@ -52,8 +52,8 @@
   }
   
   .left {
-    flex-grow: 1;
     text-align: center;
+    flex-grow: 1;
   }
   
   .right {
@@ -61,6 +61,11 @@
     display: flex;
     align-self: stretch;
     align-items: center;
+    flex-grow: 1;
+  }
+
+  .right :global(li) {
+    flex-grow: 1;
   }
   
   .card-container {
@@ -71,11 +76,6 @@
   @media (min-width: 920px) {
     .right {
       flex-direction: column;
-    }
-
-    .right :global(button) {
-      padding-left: 1em;
-      padding-right: 1em;
     }
   }
 </style>
