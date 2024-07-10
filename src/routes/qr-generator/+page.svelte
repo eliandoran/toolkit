@@ -10,6 +10,10 @@
 	import ActionCard from "$lib/components/action-card.svelte";
 	import ActionCardItem from "$lib/components/action-card-item.svelte";
 
+  import FileCodeOutline from "svelte-material-icons/FileCodeOutline.svelte";
+  import FilePngBox from "svelte-material-icons/FilePngBox.svelte";
+  import FileJpgBox from "svelte-material-icons/FileJpgBox.svelte";
+
   let errorMessage = "";
   let data = "https://eliandoran.github.io/toolkit/";
   let key;
@@ -230,15 +234,15 @@
 
       <ActionCard>
         {#if svgDownloadUrl}
-          <ActionCardItem label="Download SVG" href={svgDownloadUrl} download _target="blank" />
+          <ActionCardItem label="Download SVG" href={svgDownloadUrl} icon={FileCodeOutline} download _target="blank" />
         {/if}
 
         {#if pngDownloadUrl}
-          <ActionCardItem label="Download PNG" href={pngDownloadUrl} download _target="blank" />
+          <ActionCardItem label="Download PNG" href={pngDownloadUrl} icon={FilePngBox} download _target="blank" />
         {/if}
 
         {#if jpgDownloadUrl}
-          <ActionCardItem label="Download JPEG" href={jpgDownloadUrl} download _target="blank" />
+          <ActionCardItem label="Download JPEG" href={jpgDownloadUrl} icon={FileJpgBox} download _target="blank" />
         {/if}
 
         {#if webpDownloadUrl}        
