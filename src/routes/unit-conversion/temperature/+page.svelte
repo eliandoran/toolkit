@@ -10,10 +10,7 @@
 
 <Tool>
   <OneColumnView title="Temperature Conversion">
-    <InputField label="Degrees Celsius">
-      <input type="number" bind:value={baseValue} />   
-    </InputField>
-
+    <SingleUnit bind:baseValue={baseValue} {from} to="celsius" name="Degrees Celsius" />
     <SingleUnit bind:baseValue={baseValue} {from} to="fahrenheit" name="Degrees Fahrenheit" />
     <SingleUnit bind:baseValue={baseValue} {from} to="kelvin" name="Degrees Kelvin" />
   </OneColumnView>

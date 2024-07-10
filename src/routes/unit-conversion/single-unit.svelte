@@ -15,18 +15,24 @@
   function onValueChanged(e) {
     const parsedValue = parseFloat(e.target.value);
     baseValue = formatValue(convert(parsedValue, to).to(from));
+    console.log("On value changed ", parsedValue, from, to);
+  }
+
+  function onBaseValueChanged(baseValue) {
+    const parsedBaseValue = parseFloat(baseValue);
+    if (isNaN(parsedBaseValue)) {
+      return "";
+    }
+
+    if (from === to) {
+      return formatValue(parsedBaseValue);
+    }
+
+    return formatValue(convert(parsedBaseValue, from).to(to));
   }
 
   let convertedValue = 0;
-
-  $: {
-    if (!isNaN(baseValue)) {
-      const parsedBaseValue = parseFloat(baseValue);
-      convertedValue = formatValue(convert(parsedBaseValue, from).to(to));
-    } else {
-      convertedValue = "";
-    }
-  }
+  $: convertedValue = onBaseValueChanged(baseValue);
 </script>
 
 <InputField label={name}>
