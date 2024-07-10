@@ -270,6 +270,12 @@
     min-height: 6em;
   }
 
+  [slot="right"] {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+  }
+
   .columns {
     display: flex;
   }
@@ -300,8 +306,11 @@
   }
 
   .preview {
+    flex-grow: 1;
     border-bottom: 1px solid var(--border-color);
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .preview :global(svg) {
