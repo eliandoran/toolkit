@@ -30,7 +30,8 @@
   let typeNumber = 40;
   let errorCorrectionLevel = "M";
 
-  let downloadUrl = "";
+  let svgDownloadUrl = "";
+  let pngDownloadUrl = "";
 
   function rebuildQr(...args) {
     key = {};
@@ -42,10 +43,6 @@
 
   function onQrCodeGenerationFailed(e) {
     errorMessage = "Failed to generate the QR code (probably the data size is too large)."
-  }
-
-  function downloadUrlGenerated(e) {
-    downloadUrl = e.detail.url;
   }
 
   function shouldJoinSvg() {
@@ -189,16 +186,33 @@
             on:qrCodeGenerated={onQrCodeGenerated}
             on:qrCodeRegeneratedWithLogo={onQrCodeGenerated}
             on:qrCodeGenerationFailed={onQrCodeGenerationFailed}
-            on:downloadUrlGenerated={downloadUrlGenerated}
+            on:downloadUrlGenerated={(e) => svgDownloadUrl = e.detail.url}
           />
+
+          <div class="hidden">
+            <QrCode {data}
+              {width} {height} {padding}
+              {shape} {haveBackgroundRoundedEdges} {haveGappedModules}
+              {typeNumber} {errorCorrectionLevel}
+              {backgroundColor} {modulesColor} {anchorsOuterColor} {anchorsInnerColor}
+              isJoin={shouldJoinSvg()}
+              downloadUrlFileFormat="png"
+              dispatchDownloadUrl
+              on:downloadUrlGenerated={(e) => pngDownloadUrl = e.detail.url}
+            />
+          </div>
         {/key}
       {/if}
 
-      {#if downloadUrl}
-        <ActionCard>
-          <ActionCardItem label="Download SVG" href={downloadUrl} download />
-        </ActionCard>
-      {/if}
+      <ActionCard>
+        {#if svgDownloadUrl}
+          <ActionCardItem label="Download SVG" href={svgDownloadUrl} download />
+        {/if}
+
+        {#if pngDownloadUrl}
+          <ActionCardItem label="Download PNG" href={pngDownloadUrl} download />
+        {/if}
+      </ActionCard>
     </div>
   </TwoColumnView>
 </Tool>
