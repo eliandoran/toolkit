@@ -9,13 +9,16 @@
   export let name;
 
   function formatValue(value) {
-    return value.toFixed(2);
+    if (value % 1) {
+      return value.toFixed(2);
+    } else {
+      return value; // integer
+    }
   }
 
   function onValueChanged(e) {
     const parsedValue = parseFloat(e.target.value);
     baseValue = formatValue(convert(parsedValue, to).to(from));
-    console.log("On value changed ", parsedValue, from, to);
   }
 
   function onBaseValueChanged(baseValue) {
