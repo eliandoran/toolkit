@@ -1,34 +1,20 @@
 <script>
-  import convert from "convert";
-
 	import Tool from "$lib/components/tool.svelte";
 	import InputField from "$lib/components/input-field.svelte";
 	import OneColumnView from "$lib/components/one-column-view.svelte";
+	import SingleUnit from "../single-unit.svelte";
 
-  let celsius = 30;
-  let fahrenheit;
-  let kelvin;
-
-  function update(celsius) {
-    fahrenheit = convert(celsius, "celsius").to("fahrenheit");
-    kelvin = convert(celsius, "celsius").to("kelvin");
-  }
-
-  $: update(celsius);
+  const from = "celsius";
+  let baseValue = 30;
 </script>
 
 <Tool>
   <OneColumnView title="Temperature Conversion">
     <InputField label="Degrees Celsius">
-      <input type="number" bind:value={celsius} />   
+      <input type="number" bind:value={baseValue} />   
     </InputField>
 
-    <InputField label="Degrees Fahrenheit">
-      <input type="number" bind:value={fahrenheit} />   
-    </InputField>
-
-    <InputField label="Degrees Kelvin">
-      <input type="number" bind:value={kelvin} />
-    </InputField>
+    <SingleUnit {baseValue} {from} to="fahrenheit" name="Degrees Fahrenheit" />
+    <SingleUnit {baseValue} {from} to="kelvin" name="Degrees Kelvin" />
   </OneColumnView>
 </Tool>
