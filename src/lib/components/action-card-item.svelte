@@ -4,14 +4,16 @@
 
     export let icon = undefined;
     export let label;
-    export let href;
+    export let href = null;
     export let tooltip = undefined;
+    export let enabled = true;
 </script>
 
 <li>
-    {#if !href}
+    {#if href === null}
         <button
             class="action-card-item"
+            class:disabled={!enabled}
             on:click
             title={ tooltip }
             use:tooltipAction={{ position: "left" }}
@@ -23,6 +25,7 @@
     {:else}
     <a
         class="action-card-item"
+        class:disabled={!enabled}
         {href}
         on:click
         title={ tooltip }
@@ -47,6 +50,11 @@
         padding: 0.5em 1em;
         color: inherit;
         font-size: 0.85rem;
+    }
+
+    .action-card-item.disabled {
+        opacity: 0.5;
+        cursor: default;
     }
 
     .action-card-item:hover {

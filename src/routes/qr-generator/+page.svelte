@@ -8,12 +8,12 @@
 	import WarningBox from "$lib/components/warning-box.svelte";
 	import TextArea from "$lib/components/input/text-area.svelte";
 	import ActionCard from "$lib/components/action-card.svelte";
-	import ActionCardItem from "$lib/components/action-card-item.svelte";
 
   import FileCodeOutline from "svelte-material-icons/FileCodeOutline.svelte";
   import FilePngBox from "svelte-material-icons/FilePngBox.svelte";
   import FileJpgBox from "svelte-material-icons/FileJpgBox.svelte";
 	import StackView from "$lib/components/stack-view.svelte";
+	import QrDownloadButton from "./qr-download-button.svelte";
 
   let errorMessage = "";
   let data = "https://eliandoran.github.io/toolkit/";
@@ -42,6 +42,10 @@
 
   function rebuildQr(...args) {
     key = {};
+    svgDownloadUrl = "";
+    pngDownloadUrl = "";
+    jpgDownloadUrl = "";
+    webpDownloadUrl = "";
   }
 
   function onQrCodeGenerated() {
@@ -239,21 +243,10 @@
 
       <div class="actions">
         <ActionCard columns="always">
-          {#if svgDownloadUrl}
-            <ActionCardItem label="Download as SVG" href={svgDownloadUrl} icon={FileCodeOutline} download _target="blank" />
-          {/if}
-  
-          {#if pngDownloadUrl}
-            <ActionCardItem label="Download as PNG" href={pngDownloadUrl} icon={FilePngBox} download _target="blank" />
-          {/if}
-  
-          {#if jpgDownloadUrl}
-            <ActionCardItem label="Download as JPEG" href={jpgDownloadUrl} icon={FileJpgBox} download _target="blank" />
-          {/if}
-  
-          {#if webpDownloadUrl}        
-            <ActionCardItem label="Download as WebP" href={webpDownloadUrl} download _target="blank" />
-          {/if}
+          <QrDownloadButton extension="SVG" url={svgDownloadUrl} icon={FileCodeOutline} />
+          <QrDownloadButton extension="PNG" url={pngDownloadUrl} icon={FilePngBox} />
+          <QrDownloadButton extension="JPEG" url={jpgDownloadUrl} icon={FileJpgBox} />
+          <QrDownloadButton extension="WebP" url={webpDownloadUrl} />
         </ActionCard>
       </div>
     </div>
