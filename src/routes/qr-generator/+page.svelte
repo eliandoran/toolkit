@@ -78,7 +78,7 @@
 </script>
 
 <Tool>
-  <TwoColumnView leftTitle="QR code settings" rightTitle="QR code preview">
+  <TwoColumnView leftTitle="QR code settings" rightTitle="QR code preview" hasRightPadding={false}>
     <div slot="left">
       <WarningBox message={errorMessage} />
 
@@ -180,75 +180,79 @@
     </div>
 
     <div slot="right">
-      {#if data}
-        {#key key}
-          <QrCode {data}
-            {width} {height} {padding}
-            {shape} {haveBackgroundRoundedEdges} {haveGappedModules}
-            {typeNumber} {errorCorrectionLevel}
-            {backgroundColor} {modulesColor} {anchorsOuterColor} {anchorsInnerColor}
-            isJoin={shouldJoinSvg()}
-            dispatchDownloadUrl
-            on:qrCodeGenerated={onQrCodeGenerated}
-            on:qrCodeRegeneratedWithLogo={onQrCodeGenerated}
-            on:qrCodeGenerationFailed={onQrCodeGenerationFailed}
-            on:downloadUrlGenerated={(e) => svgDownloadUrl = e.detail.url}
-          />
-
-          <div class="hidden">
+      <div class="preview">
+        {#if data}
+          {#key key}
             <QrCode {data}
               {width} {height} {padding}
               {shape} {haveBackgroundRoundedEdges} {haveGappedModules}
               {typeNumber} {errorCorrectionLevel}
               {backgroundColor} {modulesColor} {anchorsOuterColor} {anchorsInnerColor}
               isJoin={shouldJoinSvg()}
-              downloadUrlFileFormat="png"
               dispatchDownloadUrl
-              on:downloadUrlGenerated={(e) => pngDownloadUrl = e.detail.url}
+              on:qrCodeGenerated={onQrCodeGenerated}
+              on:qrCodeRegeneratedWithLogo={onQrCodeGenerated}
+              on:qrCodeGenerationFailed={onQrCodeGenerationFailed}
+              on:downloadUrlGenerated={(e) => svgDownloadUrl = e.detail.url}
             />
-
-            <QrCode {data}
-              {width} {height} {padding}
-              {shape} {haveBackgroundRoundedEdges} {haveGappedModules}
-              {typeNumber} {errorCorrectionLevel}
-              {backgroundColor} {modulesColor} {anchorsOuterColor} {anchorsInnerColor}
-              isJoin={shouldJoinSvg()}
-              downloadUrlFileFormat="jpg"
-              dispatchDownloadUrl
-              on:downloadUrlGenerated={(e) => jpgDownloadUrl = e.detail.url}
-            />
-
-            <QrCode {data}
-              {width} {height} {padding}
-              {shape} {haveBackgroundRoundedEdges} {haveGappedModules}
-              {typeNumber} {errorCorrectionLevel}
-              {backgroundColor} {modulesColor} {anchorsOuterColor} {anchorsInnerColor}
-              isJoin={shouldJoinSvg()}
-              downloadUrlFileFormat="webp"
-              dispatchDownloadUrl
-              on:downloadUrlGenerated={(e) => webpDownloadUrl = e.detail.url}
-            />
-          </div>
-        {/key}
-      {/if}
-
-      <ActionCard title="Download the QR code" columns="always">
-        {#if svgDownloadUrl}
-          <ActionCardItem label="Download as SVG" href={svgDownloadUrl} icon={FileCodeOutline} download _target="blank" />
+  
+            <div class="hidden">
+              <QrCode {data}
+                {width} {height} {padding}
+                {shape} {haveBackgroundRoundedEdges} {haveGappedModules}
+                {typeNumber} {errorCorrectionLevel}
+                {backgroundColor} {modulesColor} {anchorsOuterColor} {anchorsInnerColor}
+                isJoin={shouldJoinSvg()}
+                downloadUrlFileFormat="png"
+                dispatchDownloadUrl
+                on:downloadUrlGenerated={(e) => pngDownloadUrl = e.detail.url}
+              />
+  
+              <QrCode {data}
+                {width} {height} {padding}
+                {shape} {haveBackgroundRoundedEdges} {haveGappedModules}
+                {typeNumber} {errorCorrectionLevel}
+                {backgroundColor} {modulesColor} {anchorsOuterColor} {anchorsInnerColor}
+                isJoin={shouldJoinSvg()}
+                downloadUrlFileFormat="jpg"
+                dispatchDownloadUrl
+                on:downloadUrlGenerated={(e) => jpgDownloadUrl = e.detail.url}
+              />
+  
+              <QrCode {data}
+                {width} {height} {padding}
+                {shape} {haveBackgroundRoundedEdges} {haveGappedModules}
+                {typeNumber} {errorCorrectionLevel}
+                {backgroundColor} {modulesColor} {anchorsOuterColor} {anchorsInnerColor}
+                isJoin={shouldJoinSvg()}
+                downloadUrlFileFormat="webp"
+                dispatchDownloadUrl
+                on:downloadUrlGenerated={(e) => webpDownloadUrl = e.detail.url}
+              />
+            </div>
+          {/key}
         {/if}
+      </div>
 
-        {#if pngDownloadUrl}
-          <ActionCardItem label="Download as PNG" href={pngDownloadUrl} icon={FilePngBox} download _target="blank" />
-        {/if}
-
-        {#if jpgDownloadUrl}
-          <ActionCardItem label="Download as JPEG" href={jpgDownloadUrl} icon={FileJpgBox} download _target="blank" />
-        {/if}
-
-        {#if webpDownloadUrl}        
-          <ActionCardItem label="Download as WebP" href={webpDownloadUrl} download _target="blank" />
-        {/if}
-      </ActionCard>
+      <div class="actions">
+        <ActionCard title="Download the QR code" columns="always">
+          {#if svgDownloadUrl}
+            <ActionCardItem label="Download as SVG" href={svgDownloadUrl} icon={FileCodeOutline} download _target="blank" />
+          {/if}
+  
+          {#if pngDownloadUrl}
+            <ActionCardItem label="Download as PNG" href={pngDownloadUrl} icon={FilePngBox} download _target="blank" />
+          {/if}
+  
+          {#if jpgDownloadUrl}
+            <ActionCardItem label="Download as JPEG" href={jpgDownloadUrl} icon={FileJpgBox} download _target="blank" />
+          {/if}
+  
+          {#if webpDownloadUrl}        
+            <ActionCardItem label="Download as WebP" href={webpDownloadUrl} download _target="blank" />
+          {/if}
+        </ActionCard>
+      </div>
     </div>
   </TwoColumnView>
 </Tool>
@@ -281,5 +285,18 @@
 
   .color-options :global(.wrapper) {
     margin-bottom: 0;
+  }
+
+  .preview {
+    border-bottom: 1px solid var(--border-color);
+    text-align: center;
+  }
+
+  .preview :global(svg) {
+    display: inline-block;
+  }
+
+  .actions {
+    padding: 1em;
   }
 </style>

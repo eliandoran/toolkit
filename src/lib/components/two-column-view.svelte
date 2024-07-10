@@ -2,6 +2,8 @@
     export let leftTitle;
     export let rightTitle = null;
     export let hasPadding = true;
+    export let hasLeftPadding = hasPadding;
+    export let hasRightPadding = hasPadding;
     export let mobileFillBehaviour = "both";
 </script>
 
@@ -13,7 +15,7 @@
             <slot name="header-left-right"></slot>
         </header>
         
-        <div class="inner-wrapper" class:padding={hasPadding}>
+        <div class="inner-wrapper" class:padding={hasLeftPadding}>
             <slot name="left" />
         </div>
     </section>
@@ -27,7 +29,7 @@
             </header>
         {/if}
 
-        <div class="inner-wrapper" class:padding={hasPadding}>
+        <div class="inner-wrapper" class:padding={hasRightPadding}>
             <slot name="right" />
         </div>
     </section>
