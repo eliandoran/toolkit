@@ -48,6 +48,23 @@
     downloadUrl = e.detail.url;
   }
 
+  function shouldJoinSvg() {
+    // Joining the SVG means that fewer elements are used, reducing the size of the resulting file.
+    // However it has a few constraints.
+
+    // It cannot work if the modules and anchors are of a different color.
+    if (modulesColor !== anchorsOuterColor || modulesColor !== anchorsInnerColor) {
+      return false;
+    }
+
+    // It cannot work if shape is rounded.
+    if (shape !== "square") {
+      return false;
+    }
+
+    return true;
+  }
+
   $: {
     rebuildQr(data,
       width, height, padding,
@@ -167,6 +184,7 @@
             {shape} {haveBackgroundRoundedEdges} {haveGappedModules}
             {typeNumber} {errorCorrectionLevel}
             {backgroundColor} {modulesColor} {anchorsOuterColor} {anchorsInnerColor}
+            isJoin={shouldJoinSvg()}
             dispatchDownloadUrl
             on:qrCodeGenerated={onQrCodeGenerated}
             on:qrCodeRegeneratedWithLogo={onQrCodeGenerated}
