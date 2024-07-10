@@ -18,7 +18,8 @@
 
   function onValueChanged(e) {
     const parsedValue = parseFloat(e.target.value);
-    baseValue = formatValue(convert(parsedValue, to).to(from));
+    baseValue = parsedValue;
+    from = to;
   }
 
   function onBaseValueChanged(baseValue) {
