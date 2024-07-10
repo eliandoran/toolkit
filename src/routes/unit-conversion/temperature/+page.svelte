@@ -14,7 +14,7 @@
       <input type="number" bind:value={baseValue} />   
     </InputField>
 
-    <SingleUnit {baseValue} {from} to="fahrenheit" name="Degrees Fahrenheit" />
-    <SingleUnit {baseValue} {from} to="kelvin" name="Degrees Kelvin" />
+    <SingleUnit bind:baseValue={baseValue} {from} to="fahrenheit" name="Degrees Fahrenheit" />
+    <SingleUnit bind:baseValue={baseValue} {from} to="kelvin" name="Degrees Kelvin" />
   </OneColumnView>
 </Tool>

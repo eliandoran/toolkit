@@ -15,7 +15,9 @@
 </script>
 
 <InputField label={radixName}>
-    <input type="text" value={convertedValue} on:input={onValueChanged} />
+    <input type="text"
+        value={convertedValue}
+        on:input={onValueChanged} />
 </InputField>
 
 <style>
