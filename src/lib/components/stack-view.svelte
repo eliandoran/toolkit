@@ -29,6 +29,8 @@
             </HeaderButton>
         {/if}
     </header>
+{:else}
+    <header class="app-header hidden"></header>
 {/if}
 
 <div class="inner-wrapper"

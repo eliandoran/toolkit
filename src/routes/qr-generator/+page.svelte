@@ -79,7 +79,7 @@
 </script>
 
 <Tool>
-  <TwoColumnView leftTitle="QR code settings" rightTitle="QR code preview" hasPadding={false}>
+  <TwoColumnView leftTitle="QR code settings" rightTitle="QR code preview" hasPadding={false} mobileFillBehaviour="top">
     <div slot="left" class="fill-to-parent">
       <WarningBox message={errorMessage} />
       
@@ -264,6 +264,10 @@
   [slot="left"] {
     display: flex;
     flex-direction: column;
+  }
+
+  [slot="left"] :global(textarea) {
+    min-height: 6em;
   }
 
   .columns {
