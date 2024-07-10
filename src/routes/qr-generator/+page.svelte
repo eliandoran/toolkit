@@ -232,21 +232,21 @@
         {/key}
       {/if}
 
-      <ActionCard>
+      <ActionCard title="Download the QR code" columns="always">
         {#if svgDownloadUrl}
-          <ActionCardItem label="Download SVG" href={svgDownloadUrl} icon={FileCodeOutline} download _target="blank" />
+          <ActionCardItem label="Download as SVG" href={svgDownloadUrl} icon={FileCodeOutline} download _target="blank" />
         {/if}
 
         {#if pngDownloadUrl}
-          <ActionCardItem label="Download PNG" href={pngDownloadUrl} icon={FilePngBox} download _target="blank" />
+          <ActionCardItem label="Download as PNG" href={pngDownloadUrl} icon={FilePngBox} download _target="blank" />
         {/if}
 
         {#if jpgDownloadUrl}
-          <ActionCardItem label="Download JPEG" href={jpgDownloadUrl} icon={FileJpgBox} download _target="blank" />
+          <ActionCardItem label="Download as JPEG" href={jpgDownloadUrl} icon={FileJpgBox} download _target="blank" />
         {/if}
 
         {#if webpDownloadUrl}        
-          <ActionCardItem label="Download WebP" href={webpDownloadUrl} download _target="blank" />
+          <ActionCardItem label="Download as WebP" href={webpDownloadUrl} download _target="blank" />
         {/if}
       </ActionCard>
     </div>
