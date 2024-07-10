@@ -8,13 +8,25 @@
   export let baseValue;
   export let name;
 
+  function formatValue(value) {
+    return value.toFixed(2);
+  }
+
   function onValueChanged(e) {
-    const value = parseInt(e.target.value, 10); 
-    baseValue = convert(value, to).to(from);
+    const parsedValue = parseFloat(e.target.value);
+    baseValue = formatValue(convert(parsedValue, to).to(from));
   }
 
   let convertedValue = 0;
-  $: convertedValue = convert(baseValue, from).to(to);
+
+  $: {
+    if (!isNaN(baseValue)) {
+      const parsedBaseValue = parseFloat(baseValue);
+      convertedValue = formatValue(convert(parsedBaseValue, from).to(to));
+    } else {
+      convertedValue = "";
+    }
+  }
 </script>
 
 <InputField label={name}>
