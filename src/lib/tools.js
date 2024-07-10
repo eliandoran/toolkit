@@ -22,6 +22,7 @@ import Svg from "svelte-material-icons/Svg.svelte";
 import LanguageHtml5 from "svelte-material-icons/LanguageHtml5.svelte";
 import Qrcode from "svelte-material-icons/Qrcode.svelte";
 import FileDelimitedOutline from "svelte-material-icons/FileDelimitedOutline.svelte";
+import Thermometer from "svelte-material-icons/Thermometer.svelte";
 
 export default {
     "Plain text": [
@@ -77,6 +78,14 @@ export default {
             path: "/bitwise-calculator",
             title: "Bitwise Calculator",
             icon: Numeric10BoxOutline
+        }
+    ],
+
+    "Unit conversion": [
+        {
+            path: "/unit-conversion/temperature",
+            title: "Temperature",
+            icon: Thermometer
         }
     ],
 
