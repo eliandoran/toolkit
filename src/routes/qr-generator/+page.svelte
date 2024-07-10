@@ -238,7 +238,7 @@
       </div>
 
       <div class="actions">
-        <ActionCard title="Download the QR code" columns="always">
+        <ActionCard columns="always">
           {#if svgDownloadUrl}
             <ActionCardItem label="Download as SVG" href={svgDownloadUrl} icon={FileCodeOutline} download _target="blank" />
           {/if}

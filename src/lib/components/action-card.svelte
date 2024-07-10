@@ -1,7 +1,7 @@
 <script>
 	import Card from "./card.svelte";
 
-    export let title;
+    export let title = null;
     export let columns = "mobile-only";
 </script>
 

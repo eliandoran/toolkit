@@ -32,13 +32,14 @@
         border: 1px solid var(--card-border-color);
         box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
         overflow: hidden;
-    }    
+    }        
 
     section:global(:last-of-type) {
         margin-bottom: 0;
     }
 
-    section.with-title {
+    section.with-title,
+    section:first-of-type {
         margin-top: 0em;
     }
 
