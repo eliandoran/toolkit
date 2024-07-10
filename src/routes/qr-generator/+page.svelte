@@ -32,6 +32,8 @@
 
   let svgDownloadUrl = "";
   let pngDownloadUrl = "";
+  let jpgDownloadUrl = "";
+  let webpDownloadUrl = "";
 
   function rebuildQr(...args) {
     key = {};
@@ -200,6 +202,28 @@
               dispatchDownloadUrl
               on:downloadUrlGenerated={(e) => pngDownloadUrl = e.detail.url}
             />
+
+            <QrCode {data}
+              {width} {height} {padding}
+              {shape} {haveBackgroundRoundedEdges} {haveGappedModules}
+              {typeNumber} {errorCorrectionLevel}
+              {backgroundColor} {modulesColor} {anchorsOuterColor} {anchorsInnerColor}
+              isJoin={shouldJoinSvg()}
+              downloadUrlFileFormat="jpg"
+              dispatchDownloadUrl
+              on:downloadUrlGenerated={(e) => jpgDownloadUrl = e.detail.url}
+            />
+
+            <QrCode {data}
+              {width} {height} {padding}
+              {shape} {haveBackgroundRoundedEdges} {haveGappedModules}
+              {typeNumber} {errorCorrectionLevel}
+              {backgroundColor} {modulesColor} {anchorsOuterColor} {anchorsInnerColor}
+              isJoin={shouldJoinSvg()}
+              downloadUrlFileFormat="webp"
+              dispatchDownloadUrl
+              on:downloadUrlGenerated={(e) => webpDownloadUrl = e.detail.url}
+            />
           </div>
         {/key}
       {/if}
@@ -211,6 +235,14 @@
 
         {#if pngDownloadUrl}
           <ActionCardItem label="Download PNG" href={pngDownloadUrl} download />
+        {/if}
+
+        {#if jpgDownloadUrl}
+          <ActionCardItem label="Download JPEG" href={jpgDownloadUrl} download />
+        {/if}
+
+        {#if webpDownloadUrl}        
+          <ActionCardItem label="Download WebP" href={webpDownloadUrl} download />
         {/if}
       </ActionCard>
     </div>
