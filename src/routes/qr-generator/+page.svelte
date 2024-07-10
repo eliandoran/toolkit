@@ -230,19 +230,19 @@
 
       <ActionCard>
         {#if svgDownloadUrl}
-          <ActionCardItem label="Download SVG" href={svgDownloadUrl} download />
+          <ActionCardItem label="Download SVG" href={svgDownloadUrl} download _target="blank" />
         {/if}
 
         {#if pngDownloadUrl}
-          <ActionCardItem label="Download PNG" href={pngDownloadUrl} download />
+          <ActionCardItem label="Download PNG" href={pngDownloadUrl} download _target="blank" />
         {/if}
 
         {#if jpgDownloadUrl}
-          <ActionCardItem label="Download JPEG" href={jpgDownloadUrl} download />
+          <ActionCardItem label="Download JPEG" href={jpgDownloadUrl} download _target="blank" />
         {/if}
 
         {#if webpDownloadUrl}        
-          <ActionCardItem label="Download WebP" href={webpDownloadUrl} download />
+          <ActionCardItem label="Download WebP" href={webpDownloadUrl} download _target="blank" />
         {/if}
       </ActionCard>
     </div>
