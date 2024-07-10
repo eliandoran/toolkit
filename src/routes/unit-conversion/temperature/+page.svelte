@@ -7,9 +7,11 @@
 
   let celsius = 30;
   let fahrenheit;
+  let kelvin;
 
   function update(celsius) {
     fahrenheit = convert(celsius, "celsius").to("fahrenheit");
+    kelvin = convert(celsius, "celsius").to("kelvin");
   }
 
   $: update(celsius);
@@ -23,6 +25,10 @@
 
     <InputField label="Degrees Fahrenheit">
       <input type="number" bind:value={fahrenheit} />   
+    </InputField>
+
+    <InputField label="Degrees Kelvin">
+      <input type="number" bind:value={kelvin} />
     </InputField>
   </OneColumnView>
 </Tool>
