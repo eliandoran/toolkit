@@ -12,5 +12,6 @@
     <SingleUnit bind:baseValue={baseValue} bind:from={from} to="celsius" name="Degrees Celsius (°C)" />
     <SingleUnit bind:baseValue={baseValue} bind:from={from} to="fahrenheit" name="Degrees Fahrenheit (°F)" />
     <SingleUnit bind:baseValue={baseValue} bind:from={from} to="kelvin" name="Kelvin" />
+    <SingleUnit bind:baseValue={baseValue} bind:from={from} to="rankine" name="Degrees Rankine (°R)" />
   </OneColumnView>
 </Tool>
