@@ -13,6 +13,7 @@
   import FileCodeOutline from "svelte-material-icons/FileCodeOutline.svelte";
   import FilePngBox from "svelte-material-icons/FilePngBox.svelte";
   import FileJpgBox from "svelte-material-icons/FileJpgBox.svelte";
+	import StackView from "$lib/components/stack-view.svelte";
 
   let errorMessage = "";
   let data = "https://eliandoran.github.io/toolkit/";
@@ -78,80 +79,82 @@
 </script>
 
 <Tool>
-  <TwoColumnView leftTitle="QR code settings" rightTitle="QR code preview" hasRightPadding={false}>
-    <div slot="left">
+  <TwoColumnView leftTitle="QR code settings" rightTitle="QR code preview" hasPadding={false}>
+    <div slot="left" class="fill-to-parent">
       <WarningBox message={errorMessage} />
+      
+      <StackView fill>
+        <Card title="Data" noPadding>
+          <TextArea bind:value={data} borderless />
+        </Card>
 
-      <Card title="Data" noPadding>
-        <TextArea bind:value={data} borderless />
-      </Card>
-
-      <Card title="Size" thin>
-        <div class="columns size-options">
-          <InputField label="Width">
-            <input type="number" bind:value={width} />px
-          </InputField>
-  
-          <InputField label="Height">
-            <input type="number" bind:value={height} />px
-          </InputField>
-  
-          <InputField label="Padding">
-            <input type="number" bind:value={padding} min="1" /> module(s)
-          </InputField>
-        </div>
-      </Card>
-        
-      <Card title="Shape" thin>
-        <div>
-          Shape:
-
-          <label>
-            <input type="radio" bind:group={shape} value="square" />
-            Square
-          </label>
+        <Card title="Size" thin>
+          <div class="columns size-options">
+            <InputField label="Width">
+              <input type="number" bind:value={width} />px
+            </InputField>
+    
+            <InputField label="Height">
+              <input type="number" bind:value={height} />px
+            </InputField>
+    
+            <InputField label="Padding">
+              <input type="number" bind:value={padding} min="1" /> module(s)
+            </InputField>
+          </div>
+        </Card>
           
-          <label>
-            <input type="radio" bind:group={shape} value="circle" />
-            Circle
-          </label>
-        </div>
+        <Card title="Shape" thin>
+          <div>
+            Shape:
 
-        <div>
-          <label>
-            <input type="checkbox" bind:checked={haveBackgroundRoundedEdges} />
-            Background with rounded edges
-          </label>
+            <label>
+              <input type="radio" bind:group={shape} value="square" />
+              Square
+            </label>
+            
+            <label>
+              <input type="radio" bind:group={shape} value="circle" />
+              Circle
+            </label>
+          </div>
 
-          <label>
-            <input type="checkbox" bind:checked={haveGappedModules} />
-            Gapped modules
-          </label>
-        </div>
-      </Card>
+          <div>
+            <label>
+              <input type="checkbox" bind:checked={haveBackgroundRoundedEdges} />
+              Background with rounded edges
+            </label>
 
-      <Card title="Colors" thin>
-        <div class="color-options">
-          <InputField label="Background">
-            <input type="color" bind:value={backgroundColor} />
-          </InputField>
-  
-          <InputField label="Modules">
-            <input type="color" bind:value={modulesColor} />
-          </InputField>
-  
-          <InputField label="Anchors outer">
-            <input type="color" bind:value={anchorsOuterColor} />
-          </InputField>
-  
-          <InputField label="Anchors inner">
-            <input type="color" bind:value={anchorsInnerColor} />
-          </InputField>
-        </div>
-      </Card>
+            <label>
+              <input type="checkbox" bind:checked={haveGappedModules} />
+              Gapped modules
+            </label>
+          </div>
+        </Card>
 
-      <Card title="Advanced settings" thin>
-        <InputField label="Error correction level" noLabelWrapping>
+        <Card title="Colors" thin>
+          <div class="color-options">
+            <InputField label="Background">
+              <input type="color" bind:value={backgroundColor} />
+            </InputField>
+    
+            <InputField label="Modules">
+              <input type="color" bind:value={modulesColor} />
+            </InputField>
+    
+            <InputField label="Anchors outer">
+              <input type="color" bind:value={anchorsOuterColor} />
+            </InputField>
+    
+            <InputField label="Anchors inner">
+              <input type="color" bind:value={anchorsInnerColor} />
+            </InputField>
+          </div>
+        </Card>
+      </StackView>
+
+      <StackView title="Advanced settings" isExpanded={false} isCompact>
+        <Card title="Error correction level" thin>
           <label>
             <input type="radio" bind:group={errorCorrectionLevel} value="L" />
             L (~7%)
@@ -171,12 +174,12 @@
             <input type="radio" bind:group={errorCorrectionLevel} value="H" />
             H (~30%)
           </label>
-        </InputField>
+        </Card>
 
-        <InputField label="Type">
+        <Card title="Type" thin>
           <input type="number" min="0" max="40" bind:value={typeNumber} />
-        </InputField>
-      </Card>
+        </Card>
+      </StackView>
     </div>
 
     <div slot="right">
@@ -258,6 +261,11 @@
 </Tool>
 
 <style>
+  [slot="left"] {
+    display: flex;
+    flex-direction: column;
+  }
+
   .columns {
     display: flex;
   }

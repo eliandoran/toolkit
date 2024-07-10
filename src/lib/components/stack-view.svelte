@@ -4,7 +4,7 @@
     import ChevronUp from "svelte-material-icons/ChevronUp.svelte"
     import ChevronDown from "svelte-material-icons/ChevronDown.svelte"
 
-    export let title;
+    export let title = null;
     export let hasPadding = true;
     export let isCollapsible = true;
     export let isCompact = false;
@@ -16,18 +16,20 @@
     }
 </script>
 
-<header class="app-header"
-    class:compact={isCompact}
-    class:collapsed={!isExpanded}>    
-    <slot name="header-left" />
-    <h2>{title}</h2>
-    <slot name="header-right" />
-    {#if isCollapsible}
-        <HeaderButton on:click={toggleCollapse}>
-            <Icon icon={ isExpanded ? ChevronUp : ChevronDown } />
-        </HeaderButton>
-    {/if}
-</header>
+{#if title}
+    <header class="app-header"
+        class:compact={isCompact}
+        class:collapsed={!isExpanded}>    
+        <slot name="header-left" />
+        <h2>{title}</h2>
+        <slot name="header-right" />
+        {#if isCollapsible}
+            <HeaderButton on:click={toggleCollapse}>
+                <Icon icon={ isExpanded ? ChevronUp : ChevronDown } />
+            </HeaderButton>
+        {/if}
+    </header>
+{/if}
 
 <div class="inner-wrapper"
     class:padding={hasPadding}
@@ -50,24 +52,18 @@
     .inner-wrapper {
         position: relative;
         max-height: none;
-        display: flex;
         flex-direction: column;
         overflow: auto;
         flex-shrink: 0;
-        max-height: 100%;
-        transition: max-height 250ms ease-in-out;
     }
 
     .inner-wrapper.fill {
-        height: 100%;
         flex-grow: 1;
         flex-shrink: unset;
     }
 
     .inner-wrapper.collapsed {
-        max-height: 0;
-        overflow: hidden;
-        box-sizing: border-box;
+        display: none;
     }
 
     .inner-wrapper.padding {
