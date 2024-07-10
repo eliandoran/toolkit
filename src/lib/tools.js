@@ -23,6 +23,7 @@ import LanguageHtml5 from "svelte-material-icons/LanguageHtml5.svelte";
 import Qrcode from "svelte-material-icons/Qrcode.svelte";
 import FileDelimitedOutline from "svelte-material-icons/FileDelimitedOutline.svelte";
 import Thermometer from "svelte-material-icons/Thermometer.svelte";
+import Sd from "svelte-material-icons/Sd.svelte";
 
 export default {
     "Plain text": [
@@ -82,6 +83,11 @@ export default {
     ],
 
     "Unit conversion": [
+        {
+            path: "/unit-conversion/data",
+            title: "Data",
+            icon: Sd
+        },
         {
             path: "/unit-conversion/temperature",
             title: "Temperature",
