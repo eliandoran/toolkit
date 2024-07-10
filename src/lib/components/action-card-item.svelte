@@ -4,19 +4,35 @@
 
     export let icon = undefined;
     export let label;
+    export let href;
     export let tooltip = undefined;
 </script>
 
 <li>
-    <button
+    {#if !href}
+        <button
+            class="action-card-item"
+            on:click
+            title={ tooltip }
+            use:tooltipAction={{ position: "left" }}
+            {...$$restProps}>
+            <Icon {icon} />
+
+            {label}
+        </button>
+    {:else}
+    <a
         class="action-card-item"
+        {href}
         on:click
         title={ tooltip }
-        use:tooltipAction={{ position: "left" }}>
+        use:tooltipAction={{ position: "left" }}
+        {...$$restProps}>
         <Icon {icon} />
 
         {label}
-    </button>
+    </a>
+    {/if}
 </li>
 
 <style>

@@ -7,6 +7,8 @@
 	import InputField from "$lib/components/input-field.svelte";
 	import WarningBox from "$lib/components/warning-box.svelte";
 	import TextArea from "$lib/components/input/text-area.svelte";
+	import ActionCard from "$lib/components/action-card.svelte";
+	import ActionCardItem from "$lib/components/action-card-item.svelte";
 
   let errorMessage = "";
   let data = "https://eliandoran.github.io/toolkit/";
@@ -28,6 +30,8 @@
   let typeNumber = 40;
   let errorCorrectionLevel = "M";
 
+  let downloadUrl = "";
+
   function rebuildQr(...args) {
     key = {};
   }
@@ -38,6 +42,10 @@
 
   function onQrCodeGenerationFailed(e) {
     errorMessage = "Failed to generate the QR code (probably the data size is too large)."
+  }
+
+  function downloadUrlGenerated(e) {
+    downloadUrl = e.detail.url;
   }
 
   $: {
@@ -159,11 +167,19 @@
             {shape} {haveBackgroundRoundedEdges} {haveGappedModules}
             {typeNumber} {errorCorrectionLevel}
             {backgroundColor} {modulesColor} {anchorsOuterColor} {anchorsInnerColor}
+            dispatchDownloadUrl
             on:qrCodeGenerated={onQrCodeGenerated}
             on:qrCodeRegeneratedWithLogo={onQrCodeGenerated}
             on:qrCodeGenerationFailed={onQrCodeGenerationFailed}
+            on:downloadUrlGenerated={downloadUrlGenerated}
           />
         {/key}
+      {/if}
+
+      {#if downloadUrl}
+        <ActionCard>
+          <ActionCardItem label="Download SVG" href={downloadUrl} download />
+        </ActionCard>
       {/if}
     </div>
   </TwoColumnView>
