@@ -5,9 +5,11 @@
 	import Tool from "$lib/components/tool.svelte";
 
   function to(input) {
-    return Buffer
-      .from(input)
-      .toString("hex");
+    const data = Array.from(Buffer.from(input));
+    return data.map((byte) => byte
+      .toString(16)
+      .padStart(2, '0'))
+      .join(" ");
   }
 
   function from(input) {
