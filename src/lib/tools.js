@@ -24,6 +24,7 @@ import Qrcode from "svelte-material-icons/Qrcode.svelte";
 import FileDelimitedOutline from "svelte-material-icons/FileDelimitedOutline.svelte";
 import Thermometer from "svelte-material-icons/Thermometer.svelte";
 import Sd from "svelte-material-icons/Sd.svelte";
+import Weight from "svelte-material-icons/Weight.svelte";
 
 export default {
     "Plain text": [
@@ -92,6 +93,11 @@ export default {
             path: "/unit-conversion/temperature",
             title: "Temperature",
             icon: Thermometer
+        },
+        {
+            path: "/unit-conversion/weight",
+            title: "Weight",
+            icon: Weight
         }
     ],
 
