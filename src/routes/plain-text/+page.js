@@ -11,6 +11,8 @@ import AlignHorizontalRight from "svelte-material-icons/AlignHorizontalRight.sve
 import FormatAlignMiddle from "svelte-material-icons/FormatAlignMiddle.svelte";
 import AlignHorizontalLeft from "svelte-material-icons/AlignHorizontalLeft.svelte";
 import { normalizeSync } from 'normalize-diacritics';
+import { titleCase, sentenceCase } from "true-case";
+
 
 export function load() {
 
@@ -96,6 +98,16 @@ export function load() {
                     run: (text) => text.toLowerCase(),
                     icon: FormatLetterCaseLower,
                     description: "Turns all letters into lower case."
+                },
+
+                {
+                    label: "To sentence case",
+                    run: (text) => sentenceCase(text)                
+                },
+
+                {
+                    label: "To title case",
+                    run: (text) => titleCase(text)
                 }
             ],
 
