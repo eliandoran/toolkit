@@ -53,9 +53,9 @@
         </div>
     
         <aside slot="sidebar">
-            {#each Object.entries($page.data.textOperations) as [ categoryName, operations ]}
-                <ActionCard title={categoryName}>
-                    {#each operations as operation}
+            {#each Object.entries($page.data.textOperations) as [ categoryName, config ]}
+                <ActionCard title={categoryName} columns={config.columns}>
+                    {#each config.operations as operation}
                     <ActionCardItem
                         icon={operation.icon}
                         label={operation.label}
