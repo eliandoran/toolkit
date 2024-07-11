@@ -1,6 +1,5 @@
 <script>
 	import Tool from "$lib/components/tool.svelte";
-	import OneColumnView from "$lib/components/one-column-view.svelte";
 	import SingleUnit from "../single-unit.svelte";
 	import TwoColumnView from "$lib/components/two-column-view.svelte";
 
@@ -26,6 +25,26 @@
       <SingleUnit bind:baseValue={baseValue} bind:from={from} to="gigabytes" name="Gigabytes" />
       <SingleUnit bind:baseValue={baseValue} bind:from={from} to="terabytes" name="Terabytes" />
       <SingleUnit bind:baseValue={baseValue} bind:from={from} to="petabytes" name="Petabytes" />
+    </div>
+  </TwoColumnView>
+
+  <TwoColumnView leftTitle="Data rates (bi-bits, common)" rightTitle="Data rates (bits, International System of Units)">
+    <div slot="left">
+      <SingleUnit bind:baseValue={baseValue} bind:from={from} to="bits" name="Bits" />
+      <SingleUnit bind:baseValue={baseValue} bind:from={from} to="kibibits" name="Kibibits" />
+      <SingleUnit bind:baseValue={baseValue} bind:from={from} to="mebibits" name="Mebibits" />
+      <SingleUnit bind:baseValue={baseValue} bind:from={from} to="gibibits" name="Gibibits" />
+      <SingleUnit bind:baseValue={baseValue} bind:from={from} to="tebibits" name="Tebibits" />
+      <SingleUnit bind:baseValue={baseValue} bind:from={from} to="pebibits" name="Pebibits" />
+    </div>
+
+    <div slot="right">
+      <SingleUnit bind:baseValue={baseValue} bind:from={from} to="bits" name="Bits" />
+      <SingleUnit bind:baseValue={baseValue} bind:from={from} to="kilobits" name="Kilobits" />
+      <SingleUnit bind:baseValue={baseValue} bind:from={from} to="megabits" name="Megabits" />
+      <SingleUnit bind:baseValue={baseValue} bind:from={from} to="gigabits" name="Gigabits" />
+      <SingleUnit bind:baseValue={baseValue} bind:from={from} to="terabits" name="Terabits" />
+      <SingleUnit bind:baseValue={baseValue} bind:from={from} to="petabits" name="Petabits" />
     </div>
   </TwoColumnView>
 </Tool>
