@@ -20,7 +20,7 @@ export function load() {
 
     return {
         textOperations: {
-            "Line operations": {
+            "Line operations": {            
                 operations: [
                     {
                         label: "Sort ascending",
@@ -44,7 +44,7 @@ export function load() {
                     },
         
                     {
-                        label: "Reverse lines",
+                        label: "Reverse line order",
                         run: (text) => text.split("\n").reverse().join("\n"),
                         icon: SwapVertical,
                         description: "Reverses the order of all the lines (i.e. the last one becomes the first and so on)."
@@ -59,7 +59,8 @@ export function load() {
                 ]
             },
             
-            "Whitespace removal": {
+            "Line removal": {
+                columns: "always",
                 operations: [
                     {
                         label: "Trim leading",
