@@ -58,17 +58,10 @@ export default {
             title: "Lorem Ipsum Generator",
             icon: TextLong
         },
-
         {
             path: "/unicode-analyzer",
             title: "Analyze Unicode text",
             icon: Unicode
-        },
-
-        {
-            path: "/plain-text/text-to-hex",
-            title: "Text to Hex",
-            icon: Hexadecimal
         }
     ],
 
@@ -183,6 +176,11 @@ export default {
             title: "String Escape",
             icon: SlashForward,
             iconFlipHorizontally: true
+        },
+        {
+            path: "/encoding/text-to-hex",
+            title: "Text to Hex",
+            icon: Hexadecimal
         },
         {
             path: "/morse-code",
