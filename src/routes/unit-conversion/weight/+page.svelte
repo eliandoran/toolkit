@@ -2,20 +2,26 @@
 	import Tool from "$lib/components/tool.svelte";
 	import OneColumnView from "$lib/components/one-column-view.svelte";
 	import SingleUnit from "../single-unit.svelte";
+	import TwoColumnView from "$lib/components/two-column-view.svelte";
 
   let from = "kilograms";
   let baseValue = 1;
 </script>
 
 <Tool>
-  <OneColumnView title="Weight Conversion">
-    <SingleUnit bind:baseValue={baseValue} bind:from={from} to="microgram" name="Micrograms" />
-    <SingleUnit bind:baseValue={baseValue} bind:from={from} to="milligrams" name="Miligrams" />
-    <SingleUnit bind:baseValue={baseValue} bind:from={from} to="grams" name="Grams" />
-    <SingleUnit bind:baseValue={baseValue} bind:from={from} to="kilograms" name="Kilograms" />
-    <SingleUnit bind:baseValue={baseValue} bind:from={from} to="metric tons" name="Tons" />
-    <SingleUnit bind:baseValue={baseValue} bind:from={from} to="oz" name="Ounces" />
-    <SingleUnit bind:baseValue={baseValue} bind:from={from} to="lb" name="Pounds" />
-    <SingleUnit bind:baseValue={baseValue} bind:from={from} to="st" name="Stone" />
-  </OneColumnView>
+  <TwoColumnView leftTitle="Metric units" rightTitle="Imperial units"> 
+    <div slot="left">
+        <SingleUnit bind:baseValue={baseValue} bind:from={from} to="microgram" name="Micrograms" />
+        <SingleUnit bind:baseValue={baseValue} bind:from={from} to="milligrams" name="Miligrams" />
+        <SingleUnit bind:baseValue={baseValue} bind:from={from} to="grams" name="Grams" />
+        <SingleUnit bind:baseValue={baseValue} bind:from={from} to="kilograms" name="Kilograms" />
+        <SingleUnit bind:baseValue={baseValue} bind:from={from} to="metric tons" name="Tons" />
+    </div>
+
+    <div slot="right">
+        <SingleUnit bind:baseValue={baseValue} bind:from={from} to="oz" name="Ounces" />
+        <SingleUnit bind:baseValue={baseValue} bind:from={from} to="lb" name="Pounds" />
+        <SingleUnit bind:baseValue={baseValue} bind:from={from} to="st" name="Stone" />
+    </div>
+  </TwoColumnView>
 </Tool>
