@@ -4,15 +4,17 @@ import Shuffle from "svelte-material-icons/Shuffle.svelte";
 import SwapVertical from "svelte-material-icons/SwapVertical.svelte";
 import FormatLetterCaseUpper from "svelte-material-icons/FormatLetterCaseUpper.svelte";
 import FormatLetterCaseLower from "svelte-material-icons/FormatLetterCaseLower.svelte";
+import FormatLetterCase from "svelte-material-icons/FormatLetterCase.svelte";
 import TildeOff from "svelte-material-icons/TildeOff.svelte";
 import PlaylistRemove from "svelte-material-icons/PlaylistRemove.svelte";
 import FormatHorizontalAlignCenter from "svelte-material-icons/FormatHorizontalAlignCenter.svelte";
 import AlignHorizontalRight from "svelte-material-icons/AlignHorizontalRight.svelte";
 import FormatAlignMiddle from "svelte-material-icons/FormatAlignMiddle.svelte";
 import AlignHorizontalLeft from "svelte-material-icons/AlignHorizontalLeft.svelte";
+import FormatHeader1 from "svelte-material-icons/FormatHeader1.svelte";
+
 import { normalizeSync } from 'normalize-diacritics';
 import { titleCase, sentenceCase } from "true-case";
-
 
 export function load() {
 
@@ -102,12 +104,16 @@ export function load() {
 
                 {
                     label: "To sentence case",
-                    run: (text) => sentenceCase(text)                
+                    run: (text) => sentenceCase(text),
+                    icon: FormatLetterCase,
+                    description: "All letters are lower case, except for the first word in each sentence."
                 },
 
                 {
                     label: "To title case",
-                    run: (text) => titleCase(text)
+                    run: (text) => titleCase(text),
+                    icon: FormatHeader1,
+                    description: "Every word has a capital first letter, with some English-specific exceptions (e.g. \"the\")."
                 }
             ],
 
