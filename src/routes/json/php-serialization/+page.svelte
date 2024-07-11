@@ -10,6 +10,7 @@
     }
 
     function from(input) {
+        console.log(input);
         return JSON.stringify(unserialize(input));
     }
 </script>

@@ -25,6 +25,7 @@ import FileDelimitedOutline from "svelte-material-icons/FileDelimitedOutline.sve
 import Thermometer from "svelte-material-icons/Thermometer.svelte";
 import Sd from "svelte-material-icons/Sd.svelte";
 import Weight from "svelte-material-icons/Weight.svelte";
+import Hexadecimal from "svelte-material-icons/Hexadecimal.svelte";
 
 export default {
     "Plain text": [
@@ -62,6 +63,12 @@ export default {
             path: "/unicode-analyzer",
             title: "Analyze Unicode text",
             icon: Unicode
+        },
+
+        {
+            path: "/plain-text/text-to-hex",
+            title: "Text to Hex",
+            icon: Hexadecimal
         }
     ],
 

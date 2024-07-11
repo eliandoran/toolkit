@@ -59,6 +59,7 @@
         inputLog = "";
 
         if (value) {
+            console.log(value);
             const result = handleErrors(from, value);
             if (result.output) {
                 ({ output: inputText, log: outputLog } = result);
