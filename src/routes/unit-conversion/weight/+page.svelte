@@ -22,6 +22,8 @@
         <SingleUnit bind:baseValue={baseValue} bind:from={from} to="oz" name="Ounces" />
         <SingleUnit bind:baseValue={baseValue} bind:from={from} to="lb" name="Pounds" />
         <SingleUnit bind:baseValue={baseValue} bind:from={from} to="st" name="Stone" />
+        <SingleUnit bind:baseValue={baseValue} bind:from={from} to="short ton" name="Short/US ton" />
+        <SingleUnit bind:baseValue={baseValue} bind:from={from} to="long ton" name="Long/imperial ton" />
     </div>
   </TwoColumnView>
 </Tool>
