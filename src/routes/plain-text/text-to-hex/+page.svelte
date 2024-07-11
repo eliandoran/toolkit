@@ -13,7 +13,7 @@
   }
 
   function from(input) {
-    
+    return Buffer.from(input.replace(/ /g, ""), "hex");
   }
 </script>
 
