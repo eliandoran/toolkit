@@ -28,23 +28,27 @@
             <SingleUnit bind:baseValue={baseValue} bind:from={from} to="imperial fluid ounce" name="Imperial fluid ounces" />
         </StackView>
 
-        <StackView title="United States customary units (Fluid volumes)">
-            <SingleUnit bind:baseValue={baseValue} bind:from={from} to="teaspoons" name="Teaspoon" />
-            <SingleUnit bind:baseValue={baseValue} bind:from={from} to="tablespoons" name="Tablespoon" />
-            <SingleUnit bind:baseValue={baseValue} bind:from={from} to="US fluid ounce" name="US fluid ounce" />
-            <SingleUnit bind:baseValue={baseValue} bind:from={from} to="US legal cup" name="US cup (liquid)" />
-            <SingleUnit bind:baseValue={baseValue} bind:from={from} to="US liquid pint" name="US pint (liquid)" />
-            <SingleUnit bind:baseValue={baseValue} bind:from={from} to="US liquid quart" name="US quart (liquid)" />
-            <SingleUnit bind:baseValue={baseValue} bind:from={from} to="US liquid gallon" name="US gallon (liquid)" />
-        </StackView>
+        <StackView title="United States customary units (Fluid volumes)" hasPadding={false}>
+            <TwoColumnView leftTitle="Fluid" rightTitle="Dry" isCompact>
+                <div slot="left">
+                    <SingleUnit bind:baseValue={baseValue} bind:from={from} to="teaspoons" name="Teaspoon" />
+                    <SingleUnit bind:baseValue={baseValue} bind:from={from} to="tablespoons" name="Tablespoon" />
+                    <SingleUnit bind:baseValue={baseValue} bind:from={from} to="US fluid ounce" name="US fluid ounce" />
+                    <SingleUnit bind:baseValue={baseValue} bind:from={from} to="US legal cup" name="US cup (liquid)" />
+                    <SingleUnit bind:baseValue={baseValue} bind:from={from} to="US liquid pint" name="US pint (liquid)" />
+                    <SingleUnit bind:baseValue={baseValue} bind:from={from} to="US liquid quart" name="US quart (liquid)" />
+                    <SingleUnit bind:baseValue={baseValue} bind:from={from} to="US liquid gallon" name="US gallon (liquid)" />
+                </div>
 
-        <StackView title="United States customary units (Dry volumes)">
-            <SingleUnit bind:baseValue={baseValue} bind:from={from} to="US dry pint" name="pint (dry)" />
-            <SingleUnit bind:baseValue={baseValue} bind:from={from} to="US dry quart" name="quart (dry)" />
-            <SingleUnit bind:baseValue={baseValue} bind:from={from} to="US dry gallon" name="gallon (dry)" />
-            <SingleUnit bind:baseValue={baseValue} bind:from={from} to="US peck" name="peck" />
-            <SingleUnit bind:baseValue={baseValue} bind:from={from} to="US bushel" name="bushel" />
-            <SingleUnit bind:baseValue={baseValue} bind:from={from} to="US dry barrel" name="barrel (dry)" />
+                <div slot="right">
+                    <SingleUnit bind:baseValue={baseValue} bind:from={from} to="US dry pint" name="pint (dry)" />
+                    <SingleUnit bind:baseValue={baseValue} bind:from={from} to="US dry quart" name="quart (dry)" />
+                    <SingleUnit bind:baseValue={baseValue} bind:from={from} to="US dry gallon" name="gallon (dry)" />
+                    <SingleUnit bind:baseValue={baseValue} bind:from={from} to="US peck" name="peck" />
+                    <SingleUnit bind:baseValue={baseValue} bind:from={from} to="US bushel" name="bushel" />
+                    <SingleUnit bind:baseValue={baseValue} bind:from={from} to="US dry barrel" name="barrel (dry)" />
+                </div>
+            </TwoColumnView>            
         </StackView>
       </div>
     </TwoColumnView>

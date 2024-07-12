@@ -1,6 +1,7 @@
 <script>
     export let leftTitle;
     export let rightTitle = null;
+    export let isCompact = false;
     export let hasPadding = true;
     export let hasLeftPadding = hasPadding;
     export let hasRightPadding = hasPadding;
@@ -9,7 +10,7 @@
 
 <div class="two-columns" class:grow={mobileFillBehaviour !== "none"}>
     <section class="left" class:grow={mobileFillBehaviour === "both" || mobileFillBehaviour === "top"}>
-        <header class="app-header">
+        <header class="app-header" class:compact={isCompact}>
             <slot name="header-left-left"></slot>
             <h2>{leftTitle}</h2>
             <slot name="header-left-right"></slot>
@@ -22,7 +23,7 @@
     
     <section class="right" class:grow={mobileFillBehaviour === "both" || mobileFillBehaviour === "bottom"}>
         {#if rightTitle}
-            <header class="app-header">
+            <header class="app-header" class:compact={isCompact}>
                 <slot name="header-right-left"></slot>
                 <h2>{rightTitle}</h2>
                 <slot name="header-right-right"></slot>
@@ -83,7 +84,7 @@
             flex-direction: column;
         }      
 
-        .right .app-header {
+        .right .app-header:not(.compact) {
             border-top: unset !important;
             height: var(--header-height-desktop);
         }
