@@ -62,6 +62,9 @@ dependencies:
   php-serialize:
     specifier: ^5.0.0
     version: 5.0.0
+  romans:
+    specifier: ^2.0.16
+    version: 2.0.16
   slashes:
     specifier: ^3.0.12
     version: 3.0.12
@@ -1956,6 +1959,10 @@ packages:
       '@rollup/rollup-win32-x64-msvc': 4.18.1
       fsevents: 2.3.3
     dev: true
+
+  /romans@2.0.16:
+    resolution: {integrity: sha512-VsNzu29gZf73w+q4LgNJ4eZ4qss7Wyhwzd4b/GDaOaVINs5OTuvr5NuE/fKnpm0ODBCqXxMcIal1elAbybwWpA==}
+    dev: false
 
   /run-parallel@1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
