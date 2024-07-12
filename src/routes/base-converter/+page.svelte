@@ -52,22 +52,24 @@
 </script>
 
 <Tool>
-    <OneColumnView title="Base converter">
-        <SingleBase fn={standardBaseConversion(2)} radixName="Binary" bind:decimalValue={decimalValue} />
-        <SingleBase fn={standardBaseConversion(8)} radixName="Octal" bind:decimalValue={decimalValue} />
-        <SingleBase fn={standardBaseConversion(10)} radixName="Decimal" bind:decimalValue={decimalValue} />
-        <SingleBase fn={standardBaseConversion(16)} radixName="Hexadecimal" bind:decimalValue={decimalValue} />
+    <OneColumnView title="Base converter" hasPadding={false}>
+        <StackView>
+            <SingleBase fn={standardBaseConversion(2)} radixName="Binary" bind:decimalValue={decimalValue} />
+            <SingleBase fn={standardBaseConversion(8)} radixName="Octal" bind:decimalValue={decimalValue} />
+            <SingleBase fn={standardBaseConversion(10)} radixName="Decimal" bind:decimalValue={decimalValue} />
+            <SingleBase fn={standardBaseConversion(16)} radixName="Hexadecimal" bind:decimalValue={decimalValue} />
+    
+            <div class="two-complement">
+                <SingleBase fn={twoComplement(twoComplementBits)} radixName="Two's complement" bind:decimalValue={decimalValue} />
+                <InputField label="Number of bits">
+                    <input type="number" min="1" step="1" bind:value={twoComplementBits} />
+                </InputField>
+            </div>
+    
+            <SingleBase fn={romanBase} radixName="Roman (1 up to 3999)" bind:decimalValue={decimalValue} />
+        </StackView>
 
-        <div class="two-complement">
-            <SingleBase fn={twoComplement(twoComplementBits)} radixName="Two's complement" bind:decimalValue={decimalValue} />
-            <InputField label="Number of bits">
-                <input type="number" min="1" step="1" bind:value={twoComplementBits} />
-            </InputField>
-        </div>
-
-        <SingleBase fn={romanBase} radixName="Roman (1 up to 3999)" bind:decimalValue={decimalValue} />
-
-        <StackView title="IEEE 754">
+        <StackView title="IEEE 754" isCollapsible={false}>
             <Ieee754 />
         </StackView>
     </OneColumnView>
