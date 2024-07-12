@@ -27,6 +27,7 @@ import Sd from "svelte-material-icons/Sd.svelte";
 import Weight from "svelte-material-icons/Weight.svelte";
 import Hexadecimal from "svelte-material-icons/Hexadecimal.svelte";
 import CubeOutline from "svelte-material-icons/CubeOutline.svelte";
+import LightningBolt from "svelte-material-icons/LightningBolt.svelte";
 
 export default {
     "Plain text": [
@@ -104,6 +105,11 @@ export default {
             path: "/unit-conversion/volume",
             title: "Volume",
             icon: CubeOutline
+        },
+        {
+            path: "/unit-conversion/energy",
+            title: "Energy",
+            icon: LightningBolt
         }
     ],
 
