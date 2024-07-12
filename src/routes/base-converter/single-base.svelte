@@ -3,15 +3,15 @@
 
     export let decimalValue;
     export let radixName;
-    export let radix;
+    export let fn;
 
     let convertedValue = 0;
 
     function onValueChanged(e) {
-        decimalValue = parseInt(e.target.value, radix);
+        decimalValue = fn.from(e.target.value);
     }
 
-    $: convertedValue = !isNaN(decimalValue) ? decimalValue.toString(radix) : "";
+    $: convertedValue = !isNaN(decimalValue) ? fn.to(decimalValue) : "";
 </script>
 
 <InputField label={radixName}>
