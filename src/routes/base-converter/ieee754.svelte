@@ -20,7 +20,6 @@
             input = input.substring(8);
             bytes.push(parseInt(byte, 2));
         }
-        console.log(bytes);
         return new Uint8Array(bytes);
     }
 
@@ -39,10 +38,14 @@
         }
     }
 
-    function onIeeeValueChanged(e) {
+    function onIeeeValueChanged(e, isFloat) {
         const value = e.target.value;
         const floatBuffer = parseBinaryNotation(value);
-        decimalValue = ieee754.read(floatBuffer, 0, false, 23, 4);
+        if (isFloat) {
+            decimalValue = ieee754.read(floatBuffer, 0, false, 23, 4);
+        } else {
+            decimalValue = ieee754.read(floatBuffer, 0, false, 52, 8);
+        }
     }
 </script>
 
@@ -51,11 +54,11 @@
 </InputField>
 
 <InputField label="32-bits (float)">
-    <input type="number" value={floatValue} on:input={onIeeeValueChanged} />
+    <input type="number" value={floatValue} on:input={(e) => onIeeeValueChanged(e, true)} />
 </InputField>
 
 <InputField label="64-bits (double)">
-    <input type="number" value={doubleValue} readonly />
+    <input type="number" value={doubleValue} on:input={(e) => onIeeeValueChanged(e, false)} />
 </InputField>
 
 <style>
