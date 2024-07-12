@@ -4,6 +4,7 @@
 	import SingleBase from "./single-base.svelte";
 
     import romans from "romans";
+    import _twoComplement from "2complement";
 
     let decimalValue = 1;
 
@@ -17,6 +18,15 @@
             }
         };
     }
+
+    const twoComplement = {
+        to: (decimalValue) => {
+            return _twoComplement.int2complement(decimalValue).toString(2);
+        },
+        from: (sourceValue) => {
+            return _twoComplement.complement2int(sourceValue);
+        }
+    };
 
     const romanBase = {
         to: (decimalValue) => {
@@ -38,6 +48,7 @@
         <SingleBase fn={standardBaseConversion(8)} radixName="Octal" bind:decimalValue={decimalValue} />
         <SingleBase fn={standardBaseConversion(10)} radixName="Decimal" bind:decimalValue={decimalValue} />
         <SingleBase fn={standardBaseConversion(16)} radixName="Hexadecimal" bind:decimalValue={decimalValue} />
+        <SingleBase fn={twoComplement} radixName="Two's complement" bind:decimalValue={decimalValue} />
         <SingleBase fn={romanBase} radixName="Roman (1 up to 3999)" bind:decimalValue={decimalValue} />
     </OneColumnView>
 </Tool>

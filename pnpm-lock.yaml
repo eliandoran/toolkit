@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  2complement:
+    specifier: ^0.1.1
+    version: 0.1.1
   '@codemirror/lang-html':
     specifier: ^6.4.9
     version: 6.4.9
@@ -138,6 +141,10 @@ devDependencies:
     version: 2.0.2
 
 packages:
+
+  /2complement@0.1.1:
+    resolution: {integrity: sha512-bVo3ikVNQvSvlKpSrzQ1smcKJSBiji6z/o5Hidvr2pMpnOyGjwu7LniW4AqH3zaUPv3bBeBILideN7k0tK6pzA==}
+    dev: false
 
   /@ampproject/remapping@2.3.0:
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
