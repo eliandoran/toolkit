@@ -12,12 +12,15 @@
       <div slot="left">
           <SingleUnit bind:baseValue={baseValue} bind:from={from} to="microliters" name="Microliters" />
           <SingleUnit bind:baseValue={baseValue} bind:from={from} to="milliliters" name="Milliliters" />
-          <SingleUnit bind:baseValue={baseValue} bind:from={from} to="liters" name="Liters" />
-          <SingleUnit bind:baseValue={baseValue} bind:from={from} to="kiloliters" name="Kiloliters" />
+          <SingleUnit bind:baseValue={baseValue} bind:from={from} to="liters" name="Liters / Cubic decimeter" />          
+          <SingleUnit bind:baseValue={baseValue} bind:from={from} to="kiloliters" name="Cubic meter / Kiloliters" />
       </div>
   
       <div slot="right">
-          
+        <SingleUnit bind:baseValue={baseValue} bind:from={from} to="cubic inch" name="Cubic inch" />
+        <SingleUnit bind:baseValue={baseValue} bind:from={from} to="pint" name="Pint" />
+        <SingleUnit bind:baseValue={baseValue} bind:from={from} to="gallon" name="Gallon" />
+        <SingleUnit bind:baseValue={baseValue} bind:from={from} to="cubic foot" name="Cubic feet" />
       </div>
     </TwoColumnView>
   </Tool>
