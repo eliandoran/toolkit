@@ -1,6 +1,5 @@
 <script>
 	import Tool from "$lib/components/tool.svelte";
-	import OneColumnView from "$lib/components/one-column-view.svelte";
 	import SingleUnit from "../single-unit.svelte";
 	import TwoColumnView from "$lib/components/two-column-view.svelte";
 

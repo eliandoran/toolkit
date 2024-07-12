@@ -26,6 +26,7 @@ import Thermometer from "svelte-material-icons/Thermometer.svelte";
 import Sd from "svelte-material-icons/Sd.svelte";
 import Weight from "svelte-material-icons/Weight.svelte";
 import Hexadecimal from "svelte-material-icons/Hexadecimal.svelte";
+import CubeOutline from "svelte-material-icons/CubeOutline.svelte";
 
 export default {
     "Plain text": [
@@ -98,6 +99,11 @@ export default {
             path: "/unit-conversion/weight",
             title: "Weight",
             icon: Weight
+        },
+        {
+            path: "/unit-conversion/volume",
+            title: "Volume",
+            icon: CubeOutline
         }
     ],
 
