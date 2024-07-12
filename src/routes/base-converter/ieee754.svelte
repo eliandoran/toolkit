@@ -13,6 +13,17 @@
                 .padStart(8, "0"), "");
     }
 
+    function parseBinaryNotation(input) {
+        const bytes = [];
+        while (input.length > 0) {
+            const byte = input.substring(0, 8);
+            input = input.substring(8);
+            bytes.push(parseInt(byte, 2));
+        }
+        console.log(bytes);
+        return new Uint8Array(bytes);
+    }
+
     $: {
         if (decimalValue) {
             const floatBuffer = new Uint8Array(4);
@@ -27,6 +38,12 @@
             floatValue = 0;
         }
     }
+
+    function onIeeeValueChanged(e) {
+        const value = e.target.value;
+        const floatBuffer = parseBinaryNotation(value);
+        decimalValue = ieee754.read(floatBuffer, 0, false, 23, 4);
+    }
 </script>
 
 <InputField label="Decimal value">
@@ -34,7 +51,7 @@
 </InputField>
 
 <InputField label="32-bits (float)">
-    <input type="number" value={floatValue} readonly />
+    <input type="number" value={floatValue} on:input={onIeeeValueChanged} />
 </InputField>
 
 <InputField label="64-bits (double)">
