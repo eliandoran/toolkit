@@ -5,8 +5,10 @@
 
     import romans from "romans";
     import _twoComplement from "2complement";
+	import InputField from "$lib/components/input-field.svelte";
 
     let decimalValue = 1;
+    let twoComplementBits = 8;
 
     function standardBaseConversion(radix) {
         return {
@@ -21,10 +23,13 @@
 
     const twoComplement = {
         to: (decimalValue) => {
-            return _twoComplement.int2complement(decimalValue).toString(2);
+            return _twoComplement
+                .int2complement(decimalValue)
+                .toString(2)
+                .padStart(twoComplementBits, "0");
         },
         from: (sourceValue) => {
-            return _twoComplement.complement2int(sourceValue);
+            return _twoComplement.complement2int(sourceValue, twoComplementBits);
         }
     };
 
@@ -48,7 +53,30 @@
         <SingleBase fn={standardBaseConversion(8)} radixName="Octal" bind:decimalValue={decimalValue} />
         <SingleBase fn={standardBaseConversion(10)} radixName="Decimal" bind:decimalValue={decimalValue} />
         <SingleBase fn={standardBaseConversion(16)} radixName="Hexadecimal" bind:decimalValue={decimalValue} />
-        <SingleBase fn={twoComplement} radixName="Two's complement" bind:decimalValue={decimalValue} />
+
+        <div class="two-complement">
+            <SingleBase fn={twoComplement} radixName="Two's complement" bind:decimalValue={decimalValue} />
+            <InputField label="Number of bits">
+                <input type="number" min="1" step="1" bind:value={twoComplementBits} />
+            </InputField>
+        </div>
+
         <SingleBase fn={romanBase} radixName="Roman (1 up to 3999)" bind:decimalValue={decimalValue} />
     </OneColumnView>
 </Tool>
+
+<style>
+    .two-complement {
+        display: flex;
+        column-gap: 1em;
+    }
+
+    .two-complement :global(label:first-of-type) {
+        flex-grow: 1;
+    }
+
+    .two-complement input[type="number"] {
+        font-size: 1.25em;
+        font-family: var(--font-monospace);
+    }
+</style>
