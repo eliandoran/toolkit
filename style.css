@@ -161,10 +161,16 @@ input {
     color: var(--text-color);
     border: 1px solid var(--border-color);
     box-sizing: border-box;
+    transition: border-color 250ms ease-in-out;
 }
 
 input:disabled {
     background-color: var(--header-background-color);
+}
+
+input:focus {
+    border-color: var(--highlight-color);
+    outline: 0;    
 }
 
 input[type="color"] {
