@@ -21,15 +21,20 @@
     .wrapper {
         margin-bottom: 0.75em;
         display: block;
+        transition: color 250ms ease-in-out;
     }
 
     .label {
-        margin: 0;      
+    margin: 0;      
         font-size: 0.9rem;
     }
 
     label > span,
     div > span {
         display: block;
+    }
+
+    .wrapper:focus-within {
+        color: var(--highlight-color);
     }
 </style>
