@@ -24,6 +24,6 @@
     input {
         width: 100%;
         font-family: var(--font-monospace);
-        font-size: 1.25em;        
+        font-size: 1.25em;
     }
 </style>

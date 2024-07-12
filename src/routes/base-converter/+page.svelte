@@ -6,6 +6,8 @@
     import romans from "romans";
     import _twoComplement from "2complement";
 	import InputField from "$lib/components/input-field.svelte";
+	import Ieee754 from "./ieee754.svelte";
+	import StackView from "$lib/components/stack-view.svelte";
 
     let decimalValue = 1;
     let twoComplementBits = 8;
@@ -64,6 +66,10 @@
         </div>
 
         <SingleBase fn={romanBase} radixName="Roman (1 up to 3999)" bind:decimalValue={decimalValue} />
+
+        <StackView title="IEEE 754">
+            <Ieee754 />
+        </StackView>
     </OneColumnView>
 </Tool>
 

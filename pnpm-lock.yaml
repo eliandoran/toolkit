@@ -44,6 +44,9 @@ dependencies:
   he:
     specifier: ^1.2.0
     version: 1.2.0
+  ieee754:
+    specifier: ^1.2.1
+    version: 1.2.1
   json5:
     specifier: ^2.2.3
     version: 2.2.3
