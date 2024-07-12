@@ -21,16 +21,18 @@
         };
     }
 
-    const twoComplement = {
-        to: (decimalValue) => {
-            return _twoComplement
-                .int2complement(decimalValue)
-                .toString(2)
-                .padStart(twoComplementBits, "0");
-        },
-        from: (sourceValue) => {
-            return _twoComplement.complement2int(sourceValue, twoComplementBits);
-        }
+    function twoComplement(numBits) {
+        return {
+            to: (decimalValue) => {
+                return _twoComplement
+                    .int2complement(decimalValue)
+                    .toString(2)
+                    .padStart(numBits, "0");
+            },
+            from: (sourceValue) => {
+                return _twoComplement.complement2int(sourceValue, numBits);
+            }
+        };
     };
 
     const romanBase = {
@@ -55,7 +57,7 @@
         <SingleBase fn={standardBaseConversion(16)} radixName="Hexadecimal" bind:decimalValue={decimalValue} />
 
         <div class="two-complement">
-            <SingleBase fn={twoComplement} radixName="Two's complement" bind:decimalValue={decimalValue} />
+            <SingleBase fn={twoComplement(twoComplementBits)} radixName="Two's complement" bind:decimalValue={decimalValue} />
             <InputField label="Number of bits">
                 <input type="number" min="1" step="1" bind:value={twoComplementBits} />
             </InputField>
