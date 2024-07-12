@@ -25,11 +25,10 @@
       <div slot="right">
         <StackView title="Imperial Units">
             <SingleUnit bind:baseValue={baseValue} bind:from={from} to="cubic inch" name="Cubic inch" />
-            <SingleUnit bind:baseValue={baseValue} bind:from={from} to="pint" name="Pint" />
+            <SingleUnit bind:baseValue={baseValue} bind:from={from} to="imperial fluid ounce" name="Imperial fluid ounces" />
+            <SingleUnit bind:baseValue={baseValue} bind:from={from} to="imperial pint" name="Pint" />
             <SingleUnit bind:baseValue={baseValue} bind:from={from} to="gallon" name="Gallon" />
             <SingleUnit bind:baseValue={baseValue} bind:from={from} to="cubic foot" name="Cubic feet" />
-            <SingleUnit bind:baseValue={baseValue} bind:from={from} to="imperial pint" name="Pint" />
-            <SingleUnit bind:baseValue={baseValue} bind:from={from} to="imperial fluid ounce" name="Imperial fluid ounces" />
         </StackView>
 
         <StackView title="United States customary units (Fluid volumes)" hasPadding={false}>
