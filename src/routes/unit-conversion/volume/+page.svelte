@@ -24,10 +24,13 @@
             <SingleUnit bind:baseValue={baseValue} bind:from={from} to="pint" name="Pint" />
             <SingleUnit bind:baseValue={baseValue} bind:from={from} to="gallon" name="Gallon" />
             <SingleUnit bind:baseValue={baseValue} bind:from={from} to="cubic foot" name="Cubic feet" />
+            <SingleUnit bind:baseValue={baseValue} bind:from={from} to="teaspoons" name="Teaspoons" />
             <SingleUnit bind:baseValue={baseValue} bind:from={from} to="imperial fluid ounce" name="Imperial fluid ounces" />
         </StackView>
 
         <StackView title="US-units">
+            <SingleUnit bind:baseValue={baseValue} bind:from={from} to="teaspoons" name="Teaspoons" />
+            <SingleUnit bind:baseValue={baseValue} bind:from={from} to="tablespoons" name="Tablespoons" />
             <SingleUnit bind:baseValue={baseValue} bind:from={from} to="US fluid ounce" name="US fluid ounces" />
         </StackView>
       </div>
