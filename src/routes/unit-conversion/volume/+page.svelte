@@ -37,6 +37,15 @@
             <SingleUnit bind:baseValue={baseValue} bind:from={from} to="US liquid quart" name="US quart (liquid)" />
             <SingleUnit bind:baseValue={baseValue} bind:from={from} to="US liquid gallon" name="US gallon (liquid)" />
         </StackView>
+
+        <StackView title="United States customary units (Dry volumes)">
+            <SingleUnit bind:baseValue={baseValue} bind:from={from} to="US dry pint" name="pint (dry)" />
+            <SingleUnit bind:baseValue={baseValue} bind:from={from} to="US dry quart" name="quart (dry)" />
+            <SingleUnit bind:baseValue={baseValue} bind:from={from} to="US dry gallon" name="gallon (dry)" />
+            <SingleUnit bind:baseValue={baseValue} bind:from={from} to="US peck" name="peck" />
+            <SingleUnit bind:baseValue={baseValue} bind:from={from} to="US bushel" name="bushel" />
+            <SingleUnit bind:baseValue={baseValue} bind:from={from} to="US dry barrel" name="barrel (dry)" />
+        </StackView>
       </div>
     </TwoColumnView>
   </Tool>
