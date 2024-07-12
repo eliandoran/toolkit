@@ -14,7 +14,11 @@
       <div slot="left">
           <SingleUnit bind:baseValue={baseValue} bind:from={from} to="microliters" name="Microliters" />
           <SingleUnit bind:baseValue={baseValue} bind:from={from} to="milliliters" name="Milliliters" />
+          <SingleUnit bind:baseValue={baseValue} bind:from={from} to="centiliters" name="Centiliters" />
+          <SingleUnit bind:baseValue={baseValue} bind:from={from} to="deciliters" name="Deciliters" />
           <SingleUnit bind:baseValue={baseValue} bind:from={from} to="liters" name="Liters / Cubic decimeter" />          
+          <SingleUnit bind:baseValue={baseValue} bind:from={from} to="decaliters" name="Decaliters" />
+          <SingleUnit bind:baseValue={baseValue} bind:from={from} to="hectoliters" name="Hectoliters" />
           <SingleUnit bind:baseValue={baseValue} bind:from={from} to="kiloliters" name="Cubic meter / Kiloliters" />
       </div>
   
