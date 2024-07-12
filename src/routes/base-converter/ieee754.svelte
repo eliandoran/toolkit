@@ -14,6 +14,9 @@
     }
 
     function parseBinaryNotation(input) {
+        // Trim whitespace
+        input = input.replace(/[ ]/g, "");
+
         const bytes = [];
         while (input.length > 0) {
             const byte = input.substring(0, 8);
@@ -54,11 +57,11 @@
 </InputField>
 
 <InputField label="32-bits (float)">
-    <input type="number" value={floatValue} on:input={(e) => onIeeeValueChanged(e, true)} />
+    <input type="text" value={floatValue} on:input={(e) => onIeeeValueChanged(e, true)} max="32" />
 </InputField>
 
 <InputField label="64-bits (double)">
-    <input type="number" value={doubleValue} on:input={(e) => onIeeeValueChanged(e, false)} />
+    <input type="text" value={doubleValue} on:input={(e) => onIeeeValueChanged(e, false)} max="64" />
 </InputField>
 
 <style>
