@@ -6,11 +6,17 @@
     let floatValue;
     let doubleValue;
 
-    function formatIeeeResult(buffer) {
-        return buffer
+    function formatIeeeResult(buffer, mantissaLength) {
+        const full = buffer
             .reduce((str, byte) => str + byte
                 .toString(2)
                 .padStart(8, "0"), "");
+
+        const signOutput = full.substr(0, 1);
+        const exponentOutput = full.substr(1, full.length - mantissaLength - 1);
+        console.log(full.length - mantissaLength - 1);
+        const mantissaOutput = full.substr(full.length - mantissaLength);
+        return `${signOutput} ${exponentOutput} ${mantissaOutput}`;
     }
 
     function parseBinaryNotation(input) {
@@ -32,10 +38,10 @@
             const doubleBuffer = new Uint8Array(8);
             
             ieee754.write(floatBuffer, decimalValue, 0, false, 23, 4);
-            floatValue = formatIeeeResult(floatBuffer);
+            floatValue = formatIeeeResult(floatBuffer, 23);
 
             ieee754.write(doubleBuffer, decimalValue, 0, false, 52, 8);
-            doubleValue = formatIeeeResult(doubleBuffer);
+            doubleValue = formatIeeeResult(doubleBuffer, 52);
         } else {
             floatValue = 0;
         }
