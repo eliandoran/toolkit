@@ -162,6 +162,7 @@ input {
     border: 1px solid var(--border-color);
     box-sizing: border-box;
     transition: border-color 250ms ease-in-out;
+    max-width: 100%;
 }
 
 input:disabled {
