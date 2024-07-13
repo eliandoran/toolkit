@@ -45,6 +45,7 @@
 		"he": "^1.2.0",
 		"ieee754": "^1.2.1",
 		"json5": "^2.2.3",
+		"jsonata": "^2.0.5",
 		"jwt-decode": "^4.0.0",
 		"lorem-ipsum": "^2.0.8",
 		"mini-svg-data-uri": "^1.4.4",

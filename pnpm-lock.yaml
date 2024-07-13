@@ -50,6 +50,9 @@ dependencies:
   json5:
     specifier: ^2.2.3
     version: 2.2.3
+  jsonata:
+    specifier: ^2.0.5
+    version: 2.0.5
   jwt-decode:
     specifier: ^4.0.0
     version: 4.0.0
@@ -1618,6 +1621,11 @@ packages:
     resolution: {integrity: sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==}
     engines: {node: '>=6'}
     hasBin: true
+    dev: false
+
+  /jsonata@2.0.5:
+    resolution: {integrity: sha512-wEse9+QLIIU5IaCgtJCPsFi/H4F3qcikWzF4bAELZiRz08ohfx3Q6CjDRf4ZPF5P/92RI3KIHtb7u3jqPaHXdQ==}
+    engines: {node: '>= 8'}
     dev: false
 
   /jwt-decode@4.0.0:
