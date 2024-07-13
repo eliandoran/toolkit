@@ -28,6 +28,7 @@ import Weight from "svelte-material-icons/Weight.svelte";
 import Hexadecimal from "svelte-material-icons/Hexadecimal.svelte";
 import CubeOutline from "svelte-material-icons/CubeOutline.svelte";
 import LightningBolt from "svelte-material-icons/LightningBolt.svelte";
+import FileSearchOutline from "svelte-material-icons/FileSearchOutline.svelte";
 
 export default {
     "Plain text": [
@@ -154,6 +155,11 @@ export default {
             path: "/json-schema",
             title: "JSON Schema Validator",
             icon: FileCheckOutline
+        },
+        {
+            path: "/json/jsonata",
+            title: "JSONata",
+            icon: FileSearchOutline
         },
         {
             path: "/json/php-serialization",
