@@ -7,6 +7,7 @@
 	import Tool from "$lib/components/tool.svelte";
 	import TwoColumnView from "$lib/components/two-column-view.svelte";
 	import StackView from "$lib/components/stack-view.svelte";
+	import WarningBox from "$lib/components/warning-box.svelte";
 
     let jsonText = JSON.stringify(JSON.parse(`{"Account":{"Account Name":"Firefly","Order":[{"OrderID":"order103","Product":[{"Product Name":"Bowler Hat","ProductID":858383,"SKU":"0406654608","Description":{"Colour":"Purple","Width":300,"Height":200,"Depth":210,"Weight":0.75},"Price":34.45,"Quantity":2},{"Product Name":"Trilby hat","ProductID":858236,"SKU":"0406634348","Description":{"Colour":"Orange","Width":300,"Height":200,"Depth":210,"Weight":0.6},"Price":21.67,"Quantity":1}]},{"OrderID":"order104","Product":[{"Product Name":"Bowler Hat","ProductID":858383,"SKU":"040657863","Description":{"Colour":"Purple","Width":300,"Height":200,"Depth":210,"Weight":0.75},"Price":34.45,"Quantity":4},{"ProductID":345664,"SKU":"0406654603","Product Name":"Cloak","Description":{"Colour":"Black","Width":30,"Height":20,"Depth":210,"Weight":2},"Price":107.99,"Quantity":1}]}]}}`), null, 4);
     let jsonataText = "$sum(Account.Order.Product.(Price * Quantity))";
@@ -15,7 +16,16 @@
     let parsedInput;
     let jsonataExpression;
 
-    $: parsedInput = JSON.parse(jsonText);
+    let jsonError;
+
+    $: {
+        try {
+            parsedInput = JSON.parse(jsonText);
+        } catch (e) {
+            jsonError = e.message;
+        }
+    }
+
     $: jsonataExpression = jsonata(jsonataText);
 
     function onResult(result) {
@@ -34,10 +44,14 @@
 <Tool>
     <TwoColumnView leftTitle="JSON text" hasPadding={false}>
         <div slot="left">
-            <CodeMirror
-                bind:value={jsonText}
-                lang={json()}
-                theme={$theme} />
+            <div class="codemirror-outer-wrapper">
+                <CodeMirror
+                    bind:value={jsonText}
+                    lang={json()}
+                    theme={$theme} />
+            </div>
+
+            <WarningBox message={jsonError} />
         </div>
 
         <div slot="right">
@@ -66,8 +80,13 @@
 </Tool>
 
 <style>
+    div[slot="left"],
     div[slot="right"] {
-        flex-grow: 1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
         display: flex;
         flex-direction: column;
     }
