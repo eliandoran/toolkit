@@ -17,6 +17,7 @@
     let jsonataExpression;
 
     let jsonError;
+    let jsonataError;
 
     $: {
         try {
@@ -26,17 +27,30 @@
         }
     }
 
-    $: jsonataExpression = jsonata(jsonataText);
+    $: {
+        try {
+            jsonataExpression = jsonata(jsonataText);
+        } catch (e) {
+            onError(e);
+        }
+    }
 
     function onResult(result) {
         resultText = JSON.stringify(result, null, 4);
+    }
+
+    function onError(result) {
+        console.warn(result);
+        resultText = "";
+        jsonataError = `${result.code}: ${result.message} at position ${result.position}`;
     }
 
     $: {
         if (parsedInput && jsonataExpression) {
             jsonataExpression
                 .evaluate(parsedInput)
-                .then((r) => onResult(r));
+                .catch((e) => onError(e))
+                .then((r) => onResult(r))
         }
     }
 </script>
@@ -56,16 +70,20 @@
 
         <div slot="right">
             <StackView title="JSONata" hasPadding={false}>
-                <div class="codemirror-outer-wrapper jsonata">
-                    <CodeMirror
-                        bind:value={jsonataText}                
-                        lang={json()}                    
-                        theme={$theme}
-                        lineWrapping={true} />
+                <div class="jsonata-wrapper">
+                    <div class="codemirror-outer-wrapper jsonata">
+                        <CodeMirror
+                            bind:value={jsonataText}                
+                            lang={json()}                    
+                            theme={$theme}
+                            lineWrapping={true} />
+                    </div>
+    
+                    <WarningBox message={jsonataError} />
                 </div>
             </StackView>
 
-            <StackView title="Result" hasPadding={false} isCompact fill>
+            <StackView title="Result" hasPadding={false} isCompact isCollapsible={false} fill>
                 <div class="codemirror-outer-wrapper result">
                     <CodeMirror
                         value={resultText}                
@@ -99,6 +117,11 @@
 
     .codemirror-outer-wrapper.jsonata {
         min-height: 6em;
+    }
+
+    .jsonata-wrapper {
+        display: flex;
+        flex-direction: column;
     }
 
     @media (min-width: 920px) {
