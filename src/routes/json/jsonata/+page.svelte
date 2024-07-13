@@ -16,9 +16,7 @@
     let jsonataExpression;
 
     $: parsedInput = JSON.parse(jsonText);
-    $: {
-        jsonataExpression = jsonata(jsonataText);
-    }
+    $: jsonataExpression = jsonata(jsonataText);
 
     function onResult(result) {
         resultText = JSON.stringify(result, null, 4);
@@ -46,7 +44,7 @@
             <StackView title="JSONata" hasPadding={false}>
                 <div class="codemirror-outer-wrapper jsonata">
                     <CodeMirror
-                        value={jsonataText}                
+                        bind:value={jsonataText}                
                         lang={json()}                    
                         theme={$theme}
                         lineWrapping={true} />
